@@ -7,14 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		274EECB7C07175164D9A7DA2 /* Pods_RoadDogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */; };
+		52250F3D1FA185DB00E97624 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52250F3E1FA185DC00E97624 /* Alamofire.framework */; };
+		5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6BB1FA5CF8400078161 /* Feed.swift */; };
+		5259A6BE1FA5D39700078161 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6BD1FA5D39700078161 /* User.swift */; };
+		5259A6C01FA5FB8900078161 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6BF1FA5FB8900078161 /* PostCell.swift */; };
+		5259A6C21FA5FCEE00078161 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6C11FA5FCEE00078161 /* Post.swift */; };
+		5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6C31FA5FEBD00078161 /* Comment.swift */; };
 		525CA2D01F9D40A90037855E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA2CF1F9D40A90037855E /* AppDelegate.swift */; };
-		525CA2D21F9D40A90037855E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA2D11F9D40A90037855E /* ViewController.swift */; };
+		525CA2D21F9D40A90037855E /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA2D11F9D40A90037855E /* FeedViewController.swift */; };
 		525CA2D51F9D40A90037855E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525CA2D31F9D40A90037855E /* Main.storyboard */; };
 		525CA2D81F9D40A90037855E /* RoadDogg.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 525CA2D61F9D40A90037855E /* RoadDogg.xcdatamodeld */; };
 		525CA2DA1F9D40A90037855E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525CA2D91F9D40A90037855E /* Assets.xcassets */; };
 		525CA2DD1F9D40A90037855E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525CA2DB1F9D40A90037855E /* LaunchScreen.storyboard */; };
 		525CA2E81F9D40A90037855E /* RoadDoggTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA2E71F9D40A90037855E /* RoadDoggTests.swift */; };
 		525CA2F31F9D40A90037855E /* RoadDoggUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA2F21F9D40A90037855E /* RoadDoggUITests.swift */; };
+		525CA3041F9FF5D60037855E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3031F9FF5D60037855E /* MapViewController.swift */; };
+		525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3061F9FF5FD0037855E /* Notification View.swift */; };
+		525CA30A1F9FF61D0037855E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3091F9FF61D0037855E /* ProfileViewController.swift */; };
+		525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA30C1F9FF63C0037855E /* NewPostViewController.swift */; };
+		525CA3101FA002A90037855E /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA30F1FA002A90037855E /* CustomTabBar.swift */; };
+		525CA3131FA002F50037855E /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3121FA002F50037855E /* PostView.swift */; };
+		525CA3151FA003090037855E /* PostHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3141FA003090037855E /* PostHeaderView.swift */; };
+		525CA3171FA0031C0037855E /* PostTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3161FA0031C0037855E /* PostTextView.swift */; };
+		525CA3191FA0033E0037855E /* PostActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3181FA0033E0037855E /* PostActionView.swift */; };
+		525CA31B1FA003530037855E /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31A1FA003530037855E /* PostCommentView.swift */; };
+		525CA31D1FA0036B0037855E /* PostAddCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31C1FA0036B0037855E /* PostAddCommentView.swift */; };
+		525CA3201FA127060037855E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31F1FA127050037855E /* Network.swift */; };
+		B431CA9B1A55685DF1F5152F /* Pods_RoadDoggUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3147D8D49BB4F218476403 /* Pods_RoadDoggUITests.framework */; };
+		FF67686558267A45D03A2D97 /* Pods_RoadDoggTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +56,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06E045006CE507E8630B47D0 /* Pods-RoadDoggUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggUITests/Pods-RoadDoggUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2C3147D8D49BB4F218476403 /* Pods_RoadDoggUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDoggUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49FF0ABDA8FB00ADF0C3C2E6 /* Pods-RoadDoggTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggTests/Pods-RoadDoggTests.debug.xcconfig"; sourceTree = "<group>"; };
+		518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDoggTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52250F3E1FA185DC00E97624 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5259A6BB1FA5CF8400078161 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		5259A6BD1FA5D39700078161 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5259A6BF1FA5FB8900078161 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		5259A6C11FA5FCEE00078161 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		5259A6C31FA5FEBD00078161 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		525CA2CC1F9D40A90037855E /* RoadDogg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadDogg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		525CA2CF1F9D40A90037855E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		525CA2D11F9D40A90037855E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		525CA2D11F9D40A90037855E /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		525CA2D41F9D40A90037855E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		525CA2D71F9D40A90037855E /* RoadDogg.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RoadDogg.xcdatamodel; sourceTree = "<group>"; };
 		525CA2D91F9D40A90037855E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +80,23 @@
 		525CA2EE1F9D40A90037855E /* RoadDoggUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoadDoggUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		525CA2F21F9D40A90037855E /* RoadDoggUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadDoggUITests.swift; sourceTree = "<group>"; };
 		525CA2F41F9D40A90037855E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		525CA3031F9FF5D60037855E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		525CA3061F9FF5FD0037855E /* Notification View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification View.swift"; sourceTree = "<group>"; };
+		525CA3091F9FF61D0037855E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		525CA30C1F9FF63C0037855E /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		525CA30F1FA002A90037855E /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		525CA3121FA002F50037855E /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		525CA3141FA003090037855E /* PostHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderView.swift; sourceTree = "<group>"; };
+		525CA3161FA0031C0037855E /* PostTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextView.swift; sourceTree = "<group>"; };
+		525CA3181FA0033E0037855E /* PostActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActionView.swift; sourceTree = "<group>"; };
+		525CA31A1FA003530037855E /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
+		525CA31C1FA0036B0037855E /* PostAddCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAddCommentView.swift; sourceTree = "<group>"; };
+		525CA31F1FA127050037855E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		A151700E925D25492F242BFA /* Pods-RoadDogg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDogg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg.debug.xcconfig"; sourceTree = "<group>"; };
+		D8C879DD9A51CD666468EA7F /* Pods-RoadDogg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDogg.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg.release.xcconfig"; sourceTree = "<group>"; };
+		EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDogg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F67A51CDEE93847C28DFC1B9 /* Pods-RoadDoggTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggTests/Pods-RoadDoggTests.release.xcconfig"; sourceTree = "<group>"; };
+		F956A8AED6736DADE6C80C71 /* Pods-RoadDoggUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggUITests/Pods-RoadDoggUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52250F3D1FA185DB00E97624 /* Alamofire.framework in Frameworks */,
+				274EECB7C07175164D9A7DA2 /* Pods_RoadDogg.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF67686558267A45D03A2D97 /* Pods_RoadDoggTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +121,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B431CA9B1A55685DF1F5152F /* Pods_RoadDoggUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FFF091B8EE4CD412E275E7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52250F3E1FA185DC00E97624 /* Alamofire.framework */,
+				EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */,
+				518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */,
+				2C3147D8D49BB4F218476403 /* Pods_RoadDoggUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5259A6BA1FA5CF6300078161 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				5259A6BB1FA5CF8400078161 /* Feed.swift */,
+				5259A6BD1FA5D39700078161 /* User.swift */,
+				5259A6C11FA5FCEE00078161 /* Post.swift */,
+				5259A6C31FA5FEBD00078161 /* Comment.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		525CA2C31F9D40A90037855E = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +157,8 @@
 				525CA2E61F9D40A90037855E /* RoadDoggTests */,
 				525CA2F11F9D40A90037855E /* RoadDoggUITests */,
 				525CA2CD1F9D40A90037855E /* Products */,
+				A77E6A269D45863CEC8EF928 /* Pods */,
+				0FFF091B8EE4CD412E275E7D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,8 +175,11 @@
 		525CA2CE1F9D40A90037855E /* RoadDogg */ = {
 			isa = PBXGroup;
 			children = (
+				5259A6BA1FA5CF6300078161 /* Custom */,
+				525CA31E1FA126E50037855E /* Network */,
+				525CA3111FA002E00037855E /* Views */,
+				525CA3001F9FF5650037855E /* Main View Controllers */,
 				525CA2CF1F9D40A90037855E /* AppDelegate.swift */,
-				525CA2D11F9D40A90037855E /* ViewController.swift */,
 				525CA2D31F9D40A90037855E /* Main.storyboard */,
 				525CA2D91F9D40A90037855E /* Assets.xcassets */,
 				525CA2DB1F9D40A90037855E /* LaunchScreen.storyboard */,
@@ -128,6 +207,102 @@
 			path = RoadDoggUITests;
 			sourceTree = "<group>";
 		};
+		525CA3001F9FF5650037855E /* Main View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				525CA30E1FA002840037855E /* Custom Tab Bar */,
+				525CA30B1F9FF6230037855E /* New Post View */,
+				525CA3081F9FF6040037855E /* Profile View */,
+				525CA3051F9FF5E10037855E /* Notification View */,
+				525CA3011F9FF59C0037855E /* Feed View */,
+				525CA3021F9FF5BF0037855E /* Map View */,
+			);
+			path = "Main View Controllers";
+			sourceTree = "<group>";
+		};
+		525CA3011F9FF59C0037855E /* Feed View */ = {
+			isa = PBXGroup;
+			children = (
+				525CA2D11F9D40A90037855E /* FeedViewController.swift */,
+			);
+			path = "Feed View";
+			sourceTree = "<group>";
+		};
+		525CA3021F9FF5BF0037855E /* Map View */ = {
+			isa = PBXGroup;
+			children = (
+				525CA3031F9FF5D60037855E /* MapViewController.swift */,
+			);
+			path = "Map View";
+			sourceTree = "<group>";
+		};
+		525CA3051F9FF5E10037855E /* Notification View */ = {
+			isa = PBXGroup;
+			children = (
+				525CA3061F9FF5FD0037855E /* Notification View.swift */,
+			);
+			path = "Notification View";
+			sourceTree = "<group>";
+		};
+		525CA3081F9FF6040037855E /* Profile View */ = {
+			isa = PBXGroup;
+			children = (
+				525CA3091F9FF61D0037855E /* ProfileViewController.swift */,
+			);
+			path = "Profile View";
+			sourceTree = "<group>";
+		};
+		525CA30B1F9FF6230037855E /* New Post View */ = {
+			isa = PBXGroup;
+			children = (
+				525CA30C1F9FF63C0037855E /* NewPostViewController.swift */,
+			);
+			path = "New Post View";
+			sourceTree = "<group>";
+		};
+		525CA30E1FA002840037855E /* Custom Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				525CA30F1FA002A90037855E /* CustomTabBar.swift */,
+			);
+			path = "Custom Tab Bar";
+			sourceTree = "<group>";
+		};
+		525CA3111FA002E00037855E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				525CA3121FA002F50037855E /* PostView.swift */,
+				525CA3141FA003090037855E /* PostHeaderView.swift */,
+				525CA3161FA0031C0037855E /* PostTextView.swift */,
+				525CA3181FA0033E0037855E /* PostActionView.swift */,
+				525CA31A1FA003530037855E /* PostCommentView.swift */,
+				525CA31C1FA0036B0037855E /* PostAddCommentView.swift */,
+				5259A6BF1FA5FB8900078161 /* PostCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		525CA31E1FA126E50037855E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				525CA31F1FA127050037855E /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A77E6A269D45863CEC8EF928 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A151700E925D25492F242BFA /* Pods-RoadDogg.debug.xcconfig */,
+				D8C879DD9A51CD666468EA7F /* Pods-RoadDogg.release.xcconfig */,
+				49FF0ABDA8FB00ADF0C3C2E6 /* Pods-RoadDoggTests.debug.xcconfig */,
+				F67A51CDEE93847C28DFC1B9 /* Pods-RoadDoggTests.release.xcconfig */,
+				06E045006CE507E8630B47D0 /* Pods-RoadDoggUITests.debug.xcconfig */,
+				F956A8AED6736DADE6C80C71 /* Pods-RoadDoggUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +310,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 525CA2F71F9D40A90037855E /* Build configuration list for PBXNativeTarget "RoadDogg" */;
 			buildPhases = (
+				09AE9BD84F62CA7C01747FC4 /* [CP] Check Pods Manifest.lock */,
 				525CA2C81F9D40A90037855E /* Sources */,
 				525CA2C91F9D40A90037855E /* Frameworks */,
 				525CA2CA1F9D40A90037855E /* Resources */,
+				9DFAEB08C8FDA1AF9BCC67DF /* [CP] Embed Pods Frameworks */,
+				9A6579176A8AE9E50CCB7A3C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +330,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 525CA2FA1F9D40A90037855E /* Build configuration list for PBXNativeTarget "RoadDoggTests" */;
 			buildPhases = (
+				354F2D0860229449DEF0123F /* [CP] Check Pods Manifest.lock */,
 				525CA2DF1F9D40A90037855E /* Sources */,
 				525CA2E01F9D40A90037855E /* Frameworks */,
 				525CA2E11F9D40A90037855E /* Resources */,
+				7F7EA5F61602215DA0EE6FEF /* [CP] Embed Pods Frameworks */,
+				57EB75D531DAD275FB37131E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +351,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 525CA2FD1F9D40A90037855E /* Build configuration list for PBXNativeTarget "RoadDoggUITests" */;
 			buildPhases = (
+				AB69B4FDFCA605CF5B417117 /* [CP] Check Pods Manifest.lock */,
 				525CA2EA1F9D40A90037855E /* Sources */,
 				525CA2EB1F9D40A90037855E /* Frameworks */,
 				525CA2EC1F9D40A90037855E /* Resources */,
+				013FE0AD79035E6DFB885E79 /* [CP] Embed Pods Frameworks */,
+				8FE7600CB6A327E5056E7F51 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,14 +441,169 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		013FE0AD79035E6DFB885E79 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoadDoggUITests/Pods-RoadDoggUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		09AE9BD84F62CA7C01747FC4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		354F2D0860229449DEF0123F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		57EB75D531DAD275FB37131E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoadDoggTests/Pods-RoadDoggTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F7EA5F61602215DA0EE6FEF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoadDoggTests/Pods-RoadDoggTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FE7600CB6A327E5056E7F51 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoadDoggUITests/Pods-RoadDoggUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A6579176A8AE9E50CCB7A3C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DFAEB08C8FDA1AF9BCC67DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB69B4FDFCA605CF5B417117 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		525CA2C81F9D40A90037855E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				525CA2D21F9D40A90037855E /* ViewController.swift in Sources */,
+				525CA30A1F9FF61D0037855E /* ProfileViewController.swift in Sources */,
+				525CA3151FA003090037855E /* PostHeaderView.swift in Sources */,
+				525CA3191FA0033E0037855E /* PostActionView.swift in Sources */,
+				525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */,
+				525CA31D1FA0036B0037855E /* PostAddCommentView.swift in Sources */,
+				5259A6C01FA5FB8900078161 /* PostCell.swift in Sources */,
+				525CA3201FA127060037855E /* Network.swift in Sources */,
+				525CA2D21F9D40A90037855E /* FeedViewController.swift in Sources */,
+				5259A6BE1FA5D39700078161 /* User.swift in Sources */,
+				525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */,
 				525CA2D81F9D40A90037855E /* RoadDogg.xcdatamodeld in Sources */,
+				5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */,
+				525CA3101FA002A90037855E /* CustomTabBar.swift in Sources */,
+				525CA31B1FA003530037855E /* PostCommentView.swift in Sources */,
+				525CA3171FA0031C0037855E /* PostTextView.swift in Sources */,
+				5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */,
 				525CA2D01F9D40A90037855E /* AppDelegate.swift in Sources */,
+				5259A6C21FA5FCEE00078161 /* Post.swift in Sources */,
+				525CA3131FA002F50037855E /* PostView.swift in Sources */,
+				525CA3041F9FF5D60037855E /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,11 +767,13 @@
 		};
 		525CA2F81F9D40A90037855E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A151700E925D25492F242BFA /* Pods-RoadDogg.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J6P789DYDB;
 				INFOPLIST_FILE = RoadDogg/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HumpTrump.RoadDogg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -443,11 +784,13 @@
 		};
 		525CA2F91F9D40A90037855E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8C879DD9A51CD666468EA7F /* Pods-RoadDogg.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J6P789DYDB;
 				INFOPLIST_FILE = RoadDogg/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HumpTrump.RoadDogg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -458,6 +801,7 @@
 		};
 		525CA2FB1F9D40A90037855E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49FF0ABDA8FB00ADF0C3C2E6 /* Pods-RoadDoggTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,6 +819,7 @@
 		};
 		525CA2FC1F9D40A90037855E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F67A51CDEE93847C28DFC1B9 /* Pods-RoadDoggTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +837,7 @@
 		};
 		525CA2FE1F9D40A90037855E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06E045006CE507E8630B47D0 /* Pods-RoadDoggUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -508,6 +854,7 @@
 		};
 		525CA2FF1F9D40A90037855E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F956A8AED6736DADE6C80C71 /* Pods-RoadDoggUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
