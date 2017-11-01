@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 struct Post{
     
     var user : User!
@@ -15,19 +15,33 @@ struct Post{
     var postKey = ""
     var likeCount : Int = 0
     var commentCount : Int = 0
+    var isLiked : Bool = false
+    var comments = [Comment]()
+    var liked = false
+    var createdAt = ""
+    var fontSize : CGFloat = 14
+    var textHeight : CGFloat = 0.0
     var likeCountString : String {
         get{
-            return "\(likeCount) Likes"
+            if ( likeCount == 1){
+                return "\(likeCount) Like"
+            }
+            else{
+               return "\(likeCount) Likes"
+            }
+            
         }
     }
     var commentCountString : String {
         get{
-            return "\(commentCount) Comments"
+            if ( commentCount == 1){
+                return "\(commentCount) Comment"
+            }
+            else{
+                return "\(commentCount) Comments"
+            }
         }
     }
-    var isLiked : Bool = false
-    var comments = [Comment]()
-    var liked = false
     
     init(post: [String: Any]){
         self.user = User( user: post["user"] as! [String : Any] )
@@ -35,6 +49,7 @@ struct Post{
         self.postKey = post["post_key"] as! String
         self.likeCount = post["like_count"] as! Int
         self.commentCount = post["comment_count"] as! Int
+        self.createdAt = post["created_at"] as! String
         if ( post["user_liked"] as! Bool == true ){
             self.isLiked = true
         }
@@ -51,6 +66,13 @@ struct Post{
     mutating func like(){
         isLiked = true
         likeCount+=1
+    }
+    
+    func getEstimatedTextViewSize(width: CGFloat) -> CGFloat{
+        let size = CGSize(width: width, height: 1000)
+        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: self.fontSize)]
+        let estimatedFrame = NSString(string: self.text).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+        return estimatedFrame.height
     }
     
 }

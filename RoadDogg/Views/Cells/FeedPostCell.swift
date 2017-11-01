@@ -8,7 +8,11 @@
 
 import UIKit
 
-class PostCell: UICollectionViewCell {
+protocol FeedPostDelegate{
+    func pushPostViewController( vc : TripViewController)
+}
+
+class FeedPostCell: UICollectionViewCell {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -18,10 +22,11 @@ class PostCell: UICollectionViewCell {
     @IBOutlet weak var commentButtonLabel: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var createdAtLabel: UILabel!
     
     var post : Post?
+    var delegate : FeedPostDelegate?
     
-
     @IBAction func likePressed(_ sender: Any) {
         if ( self.post?.isLiked )!{
             Network.shared.unLikePost(postKey: (post?.postKey)!)
@@ -37,5 +42,10 @@ class PostCell: UICollectionViewCell {
     }
     
     @IBAction func commentPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier :"Trip") as! TripViewController
+        vc.post = self.post
+        delegate?.pushPostViewController( vc: vc )
+        
     }
 }

@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		274EECB7C07175164D9A7DA2 /* Pods_RoadDogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */; };
 		52250F3D1FA185DB00E97624 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52250F3E1FA185DC00E97624 /* Alamofire.framework */; };
+		525151601FA8730300317BC5 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251515F1FA8730300317BC5 /* TripViewController.swift */; };
+		525151631FA875B600317BC5 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151621FA875B600317BC5 /* PostViewCell.swift */; };
+		525151651FA875D800317BC5 /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151641FA875D800317BC5 /* CommentViewCell.swift */; };
 		5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6BB1FA5CF8400078161 /* Feed.swift */; };
 		5259A6BE1FA5D39700078161 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6BD1FA5D39700078161 /* User.swift */; };
-		5259A6C01FA5FB8900078161 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6BF1FA5FB8900078161 /* PostCell.swift */; };
+		5259A6C01FA5FB8900078161 /* FeedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6BF1FA5FB8900078161 /* FeedPostCell.swift */; };
 		5259A6C21FA5FCEE00078161 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6C11FA5FCEE00078161 /* Post.swift */; };
 		5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6C31FA5FEBD00078161 /* Comment.swift */; };
 		525CA2D01F9D40A90037855E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA2CF1F9D40A90037855E /* AppDelegate.swift */; };
@@ -61,9 +64,12 @@
 		49FF0ABDA8FB00ADF0C3C2E6 /* Pods-RoadDoggTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggTests/Pods-RoadDoggTests.debug.xcconfig"; sourceTree = "<group>"; };
 		518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDoggTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52250F3E1FA185DC00E97624 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5251515F1FA8730300317BC5 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
+		525151621FA875B600317BC5 /* PostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
+		525151641FA875D800317BC5 /* CommentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewCell.swift; sourceTree = "<group>"; };
 		5259A6BB1FA5CF8400078161 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		5259A6BD1FA5D39700078161 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		5259A6BF1FA5FB8900078161 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		5259A6BF1FA5FB8900078161 /* FeedPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostCell.swift; sourceTree = "<group>"; };
 		5259A6C11FA5FCEE00078161 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5259A6C31FA5FEBD00078161 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		525CA2CC1F9D40A90037855E /* RoadDogg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadDogg.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +143,16 @@
 				2C3147D8D49BB4F218476403 /* Pods_RoadDoggUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		525151611FA8757500317BC5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5259A6BF1FA5FB8900078161 /* FeedPostCell.swift */,
+				525151621FA875B600317BC5 /* PostViewCell.swift */,
+				525151641FA875D800317BC5 /* CommentViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		5259A6BA1FA5CF6300078161 /* Custom */ = {
@@ -224,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				525CA2D11F9D40A90037855E /* FeedViewController.swift */,
+				5251515F1FA8730300317BC5 /* TripViewController.swift */,
 			);
 			path = "Feed View";
 			sourceTree = "<group>";
@@ -271,13 +288,13 @@
 		525CA3111FA002E00037855E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				525151611FA8757500317BC5 /* Cells */,
 				525CA3121FA002F50037855E /* PostView.swift */,
 				525CA3141FA003090037855E /* PostHeaderView.swift */,
 				525CA3161FA0031C0037855E /* PostTextView.swift */,
 				525CA3181FA0033E0037855E /* PostActionView.swift */,
 				525CA31A1FA003530037855E /* PostCommentView.swift */,
 				525CA31C1FA0036B0037855E /* PostAddCommentView.swift */,
-				5259A6BF1FA5FB8900078161 /* PostCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -589,14 +606,17 @@
 				525CA3191FA0033E0037855E /* PostActionView.swift in Sources */,
 				525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */,
 				525CA31D1FA0036B0037855E /* PostAddCommentView.swift in Sources */,
-				5259A6C01FA5FB8900078161 /* PostCell.swift in Sources */,
+				525151651FA875D800317BC5 /* CommentViewCell.swift in Sources */,
+				5259A6C01FA5FB8900078161 /* FeedPostCell.swift in Sources */,
 				525CA3201FA127060037855E /* Network.swift in Sources */,
 				525CA2D21F9D40A90037855E /* FeedViewController.swift in Sources */,
 				5259A6BE1FA5D39700078161 /* User.swift in Sources */,
+				525151601FA8730300317BC5 /* TripViewController.swift in Sources */,
 				525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */,
 				525CA2D81F9D40A90037855E /* RoadDogg.xcdatamodeld in Sources */,
 				5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */,
 				525CA3101FA002A90037855E /* CustomTabBar.swift in Sources */,
+				525151631FA875B600317BC5 /* PostViewCell.swift in Sources */,
 				525CA31B1FA003530037855E /* PostCommentView.swift in Sources */,
 				525CA3171FA0031C0037855E /* PostTextView.swift in Sources */,
 				5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */,
