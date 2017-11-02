@@ -29,7 +29,6 @@
 		525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3061F9FF5FD0037855E /* Notification View.swift */; };
 		525CA30A1F9FF61D0037855E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3091F9FF61D0037855E /* ProfileViewController.swift */; };
 		525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA30C1F9FF63C0037855E /* NewPostViewController.swift */; };
-		525CA3101FA002A90037855E /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA30F1FA002A90037855E /* CustomTabBar.swift */; };
 		525CA3131FA002F50037855E /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3121FA002F50037855E /* PostView.swift */; };
 		525CA3151FA003090037855E /* PostHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3141FA003090037855E /* PostHeaderView.swift */; };
 		525CA3171FA0031C0037855E /* PostTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3161FA0031C0037855E /* PostTextView.swift */; };
@@ -90,7 +89,6 @@
 		525CA3061F9FF5FD0037855E /* Notification View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification View.swift"; sourceTree = "<group>"; };
 		525CA3091F9FF61D0037855E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		525CA30C1F9FF63C0037855E /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
-		525CA30F1FA002A90037855E /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		525CA3121FA002F50037855E /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		525CA3141FA003090037855E /* PostHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderView.swift; sourceTree = "<group>"; };
 		525CA3161FA0031C0037855E /* PostTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextView.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 		525CA3001F9FF5650037855E /* Main View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				525CA30E1FA002840037855E /* Custom Tab Bar */,
 				525CA30B1F9FF6230037855E /* New Post View */,
 				525CA3081F9FF6040037855E /* Profile View */,
 				525CA3051F9FF5E10037855E /* Notification View */,
@@ -275,14 +272,6 @@
 				525CA30C1F9FF63C0037855E /* NewPostViewController.swift */,
 			);
 			path = "New Post View";
-			sourceTree = "<group>";
-		};
-		525CA30E1FA002840037855E /* Custom Tab Bar */ = {
-			isa = PBXGroup;
-			children = (
-				525CA30F1FA002A90037855E /* CustomTabBar.swift */,
-			);
-			path = "Custom Tab Bar";
 			sourceTree = "<group>";
 		};
 		525CA3111FA002E00037855E /* Views */ = {
@@ -615,7 +604,6 @@
 				525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */,
 				525CA2D81F9D40A90037855E /* RoadDogg.xcdatamodeld in Sources */,
 				5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */,
-				525CA3101FA002A90037855E /* CustomTabBar.swift in Sources */,
 				525151631FA875B600317BC5 /* PostViewCell.swift in Sources */,
 				525CA31B1FA003530037855E /* PostCommentView.swift in Sources */,
 				525CA3171FA0031C0037855E /* PostTextView.swift in Sources */,

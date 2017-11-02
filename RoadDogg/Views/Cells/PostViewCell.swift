@@ -23,13 +23,25 @@ class PostViewCell: UICollectionViewCell {
     @IBOutlet weak var shareButton: UIButton!
     
     @IBOutlet weak var textAreaView: UIView!
-    var post : Post?
+    var post : Post!
+    
     
     @IBAction func optionsAction(_ sender: Any) {
         
     }
     
     @IBAction func likeAction(_ sender: Any) {
+        if ( self.post?.isLiked )!{
+            Network.shared.unLikePost(postKey: (post?.postKey)!)
+            self.post?.unlike()
+            self.numberOfLikesLabel.text = post?.likeCountString
+            self.likeButton.setTitle("Like", for: .normal)
+        }else{
+            Network.shared.likePost(postKey: (post?.postKey)!)
+            self.post?.like()
+            self.numberOfLikesLabel.text = post?.likeCountString
+            self.likeButton.setTitle("UnLike", for: .normal)
+        }
     }
     
     @IBAction func commentAction(_ sender: Any) {

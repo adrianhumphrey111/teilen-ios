@@ -14,12 +14,18 @@ class FeedViewController: UIViewController, FeedPostDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var posts = [Post]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchFeed()
         self.collectionView.backgroundColor = .gray
-        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+        self.collectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +45,10 @@ class FeedViewController: UIViewController, FeedPostDelegate {
     func pushPostViewController( vc: TripViewController ){
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func testReload( indexPath : NSIndexPath){
+       // self.collectionView.reloadItems(at: [indexPath])
+    }
 }
 
 extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -49,9 +59,8 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-       
         let estimatedTextHeight = self.posts[indexPath.row].getEstimatedTextViewSize(width: view.frame.width - 20)
-        let postHeight : CGFloat = 210
+        let postHeight : CGFloat = 190
         let allPostHeight = postHeight + estimatedTextHeight
         return CGSize(width: view.frame.width, height: allPostHeight)
     }
@@ -63,17 +72,23 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath) as! FeedPostCell
-        var post = self.posts[indexPath.row]
+        let post = self.posts[indexPath.row]
         cell.delegate = self
         cell.userNameLabel.text = post.user.firstName + " " + post.user.lastName
         cell.likeLabel.text = post.likeCountString
         cell.profileImageView.backgroundColor = .black
         cell.backgroundColor = .white
-        cell.textView.font = UIFont.systemFont(ofSize: post.fontSize)
-        cell.textView.text = post.text
-        cell.textView.backgroundColor = .red
+        
+        //Create TextView in Post Cell
+        let textView = UITextView(frame: CGRect(x: 10, y: 0, width: view.frame.width - 20, height: cell.textAreaView.frame.height))
+        textView.text = post.text
+        textView.font = UIFont.systemFont(ofSize: (post.fontSize))
+        textView.backgroundColor = .green
+        textView.isScrollEnabled = false
+        textView.isUserInteractionEnabled = false
+        cell.textAreaView.addSubview( textView )
+        
         cell.commentLabel.text = post.commentCountString
-        post.textHeight = adjustUITextViewHeight(arg: cell.textView)
         cell.post = post
         cell.createdAtLabel.text = post.createdAt
         if ( post.isLiked ){
@@ -84,11 +99,7 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         return cell
     }
-    
-    //Lets get an estimation of the height of the post text
-    
-    
-    
+
     
     func adjustUITextViewHeight(arg : UITextView) -> CGFloat
     {

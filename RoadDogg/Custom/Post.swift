@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-struct Post{
+class Post{
     
     var user : User!
     var text = ""
@@ -58,13 +58,13 @@ struct Post{
         }
     }
     
-    mutating func unlike(){
-        isLiked = false
+    func unlike(){
+        self.isLiked = false
         likeCount-=1
     }
     
-    mutating func like(){
-        isLiked = true
+    func like(){
+        self.isLiked = true
         likeCount+=1
     }
     

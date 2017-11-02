@@ -17,15 +17,16 @@ class FeedPostCell: UICollectionViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var optionsButtonLabel: UIButton!
-    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var likeButtonLabel: UIButton!
     @IBOutlet weak var commentButtonLabel: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var createdAtLabel: UILabel!
+    @IBOutlet weak var textAreaView: UIView!
     
     var post : Post?
     var delegate : FeedPostDelegate?
+
     
     @IBAction func likePressed(_ sender: Any) {
         if ( self.post?.isLiked )!{
