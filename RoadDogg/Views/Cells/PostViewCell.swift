@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PostViewCellDelegate {
+    func comment()
+}
+
 class PostViewCell: UICollectionViewCell {
     
     @IBOutlet weak var profileImageView: UIView!
@@ -24,6 +28,7 @@ class PostViewCell: UICollectionViewCell {
     
     @IBOutlet weak var textAreaView: UIView!
     var post : Post!
+    var delegate: PostViewCellDelegate?
     
     
     @IBAction func optionsAction(_ sender: Any) {
@@ -45,6 +50,7 @@ class PostViewCell: UICollectionViewCell {
     }
     
     @IBAction func commentAction(_ sender: Any) {
+        delegate?.comment()
     }
     
     @IBAction func shareAction(_ sender: Any) {

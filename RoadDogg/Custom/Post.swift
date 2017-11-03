@@ -53,8 +53,10 @@ class Post{
         if ( post["user_liked"] as! Bool == true ){
             self.isLiked = true
         }
+        var comments = post["comments"] as! [[String:Any]]
         for comment in comments{
-            self.comments.append( Comment( comment: comment as! [String : Any]) )
+            print(comment)
+            self.comments.append( Comment( comment: comment) )
         }
     }
     

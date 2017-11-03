@@ -10,4 +10,11 @@ import UIKit
 
 class CommentViewCell: UICollectionViewCell {
     
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var textAreaView: UIView!
+    @IBOutlet weak var timeStampLabel: UILabel!
+    
+    var comment: Comment!
+    
 }

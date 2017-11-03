@@ -90,6 +90,7 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.commentLabel.text = post.commentCountString
         cell.post = post
+        print("Post Comments in Feed => " , post.comments)
         cell.createdAtLabel.text = post.createdAt
         if ( post.isLiked ){
             cell.likeButtonLabel.setTitle("UnLike", for: .normal)

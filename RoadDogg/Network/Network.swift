@@ -27,7 +27,7 @@ class Network {
     }
     
     func getFeed(user_key: String) -> Promise<Feed> {
-        let url = "http:localhost:8080/api/fetchPost?user_key=\(user_key)"
+        let url = "\(self.baseurl)/api/fetchPost?user_key=\(user_key)"
         return Promise { fulfill, reject in
             //Make call to the API
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
@@ -47,7 +47,7 @@ class Network {
     }
     
     func likePost(postKey: String){
-        let url = "http:localhost:8080/api/likePost?post_key=\(postKey)&user_key=\(self.user_key)"
+        let url = "\(self.baseurl)/api/likePost?post_key=\(postKey)&user_key=\(self.user_key)"
         Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseString { response in
             print("Success: \(response.result.isSuccess)")
             print("Response String: \(response.result.value!)")
@@ -55,10 +55,31 @@ class Network {
     }
     
     func unLikePost(postKey: String){
-        let url = "http:localhost:8080/api/unlikePost?post_key=\(postKey)&user_key=\(self.user_key)"
+        let url = "\(self.baseurl)/api/unlikePost?post_key=\(postKey)&user_key=\(self.user_key)"
         Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseString { response in
             print("Success: \(response.result.isSuccess)")
             print("Response String: \(response.result.value!)")
+        }
+    }
+    
+    func commentPost(postKey: String, comment: String) -> Promise<Comment> {
+        let url = "\(self.baseurl)/api/commentPost?post_key=\(postKey)&user_key=\(self.user_key)&comment=\(comment)"
+        return Promise { fulfill, reject in
+            Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+                switch response.result {
+                case .success:
+                    //get response
+                    if let result = response.result.value{
+                        let json = result as! [String:Any]
+                        var jsonComment = json["comment"] as! [String: Any]
+                        print(jsonComment)
+                        var comment = Comment(comment: jsonComment)
+                        fulfill(comment)
+                    }
+                case .failure(let error):
+                    reject(error)
+                }
+            }
         }
     }
     
