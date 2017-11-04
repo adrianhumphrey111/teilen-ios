@@ -245,7 +245,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sHj-4R-gqw">
-                                <rect key="frame" x="0.0" y="-8" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="-8" width="375" height="675"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U0Y-SL-qe2">
                                     <size key="itemSize" width="375" height="367"/>
@@ -527,13 +527,14 @@
                         <constraints>
                             <constraint firstItem="4Hv-aS-sMi" firstAttribute="trailing" secondItem="sHj-4R-gqw" secondAttribute="trailing" id="DC1-Cw-rtw"/>
                             <constraint firstItem="4Hv-aS-sMi" firstAttribute="top" secondItem="sHj-4R-gqw" secondAttribute="top" constant="28" id="fA3-B9-Zl0"/>
-                            <constraint firstItem="4Hv-aS-sMi" firstAttribute="bottom" secondItem="sHj-4R-gqw" secondAttribute="bottom" constant="28" id="mXd-P8-qHu"/>
+                            <constraint firstItem="4Hv-aS-sMi" firstAttribute="bottom" secondItem="sHj-4R-gqw" secondAttribute="bottom" id="mXd-P8-qHu"/>
                             <constraint firstItem="sHj-4R-gqw" firstAttribute="leading" secondItem="4Hv-aS-sMi" secondAttribute="leading" id="zxJ-pj-Rr1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Hv-aS-sMi"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="sHj-4R-gqw" id="2e0-jw-TTP"/>
+                        <outlet property="collectionViewBottomConstraint" destination="mXd-P8-qHu" id="EHR-Xm-Acy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ga-gb-oYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -588,6 +589,21 @@
             </objects>
             <point key="canvasLocation" x="-434" y="-1377"/>
         </scene>
+        <!--Modal New Post View Controller-->
+        <scene sceneID="jRQ-hb-TaR">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BTF-RO-fMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="NewPost" id="8Ce-JA-eB7" customClass="ModalNewPostViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lfF-29-8FM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="6Uw-MP-a31"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="271" y="-1378"/>
+        </scene>
         <!--Map-->
         <scene sceneID="vhe-QR-nBc">
             <objects>
@@ -602,12 +618,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X41-Tr-Aca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-434" y="-2078"/>
+            <point key="canvasLocation" x="-435" y="-2270"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="Kri-Gm-j9Y">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Pwa-KZ-1Ky" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Pwa-KZ-1Ky" customClass="TabBarViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DAP-NC-Yne">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

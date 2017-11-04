@@ -55,7 +55,6 @@ class Post{
         }
         var comments = post["comments"] as! [[String:Any]]
         for comment in comments{
-            print(comment)
             self.comments.append( Comment( comment: comment) )
         }
     }

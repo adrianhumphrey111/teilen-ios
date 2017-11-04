@@ -12,6 +12,8 @@
 		525151601FA8730300317BC5 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251515F1FA8730300317BC5 /* TripViewController.swift */; };
 		525151631FA875B600317BC5 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151621FA875B600317BC5 /* PostViewCell.swift */; };
 		525151651FA875D800317BC5 /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151641FA875D800317BC5 /* CommentViewCell.swift */; };
+		525151AB1FAD5D0000317BC5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151AA1FAD5D0000317BC5 /* TabBarViewController.swift */; };
+		525151AD1FAD65E100317BC5 /* ModalNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151AC1FAD65E100317BC5 /* ModalNewPostViewController.swift */; };
 		5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6BB1FA5CF8400078161 /* Feed.swift */; };
 		5259A6BE1FA5D39700078161 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6BD1FA5D39700078161 /* User.swift */; };
 		5259A6C01FA5FB8900078161 /* FeedPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6BF1FA5FB8900078161 /* FeedPostCell.swift */; };
@@ -66,6 +68,8 @@
 		5251515F1FA8730300317BC5 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		525151621FA875B600317BC5 /* PostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
 		525151641FA875D800317BC5 /* CommentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewCell.swift; sourceTree = "<group>"; };
+		525151AA1FAD5D0000317BC5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		525151AC1FAD65E100317BC5 /* ModalNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalNewPostViewController.swift; sourceTree = "<group>"; };
 		5259A6BB1FA5CF8400078161 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		5259A6BD1FA5D39700078161 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5259A6BF1FA5FB8900078161 /* FeedPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostCell.swift; sourceTree = "<group>"; };
@@ -153,6 +157,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		525151A91FAD5CBB00317BC5 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				525151AA1FAD5D0000317BC5 /* TabBarViewController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 		5259A6BA1FA5CF6300078161 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +236,7 @@
 		525CA3001F9FF5650037855E /* Main View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				525151A91FAD5CBB00317BC5 /* TabBarController */,
 				525CA30B1F9FF6230037855E /* New Post View */,
 				525CA3081F9FF6040037855E /* Profile View */,
 				525CA3051F9FF5E10037855E /* Notification View */,
@@ -270,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				525CA30C1F9FF63C0037855E /* NewPostViewController.swift */,
+				525151AC1FAD65E100317BC5 /* ModalNewPostViewController.swift */,
 			);
 			path = "New Post View";
 			sourceTree = "<group>";
@@ -604,7 +618,9 @@
 				525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */,
 				525CA2D81F9D40A90037855E /* RoadDogg.xcdatamodeld in Sources */,
 				5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */,
+				525151AD1FAD65E100317BC5 /* ModalNewPostViewController.swift in Sources */,
 				525151631FA875B600317BC5 /* PostViewCell.swift in Sources */,
+				525151AB1FAD5D0000317BC5 /* TabBarViewController.swift in Sources */,
 				525CA31B1FA003530037855E /* PostCommentView.swift in Sources */,
 				525CA3171FA0031C0037855E /* PostTextView.swift in Sources */,
 				5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */,

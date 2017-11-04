@@ -63,7 +63,8 @@ class Network {
     }
     
     func commentPost(postKey: String, comment: String) -> Promise<Comment> {
-        let url = "\(self.baseurl)/api/commentPost?post_key=\(postKey)&user_key=\(self.user_key)&comment=\(comment)"
+        let escapedCommentString = comment.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let url = "\(self.baseurl)/api/commentPost?post_key=\(postKey)&user_key=\(self.user_key)&comment=\(escapedCommentString!)"
         return Promise { fulfill, reject in
             Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
                 switch response.result {
@@ -71,9 +72,9 @@ class Network {
                     //get response
                     if let result = response.result.value{
                         let json = result as! [String:Any]
-                        var jsonComment = json["comment"] as! [String: Any]
+                        let jsonComment = json["comment"] as! [String: Any]
                         print(jsonComment)
-                        var comment = Comment(comment: jsonComment)
+                        let comment = Comment(comment: jsonComment)
                         fulfill(comment)
                     }
                 case .failure(let error):

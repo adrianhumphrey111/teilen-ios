@@ -51,15 +51,16 @@ class TripViewController: UIViewController, PostViewCellDelegate {
         
     }()
     
+    @IBOutlet weak var collectionViewBottomConstraint: NSLayoutConstraint!
     var bottomConstraint: NSLayoutConstraint?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.title = "Trip"
         tabBarController?.tabBar.isHidden = true
-        
-        print("Comments = > " , comments)
+
         
         //Instantly show the keyboard if the person is commenting on the post
         if ( commenting ){ inputTextField.becomeFirstResponder() }
@@ -95,16 +96,20 @@ class TripViewController: UIViewController, PostViewCellDelegate {
     @objc func handleKeyboardNotification(notification: NSNotification){
         if let userInfo = notification.userInfo {
             let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as! CGRect
-            
-            let isKeyboardShwing = notification.name == Notification.Name.UIKeyboardWillShow
-            bottomConstraint?.constant = isKeyboardShwing ? -keyboardFrame.height : 0
+            let isKeyboardShowing = notification.name == Notification.Name.UIKeyboardWillShow
+            bottomConstraint?.constant = isKeyboardShowing ? -keyboardFrame.height : 0
+            collectionViewBottomConstraint.constant = isKeyboardShowing ? -( keyboardFrame.height + 48 ) : 48
             UIView.animate(withDuration: 0, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 self.view.layoutIfNeeded()
                 
             }, completion: { (completed) in
-                
+    
+                DispatchQueue.main.async {
+                    if isKeyboardShowing{
                     let indexPath = IndexPath(item: self.comments.count - 1, section: 1)
-                    //self.collectionView.scrollToItem(at: indexPath as IndexPath, at: .bottom, animated: true)
+                    self.collectionView.scrollToItem(at: indexPath as IndexPath, at: .bottom, animated: true)
+                    }
+                }
                 
                 
             })
@@ -117,6 +122,10 @@ class TripViewController: UIViewController, PostViewCellDelegate {
         
         //Dismiss the keyboard
         inputTextField.endEditing( true )
+        
+        //Disable send button
+        sendButton.isUserInteractionEnabled = false
+        inputTextField.text = ""
         
         //Add the comment to the post, with a "posting", once the promise is returned, update the ui to "Just Now"
         var comment = Comment(comment: text)
@@ -134,6 +143,9 @@ class TripViewController: UIViewController, PostViewCellDelegate {
             comment.createdAt = "Just Now"
             comment.postKey = returnedComment.postKey
             comment.userKey = returnedComment.userKey
+            
+            //Enable Send button
+            self.sendButton.isUserInteractionEnabled = true
             
             //Reload CollectionView
             self.collectionView.reloadData()
