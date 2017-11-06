@@ -110,10 +110,7 @@ class TripViewController: UIViewController, PostViewCellDelegate {
                     self.collectionView.scrollToItem(at: indexPath as IndexPath, at: .bottom, animated: true)
                     }
                 }
-                
-                
             })
-            
         }
     }
     

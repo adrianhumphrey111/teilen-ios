@@ -13,21 +13,21 @@ import PromiseKit
 class Network {
     
     var baseurl = ""
-    let user_key = "ag1kZXZ-Z29hbC1yaXNlchELEgRVc2VyGICAgICAgMAKDA"
+    let user_key = "agtzfmdvYWwtcmlzZXIRCxIEVXNlchiAgICAgICACgw"
     var loginEndpoint : String = "10.0.0.6/api/login"
     var searchEndpoint : String = "10.0.0.6/api/search"
     var likePostEndpoint : String = "10.0.0.6/api/likePost"
     var createPostEndpoint : String = "10.0.0.6/api/createPost"
     var fetchPostEndpoint : String = "10.0.0.6/api/fetchPost"
     
-    static let shared = Network(baseURL: "http:localhost:8080")
+    static let shared = Network(baseURL: "https://goal-rise.appspot.com")
     
     init(baseURL: String) {
         self.baseurl = baseURL
     }
     
     func getFeed(user_key: String) -> Promise<Feed> {
-        let url = "\(self.baseurl)/api/fetchPost?user_key=\(user_key)"
+        let url = "\(self.baseurl)/api/fetchPost?user_key=\(self.user_key)"
         return Promise { fulfill, reject in
             //Make call to the API
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
