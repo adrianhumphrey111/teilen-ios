@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.5.1)
+  - DateTimePicker (1.1.2)
   - PromiseKit (4.4.0):
     - PromiseKit/Foundation (= 4.4.0)
     - PromiseKit/QuartzCore (= 4.4.0)
@@ -18,14 +19,16 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.5.1)
+  - DateTimePicker
   - PromiseKit (~> 4.4)
   - PromiseKit/CoreLocation
   - PromiseKit/MapKit
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  DateTimePicker: 518bffa5438ef83a7a687cc4d5e187e5c12012b8
   PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
 
-PODFILE CHECKSUM: e04e45c55e154533ced9905f2d376f5d85f386de
+PODFILE CHECKSUM: e62fb33ef3439ad4b50064ea4cd504a70cb33a4e
 
 COCOAPODS: 1.1.1

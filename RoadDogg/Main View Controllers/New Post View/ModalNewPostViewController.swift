@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DateTimePicker
 
 enum Status {
     case INITIAL
@@ -15,6 +16,7 @@ enum Status {
     case ENDENTERED
     case DESIREDCHOSEN
     case RADIUSCHOSEN
+    case TEXTENTERED
     case FINISHED
 }
 
@@ -24,11 +26,18 @@ enum TypeOfTrip {
     case LOOKING
 }
 
+enum LeaveTime {
+    case NONE
+    case DEPARTURE
+    case ARRIVAL
+}
+
 class ModalNewPostViewController: UIViewController {
     
     //ENUMS
     var status = Status.INITIAL
     var trip = TypeOfTrip.NONE
+    var leaveTime = LeaveTime.NONE
     
     //Header View
     @IBOutlet weak var profileImageView: UIImageView!
@@ -46,6 +55,10 @@ class ModalNewPostViewController: UIViewController {
     @IBOutlet weak var setTimeLabel: UILabel!
     @IBOutlet weak var departureButton: UIButton!
     @IBOutlet weak var arrivalButton: UIButton!
+    @IBOutlet weak var radiusTextField: UITextField!
+    @IBOutlet weak var radiusLabel: UILabel!
+    @IBOutlet weak var postTextView: UITextView!
+
     
     //Top Label Constants
     var TOP_BUTTON_HEIGHT : CGFloat!
@@ -58,8 +71,17 @@ class ModalNewPostViewController: UIViewController {
     //Bottom Constraint for next Button
     var bottomConstraint: NSLayoutConstraint!
     
+    //Frame for TextView
+    var textViewFrame: CGRect!
+    
+    //Trip Object To Send to Server
+    var tripObject = Trip()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set TextView Delegate
+        //postTextView.delegate = self
         
         //Set the local label height
         TOP_BUTTON_HEIGHT = 50
@@ -102,10 +124,15 @@ class ModalNewPostViewController: UIViewController {
             let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as! CGRect
             isKeyboardShowing = notification.name == Notification.Name.UIKeyboardWillShow
             bottomConstraint?.constant = isKeyboardShowing ? -keyboardFrame.height : 0
+            
+            //Set Up Text Field Frame
+            textViewFrame = CGRect(x: 0, y: view.bounds.origin.y, width: view.bounds.size.width, height: view.bounds.size.height - 136 - keyboardFrame.height)
+            
             UIView.animate(withDuration: 0, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 self.view.layoutIfNeeded()
             }, completion: { (completed) in
                 //Do Nothing
+                
             })
         }
     }
@@ -124,22 +151,37 @@ class ModalNewPostViewController: UIViewController {
         ridingButton.center.y = INITIAL_RIDING_HEIGHT
         ridingButton.center.x = view.center.x
         
-        departureButton.center.y = INITIAL_DRIVING_HEIGHT
-        departureButton.center.x = view.center.x
+        departureButton.center.y = INITIAL_DRIVING_HEIGHT - 45
+        departureButton.center.x += self.view.bounds.width
         
-        arrivalButton.center.y = INITIAL_RIDING_HEIGHT
-        arrivalButton.center.x = view.center.x
+        arrivalButton.center.y = INITIAL_RIDING_HEIGHT - 45
+        arrivalButton.center.x += self.view.bounds.width
+        
+        postTextView.center.y = INITIAL_RIDING_HEIGHT
+        postTextView.center.x += self.view.bounds.width * 2
         
         
         //Set TextFields off the screen
-        startLocationTextField.center.x -= self.view.bounds.width * 2
+        startLocationTextField.center.x += self.view.bounds.width * 2
         startLocationTextField.frame.size.width = self.view.frame.width - 40
-        endLocationTextField.center.x -= self.view.bounds.width * 2
+        endLocationTextField.center.x += self.view.bounds.width * 2
         endLocationTextField.frame.size.width = self.view.frame.width - 40
+        radiusTextField.center.x += self.view.bounds.width * 2
+        radiusTextField.frame.size.width = self.view.frame.width - 40
+        
         
         //Labels
-        startDestinationLabel.center.x -= self.view.bounds.width
-        endDestinationLabel.center.x -= self.view.bounds.width
+        startDestinationLabel.center.x += self.view.bounds.width
+        endDestinationLabel.center.x += self.view.bounds.width
+        radiusLabel.center.x += self.view.bounds.width
+        setTimeLabel.center.x += self.view.bounds.width
+        
+        //Set Up Text View
+        postTextView.center.x -= view.bounds.width
+        postTextView.font = UIFont.systemFont(ofSize: 20.0)
+        postTextView.textContainerInset = UIEdgeInsetsMake(20, 20, 20, 20)
+        postTextView.placeholder = "What Would You Like To Share. . ."
+        postTextView.textColor = UIColor.lightGray
         
         
         //Set Up Profile Image View
@@ -167,6 +209,7 @@ class ModalNewPostViewController: UIViewController {
         view.addConstraint( bottomConstraint! )
     }
 
+
     //Set the selected Trip Button to the top of the screen and disable the button
     func animateTopButtonUP(button: String){
         switch button {
@@ -182,6 +225,18 @@ class ModalNewPostViewController: UIViewController {
                 self.ridingButton.center.y = self.TOP_BUTTON_HEIGHT
             }
             self.ridingButton.isUserInteractionEnabled = false
+        case "departure":
+            //Set the riding button to the top and disable the button
+            UIView.animate(withDuration: 0.5) {
+                self.departureButton.center.y = self.TOP_BUTTON_HEIGHT + 20
+            }
+            self.departureButton.isUserInteractionEnabled = false
+        case "arrival":
+            //Set the riding button to the top and disable the button
+            UIView.animate(withDuration: 0.5) {
+                self.arrivalButton.center.y = self.TOP_BUTTON_HEIGHT + 20
+            }
+            self.arrivalButton.isUserInteractionEnabled = false
         default:
             //Do nothing
             return
@@ -196,13 +251,25 @@ class ModalNewPostViewController: UIViewController {
             UIView.animate(withDuration: 0.5) {
                 self.drivingButton.center.y = self.INITIAL_DRIVING_HEIGHT
             }
-            self.drivingButton.isUserInteractionEnabled = false
+            self.drivingButton.isUserInteractionEnabled = true
         case "riding":
             //Set the riding button to the top and disable the button
             UIView.animate(withDuration: 0.5) {
                 self.ridingButton.center.y = self.INITIAL_RIDING_HEIGHT
             }
-            self.ridingButton.isUserInteractionEnabled = false
+            self.ridingButton.isUserInteractionEnabled = true
+        case "departure":
+            //Set the riding button to the top and disable the button
+            UIView.animate(withDuration: 0.5) {
+                self.departureButton.center.y = self.INITIAL_DRIVING_HEIGHT - 45
+            }
+            self.departureButton.isUserInteractionEnabled = true
+        case "arrival":
+            //Set the riding button to the top and disable the button
+            UIView.animate(withDuration: 0.5) {
+                self.arrivalButton.center.y = self.INITIAL_RIDING_HEIGHT - 45
+            }
+            self.arrivalButton.isUserInteractionEnabled = true
         default:
             //Do nothing
             return
@@ -224,15 +291,26 @@ class ModalNewPostViewController: UIViewController {
             }
         case "startDestination":
             UIView.animate(withDuration: 0.5) {
-                self.startLocationTextField.center.x += self.view.bounds.width * 2
-                self.startDestinationLabel.center.x += self.view.bounds.width
+                self.startLocationTextField.center.x -= self.view.bounds.width * 2
+                self.startDestinationLabel.center.x -= self.view.bounds.width
             }
         case "endDestination":
             UIView.animate(withDuration: 0.5) {
-                self.endLocationTextField.center.x += self.view.bounds.width * 2
-                self.endDestinationLabel.center.x += self.view.bounds.width
+                self.endLocationTextField.center.x -= self.view.bounds.width * 2
+                self.endDestinationLabel.center.x -= self.view.bounds.width
             }
-
+        case "arrivalButton":
+            UIView.animate(withDuration: 0.5) {
+                self.arrivalButton.center.x -= self.view.bounds.width
+            }
+        case "departureButton":
+            UIView.animate(withDuration: 0.5) {
+                self.departureButton.center.x -= self.view.bounds.width
+            }
+        case "setTimeLabel":
+            UIView.animate(withDuration: 0.5) {
+                self.setTimeLabel.center.x -= self.view.bounds.width
+            }
         default:
             //Do Nothing
             return
@@ -264,7 +342,14 @@ class ModalNewPostViewController: UIViewController {
                 self.endDestinationLabel.center.x = self.view.center.x
                 self.endLocationTextField.center.x = self.view.center.x
             }
-            
+        case "setTimeButtons":
+            //Animate Start text Field on
+            UIView.animate(withDuration: 0.5) {
+                self.setTimeLabel.center.x = self.view.center.x
+                self.departureButton.center.x = self.view.center.x
+                self.arrivalButton.center.x = self.view.center.x
+            }
+        
         default:
             //Do nothing
             return
@@ -276,8 +361,29 @@ class ModalNewPostViewController: UIViewController {
         switch obj{
         case "endDestination":
             UIView.animate(withDuration: 0.5) {
-                self.endLocationTextField.center.x -= self.view.bounds.width * 2
-                self.endDestinationLabel.center.x -= self.view.bounds.width
+                self.endLocationTextField.center.x += self.view.bounds.width * 2
+                self.endDestinationLabel.center.x += self.view.bounds.width
+            }
+        case "startDestination":
+            UIView.animate(withDuration: 0.5) {
+                self.startLocationTextField.center.x += self.view.bounds.width * 2
+                self.startDestinationLabel.center.x += self.view.bounds.width
+            }
+        case "departure":
+            UIView.animate(withDuration: 0.5) {
+                self.setTimeLabel.center.x += self.view.bounds.width
+                self.departureButton.center.x += self.view.bounds.width
+            }
+        case "arrival":
+            UIView.animate(withDuration: 0.5) {
+                self.setTimeLabel.center.x += self.view.bounds.width
+                self.arrivalButton.center.x += self.view.bounds.width
+            }
+        case "desired":
+            UIView.animate(withDuration: 0.5) {
+                self.departureButton.center.x += self.view.bounds.width
+                self.arrivalButton.center.x += self.view.bounds.width
+                self.setTimeLabel.center.x += self.view.bounds.width
             }
         default:
             return
@@ -324,26 +430,76 @@ class ModalNewPostViewController: UIViewController {
         startLocationTextField.becomeFirstResponder()
     }
     
-    @IBAction func nextAction(_ sender: Any) {
+    func next(){
         switch self.status{
         case Status.TYPECHOSEN:
             animateON(obj: "endDestination")
             animateOFF(obj: "startDestination")
+            endLocationTextField.becomeFirstResponder()
             status = Status.STARTENTERED
         case Status.STARTENTERED:
             animateOFF(obj: "endDestination")
+            animateON(obj: "setTimeButtons")
+            view.endEditing( true )
             status = Status.ENDENTERED
+        case Status.ENDENTERED:
+            return
+        case Status.DESIREDCHOSEN:
+            //Animate off top button
+            if (trip == TypeOfTrip.DRIVING ){
+                animateOFF(obj: "drivingButton")
+            }else{
+                animateOFF(obj: "ridingButton")
+            }
+            
+            //Animate off departure/arrival button
+            if ( leaveTime == LeaveTime.DEPARTURE ){
+                animateOFF(obj: "departureButton")
+            }else{
+                animateOFF(obj: "arrivalButton")
+            }
+            
+            //animate on the textfield
+            animateON(obj: "textField")
+            
+            //Show the keyboard
+            postTextView.becomeFirstResponder()
+            
+            //Animate Text View in
+            UIView.animate(withDuration: 0.5) {
+                self.postTextView.frame = self.textViewFrame
+            }
+            
+            //Set Next Title for button
+            nextButton.setTitle("Post Trip", for: .normal)
+            
+            //Set Status
+            status = Status.FINISHED
+
+        case Status.FINISHED:
+            tripObject.postText = postTextView.text
+            view.endEditing( true )
+            self.dismiss(animated: true, completion: {
+                //Do something with this, idk what yet though, maybe refresh feed
+                Network.shared.createPost(trip: self.tripObject)
+            })
         default:
             return
         }
     }
+    
+    @IBAction func nextAction(_ sender: Any) {
+        next()
+    }
 
     @IBAction func backAction(_ sender: Any) {
         
+        //Always set Title to next if the user presses back
+        nextButton.setTitle("Next", for: .normal)
+        
         //Hide the key board if it is showing
         if isKeyboardShowing {
-            startLocationTextField.endEditing( true )
-            endLocationTextField.endEditing( true )
+            view.endEditing( true )
         }
         
         switch status{
@@ -365,18 +521,34 @@ class ModalNewPostViewController: UIViewController {
             self.backButton.isHidden = true
             self.nextButton.isHidden = true
             
-            animateOFF(obj: "startDestination")
+            animateBACK(obj: "startDestination")
             status = Status.INITIAL
             
         case Status.STARTENTERED:
+            startLocationTextField.becomeFirstResponder()
             animateBACK(obj: "endDestination")
             animateON(obj: "startDestination")
             status = Status.TYPECHOSEN
             
         case Status.ENDENTERED:
             animateON(obj: "endDestination")
-            status = Status.STARTENTERED
+            animateBACK(obj: "desired")
             
+            status = Status.STARTENTERED
+        case Status.DESIREDCHOSEN:
+            if ( leaveTime == LeaveTime.DEPARTURE ){
+                animateTopButtonDOWN(button: "departure")
+                animateBACK(obj: "arrival")
+                status = Status.ENDENTERED
+            }else{
+                animateTopButtonDOWN(button: "arrival")
+                animateBACK(obj: "departure")
+                status = Status.ENDENTERED
+            }
+        case Status.FINISHED:
+            UIView.animate(withDuration: 0.5) {
+                self.postTextView.frame = CGRect(x: self.view.bounds.size.width, y: self.view.bounds.size.height, width: 0, height: 0)
+            }
         default:
             return
             
@@ -384,10 +556,28 @@ class ModalNewPostViewController: UIViewController {
     }
     
     @IBAction func departureAction(_ sender: Any) {
-        
+        leaveTime = LeaveTime.DEPARTURE
+        animateOFF(obj: "setTimeLabel")
+        animateOFF(obj: "arrivalButton")
+        status = Status.DESIREDCHOSEN
+        showTimePicker()
     }
     
     @IBAction func arrivalAction(_ sender: Any) {
-        
+        leaveTime = LeaveTime.ARRIVAL
+        animateOFF(obj: "setTimeLabel")
+        animateOFF(obj: "departureButton")
+        status = Status.DESIREDCHOSEN
+        showTimePicker()
+    }
+    
+    func showTimePicker(){
+        let picker = DateTimePicker.show()
+        picker.highlightColor = UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
+        picker.isDatePickerOnly = false // to hide time and show only date picker
+        picker.completionHandler = { date in
+            print(date)
+            self.next()
+        }
     }
 }

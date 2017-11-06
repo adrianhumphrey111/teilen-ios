@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		274EECB7C07175164D9A7DA2 /* Pods_RoadDogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */; };
 		52250F3D1FA185DB00E97624 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52250F3E1FA185DC00E97624 /* Alamofire.framework */; };
+		52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */; };
+		52404AF91FB05AE500AD64FA /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF81FB05AE500AD64FA /* Trip.swift */; };
 		525151601FA8730300317BC5 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251515F1FA8730300317BC5 /* TripViewController.swift */; };
 		525151631FA875B600317BC5 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151621FA875B600317BC5 /* PostViewCell.swift */; };
 		525151651FA875D800317BC5 /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151641FA875D800317BC5 /* CommentViewCell.swift */; };
@@ -65,6 +67,8 @@
 		49FF0ABDA8FB00ADF0C3C2E6 /* Pods-RoadDoggTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggTests/Pods-RoadDoggTests.debug.xcconfig"; sourceTree = "<group>"; };
 		518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDoggTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52250F3E1FA185DC00E97624 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
+		52404AF81FB05AE500AD64FA /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		5251515F1FA8730300317BC5 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		525151621FA875B600317BC5 /* PostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
 		525151641FA875D800317BC5 /* CommentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewCell.swift; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 				5259A6BD1FA5D39700078161 /* User.swift */,
 				5259A6C11FA5FCEE00078161 /* Post.swift */,
 				5259A6C31FA5FEBD00078161 /* Comment.swift */,
+				52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */,
+				52404AF81FB05AE500AD64FA /* Trip.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -620,9 +626,11 @@
 				5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */,
 				525151AD1FAD65E100317BC5 /* ModalNewPostViewController.swift in Sources */,
 				525151631FA875B600317BC5 /* PostViewCell.swift in Sources */,
+				52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */,
 				525151AB1FAD5D0000317BC5 /* TabBarViewController.swift in Sources */,
 				525CA31B1FA003530037855E /* PostCommentView.swift in Sources */,
 				525CA3171FA0031C0037855E /* PostTextView.swift in Sources */,
+				52404AF91FB05AE500AD64FA /* Trip.swift in Sources */,
 				5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */,
 				525CA2D01F9D40A90037855E /* AppDelegate.swift in Sources */,
 				5259A6C21FA5FCEE00078161 /* Post.swift in Sources */,
@@ -795,7 +803,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J6P789DYDB;
+				DEVELOPMENT_TEAM = S57MEAYY9V;
 				INFOPLIST_FILE = RoadDogg/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -812,7 +820,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J6P789DYDB;
+				DEVELOPMENT_TEAM = S57MEAYY9V;
 				INFOPLIST_FILE = RoadDogg/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

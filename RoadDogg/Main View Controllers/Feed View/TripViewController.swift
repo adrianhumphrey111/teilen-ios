@@ -54,16 +54,17 @@ class TripViewController: UIViewController, PostViewCellDelegate {
     @IBOutlet weak var collectionViewBottomConstraint: NSLayoutConstraint!
     var bottomConstraint: NSLayoutConstraint?
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //Instantly show the keyboard if the person is commenting on the post
+        if ( commenting ){ inputTextField.becomeFirstResponder() }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.title = "Trip"
         tabBarController?.tabBar.isHidden = true
-
-        
-        //Instantly show the keyboard if the person is commenting on the post
-        if ( commenting ){ inputTextField.becomeFirstResponder() }
         
         //Set up Message View Container
         view.addSubview( messageInputContainerView )

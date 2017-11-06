@@ -84,6 +84,25 @@ class Network {
         }
     }
     
+    func createPost(trip: Trip) -> Promise<String> {
+        let escapedTextString = trip.postText?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let url = "\(self.baseurl)/api/createPost?user_key=\(self.user_key)&post_text=\(escapedTextString!)"
+        return Promise { fulfill, reject in
+            Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+                switch response.result {
+                case .success:
+                    //get response
+                    if let result = response.result.value{
+                        let json = result as! [String:Any]
+                        fulfill("comment")
+                    }
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }
+    }
+    
     
     
     func url(endpoint: String) -> String{

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7F7C56802CDF771EFBA03F48DC384FC1'
-               BlueprintName = 'PromiseKit'
+               BlueprintIdentifier = '9FA73695D1E57996C128686ADB24DCC2'
+               BlueprintName = 'DateTimePicker'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'PromiseKit.framework'>
+               BuildableName = 'DateTimePicker.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

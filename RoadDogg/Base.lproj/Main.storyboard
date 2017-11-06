@@ -234,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="312.80000000000001" y="-600.44977511244383"/>
+            <point key="canvasLocation" x="-5454" y="86"/>
         </scene>
         <!--Trip View Controller-->
         <scene sceneID="4os-Ln-4ju">
@@ -539,7 +539,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ga-gb-oYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1037.5999999999999" y="-600.44977511244383"/>
+            <point key="canvasLocation" x="-4718" y="86"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="RLk-f7-BlN">
@@ -555,7 +555,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWq-1c-alz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-434" y="261"/>
+            <point key="canvasLocation" x="-1207" y="-716"/>
         </scene>
         <!--Profile-->
         <scene sceneID="K0A-UU-JJF">
@@ -571,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hzW-Dw-phj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-434" y="1179"/>
+            <point key="canvasLocation" x="-65" y="-734"/>
         </scene>
         <!--New Post-->
         <scene sceneID="mep-ba-2Bm">
@@ -587,7 +587,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fr4-7Z-P6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-434" y="-1377"/>
+            <point key="canvasLocation" x="-2356" y="-716"/>
         </scene>
         <!--Modal New Post View Controller-->
         <scene sceneID="jRQ-hb-TaR">
@@ -619,6 +619,14 @@
                                                 <state key="normal" title="Exit"/>
                                                 <connections>
                                                     <action selector="exitAction:" destination="8Ce-JA-eB7" eventType="touchUpInside" id="2YK-g3-Vc3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S32-CL-zNk">
+                                                <rect key="frame" x="78" y="18" width="34" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="backAction:" destination="8Ce-JA-eB7" eventType="touchUpInside" id="JGF-bE-Zvk"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -665,14 +673,6 @@
                                                     <action selector="nextAction:" destination="8Ce-JA-eB7" eventType="touchUpInside" id="Y0P-bj-xgF"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S32-CL-zNk">
-                                                <rect key="frame" x="14" y="32" width="34" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Back"/>
-                                                <connections>
-                                                    <action selector="backAction:" destination="8Ce-JA-eB7" eventType="touchUpInside" id="JGF-bE-Zvk"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbx-LK-xCo">
                                                 <rect key="frame" x="116" y="153" width="129" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -694,21 +694,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Time of:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99z-d7-z77">
-                                                <rect key="frame" x="116" y="152" width="129" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkp-T4-Ueh">
-                                                <rect key="frame" x="205" y="70" width="44" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Arrival"/>
-                                                <connections>
-                                                    <action selector="arrivalAction:" destination="8Ce-JA-eB7" eventType="touchUpInside" id="hww-yU-jOz"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muh-dV-D0L">
                                                 <rect key="frame" x="192" y="32" width="70" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -717,6 +702,42 @@
                                                     <action selector="departureAction:" destination="8Ce-JA-eB7" eventType="touchUpInside" id="rMz-k8-ODk"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkp-T4-Ueh">
+                                                <rect key="frame" x="205" y="70" width="44" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Arrival"/>
+                                                <connections>
+                                                    <action selector="arrivalAction:" destination="8Ce-JA-eB7" eventType="touchUpInside" id="hww-yU-jOz"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ccm-e4-3Ds">
+                                                <rect key="frame" x="132" y="189" width="97" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max Radius Willing to Travel Outside of Route" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyT-cR-WH4">
+                                                <rect key="frame" x="88" y="127" width="198" height="51"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Desired Time Of:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99z-d7-z77">
+                                                <rect key="frame" x="108" y="118" width="159" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zba-6S-uEY">
+                                                <rect key="frame" x="323" y="68" width="70" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.46147149801254272" green="0.15247520804405212" blue="0.36466550827026367" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
@@ -741,7 +762,10 @@
                         <outlet property="endLocationTextField" destination="U5y-oo-NKA" id="gcC-4o-WIK"/>
                         <outlet property="exitButton" destination="IZD-Ha-5r7" id="xkm-0K-73k"/>
                         <outlet property="nextButton" destination="xi7-S3-MKe" id="n00-a7-ltJ"/>
+                        <outlet property="postTextView" destination="Zba-6S-uEY" id="fdc-KM-KdL"/>
                         <outlet property="profileImageView" destination="QHR-YU-W9c" id="oGZ-sK-roo"/>
+                        <outlet property="radiusLabel" destination="VyT-cR-WH4" id="l6p-Hu-o8Y"/>
+                        <outlet property="radiusTextField" destination="Ccm-e4-3Ds" id="mjk-9U-yfq"/>
                         <outlet property="ridingButton" destination="Pxu-5e-TjY" id="xHn-AB-Iev"/>
                         <outlet property="setTimeLabel" destination="99z-d7-z77" id="gWd-ho-0JZ"/>
                         <outlet property="startDestinationLabel" destination="Xbx-LK-xCo" id="57a-ZX-RdK"/>
@@ -750,7 +774,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTF-RO-fMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="269.60000000000002" y="-1378.56071964018"/>
+            <point key="canvasLocation" x="-2356" y="-14.842578710644679"/>
         </scene>
         <!--Map-->
         <scene sceneID="vhe-QR-nBc">
@@ -766,7 +790,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X41-Tr-Aca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-435" y="-2270"/>
+            <point key="canvasLocation" x="-3774" y="-734"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Kri-Gm-j9Y">
@@ -788,7 +812,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuV-Q9-nIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1660" y="-600"/>
+            <point key="canvasLocation" x="-2356" y="-1610"/>
         </scene>
         <!--Feed-->
         <scene sceneID="rHc-IB-3o4">
@@ -807,7 +831,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAR-Cr-CRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-435.19999999999999" y="-600"/>
+            <point key="canvasLocation" x="-4966" y="-734"/>
         </scene>
     </scenes>
 </document>

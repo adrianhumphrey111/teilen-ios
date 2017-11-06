@@ -11,6 +11,7 @@ target 'RoadDogg' do
   pod "PromiseKit", '~> 4.4'
   pod "PromiseKit/MapKit"          # MKDirections().promise().then { /*…*/ }
   pod "PromiseKit/CoreLocation"    # CLLocationManager.promise().then { /*…*/ }
+  pod 'DateTimePicker'
 
   target 'RoadDoggTests' do
     inherit! :search_paths
