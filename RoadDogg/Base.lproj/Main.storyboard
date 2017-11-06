@@ -635,7 +635,7 @@
                                         <rect key="frame" x="0.0" y="66" width="375" height="581"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0V-gT-hpz">
-                                                <rect key="frame" x="156" y="32" width="49" height="30"/>
+                                                <rect key="frame" x="74" y="32" width="49" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Driving"/>
                                                 <connections>
@@ -643,7 +643,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxu-5e-TjY">
-                                                <rect key="frame" x="159" y="83" width="43" height="30"/>
+                                                <rect key="frame" x="74" y="70" width="43" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Riding"/>
                                                 <connections>
@@ -681,19 +681,42 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsy-Yc-FNr">
-                                                <rect key="frame" x="124" y="227" width="121" height="21"/>
+                                                <rect key="frame" x="116" y="153" width="129" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5y-oo-NKA">
-                                                <rect key="frame" x="132" y="256" width="97" height="30"/>
+                                                <rect key="frame" x="132" y="189" width="97" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Time of:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99z-d7-z77">
+                                                <rect key="frame" x="116" y="152" width="129" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkp-T4-Ueh">
+                                                <rect key="frame" x="205" y="70" width="44" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Arrival"/>
+                                                <connections>
+                                                    <action selector="arrivalAction:" destination="8Ce-JA-eB7" eventType="touchUpInside" id="hww-yU-jOz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muh-dV-D0L">
+                                                <rect key="frame" x="192" y="32" width="70" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Departure"/>
+                                                <connections>
+                                                    <action selector="departureAction:" destination="8Ce-JA-eB7" eventType="touchUpInside" id="rMz-k8-ODk"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.46147149801254272" green="0.15247520804405212" blue="0.36466550827026367" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
@@ -710,7 +733,9 @@
                         <viewLayoutGuide key="safeArea" id="6Uw-MP-a31"/>
                     </view>
                     <connections>
+                        <outlet property="arrivalButton" destination="Jkp-T4-Ueh" id="qg8-FP-8Tq"/>
                         <outlet property="backButton" destination="S32-CL-zNk" id="48m-rl-pfU"/>
+                        <outlet property="departureButton" destination="Muh-dV-D0L" id="XTM-dN-oVg"/>
                         <outlet property="drivingButton" destination="c0V-gT-hpz" id="hKf-aa-3ll"/>
                         <outlet property="endDestinationLabel" destination="dsy-Yc-FNr" id="E62-lh-iQR"/>
                         <outlet property="endLocationTextField" destination="U5y-oo-NKA" id="gcC-4o-WIK"/>
@@ -718,6 +743,7 @@
                         <outlet property="nextButton" destination="xi7-S3-MKe" id="n00-a7-ltJ"/>
                         <outlet property="profileImageView" destination="QHR-YU-W9c" id="oGZ-sK-roo"/>
                         <outlet property="ridingButton" destination="Pxu-5e-TjY" id="xHn-AB-Iev"/>
+                        <outlet property="setTimeLabel" destination="99z-d7-z77" id="gWd-ho-0JZ"/>
                         <outlet property="startDestinationLabel" destination="Xbx-LK-xCo" id="57a-ZX-RdK"/>
                         <outlet property="startLocationTextField" destination="jRm-my-qGd" id="kg9-av-52X"/>
                     </connections>
