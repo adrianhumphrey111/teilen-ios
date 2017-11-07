@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 open class SearchTextField: UITextField {
     
     ////////////////////////////////////////////////////////////////////////
@@ -626,7 +627,12 @@ open class SearchTextFieldItem {
     public var title: String
     public var subtitle: String?
     public var image: UIImage?
-    public var address: AnyObject?
+    public var address: Address?
+    
+    public init(title: String, address: Address){
+        self.title = address.to_string()
+        self.address = address
+    }
     
     public init(title: String, subtitle: String?, image: UIImage?) {
         self.title = title
@@ -643,11 +649,9 @@ open class SearchTextFieldItem {
         self.title = title
     }
     
-    public init(title: String, address: AnyObject) {
-        self.title = title
-        self.address = address
-    }
 }
+
+
 
 public typealias SearchTextFieldItemHandler = (_ filteredResults: [SearchTextFieldItem], _ index: Int) -> Void
 

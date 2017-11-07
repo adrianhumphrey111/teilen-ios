@@ -27,8 +27,6 @@ public struct Address {
         if 0...self.terms.count ~= self.terms.count - 2 {
             self.state = self.terms[self.terms.count - 2]["value"] as! String
         }
-        
-        
     }
     
     func to_dict() -> [String : Any] {

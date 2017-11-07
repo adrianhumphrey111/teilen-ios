@@ -122,13 +122,10 @@ class ModalNewPostViewController: UIViewController {
     }
     
     @objc func textFieldDidChange(textField : UITextField){
-        print("The textfield did change")
         Network.shared.GooglePlacesFetch( address: startLocationTextField.text! ).then { results -> Void in
             var newFilter : [SearchTextFieldItem] = []
-            //Set the filter results with the results that were returned
-            print( "Results from Google => ")
             for result in results {
-                newFilter.append( SearchTextFieldItem( title: result.to_string() ) )
+                newFilter.append( SearchTextFieldItem( title: result.to_string() , address: result as AnyObject) )
             }
             self.startLocationTextField.filterItems( newFilter )
             self.endLocationTextField.filterItems( newFilter )
@@ -215,6 +212,8 @@ class ModalNewPostViewController: UIViewController {
             
             // Do whatever you want with the picked item
             self.startLocationTextField.text = item.title
+            print(item.address)
+            self.tripObject.startLocation = item.address! as! Address
         }
         
         //Handle What happens when pressed
@@ -225,6 +224,7 @@ class ModalNewPostViewController: UIViewController {
             
             // Do whatever you want with the picked item
             self.endLocationTextField.text = item.title
+            self.tripObject.endLocation = item.address! as! Address
         }
         
         //Labels
