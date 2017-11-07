@@ -13,6 +13,7 @@ import PromiseKit
 class Network {
     
     var baseurl = ""
+    var GooglePlacesApiWebServiceKey = "AIzaSyCL418H5jo-xpF2t3-1YmWsJktr48dU1Ho"
     let user_key = "agtzfmdvYWwtcmlzZXIRCxIEVXNlchiAgICAgICACgw"
     var loginEndpoint : String = "10.0.0.6/api/login"
     var searchEndpoint : String = "10.0.0.6/api/search"
@@ -86,9 +87,14 @@ class Network {
     
     func createPost(trip: Trip) -> Promise<String> {
         let escapedTextString = trip.postText?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let url = "\(self.baseurl)/api/createPost?user_key=\(self.user_key)&post_text=\(escapedTextString!)"
+        let url = "\(self.baseurl)/api/createPost"
+        let params : [String : Any] = ["user_key": self.user_key,
+                      "post_text": trip.postText!.encoded(),
+                      "trip": trip.to_dict()
+                    ]
+        print(params)
         return Promise { fulfill, reject in
-            Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
                 switch response.result {
                 case .success:
                     //get response
@@ -102,6 +108,32 @@ class Network {
             }
         }
     }
+    
+    func GooglePlacesFetch(address: String) -> Promise<[Address]> {
+        var results : [String] = []
+        var addresses : [Address] = []
+        let escapedTextString = address.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let url = "https://maps.googleapis.com/maps/api/place/queryautocomplete/json?key=\(self.GooglePlacesApiWebServiceKey)&input=\(escapedTextString!)"
+        return Promise { fulfill, reject in
+            Alamofire.request(url, method: .post, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+                switch response.result {
+                case .success:
+                    //get response
+                    if let result = response.result.value{
+                        let json = result as! [String:Any]
+                        let predictions = json["predictions"] as! [[String : AnyObject]]
+                        for prediction in predictions{
+                            addresses.append( Address(prediction: prediction ) )
+                        }
+                        fulfill( addresses )
+                    }
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }
+    }
+    
     
     
     

@@ -11,6 +11,8 @@
 		52250F3D1FA185DB00E97624 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52250F3E1FA185DC00E97624 /* Alamofire.framework */; };
 		52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */; };
 		52404AF91FB05AE500AD64FA /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF81FB05AE500AD64FA /* Trip.swift */; };
+		52404AFB1FB1165D00AD64FA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFA1FB1165C00AD64FA /* StringExtension.swift */; };
+		52404AFD1FB11C0100AD64FA /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFC1FB11C0100AD64FA /* Address.swift */; };
 		525151601FA8730300317BC5 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251515F1FA8730300317BC5 /* TripViewController.swift */; };
 		525151631FA875B600317BC5 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151621FA875B600317BC5 /* PostViewCell.swift */; };
 		525151651FA875D800317BC5 /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151641FA875D800317BC5 /* CommentViewCell.swift */; };
@@ -69,6 +71,8 @@
 		52250F3E1FA185DC00E97624 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		52404AF81FB05AE500AD64FA /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		52404AFA1FB1165C00AD64FA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		52404AFC1FB11C0100AD64FA /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		5251515F1FA8730300317BC5 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		525151621FA875B600317BC5 /* PostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
 		525151641FA875D800317BC5 /* CommentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewCell.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				5259A6C31FA5FEBD00078161 /* Comment.swift */,
 				52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */,
 				52404AF81FB05AE500AD64FA /* Trip.swift */,
+				52404AFA1FB1165C00AD64FA /* StringExtension.swift */,
+				52404AFC1FB11C0100AD64FA /* Address.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -615,6 +621,8 @@
 				525CA3191FA0033E0037855E /* PostActionView.swift in Sources */,
 				525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */,
 				525CA31D1FA0036B0037855E /* PostAddCommentView.swift in Sources */,
+				52404AFB1FB1165D00AD64FA /* StringExtension.swift in Sources */,
+				52404AFD1FB11C0100AD64FA /* Address.swift in Sources */,
 				525151651FA875D800317BC5 /* CommentViewCell.swift in Sources */,
 				5259A6C01FA5FB8900078161 /* FeedPostCell.swift in Sources */,
 				525CA3201FA127060037855E /* Network.swift in Sources */,
@@ -803,7 +811,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S57MEAYY9V;
+				DEVELOPMENT_TEAM = J6P789DYDB;
 				INFOPLIST_FILE = RoadDogg/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -820,7 +828,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S57MEAYY9V;
+				DEVELOPMENT_TEAM = J6P789DYDB;
 				INFOPLIST_FILE = RoadDogg/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

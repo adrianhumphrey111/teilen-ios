@@ -22,6 +22,7 @@ struct Comment{
     init(comment: [String : Any] ){
         self.userKey = comment["user_key"] as! String
         self.text = comment["text"] as! String
+        self.text = self.text.decoded()
         self.createdAt = comment["created_at"] as! String
         self.postKey = comment["post_key"] as! String
         //self.commentKey = comment["comment_key"] as! String

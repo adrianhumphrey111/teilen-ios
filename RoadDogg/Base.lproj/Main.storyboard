@@ -658,7 +658,7 @@
                                                     <action selector="ridingAction:" destination="8Ce-JA-eB7" eventType="touchUpInside" id="x5h-TU-DGv"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jRm-my-qGd">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jRm-my-qGd" customClass="SearchTextField" customModule="SearchTextField">
                                                 <rect key="frame" x="132" y="189" width="97" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
@@ -687,7 +687,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5y-oo-NKA">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5y-oo-NKA" customClass="SearchTextField" customModule="SearchTextField">
                                                 <rect key="frame" x="132" y="189" width="97" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
@@ -769,7 +769,7 @@
                         <outlet property="ridingButton" destination="Pxu-5e-TjY" id="xHn-AB-Iev"/>
                         <outlet property="setTimeLabel" destination="99z-d7-z77" id="gWd-ho-0JZ"/>
                         <outlet property="startDestinationLabel" destination="Xbx-LK-xCo" id="57a-ZX-RdK"/>
-                        <outlet property="startLocationTextField" destination="jRm-my-qGd" id="kg9-av-52X"/>
+                        <outlet property="startLocationTextField" destination="jRm-my-qGd" id="1Vn-Tr-ODF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTF-RO-fMx" userLabel="First Responder" sceneMemberID="firstResponder"/>

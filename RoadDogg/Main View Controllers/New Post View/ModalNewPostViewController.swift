@@ -8,6 +8,7 @@
 
 import UIKit
 import DateTimePicker
+import SearchTextField
 
 enum Status {
     case INITIAL
@@ -46,8 +47,8 @@ class ModalNewPostViewController: UIViewController {
     //Buttons and label to be animated
     @IBOutlet weak var drivingButton: UIButton!
     @IBOutlet weak var ridingButton: UIButton!
-    @IBOutlet weak var startLocationTextField: UITextField!
-    @IBOutlet weak var endLocationTextField: UITextField!
+    @IBOutlet weak var startLocationTextField: SearchTextField!
+    @IBOutlet weak var endLocationTextField: SearchTextField!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var startDestinationLabel: UILabel!
@@ -80,8 +81,9 @@ class ModalNewPostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Set TextView Delegate
-        //postTextView.delegate = self
+        //Set selectors for textfields
+        startLocationTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
+        endLocationTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
         
         //Set the local label height
         TOP_BUTTON_HEIGHT = 50
@@ -119,6 +121,21 @@ class ModalNewPostViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @objc func textFieldDidChange(textField : UITextField){
+        print("The textfield did change")
+        Network.shared.GooglePlacesFetch( address: startLocationTextField.text! ).then { results -> Void in
+            var newFilter : [SearchTextFieldItem] = []
+            //Set the filter results with the results that were returned
+            print( "Results from Google => ")
+            for result in results {
+                newFilter.append( SearchTextFieldItem( title: result.to_string() ) )
+            }
+            self.startLocationTextField.filterItems( newFilter )
+            self.endLocationTextField.filterItems( newFilter )
+        }
+    }
+    
+    
     @objc func handleKeyboardNotification(notification: NSNotification){
         if let userInfo = notification.userInfo {
             let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as! CGRect
@@ -132,7 +149,6 @@ class ModalNewPostViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }, completion: { (completed) in
                 //Do Nothing
-                
             })
         }
     }
@@ -169,6 +185,47 @@ class ModalNewPostViewController: UIViewController {
         radiusTextField.center.x += self.view.bounds.width * 2
         radiusTextField.frame.size.width = self.view.frame.width - 40
         
+        //Set Up TextField AutoComplete START
+        startLocationTextField.theme = SearchTextFieldTheme.darkTheme()
+        startLocationTextField.theme.font = UIFont.systemFont(ofSize: 12)
+        startLocationTextField.theme.bgColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.3)
+        startLocationTextField.theme.borderColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        startLocationTextField.theme.separatorColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.5)
+        startLocationTextField.theme.cellHeight = 50
+        startLocationTextField.maxNumberOfResults = 4
+        startLocationTextField.maxResultsListHeight = 200
+        startLocationTextField.minCharactersNumberToStartFiltering = 2
+        
+        //Set Up TextField AutoComplete END
+        endLocationTextField.theme = SearchTextFieldTheme.darkTheme()
+        endLocationTextField.theme.font = UIFont.systemFont(ofSize: 12)
+        endLocationTextField.theme.bgColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.3)
+        endLocationTextField.theme.borderColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        endLocationTextField.theme.separatorColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.5)
+        endLocationTextField.theme.cellHeight = 50
+        endLocationTextField.maxNumberOfResults = 4
+        endLocationTextField.maxResultsListHeight = 200
+        endLocationTextField.minCharactersNumberToStartFiltering = 3
+        
+        //Handle What happens when pressed
+        startLocationTextField.itemSelectionHandler = { filteredResults, itemPosition in
+            // Just in case you need the item position
+            let item = filteredResults[itemPosition]
+            print("Item at position \(itemPosition): \(item.title)")
+            
+            // Do whatever you want with the picked item
+            self.startLocationTextField.text = item.title
+        }
+        
+        //Handle What happens when pressed
+        endLocationTextField.itemSelectionHandler = { filteredResults, itemPosition in
+            // Just in case you need the item position
+            let item = filteredResults[itemPosition]
+            print("Item at position \(itemPosition): \(item.title)")
+            
+            // Do whatever you want with the picked item
+            self.endLocationTextField.text = item.title
+        }
         
         //Labels
         startDestinationLabel.center.x += self.view.bounds.width

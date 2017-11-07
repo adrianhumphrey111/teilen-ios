@@ -46,6 +46,7 @@ class Post{
     init(post: [String: Any]){
         self.user = User( user: post["user"] as! [String : Any] )
         self.text = post["text"] as! String
+        self.text = self.text.decoded()
         self.postKey = post["post_key"] as! String
         self.likeCount = post["like_count"] as! Int
         self.commentCount = post["comment_count"] as! Int

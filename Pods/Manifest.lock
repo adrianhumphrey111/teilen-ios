@@ -16,6 +16,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.4.0):
     - PromiseKit/CorePromise
+  - SearchTextField (1.1.8)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5.1)
@@ -23,12 +24,14 @@ DEPENDENCIES:
   - PromiseKit (~> 4.4)
   - PromiseKit/CoreLocation
   - PromiseKit/MapKit
+  - SearchTextField
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   DateTimePicker: 518bffa5438ef83a7a687cc4d5e187e5c12012b8
   PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
+  SearchTextField: 1d43b423c2acd3a9e2b37a74180e0cb137fcf1e7
 
-PODFILE CHECKSUM: e62fb33ef3439ad4b50064ea4cd504a70cb33a4e
+PODFILE CHECKSUM: 92dc9512b534a23180e9101d3c48e909d4d370b3
 
 COCOAPODS: 1.1.1

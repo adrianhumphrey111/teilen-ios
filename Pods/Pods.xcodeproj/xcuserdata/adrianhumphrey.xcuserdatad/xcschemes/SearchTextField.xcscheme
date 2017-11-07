@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D94FFCB8144C3AF4345E020861A9727D"
-               BuildableName = "Pods_RoadDoggTests.framework"
-               BlueprintName = "Pods-RoadDoggTests"
+               BlueprintIdentifier = "716E41623D37B4539C6DC58358E1EBFA"
+               BuildableName = "SearchTextField.framework"
+               BlueprintName = "SearchTextField"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D94FFCB8144C3AF4345E020861A9727D"
-            BuildableName = "Pods_RoadDoggTests.framework"
-            BlueprintName = "Pods-RoadDoggTests"
+            BlueprintIdentifier = "716E41623D37B4539C6DC58358E1EBFA"
+            BuildableName = "SearchTextField.framework"
+            BlueprintName = "SearchTextField"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
