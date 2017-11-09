@@ -14,14 +14,14 @@ class Network {
     
     var baseurl = ""
     var GooglePlacesApiWebServiceKey = "AIzaSyCL418H5jo-xpF2t3-1YmWsJktr48dU1Ho"
-    let user_key = "agtzfmdvYWwtcmlzZXIRCxIEVXNlchiAgICAgICACgw"
+    let user_key = "ag1kZXZ-Z29hbC1yaXNlchELEgRVc2VyGICAgICAgIAKDA" //Production Perla key => agtzfmdvYWwtcmlzZXIRCxIEVXNlchiAgICAgICACgw
     var loginEndpoint : String = "10.0.0.6/api/login"
     var searchEndpoint : String = "10.0.0.6/api/search"
     var likePostEndpoint : String = "10.0.0.6/api/likePost"
     var createPostEndpoint : String = "10.0.0.6/api/createPost"
     var fetchPostEndpoint : String = "10.0.0.6/api/fetchPost"
     
-    static let shared = Network(baseURL: "https://goal-rise.appspot.com")
+    static let shared = Network(baseURL: "http://localhost:8080") //https://goal-rise.appspot.com
     
     init(baseURL: String) {
         self.baseurl = baseURL
@@ -74,7 +74,6 @@ class Network {
                     if let result = response.result.value{
                         let json = result as! [String:Any]
                         let jsonComment = json["comment"] as! [String: Any]
-                        print(jsonComment)
                         let comment = Comment(comment: jsonComment)
                         fulfill(comment)
                     }
@@ -85,14 +84,14 @@ class Network {
         }
     }
     
-    func createPost(trip: Trip) -> Promise<String> {
+    func createPost(trip: Trip) -> Promise<[String]> {
         let escapedTextString = trip.postText?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let url = "\(self.baseurl)/api/createPost"
         let params : [String : Any] = ["user_key": self.user_key,
                       "post_text": trip.postText!.encoded(),
                       "trip": trip.to_dict()
                     ]
-        print(params)
+        var keys : [String] = []
         return Promise { fulfill, reject in
             Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
                 switch response.result {
@@ -100,7 +99,11 @@ class Network {
                     //get response
                     if let result = response.result.value{
                         let json = result as! [String:Any]
-                        fulfill("comment")
+                        let post_key = json["post_key"] as! String
+                        let trip_key = json["trip_key"] as! String
+                        keys.append(post_key)
+                        keys.append(trip_key)
+                        fulfill(keys)
                     }
                 case .failure(let error):
                     reject(error)

@@ -24,8 +24,8 @@ struct Trip {
     
     func to_dict() -> [String: Any]{
         var dict : [String: Any] = [:]
-        dict["startAddress"] = self.startLocation.to_dict()
-        dict["endAddress"] = self.endLocation.to_dict()
+        dict["startAddress"] = self.startLocation != nil ? self.startLocation.to_dict() : ""
+        dict["endAddress"] = self.endLocation != nil ? self.endLocation.to_dict() : ""
         dict["role"] = self.role != nil ? self.role : ""
         dict["eta"] = self.eta != nil ? self.eta : ""
         dict["time"] = self.time != nil ? self.time.to_string() : ""

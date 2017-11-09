@@ -40,6 +40,21 @@ public struct Address {
     }
     
     func to_string() -> String{
-        return self.address1 + " " + self.city + " " + self.state
+        var _return = true
+        if (self.address1 == nil){
+            print("self.address is nil")
+            _return = false
+        }
+        if (self.city == nil){
+            print("city is nil")
+            _return = false
+        }
+        
+        if (self.state == nil){
+            print("state is nil")
+            _return = false
+        }
+        
+        return _return ? self.address1 + " " + self.city + " " + self.state : ""
     }
 }

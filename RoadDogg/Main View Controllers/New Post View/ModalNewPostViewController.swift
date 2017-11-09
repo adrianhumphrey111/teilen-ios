@@ -82,8 +82,8 @@ class ModalNewPostViewController: UIViewController {
         super.viewDidLoad()
         
         //Set selectors for textfields
-        startLocationTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
-        endLocationTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
+        startLocationTextField.addTarget(self, action: #selector(textStartFieldDidChange), for: UIControlEvents.editingChanged)
+        endLocationTextField.addTarget(self, action: #selector(textEndFieldDidChange), for: UIControlEvents.editingChanged)
         
         //Set the local label height
         TOP_BUTTON_HEIGHT = 50
@@ -121,13 +121,22 @@ class ModalNewPostViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @objc func textFieldDidChange(textField : UITextField){
+    @objc func textStartFieldDidChange(textField : UITextField){
         Network.shared.GooglePlacesFetch( address: startLocationTextField.text! ).then { results -> Void in
             var newFilter : [SearchTextFieldItem] = []
             for result in results {
                 newFilter.append( SearchTextFieldItem( title: result.to_string() , address: result as AnyObject) )
             }
             self.startLocationTextField.filterItems( newFilter )
+        }
+    }
+    
+    @objc func textEndFieldDidChange(textField : UITextField){
+        Network.shared.GooglePlacesFetch( address: endLocationTextField.text! ).then { results -> Void in
+            var newFilter : [SearchTextFieldItem] = []
+            for result in results {
+                newFilter.append( SearchTextFieldItem( title: result.to_string() , address: result as AnyObject) )
+            }
             self.endLocationTextField.filterItems( newFilter )
         }
     }
@@ -202,27 +211,18 @@ class ModalNewPostViewController: UIViewController {
         endLocationTextField.theme.cellHeight = 50
         endLocationTextField.maxNumberOfResults = 4
         endLocationTextField.maxResultsListHeight = 200
-        endLocationTextField.minCharactersNumberToStartFiltering = 3
+        endLocationTextField.minCharactersNumberToStartFiltering = 2
         
         //Handle What happens when pressed
         startLocationTextField.itemSelectionHandler = { filteredResults, itemPosition in
-            // Just in case you need the item position
             let item = filteredResults[itemPosition]
-            print("Item at position \(itemPosition): \(item.title)")
-            
-            // Do whatever you want with the picked item
             self.startLocationTextField.text = item.title
-            print(item.address)
             self.tripObject.startLocation = item.address! as! Address
         }
         
         //Handle What happens when pressed
         endLocationTextField.itemSelectionHandler = { filteredResults, itemPosition in
-            // Just in case you need the item position
             let item = filteredResults[itemPosition]
-            print("Item at position \(itemPosition): \(item.title)")
-            
-            // Do whatever you want with the picked item
             self.endLocationTextField.text = item.title
             self.tripObject.endLocation = item.address! as! Address
         }
@@ -239,7 +239,6 @@ class ModalNewPostViewController: UIViewController {
         postTextView.textContainerInset = UIEdgeInsetsMake(20, 20, 20, 20)
         postTextView.placeholder = "What Would You Like To Share. . ."
         postTextView.textColor = UIColor.lightGray
-        
         
         //Set Up Profile Image View
         profileImageView.layer.borderWidth = 1
@@ -538,7 +537,10 @@ class ModalNewPostViewController: UIViewController {
             view.endEditing( true )
             self.dismiss(animated: true, completion: {
                 //Do something with this, idk what yet though, maybe refresh feed
-                Network.shared.createPost(trip: self.tripObject)
+                Network.shared.createPost(trip: self.tripObject).then { key_array -> Void in
+                    let post_key = key_array[0]
+                    let trip_key = key_array[1]
+                }
             })
         default:
             return
@@ -608,7 +610,6 @@ class ModalNewPostViewController: UIViewController {
             }
         default:
             return
-            
         }
     }
     
@@ -634,7 +635,17 @@ class ModalNewPostViewController: UIViewController {
         picker.isDatePickerOnly = false // to hide time and show only date picker
         picker.completionHandler = { date in
             print(date)
+            self.tripObject.eta = date.to_string()
             self.next()
+            
+            /* CONVERT STRING FROM SERVER TO DATE STRING
+             let dateFormatter = DateFormatter()
+             dateFormatter.dateFormat = "dd-mm-yyyy" //Your date format
+             dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00") //Current time zone
+             let date = dateFormatter.date(from: "01-01-2017") //according to date format your date string
+             print(date ?? "") //Convert String to Date
+             
+             */
         }
     }
 }

@@ -87,7 +87,7 @@ import UIKit
         }
     }
     
-    public var is12HourFormat = false {
+    public var is12HourFormat = true {
         didSet {
             configureView()
         }
@@ -136,7 +136,7 @@ import UIKit
     
     @objc open class func show(selected: Date? = nil, minimumDate: Date? = nil, maximumDate: Date? = nil) -> DateTimePicker {
         let dateTimePicker = DateTimePicker()
-        dateTimePicker.minimumDate = minimumDate ?? Date(timeIntervalSinceNow: -3600 * 24 * 365 * 20)
+        dateTimePicker.minimumDate = minimumDate ?? Date(timeIntervalSinceNow: 0)
         dateTimePicker.maximumDate = maximumDate ?? Date(timeIntervalSinceNow: 3600 * 24 * 365 * 20)
         dateTimePicker.selectedDate = selected ?? dateTimePicker.minimumDate
         assert(dateTimePicker.minimumDate.compare(dateTimePicker.maximumDate) == .orderedAscending, "Minimum date should be earlier than maximum date")
