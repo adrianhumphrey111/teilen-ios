@@ -28,7 +28,27 @@ class Network {
     }
     
     func getFeed(user_key: String) -> Promise<Feed> {
-        let url = "\(self.baseurl)/api/fetchPost?user_key=\(self.user_key)"
+        let url = "\(self.baseurl)/api/fetchFeed?user_key=\(self.user_key)"
+        return Promise { fulfill, reject in
+            //Make call to the API
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+                switch response.result {
+                case .success:
+                    //get response
+                    if let result = response.result.value{
+                        let posts = result as! [[String:Any]]
+                        var feed = Feed(feed: posts)
+                        fulfill(feed)
+                    }
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }
+    }
+    
+    func getUserFeed(user_key: String) -> Promise<Feed> {
+        let url = "\(self.baseurl)/api/fetchUserFeed?user_key=\(self.user_key)"
         return Promise { fulfill, reject in
             //Make call to the API
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in

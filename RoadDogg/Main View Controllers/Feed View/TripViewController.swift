@@ -12,6 +12,7 @@ import UIKit
 
 class TripViewController: UIViewController, PostViewCellDelegate {
     
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var post : Post!
     var comments: [Comment]!
@@ -176,17 +177,9 @@ class TripViewController: UIViewController, PostViewCellDelegate {
         inputTextField.becomeFirstResponder()
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    func pushPostViewController(vc: UIViewController) {
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension TripViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

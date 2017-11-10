@@ -10,6 +10,8 @@ import UIKit
 
 protocol PostViewCellDelegate {
     func comment()
+    func pushPostViewController( vc : UIViewController)
+    
 }
 
 class PostViewCell: UICollectionViewCell {
@@ -54,5 +56,12 @@ class PostViewCell: UICollectionViewCell {
     }
     
     @IBAction func shareAction(_ sender: Any) {
+    }
+    
+    
+    @IBAction func profilePressedAction(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
+        delegate?.pushPostViewController( vc: vc )
     }
 }

@@ -59,7 +59,7 @@ class FeedViewController: UIViewController, FeedPostDelegate {
             }
     }
     
-    func pushPostViewController( vc: TripViewController ){
+    func pushPostViewController( vc: UIViewController ){
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -72,6 +72,15 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier :"Trip") as! TripViewController
+        vc.post = self.posts[indexPath.row]
+        vc.commenting = false
+        vc.comments = self.posts[indexPath.row].comments
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize

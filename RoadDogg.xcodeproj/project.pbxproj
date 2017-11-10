@@ -13,6 +13,7 @@
 		52404AF91FB05AE500AD64FA /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF81FB05AE500AD64FA /* Trip.swift */; };
 		52404AFB1FB1165D00AD64FA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFA1FB1165C00AD64FA /* StringExtension.swift */; };
 		52404AFD1FB11C0100AD64FA /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFC1FB11C0100AD64FA /* Address.swift */; };
+		52474C6B1FB3F84300422CAD /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52474C6A1FB3F84300422CAD /* FriendProfileViewController.swift */; };
 		525151601FA8730300317BC5 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251515F1FA8730300317BC5 /* TripViewController.swift */; };
 		525151631FA875B600317BC5 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151621FA875B600317BC5 /* PostViewCell.swift */; };
 		525151651FA875D800317BC5 /* CommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151641FA875D800317BC5 /* CommentViewCell.swift */; };
@@ -42,6 +43,8 @@
 		525CA31B1FA003530037855E /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31A1FA003530037855E /* PostCommentView.swift */; };
 		525CA31D1FA0036B0037855E /* PostAddCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31C1FA0036B0037855E /* PostAddCommentView.swift */; };
 		525CA3201FA127060037855E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31F1FA127050037855E /* Network.swift */; };
+		52D7CAE91FB51BC700609EC1 /* FriendProfileHeadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D7CAE81FB51BC700609EC1 /* FriendProfileHeadViewCell.swift */; };
+		52DC32791FB547CE00A1DF6A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC32781FB547CE00A1DF6A /* Car.swift */; };
 		B431CA9B1A55685DF1F5152F /* Pods_RoadDoggUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3147D8D49BB4F218476403 /* Pods_RoadDoggUITests.framework */; };
 		FF67686558267A45D03A2D97 /* Pods_RoadDoggTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +76,7 @@
 		52404AF81FB05AE500AD64FA /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		52404AFA1FB1165C00AD64FA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		52404AFC1FB11C0100AD64FA /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		52474C6A1FB3F84300422CAD /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		5251515F1FA8730300317BC5 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		525151621FA875B600317BC5 /* PostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
 		525151641FA875D800317BC5 /* CommentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewCell.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 		525CA31A1FA003530037855E /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
 		525CA31C1FA0036B0037855E /* PostAddCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAddCommentView.swift; sourceTree = "<group>"; };
 		525CA31F1FA127050037855E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		52D7CAE81FB51BC700609EC1 /* FriendProfileHeadViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileHeadViewCell.swift; sourceTree = "<group>"; };
+		52DC32781FB547CE00A1DF6A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		A151700E925D25492F242BFA /* Pods-RoadDogg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDogg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg.debug.xcconfig"; sourceTree = "<group>"; };
 		D8C879DD9A51CD666468EA7F /* Pods-RoadDogg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDogg.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg.release.xcconfig"; sourceTree = "<group>"; };
 		EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDogg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +167,7 @@
 				5259A6BF1FA5FB8900078161 /* FeedPostCell.swift */,
 				525151621FA875B600317BC5 /* PostViewCell.swift */,
 				525151641FA875D800317BC5 /* CommentViewCell.swift */,
+				52D7CAE81FB51BC700609EC1 /* FriendProfileHeadViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -178,6 +185,7 @@
 			children = (
 				5259A6BB1FA5CF8400078161 /* Feed.swift */,
 				5259A6BD1FA5D39700078161 /* User.swift */,
+				52DC32781FB547CE00A1DF6A /* Car.swift */,
 				5259A6C11FA5FCEE00078161 /* Post.swift */,
 				5259A6C31FA5FEBD00078161 /* Comment.swift */,
 				52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */,
@@ -287,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				525CA3091F9FF61D0037855E /* ProfileViewController.swift */,
+				52474C6A1FB3F84300422CAD /* FriendProfileViewController.swift */,
 			);
 			path = "Profile View";
 			sourceTree = "<group>";
@@ -626,6 +635,7 @@
 				525151651FA875D800317BC5 /* CommentViewCell.swift in Sources */,
 				5259A6C01FA5FB8900078161 /* FeedPostCell.swift in Sources */,
 				525CA3201FA127060037855E /* Network.swift in Sources */,
+				52D7CAE91FB51BC700609EC1 /* FriendProfileHeadViewCell.swift in Sources */,
 				525CA2D21F9D40A90037855E /* FeedViewController.swift in Sources */,
 				5259A6BE1FA5D39700078161 /* User.swift in Sources */,
 				525151601FA8730300317BC5 /* TripViewController.swift in Sources */,
@@ -634,10 +644,12 @@
 				5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */,
 				525151AD1FAD65E100317BC5 /* ModalNewPostViewController.swift in Sources */,
 				525151631FA875B600317BC5 /* PostViewCell.swift in Sources */,
+				52DC32791FB547CE00A1DF6A /* Car.swift in Sources */,
 				52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */,
 				525151AB1FAD5D0000317BC5 /* TabBarViewController.swift in Sources */,
 				525CA31B1FA003530037855E /* PostCommentView.swift in Sources */,
 				525CA3171FA0031C0037855E /* PostTextView.swift in Sources */,
+				52474C6B1FB3F84300422CAD /* FriendProfileViewController.swift in Sources */,
 				52404AF91FB05AE500AD64FA /* Trip.swift in Sources */,
 				5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */,
 				525CA2D01F9D40A90037855E /* AppDelegate.swift in Sources */,

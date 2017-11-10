@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FeedPostDelegate{
-    func pushPostViewController( vc : TripViewController)
+    func pushPostViewController( vc : UIViewController)
 }
 
 class FeedPostCell: UICollectionViewCell {
@@ -48,6 +48,13 @@ class FeedPostCell: UICollectionViewCell {
         vc.post = self.post
         vc.commenting = true
         vc.comments = self.post?.comments
+        delegate?.pushPostViewController( vc: vc )
+    }
+    
+    @IBAction func profileImagePressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
+        vc.user = self.post?.user
         delegate?.pushPostViewController( vc: vc )
         
     }

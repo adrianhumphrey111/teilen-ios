@@ -14,12 +14,17 @@ struct User{
     var lastName : String = ""
     var profileUrl : String = ""
     var key : String = ""
+    var posts : [Post]?
+    var car : Car?
     
     init(user: [String : Any] ) {
         self.firstName = user["first_name"] as! String
         self.lastName = user["last_name"] as! String
         //self.profileUrl = user["profile_pic_url"] as! String
         self.key = user["user_key"] as! String
+        if let car = user["car"] as? [String: AnyObject]{
+            self.car = Car( car: car)
+        }
     }
 }
 
