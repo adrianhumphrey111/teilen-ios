@@ -62,6 +62,7 @@ class PostViewCell: UICollectionViewCell {
     @IBAction func profilePressedAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
+        vc.user = post.user
         delegate?.pushPostViewController( vc: vc )
     }
 }

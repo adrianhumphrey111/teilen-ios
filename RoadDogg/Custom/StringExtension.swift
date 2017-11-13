@@ -16,8 +16,12 @@ extension String {
     }
     
     func decoded() -> String{
-        let data = self.data(using: .utf8)!
-        return String(data: data, encoding: .nonLossyASCII)!
+        let data = self.data(using: .utf8)
+        if data == nil{
+            print("data is nil")
+        }
+        
+        return ( String(data: data!, encoding: .nonLossyASCII) == nil ) ? self : ""
     }
 }
 

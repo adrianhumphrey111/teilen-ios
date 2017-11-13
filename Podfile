@@ -13,7 +13,11 @@ target 'RoadDogg' do
   pod "PromiseKit/CoreLocation"    # CLLocationManager.promise().then { /*…*/ }
   pod 'DateTimePicker'
   pod 'SearchTextField'
-  
+  pod 'DZNEmptyDataSet'
+  pod 'RealmSwift'
+  pod 'FacebookCore'
+  pod 'Onboard'         #Onboarding Pages
+  pod "ILLoginKit"      #Login And Sign Up Pages
 
   target 'RoadDoggTests' do
     inherit! :search_paths

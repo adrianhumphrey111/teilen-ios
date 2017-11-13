@@ -12,10 +12,10 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("This is the first view to be shown")
         self.delegate = UIApplication.shared.delegate as? UITabBarControllerDelegate
         // Do any additional setup after loading the view.
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

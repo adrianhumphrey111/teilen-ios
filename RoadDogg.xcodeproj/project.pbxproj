@@ -43,6 +43,15 @@
 		525CA31B1FA003530037855E /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31A1FA003530037855E /* PostCommentView.swift */; };
 		525CA31D1FA0036B0037855E /* PostAddCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31C1FA0036B0037855E /* PostAddCommentView.swift */; };
 		525CA3201FA127060037855E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31F1FA127050037855E /* Network.swift */; };
+		52C03C421FB9604D00E06CE4 /* LoginCooridinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C03C411FB9604D00E06CE4 /* LoginCooridinator.swift */; };
+		52C03C441FB9726600E06CE4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C03C431FB9726600E06CE4 /* InitialViewController.swift */; };
+		52CFFEFE1FB67B3A00F93951 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFFEFD1FB67B3A00F93951 /* Models.swift */; };
+		52CFFF011FB7D59400F93951 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFFF001FB7D59400F93951 /* GeneralSettings.swift */; };
+		52CFFF061FB7DF1900F93951 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CFFF051FB7DF1800F93951 /* FBSDKCoreKit.framework */; };
+		52CFFF081FB7DF2700F93951 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CFFF071FB7DF2700F93951 /* FBSDKLoginKit.framework */; };
+		52CFFF0A1FB7E24600F93951 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CFFF091FB7E24500F93951 /* Bolts.framework */; };
+		52CFFF0C1FB7E50F00F93951 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CFFF0B1FB7E50E00F93951 /* OnBoarding.storyboard */; };
+		52CFFF0F1FB7E58E00F93951 /* OnBoardTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFFF0E1FB7E58E00F93951 /* OnBoardTestViewController.swift */; };
 		52D7CAE91FB51BC700609EC1 /* FriendProfileHeadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D7CAE81FB51BC700609EC1 /* FriendProfileHeadViewCell.swift */; };
 		52DC32791FB547CE00A1DF6A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC32781FB547CE00A1DF6A /* Car.swift */; };
 		B431CA9B1A55685DF1F5152F /* Pods_RoadDoggUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3147D8D49BB4F218476403 /* Pods_RoadDoggUITests.framework */; };
@@ -112,6 +121,16 @@
 		525CA31A1FA003530037855E /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
 		525CA31C1FA0036B0037855E /* PostAddCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAddCommentView.swift; sourceTree = "<group>"; };
 		525CA31F1FA127050037855E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		52C03C3D1FB7F42B00E06CE4 /* RoadDogg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RoadDogg.entitlements; sourceTree = "<group>"; };
+		52C03C411FB9604D00E06CE4 /* LoginCooridinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCooridinator.swift; sourceTree = "<group>"; };
+		52C03C431FB9726600E06CE4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		52CFFEFD1FB67B3A00F93951 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		52CFFF001FB7D59400F93951 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
+		52CFFF051FB7DF1800F93951 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		52CFFF071FB7DF2700F93951 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		52CFFF091FB7E24500F93951 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		52CFFF0B1FB7E50E00F93951 /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
+		52CFFF0E1FB7E58E00F93951 /* OnBoardTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardTestViewController.swift; sourceTree = "<group>"; };
 		52D7CAE81FB51BC700609EC1 /* FriendProfileHeadViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileHeadViewCell.swift; sourceTree = "<group>"; };
 		52DC32781FB547CE00A1DF6A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		A151700E925D25492F242BFA /* Pods-RoadDogg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDogg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,7 +145,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52CFFF0A1FB7E24600F93951 /* Bolts.framework in Frameworks */,
 				52250F3D1FA185DB00E97624 /* Alamofire.framework in Frameworks */,
+				52CFFF061FB7DF1900F93951 /* FBSDKCoreKit.framework in Frameworks */,
+				52CFFF081FB7DF2700F93951 /* FBSDKLoginKit.framework in Frameworks */,
 				274EECB7C07175164D9A7DA2 /* Pods_RoadDogg.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,12 +243,19 @@
 		525CA2CE1F9D40A90037855E /* RoadDogg */ = {
 			isa = PBXGroup;
 			children = (
+				52C03C3E1FB957C500E06CE4 /* Login  */,
+				52C03C3D1FB7F42B00E06CE4 /* RoadDogg.entitlements */,
+				52CFFF0D1FB7E54D00F93951 /* OnBoarding View Controllers */,
+				52CFFF041FB7DEC800F93951 /* Frameworks */,
+				52CFFEFF1FB7D57600F93951 /* General Settings */,
+				52CFFEFC1FB67B2A00F93951 /* Realm */,
 				5259A6BA1FA5CF6300078161 /* Custom */,
 				525CA31E1FA126E50037855E /* Network */,
 				525CA3111FA002E00037855E /* Views */,
 				525CA3001F9FF5650037855E /* Main View Controllers */,
 				525CA2CF1F9D40A90037855E /* AppDelegate.swift */,
 				525CA2D31F9D40A90037855E /* Main.storyboard */,
+				52CFFF0B1FB7E50E00F93951 /* OnBoarding.storyboard */,
 				525CA2D91F9D40A90037855E /* Assets.xcassets */,
 				525CA2DB1F9D40A90037855E /* LaunchScreen.storyboard */,
 				525CA2DE1F9D40A90037855E /* Info.plist */,
@@ -331,6 +360,49 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		52C03C3E1FB957C500E06CE4 /* Login  */ = {
+			isa = PBXGroup;
+			children = (
+				52C03C411FB9604D00E06CE4 /* LoginCooridinator.swift */,
+				52C03C431FB9726600E06CE4 /* InitialViewController.swift */,
+			);
+			path = "Login ";
+			sourceTree = "<group>";
+		};
+		52CFFEFC1FB67B2A00F93951 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				52CFFEFD1FB67B3A00F93951 /* Models.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		52CFFEFF1FB7D57600F93951 /* General Settings */ = {
+			isa = PBXGroup;
+			children = (
+				52CFFF001FB7D59400F93951 /* GeneralSettings.swift */,
+			);
+			path = "General Settings";
+			sourceTree = "<group>";
+		};
+		52CFFF041FB7DEC800F93951 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52CFFF091FB7E24500F93951 /* Bolts.framework */,
+				52CFFF071FB7DF2700F93951 /* FBSDKLoginKit.framework */,
+				52CFFF051FB7DF1800F93951 /* FBSDKCoreKit.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		52CFFF0D1FB7E54D00F93951 /* OnBoarding View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				52CFFF0E1FB7E58E00F93951 /* OnBoardTestViewController.swift */,
+			);
+			path = "OnBoarding View Controllers";
+			sourceTree = "<group>";
+		};
 		A77E6A269D45863CEC8EF928 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +494,11 @@
 					525CA2CB1F9D40A90037855E = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					525CA2E21F9D40A90037855E = {
 						CreatedOnToolsVersion = 9.0.1;
@@ -463,6 +540,7 @@
 				525CA2DD1F9D40A90037855E /* LaunchScreen.storyboard in Resources */,
 				525CA2DA1F9D40A90037855E /* Assets.xcassets in Resources */,
 				525CA2D51F9D40A90037855E /* Main.storyboard in Resources */,
+				52CFFF0C1FB7E50F00F93951 /* OnBoarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +706,7 @@
 				525CA30A1F9FF61D0037855E /* ProfileViewController.swift in Sources */,
 				525CA3151FA003090037855E /* PostHeaderView.swift in Sources */,
 				525CA3191FA0033E0037855E /* PostActionView.swift in Sources */,
+				52C03C441FB9726600E06CE4 /* InitialViewController.swift in Sources */,
 				525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */,
 				525CA31D1FA0036B0037855E /* PostAddCommentView.swift in Sources */,
 				52404AFB1FB1165D00AD64FA /* StringExtension.swift in Sources */,
@@ -636,9 +715,11 @@
 				5259A6C01FA5FB8900078161 /* FeedPostCell.swift in Sources */,
 				525CA3201FA127060037855E /* Network.swift in Sources */,
 				52D7CAE91FB51BC700609EC1 /* FriendProfileHeadViewCell.swift in Sources */,
+				52CFFEFE1FB67B3A00F93951 /* Models.swift in Sources */,
 				525CA2D21F9D40A90037855E /* FeedViewController.swift in Sources */,
 				5259A6BE1FA5D39700078161 /* User.swift in Sources */,
 				525151601FA8730300317BC5 /* TripViewController.swift in Sources */,
+				52C03C421FB9604D00E06CE4 /* LoginCooridinator.swift in Sources */,
 				525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */,
 				525CA2D81F9D40A90037855E /* RoadDogg.xcdatamodeld in Sources */,
 				5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */,
@@ -646,12 +727,14 @@
 				525151631FA875B600317BC5 /* PostViewCell.swift in Sources */,
 				52DC32791FB547CE00A1DF6A /* Car.swift in Sources */,
 				52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */,
+				52CFFF0F1FB7E58E00F93951 /* OnBoardTestViewController.swift in Sources */,
 				525151AB1FAD5D0000317BC5 /* TabBarViewController.swift in Sources */,
 				525CA31B1FA003530037855E /* PostCommentView.swift in Sources */,
 				525CA3171FA0031C0037855E /* PostTextView.swift in Sources */,
 				52474C6B1FB3F84300422CAD /* FriendProfileViewController.swift in Sources */,
 				52404AF91FB05AE500AD64FA /* Trip.swift in Sources */,
 				5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */,
+				52CFFF011FB7D59400F93951 /* GeneralSettings.swift in Sources */,
 				525CA2D01F9D40A90037855E /* AppDelegate.swift in Sources */,
 				5259A6C21FA5FCEE00078161 /* Post.swift in Sources */,
 				525CA3131FA002F50037855E /* PostView.swift in Sources */,
@@ -742,6 +825,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -752,7 +836,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -799,6 +883,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -822,12 +907,17 @@
 			baseConfigurationReference = A151700E925D25492F242BFA /* Pods-RoadDogg.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RoadDogg/RoadDogg.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J6P789DYDB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RoadDogg/Frameworks",
+				);
 				INFOPLIST_FILE = RoadDogg/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.HumpTrump.RoadDogg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HumphreyEnterprise.Teilen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -839,12 +929,17 @@
 			baseConfigurationReference = D8C879DD9A51CD666468EA7F /* Pods-RoadDogg.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RoadDogg/RoadDogg.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J6P789DYDB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RoadDogg/Frameworks",
+				);
 				INFOPLIST_FILE = RoadDogg/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.HumpTrump.RoadDogg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HumphreyEnterprise.Teilen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

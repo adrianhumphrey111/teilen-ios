@@ -119,14 +119,16 @@ extension FriendProfileViewController: UICollectionViewDelegate, UICollectionVie
         
         if indexPath.section == 0 {
             let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "friendProfileCell", for: indexPath) as! FriendProfileHeadViewCell
-            
+            var hasCar = true
             //If the user does not have a car, remove carstackview
             if ( self.user.car == nil ){
                 if ( cell.carStackView != nil ){
+                    hasCar = false
                     cell.carStackView.removeFromSuperview()
                     //cell.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 300)
                 }
             }
+            configureHeaderCell(hasCar: hasCar, cell: cell, user: self.user)
             return cell
         }
         else{
@@ -140,9 +142,27 @@ extension FriendProfileViewController: UICollectionViewDelegate, UICollectionVie
         }
     }
     
+    func configureHeaderCell(hasCar: Bool, cell: FriendProfileHeadViewCell, user: User){
+        cell.nameLabel.text = user.fullName
+        cell.ratingNumberLabel.text = user.ratingString
+        cell.numberOfTripsLabel.text = user.numberOfTripsString
+        
+        //Call an download and cache user profile image
+        
+        //If user has a car, insert car information
+        if let car = user.car {
+            //Call Network to download image if not already in cache
+            //cell.carImageView =
+            cell.mpgLabel.text = car.mpgString
+            cell.makeLabel.text = car.make
+            cell.yearLabel.text = car.year
+            cell.modelLabel.text = car.model
+        }
+    }
+    
     func configurePostCell( cell: FeedPostCell, post: Post){
         cell.post = post
-        cell.delegate = self 
+        cell.delegate = self
         cell.backgroundColor = .white
         
         //Set up Labels

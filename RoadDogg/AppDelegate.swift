@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import FBSDKCoreKit
+import Onboard
 
 
 @UIApplicationMain
@@ -15,10 +17,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
 
     var window: UIWindow?
 
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+
+        if (FBSDKAccessToken.current() == nil) {
+            //print("This user is already logged in, show the main page.")
+        }
+        else{
+            //print("Either have the user log in or sign in through facebook")
+            let storyboard = UIStoryboard(name: "OnBoarding", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier :"onboard1") as! OnBoardTestViewController
+            //Set up onBoarding experience
+            let firstPage = OnboardingContentViewController(title: "Welcome to Teilen!", body: "Automated and Social Ride Sharing", image: nil, buttonText: "Next") { () -> Void in
+    
+            }
+            firstPage.movesToNextViewController = true
+            firstPage.bodyLabel.font = firstPage.bodyLabel.font.withSize(18)
+            //Customize button firstPage.actionButton =
+            let secondPage = OnboardingContentViewController(title: "Ride Along With Friends", body: "Save your $$$ and time by riding around w/ friends. No more unreliable Ubers or pesky public transportation.", image: nil, buttonText: "Next") { () -> Void in
+            }
+            secondPage.movesToNextViewController = true
+            secondPage.bodyLabel.font = secondPage.bodyLabel.font.withSize(18)
+            
+            let thirdPage = OnboardingContentViewController(title: "Automatically Notified", body: "Teilen will notify you when a friend is heading in your preferred direction.", image: nil, buttonText: "Next") { () -> Void in
+                // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
+                print("Third Button")
+            }
+            thirdPage.movesToNextViewController = true
+            thirdPage.bodyLabel.font = thirdPage.bodyLabel.font.withSize(18)
+            
+            let fourthPage = OnboardingContentViewController(title: "Get Paid at Your Convenience !", body: "Make some extra cash driving others going your way.", image: nil, buttonText: "Get Started") { () -> Void in
+                // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
+                print("Fourth Button")
+                
+                //Login View
+                let login = InitialViewController()
+                
+                //Set the root view controller
+                self.window?.rootViewController = login
+            }
+            
+            //Customize the last button. What is the functionality? Get sTarted on What?
+            fourthPage.actionButton.layer.borderColor = UIColor.white.cgColor
+            fourthPage.actionButton.layer.borderWidth = 1.0
+            fourthPage.actionButton.layer.backgroundColor = UIColor.blue.cgColor
+            fourthPage.actionButton.layer.cornerRadius = 25
+
+            //Create the final view controller
+            var onboardingVC = OnboardingViewController(backgroundImage: nil, contents: [firstPage, secondPage, thirdPage, fourthPage])
+            onboardingVC?.view.backgroundColor = .blue
+            onboardingVC?.allowSkipping = true;
+            
+            //Set the root view controller
+            self.window?.rootViewController = onboardingVC
+        }
         return true
+    }
+    
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handled: Bool = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: options[.sourceApplication] as? String, annotation: options[.annotation])
+        return handled
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -46,13 +107,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-
         if (viewController is NewPostViewController) {
             let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPost")
             tabBarController.present(vc, animated: true, completion: nil)
             return false
         }
-
         return true
     }
 

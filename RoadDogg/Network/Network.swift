@@ -9,26 +9,42 @@
 import Foundation
 import Alamofire
 import PromiseKit
+import FBSDKCoreKit
 
 class Network {
     
-    var baseurl = ""
     var GooglePlacesApiWebServiceKey = "AIzaSyCL418H5jo-xpF2t3-1YmWsJktr48dU1Ho"
-    let user_key = "ag1kZXZ-Z29hbC1yaXNlchELEgRVc2VyGICAgICAgIAKDA" //Production Perla key => agtzfmdvYWwtcmlzZXIRCxIEVXNlchiAgICAgICACgw
+    
+    var baseurl = ""
+    var basedev = "http://localhost:8080/api"
+    var baseProd = "https:goal-rise.appspot.com/api"
+    
+    var user_key = ""
+    var prodKey = "agtzfmdvYWwtcmlzZXIRCxIEVXNlchiAgICAhLSKCgw"  //Production Adrian key
+    var devKey = "ag1kZXZ-Z29hbC1yaXNlchELEgRVc2VyGICAgICAgPAKDA" //Development Key Adrian
+    
     var loginEndpoint : String = "10.0.0.6/api/login"
     var searchEndpoint : String = "10.0.0.6/api/search"
     var likePostEndpoint : String = "10.0.0.6/api/likePost"
     var createPostEndpoint : String = "10.0.0.6/api/createPost"
     var fetchPostEndpoint : String = "10.0.0.6/api/fetchPost"
     
-    static let shared = Network(baseURL: "http://localhost:8080") //https://goal-rise.appspot.com
+    static let shared = Network(baseURL: "http://localhost:8080", dev: false) //https://goal-rise.appspot.com
     
-    init(baseURL: String) {
-        self.baseurl = baseURL
+    init(baseURL: String, dev: Bool) {
+        
+        if ( dev ){
+           self.baseurl = basedev
+            self.user_key = devKey
+        }
+        else{
+            self.baseurl = baseProd
+            self.user_key = prodKey
+        }
     }
     
     func getFeed(user_key: String) -> Promise<Feed> {
-        let url = "\(self.baseurl)/api/fetchFeed?user_key=\(self.user_key)"
+        let url = "\(self.baseurl)/fetchFeed?user_key=\(self.user_key)"
         return Promise { fulfill, reject in
             //Make call to the API
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
@@ -48,7 +64,7 @@ class Network {
     }
     
     func getUserFeed(user_key: String) -> Promise<Feed> {
-        let url = "\(self.baseurl)/api/fetchUserFeed?user_key=\(self.user_key)"
+        let url = "\(self.baseurl)/fetchUserFeed?user_key=\(self.user_key)"
         return Promise { fulfill, reject in
             //Make call to the API
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
@@ -68,7 +84,7 @@ class Network {
     }
     
     func likePost(postKey: String){
-        let url = "\(self.baseurl)/api/likePost?post_key=\(postKey)&user_key=\(self.user_key)"
+        let url = "\(self.baseurl)/likePost?post_key=\(postKey)&user_key=\(self.user_key)"
         Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseString { response in
             print("Success: \(response.result.isSuccess)")
             print("Response String: \(response.result.value!)")
@@ -76,7 +92,7 @@ class Network {
     }
     
     func unLikePost(postKey: String){
-        let url = "\(self.baseurl)/api/unlikePost?post_key=\(postKey)&user_key=\(self.user_key)"
+        let url = "\(self.baseurl)/unlikePost?post_key=\(postKey)&user_key=\(self.user_key)"
         Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseString { response in
             print("Success: \(response.result.isSuccess)")
             print("Response String: \(response.result.value!)")
@@ -85,7 +101,7 @@ class Network {
     
     func commentPost(postKey: String, comment: String) -> Promise<Comment> {
         let escapedCommentString = comment.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let url = "\(self.baseurl)/api/commentPost?post_key=\(postKey)&user_key=\(self.user_key)&comment=\(escapedCommentString!)"
+        let url = "\(self.baseurl)/commentPost?post_key=\(postKey)&user_key=\(self.user_key)&comment=\(escapedCommentString!)"
         return Promise { fulfill, reject in
             Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
                 switch response.result {
@@ -106,7 +122,7 @@ class Network {
     
     func createPost(trip: Trip) -> Promise<[String]> {
         let escapedTextString = trip.postText?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let url = "\(self.baseurl)/api/createPost"
+        let url = "\(self.baseurl)/createPost"
         let params : [String : Any] = ["user_key": self.user_key,
                       "post_text": trip.postText!.encoded(),
                       "trip": trip.to_dict()
@@ -157,8 +173,78 @@ class Network {
         }
     }
     
+    func retriveUserFromFacebook() -> Promise<User> {
+        
+        //Final once we have a app icon "first_name,age,last_name,email,education"
+        return Promise { fulfill, reject in
+            var request = FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields" : "id,first_name,last_name,email,picture"], httpMethod: "GET")
+            request?.start(completionHandler: { (connection, result, error) in
+                if (error == nil){
+                    let data:[String:AnyObject] = result as! [String : AnyObject]
+                    let firstName = data["first_name"]!
+                    let lastName = data["last_name"]!
+                    let facebook_id = data["id"]!
+                    let email = data["email"]!
+                    var picUrl = ""
+                    if let picData = data["picture"]!["data"] as? [String: AnyObject]{
+                        picUrl = picData["url"] as! String
+                    }
+                    var user = User()
+                    user.firstName = firstName as! String
+                    user.lastName = lastName as! String
+                    user.email = email as! String
+                    user.profileUrl = picUrl
+                    user.facebookId = facebook_id as! String
+                    print(data)
+                    fulfill(user)
+                }
+                else{
+                    print(error)
+                    reject(error!)
+                }
+            })
+        }
+    }
     
+    func createUser(user: User) -> Promise<String>{
+        let url = "\(self.baseurl)/createUser"
+        let params : [String : Any] = ["user": user.to_dict()]
+        return Promise { fulfill, reject in
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+                switch response.result {
+                case .success:
+                    if let result = response.result.value{
+                        let json = result as! [String: AnyObject]
+                        let userKey = json["user_key"] as! String
+                        fulfill( userKey )
+                    }
+                case .failure( let error ):
+                    reject(error)
+                }
+            }
+        }
+    }
     
+    func login(email: String, password: String) -> Promise<[String: AnyObject]>{
+        let url = "\(self.baseurl)/login"
+        let params : [String : Any] = ["email": email,
+                                       "password": password]
+        return Promise { fulfill, reject in
+            Alamofire.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+                switch response.result {
+                case .success:
+                    if let result = response.result.value{
+                        let json = result as! [String: AnyObject]
+                        fulfill( json )
+                    }
+                case .failure( let error ):
+                    reject(error)
+                }
+            }
+
+        }
+    }
+
     
     func url(endpoint: String) -> String{
         return self.baseurl + endpoint

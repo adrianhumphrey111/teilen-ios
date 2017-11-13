@@ -692,6 +692,9 @@
                                                                     <state key="normal" title="Posts">
                                                                         <color key="titleColor" red="0.030214915052056313" green="0.060525663197040558" blue="0.057985998690128326" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="postAction:" destination="E3u-Zd-VAd" eventType="touchUpInside" id="6hz-gp-iOt"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.3197072446346283" green="0.75708264112472534" blue="0.7970929741859436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -710,6 +713,9 @@
                                                                     <state key="normal" title="Reviews">
                                                                         <color key="titleColor" red="0.089072830975055695" green="0.090364538133144379" blue="0.026438768953084946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="reviewAction:" destination="E3u-Zd-VAd" eventType="touchUpInside" id="WtK-AQ-WCc"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.011786161921918392" green="0.43318098783493042" blue="0.98470348119735718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -761,7 +767,18 @@
                                         </constraints>
                                         <size key="customSize" width="375" height="493"/>
                                         <connections>
+                                            <outlet property="carImageView" destination="0mX-da-egD" id="VsQ-3Q-5v6"/>
                                             <outlet property="carStackView" destination="AYW-Eb-psn" id="vJr-0w-Enj"/>
+                                            <outlet property="makeLabel" destination="IMO-9i-6Hb" id="pUd-so-hMw"/>
+                                            <outlet property="modelLabel" destination="glD-sh-Hov" id="ysV-E3-xdl"/>
+                                            <outlet property="mpgLabel" destination="iyH-tY-MGg" id="rNN-uQ-8fT"/>
+                                            <outlet property="nameLabel" destination="mzC-I1-bFO" id="kQu-0H-WkC"/>
+                                            <outlet property="numberOfTripsLabel" destination="5QU-DS-59f" id="WMz-Dg-Ltt"/>
+                                            <outlet property="profileImageView" destination="Xsl-Dd-u2T" id="W99-MA-Ihv"/>
+                                            <outlet property="ratingNumberLabel" destination="7qu-U8-l15" id="Ks1-H4-FJN"/>
+                                            <outlet property="ratingsLabel" destination="xKG-gB-TcD" id="atu-c1-Twz"/>
+                                            <outlet property="tripsLabel" destination="Ytr-yC-avY" id="OTa-zA-52C"/>
+                                            <outlet property="yearLabel" destination="NtL-J8-Bj4" id="4LN-hG-4mr"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="postCell" id="OR5-C6-OkT" customClass="FeedPostCell" customModule="RoadDogg" customModuleProvider="target">
@@ -1237,7 +1254,7 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="Kri-Gm-j9Y">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Pwa-KZ-1Ky" customClass="TabBarViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="maintabview" automaticallyAdjustsScrollViewInsets="NO" id="Pwa-KZ-1Ky" customClass="TabBarViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DAP-NC-Yne">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

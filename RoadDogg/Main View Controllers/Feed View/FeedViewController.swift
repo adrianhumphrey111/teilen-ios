@@ -8,8 +8,9 @@
 
 import UIKit
 import PromiseKit
+import DZNEmptyDataSet
 
-class FeedViewController: UIViewController, FeedPostDelegate {
+class FeedViewController: UIViewController, FeedPostDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -19,8 +20,12 @@ class FeedViewController: UIViewController, FeedPostDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Set up emtpy dataset source
+        self.collectionView.emptyDataSetSource = self
+        self.collectionView.emptyDataSetDelegate = self
+        
+        //Grab all the posts
         fetchFeed()
-        self.collectionView.backgroundColor = .gray
         
         //Add Refresh To Collection View
         self.refresher = UIRefreshControl()
@@ -37,11 +42,6 @@ class FeedViewController: UIViewController, FeedPostDelegate {
         self.collectionView.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @objc func fetchFeed(){
         //Begin Refreshing
         self.collectionView!.refreshControl?.beginRefreshing()
