@@ -8,18 +8,26 @@
 
 import RealmSwift
 
-final class user: Object {
+class user: Object {
     @objc dynamic var firstName = ""
     @objc dynamic var lastName = ""
     @objc dynamic var profileUrl = ""
     @objc dynamic var key = ""
+    @objc dynamic var email = ""
+    @objc dynamic var facebookId = ""
+    @objc dynamic var numberOfTrips = 0
     @objc dynamic var profilePicture: Data? = nil
     @objc dynamic var car: car?
-    //let items = List<Task>()
+   // let posts = List<Task>()
     
     override static func primaryKey() -> String? {
         return "key"
     }
+}
+
+final class loggedInUser: user{
+   let posts = List<post>()
+    
 }
 
 final class car: Object {

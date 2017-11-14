@@ -45,6 +45,7 @@
 		525CA3201FA127060037855E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31F1FA127050037855E /* Network.swift */; };
 		52C03C421FB9604D00E06CE4 /* LoginCooridinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C03C411FB9604D00E06CE4 /* LoginCooridinator.swift */; };
 		52C03C441FB9726600E06CE4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C03C431FB9726600E06CE4 /* InitialViewController.swift */; };
+		52C03C461FBA6B4F00E06CE4 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C03C451FBA6B4E00E06CE4 /* Realm.swift */; };
 		52CFFEFE1FB67B3A00F93951 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFFEFD1FB67B3A00F93951 /* Models.swift */; };
 		52CFFF011FB7D59400F93951 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFFF001FB7D59400F93951 /* GeneralSettings.swift */; };
 		52CFFF061FB7DF1900F93951 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CFFF051FB7DF1800F93951 /* FBSDKCoreKit.framework */; };
@@ -124,6 +125,7 @@
 		52C03C3D1FB7F42B00E06CE4 /* RoadDogg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RoadDogg.entitlements; sourceTree = "<group>"; };
 		52C03C411FB9604D00E06CE4 /* LoginCooridinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCooridinator.swift; sourceTree = "<group>"; };
 		52C03C431FB9726600E06CE4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		52C03C451FBA6B4E00E06CE4 /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		52CFFEFD1FB67B3A00F93951 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		52CFFF001FB7D59400F93951 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		52CFFF051FB7DF1800F93951 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				52CFFEFD1FB67B3A00F93951 /* Models.swift */,
+				52C03C451FBA6B4E00E06CE4 /* Realm.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				525CA2D01F9D40A90037855E /* AppDelegate.swift in Sources */,
 				5259A6C21FA5FCEE00078161 /* Post.swift in Sources */,
 				525CA3131FA002F50037855E /* PostView.swift in Sources */,
+				52C03C461FBA6B4F00E06CE4 /* Realm.swift in Sources */,
 				525CA3041F9FF5D60037855E /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

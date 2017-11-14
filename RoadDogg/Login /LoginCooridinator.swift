@@ -109,6 +109,18 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                         //Either this is a new user, or this user already exist
                         print( "The user key that it returned was => " , userKey )
                         
+                        //Create a user to save in the datebase
+                        var userSelf = loggedInUser()
+                        userSelf.firstName = user.firstName
+                        userSelf.lastName = user.lastName
+                        userSelf.email = user.email
+                        userSelf.facebookId = user.facebookId
+                        userSelf.key = user.key
+                        userSelf.numberOfTrips = 0
+                        
+                        //Save logged in user to database
+                        RealmManager.shared.saveLoggedInUser(user: userSelf)
+                        
                         //Either way show the new screen
                         let root = self.rootViewController as! InitialViewController
                         root.showMainViewController()
