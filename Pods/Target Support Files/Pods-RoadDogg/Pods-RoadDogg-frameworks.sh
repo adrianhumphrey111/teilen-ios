@@ -97,6 +97,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift/RealmSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SearchTextField/SearchTextField.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Stripe/Stripe.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Validator/Validator.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -113,5 +114,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift/RealmSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SearchTextField/SearchTextField.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Stripe/Stripe.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Validator/Validator.framework"
 fi

@@ -40,6 +40,7 @@ PODS:
   - RealmSwift (2.10.0):
     - Realm (= 2.10.0)
   - SearchTextField (1.1.8)
+  - Stripe (11.2.0)
   - Validator (2.1.1)
 
 DEPENDENCIES:
@@ -54,6 +55,7 @@ DEPENDENCIES:
   - PromiseKit/MapKit
   - RealmSwift
   - SearchTextField
+  - Stripe
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -69,8 +71,9 @@ SPEC CHECKSUMS:
   Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
   RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
   SearchTextField: 1d43b423c2acd3a9e2b37a74180e0cb137fcf1e7
+  Stripe: 898f83a95d72180c6eb4acd65b2ae6158fc6a8bd
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: cf7a6ad7840b3e696ef73ca29cb4019385cf5e63
+PODFILE CHECKSUM: 724500b9bd9866f32652b8f8b93c6ce0de19b68f
 
 COCOAPODS: 1.1.1
