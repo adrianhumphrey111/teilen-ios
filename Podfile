@@ -18,6 +18,7 @@ target 'RoadDogg' do
   pod 'FacebookCore'
   pod 'Onboard'         #Onboarding Pages
   pod "ILLoginKit"      #Login And Sign Up Pages
+  pod 'Stripe'          #Stripe SDK to handle payents
 
   target 'RoadDoggTests' do
     inherit! :search_paths

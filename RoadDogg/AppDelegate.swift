@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
 
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
-        if (FBSDKAccessToken.current() == nil) {
+        if (FBSDKAccessToken.current() != nil) {
             //print("This user is already logged in, show the main page.")
         }
         else{
