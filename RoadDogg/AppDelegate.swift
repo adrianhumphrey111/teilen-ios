@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
 
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
-        if (FBSDKAccessToken.current() != nil) {
-            //print("This user is already logged in, show the main page.")
+        if ( RealmManager.shared.isLoggedin() ) {
+            print("This user is already logged in, show the main page.")
         }
         else{
             //print("Either have the user log in or sign in through facebook")

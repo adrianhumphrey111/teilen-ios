@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import FBSDKCoreKit
 
 //SinlgeTon Realm to handle all data persistence
 class RealmManager {
@@ -34,7 +35,7 @@ class RealmManager {
     }
     
     @objc func isLoggedin() -> Bool{
-        return self.loggedIn
+        return ( self.loggedIn || ( FBSDKAccessToken.current() != nil ) )
     }
     
     @objc func getLoggedInUser() {
