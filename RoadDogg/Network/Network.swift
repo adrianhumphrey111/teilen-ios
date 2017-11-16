@@ -23,12 +23,6 @@ class Network {
     var prodKey = "agtzfmdvYWwtcmlzZXIRCxIEVXNlchiAgICAhLSKCgw"  //Production Adrian key
     var devKey = "ag1kZXZ-Z29hbC1yaXNlchELEgRVc2VyGICAgICAgPAKDA" //Development Key Adrian
     
-    var loginEndpoint : String = "10.0.0.6/api/login"
-    var searchEndpoint : String = "10.0.0.6/api/search"
-    var likePostEndpoint : String = "10.0.0.6/api/likePost"
-    var createPostEndpoint : String = "10.0.0.6/api/createPost"
-    var fetchPostEndpoint : String = "10.0.0.6/api/fetchPost"
-    
     static let shared = Network(baseURL: "http://localhost:8080", dev: false) //https://goal-rise.appspot.com
     
     init(baseURL: String, dev: Bool) {
@@ -41,9 +35,17 @@ class Network {
             self.baseurl = baseProd
             self.user_key = prodKey
         }
+        
+        if let user = RealmManager.shared.selfUser{
+            self.user_key = user.key
+        }
+        else{
+            print("No calls will work, because there is no logged in user")
+            //Handle this situation
+        }
     }
     
-    func getFeed(user_key: String) -> Promise<Feed> {
+    func getFeed() -> Promise<Feed> {
         let url = "\(self.baseurl)/fetchFeed?user_key=\(self.user_key)"
         return Promise { fulfill, reject in
             //Make call to the API
@@ -53,7 +55,7 @@ class Network {
                     //get response
                     if let result = response.result.value{
                         let posts = result as! [[String:Any]]
-                        var feed = Feed(feed: posts)
+                        let feed = Feed(feed: posts)
                         fulfill(feed)
                     }
                 case .failure(let error):
@@ -73,7 +75,7 @@ class Network {
                     //get response
                     if let result = response.result.value{
                         let posts = result as! [[String:Any]]
-                        var feed = Feed(feed: posts)
+                        let feed = Feed(feed: posts)
                         fulfill(feed)
                     }
                 case .failure(let error):
@@ -121,7 +123,6 @@ class Network {
     }
     
     func createPost(trip: Trip) -> Promise<[String]> {
-        let escapedTextString = trip.postText?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let url = "\(self.baseurl)/createPost"
         let params : [String : Any] = ["user_key": self.user_key,
                       "post_text": trip.postText!.encoded(),
@@ -149,7 +150,6 @@ class Network {
     }
     
     func GooglePlacesFetch(address: String) -> Promise<[Address]> {
-        var results : [String] = []
         var addresses : [Address] = []
         let escapedTextString = address.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let url = "https://maps.googleapis.com/maps/api/place/queryautocomplete/json?key=\(self.GooglePlacesApiWebServiceKey)&input=\(escapedTextString!)"
@@ -177,7 +177,7 @@ class Network {
         
         //Final once we have a app icon "first_name,age,last_name,email,education"
         return Promise { fulfill, reject in
-            var request = FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields" : "id,first_name,last_name,email,picture"], httpMethod: "GET")
+            let request = FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields" : "id,first_name,last_name,email,picture"], httpMethod: "GET")
             request?.start(completionHandler: { (connection, result, error) in
                 if (error == nil){
                     let data:[String:AnyObject] = result as! [String : AnyObject]
@@ -199,14 +199,21 @@ class Network {
                     fulfill(user)
                 }
                 else{
-                    print(error)
+                    print(error as Any)
                     reject(error!)
                 }
             })
         }
     }
     
-    func createUser(user: User) -> Promise<String>{
+    /*
+     Create user sends a user object to the teilen-ride api to create a user in the data base
+     For every user created, there is also a customer account created,
+     returns dict = {
+     "user_key" : "lkjdf983rhkfds09u",
+     "stripe_account_id" : "acct_akldjfa08"
+    */
+    func createUser(user: User) -> Promise<[String: AnyObject]>{
         let url = "\(self.baseurl)/createUser"
         let params : [String : Any] = ["user": user.to_dict()]
         return Promise { fulfill, reject in
@@ -215,8 +222,7 @@ class Network {
                 case .success:
                     if let result = response.result.value{
                         let json = result as! [String: AnyObject]
-                        let userKey = json["user_key"] as! String
-                        fulfill( userKey )
+                        fulfill( json )
                     }
                 case .failure( let error ):
                     reject(error)

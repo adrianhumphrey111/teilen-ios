@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import FBSDKCoreKit
 import Onboard
+import Stripe
 
 
 @UIApplicationMain
@@ -17,11 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
 
     var window: UIWindow?
 
-    
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        //Facebook SDK
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        //Stripe SDK
+        STPPaymentConfiguration.shared().publishableKey = "pk_live_rJjV7QnJ5N1zp5e8QSSTAjOt"
 
         if ( RealmManager.shared.isLoggedin() ) {
             print("This user is already logged in, show the main page.")

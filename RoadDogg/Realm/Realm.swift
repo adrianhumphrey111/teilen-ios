@@ -40,7 +40,10 @@ class RealmManager {
     
     @objc func getLoggedInUser() {
         if( self.realm.objects(loggedInUser.self).count > 0 ) {
+            print("There is a logged in user saved to databases")
            self.selfUser = self.realm.objects( loggedInUser.self )[0]  //There should only be one
+        }else{
+            print("There is no user saved in databses")
         }
     }
     

@@ -50,7 +50,19 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
         Network.shared.login(email: email, password: password).then { result -> Void in
             let success = result["result"] as! Bool
             if ( success ){
-                print("You have successfully logged in!")
+                let user = result["user"] as! [String: AnyObject]
+                let userKey = user["user_key"] as! String
+                let stripeAccountId = user["stripe_account_id"] as! String
+                var loggedinUser = User()
+                loggedinUser.firstName = user["first_name"] as! String
+                loggedinUser.lastName = user["last_name"] as! String
+                loggedinUser.rating = user["rating"] as! Float
+                loggedinUser.email = user["email"] as! String
+                loggedinUser.numberOfTrips = user["numberOfCompletedTrips"] as! Int
+                
+                //Save user to persistence
+                self.saveUserToDatabase(user: loggedinUser, userKey: userKey, accId: stripeAccountId)
+                
                 //Either way show the new screen
                 let root = self.rootViewController as! InitialViewController
                 root.showMainViewController()
@@ -68,16 +80,18 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     override func signup(name: String, email: String, password: String) {
         print("Signup with: name = \(name) email =\(email) password = \(password)")
         var fullNameArr = parseName(name: name)
-        let firstName = fullNameArr[0]
-        let lastName : String? = fullNameArr.count > 1 ? fullNameArr[1] : nil
         var user = User()
-        user.firstName = firstName
-        user.lastName = lastName!
+        user.firstName = fullNameArr[0]
+        user.lastName = (fullNameArr.count > 1 ? fullNameArr[1] : nil)!
         user.email = email
         user.password = password
-        Network.shared.createUser(user: user).then { userKey -> Void in
-            //Either this is a new user, or this user already exist
-            print( "The user key that it returned was => " , userKey )
+        
+        Network.shared.createUser(user: user).then { json -> Void in
+            let userKey = json["user_key"] as! String
+            let stripeAccountId = json["stripe_account_id"] as! String
+            
+            //Save user to persistence
+            self.saveUserToDatabase(user: user, userKey: userKey, accId: stripeAccountId)
             
             //Either way show the new screen
             let root = self.rootViewController as! InitialViewController
@@ -102,24 +116,16 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     
     override func didSelectFacebook(_ viewController: UIViewController) {
         let loginManager = FBSDKLoginManager()
-        loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends", "user_education_history"], from: self.rootViewController) { (result , error) in
+        loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], from: self.rootViewController) { (result , error) in
             if ( error == nil ){
                 Network.shared.retriveUserFromFacebook().then { user -> Void in
-                    Network.shared.createUser(user: user).then { userKey -> Void in
+                    Network.shared.createUser(user: user).then { json -> Void in
                         //Either this is a new user, or this user already exist
-                        print( "The user key that it returned was => " , userKey )
+                        let userKey = json["user_key"] as! String
+                        let stripeAccountId = json["stripe_account_id"] as! String
                         
-                        //Create a user to save in the datebase
-                        var userSelf = loggedInUser()
-                        userSelf.firstName = user.firstName
-                        userSelf.lastName = user.lastName
-                        userSelf.email = user.email
-                        userSelf.facebookId = user.facebookId
-                        userSelf.key = user.key
-                        userSelf.numberOfTrips = 0
-                        
-                        //Save logged in user to database
-                        RealmManager.shared.saveLoggedInUser(user: userSelf)
+                        //Save user to persistence
+                        self.saveUserToDatabase(user: user, userKey: userKey, accId: stripeAccountId)
                         
                         //Either way show the new screen
                         let root = self.rootViewController as! InitialViewController
@@ -130,18 +136,31 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                 }.catch(execute: { (error) in
                     print("ERROR: Retreieving user from facebook => ", error) //Error with retrieving user from facebook
                 })
-            }
-            else if ( result?.isCancelled )!{
-                print( "The user cancelled the request")
+            
             }
             else{
-                print("ERROR: Logging In With Facebook => " , error)
+                print("ERROR: Logging In With Facebook => " , error as Any)
             }
         }
     }
     
     func parseName(name: String) -> [String]{
         return name.components(separatedBy: " ")
+    }
+    
+    func saveUserToDatabase(user: User, userKey: String, accId: String){
+        //Create a user to save in the datebase
+        var userSelf = loggedInUser()
+        userSelf.firstName = user.firstName
+        userSelf.lastName = user.lastName
+        userSelf.email = user.email
+        userSelf.facebookId = user.facebookId
+        userSelf.key = userKey
+        userSelf.stripeAccountId = accId
+        userSelf.numberOfTrips = 0
+        
+        //Save logged in user to database
+        RealmManager.shared.saveLoggedInUser(user: userSelf)
     }
     
 }

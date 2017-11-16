@@ -26,7 +26,9 @@ class user: Object {
 }
 
 final class loggedInUser: user{
-   let posts = List<post>()
+    @objc dynamic var stripeAccountId = ""
+    
+    let posts = List<post>()
     
 }
 

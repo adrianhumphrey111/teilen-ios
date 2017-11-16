@@ -46,7 +46,7 @@ class FeedViewController: UIViewController, FeedPostDelegate, DZNEmptyDataSetSou
         //Begin Refreshing
         self.collectionView!.refreshControl?.beginRefreshing()
         
-        Network.shared.getFeed(user_key: "ag1kZXZ-Z29hbC1yaXNlchELEgRVc2VyGICAgICAgMAKDA").then { feed -> Void in
+        Network.shared.getFeed().then { feed -> Void in
             self.posts = feed.posts
             
             //End Refreshing

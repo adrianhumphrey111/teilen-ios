@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Stripe
 
 
 class ProfileViewController : UIViewController {
@@ -28,6 +29,14 @@ class ProfileViewController : UIViewController {
             return
         case 2:
             //Push new controller onto nav controller Payment
+            // Setup customer context
+            let customerContext = STPCustomerContext(keyProvider: MyKeyProvider().shared())
+            
+            // Setup payment methods view controller
+            let vc = STPPaymentMethodsViewController(configuration: STPPaymentConfiguration.shared(), theme: STPTheme.default(), customerContext: customerContext, delegate: self)
+            
+            // Present add card view controller
+            self.navigationController?.pushViewController(vc, animated: true)
             return
         case 3:
             //Push new controller onto nav controller Help
@@ -39,6 +48,35 @@ class ProfileViewController : UIViewController {
             print("Error")
         }
     }
+    
+}
+
+extension ProfileViewController: STPPaymentMethodsViewControllerDelegate{
+    
+    // MARK: STPPaymentMethodsViewControllerDelegate
+    
+    func paymentMethodsViewController(_ paymentMethodsViewController: STPPaymentMethodsViewController, didFailToLoadWithError error: Error) {
+        // Dismiss payment methods view controller
+        dismiss(animated: true)
+        
+        // Present error to user...
+    }
+    
+    func paymentMethodsViewControllerDidCancel(_ paymentMethodsViewController: STPPaymentMethodsViewController) {
+        // Dismiss payment methods view controller
+        dismiss(animated: true)
+    }
+    
+    func paymentMethodsViewControllerDidFinish(_ paymentMethodsViewController: STPPaymentMethodsViewController) {
+        // Dismiss payment methods view controller
+        dismiss(animated: true)
+    }
+    
+    func paymentMethodsViewController(_ paymentMethodsViewController: STPPaymentMethodsViewController, didSelect paymentMethod: STPPaymentMethod) {
+        // Save selected payment method
+        selectedPaymentMethod = paymentMethod
+    }
+    
     
 }
 
