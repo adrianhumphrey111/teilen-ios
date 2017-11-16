@@ -30,13 +30,17 @@ class ProfileViewController : UIViewController {
         case 2:
             //Push new controller onto nav controller Payment
             // Setup customer context
-            let customerContext = STPCustomerContext(keyProvider: MyKeyProvider().shared())
-            
+            let customerContext = STPCustomerContext(keyProvider: MyAPIClient.sharedClient)
+
             // Setup payment methods view controller
             let vc = STPPaymentMethodsViewController(configuration: STPPaymentConfiguration.shared(), theme: STPTheme.default(), customerContext: customerContext, delegate: self)
+            self.tabBarController?.tabBar.isHidden = true
             
             // Present add card view controller
             self.navigationController?.pushViewController(vc, animated: true)
+            
+            //Remove both back buttons
+            self.navigationItem.setHidesBackButton(true, animated: false)
             return
         case 3:
             //Push new controller onto nav controller Help
@@ -57,24 +61,28 @@ extension ProfileViewController: STPPaymentMethodsViewControllerDelegate{
     
     func paymentMethodsViewController(_ paymentMethodsViewController: STPPaymentMethodsViewController, didFailToLoadWithError error: Error) {
         // Dismiss payment methods view controller
-        dismiss(animated: true)
-        
+        self.dismiss(animated: true, completion: nil)
+        self.tabBarController?.tabBar.isHidden = false
+        print("What the fuck")
         // Present error to user...
     }
     
     func paymentMethodsViewControllerDidCancel(_ paymentMethodsViewController: STPPaymentMethodsViewController) {
         // Dismiss payment methods view controller
-        dismiss(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func paymentMethodsViewControllerDidFinish(_ paymentMethodsViewController: STPPaymentMethodsViewController) {
         // Dismiss payment methods view controller
-        dismiss(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func paymentMethodsViewController(_ paymentMethodsViewController: STPPaymentMethodsViewController, didSelect paymentMethod: STPPaymentMethod) {
         // Save selected payment method
-        selectedPaymentMethod = paymentMethod
+        //RealmManager.shared.selfUser?.selectedPaymentMethod = paymentMethod
+        //RealmManager.shared.updateLoggedInUser()
     }
     
     

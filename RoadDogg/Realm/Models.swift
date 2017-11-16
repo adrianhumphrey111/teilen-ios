@@ -7,6 +7,7 @@
 //
 
 import RealmSwift
+import Stripe
 
 class user: Object {
     @objc dynamic var firstName = ""
@@ -27,7 +28,8 @@ class user: Object {
 
 final class loggedInUser: user{
     @objc dynamic var stripeAccountId = ""
-    
+    @objc dynamic var customerId = ""
+   //@objc dynamic var selectedPaymentMethod : STPPaymentMethod? = nil
     let posts = List<post>()
     
 }

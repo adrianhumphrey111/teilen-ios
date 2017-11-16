@@ -53,6 +53,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                 let user = result["user"] as! [String: AnyObject]
                 let userKey = user["user_key"] as! String
                 let stripeAccountId = user["stripe_account_id"] as! String
+                let customerId = user["customer_id"] as! String
                 var loggedinUser = User()
                 loggedinUser.firstName = user["first_name"] as! String
                 loggedinUser.lastName = user["last_name"] as! String
@@ -61,7 +62,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                 loggedinUser.numberOfTrips = user["numberOfCompletedTrips"] as! Int
                 
                 //Save user to persistence
-                self.saveUserToDatabase(user: loggedinUser, userKey: userKey, accId: stripeAccountId)
+                self.saveUserToDatabase(user: loggedinUser, userKey: userKey, accId: stripeAccountId, custId: customerId)
                 
                 //Either way show the new screen
                 let root = self.rootViewController as! InitialViewController
@@ -89,9 +90,9 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
         Network.shared.createUser(user: user).then { json -> Void in
             let userKey = json["user_key"] as! String
             let stripeAccountId = json["stripe_account_id"] as! String
-            
+            let customerId = json["customer_id"] as! String
             //Save user to persistence
-            self.saveUserToDatabase(user: user, userKey: userKey, accId: stripeAccountId)
+            self.saveUserToDatabase(user: user, userKey: userKey, accId: stripeAccountId, custId: customerId)
             
             //Either way show the new screen
             let root = self.rootViewController as! InitialViewController
@@ -123,9 +124,10 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                         //Either this is a new user, or this user already exist
                         let userKey = json["user_key"] as! String
                         let stripeAccountId = json["stripe_account_id"] as! String
-                        
+                        let customerId = json["customer_id"] as! String
+                        print(json)
                         //Save user to persistence
-                        self.saveUserToDatabase(user: user, userKey: userKey, accId: stripeAccountId)
+                        self.saveUserToDatabase(user: user, userKey: userKey, accId: stripeAccountId, custId: customerId)
                         
                         //Either way show the new screen
                         let root = self.rootViewController as! InitialViewController
@@ -148,7 +150,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
         return name.components(separatedBy: " ")
     }
     
-    func saveUserToDatabase(user: User, userKey: String, accId: String){
+    func saveUserToDatabase(user: User, userKey: String, accId: String, custId: String){
         //Create a user to save in the datebase
         var userSelf = loggedInUser()
         userSelf.firstName = user.firstName
@@ -158,6 +160,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
         userSelf.key = userKey
         userSelf.stripeAccountId = accId
         userSelf.numberOfTrips = 0
+        userSelf.customerId = custId
         
         //Save logged in user to database
         RealmManager.shared.saveLoggedInUser(user: userSelf)

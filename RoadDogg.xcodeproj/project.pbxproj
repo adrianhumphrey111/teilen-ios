@@ -57,6 +57,8 @@
 		52DC32791FB547CE00A1DF6A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC32781FB547CE00A1DF6A /* Car.swift */; };
 		86226A8F1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86226A8E1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift */; };
 		86226A911FBCD69F001CE1C2 /* ProfileSettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86226A901FBCD69F001CE1C2 /* ProfileSettingViewCell.swift */; };
+		86F8C6F11FBD39C400FE7967 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F8C6F01FBD39C400FE7967 /* PaymentManager.swift */; };
+		86F8C6F31FBD40D300FE7967 /* StripeApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F8C6F21FBD40D300FE7967 /* StripeApiManager.swift */; };
 		B431CA9B1A55685DF1F5152F /* Pods_RoadDoggUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3147D8D49BB4F218476403 /* Pods_RoadDoggUITests.framework */; };
 		FF67686558267A45D03A2D97 /* Pods_RoadDoggTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */; };
 /* End PBXBuildFile section */
@@ -139,6 +141,8 @@
 		52DC32781FB547CE00A1DF6A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		86226A8E1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeadViewCell.swift; sourceTree = "<group>"; };
 		86226A901FBCD69F001CE1C2 /* ProfileSettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewCell.swift; sourceTree = "<group>"; };
+		86F8C6F01FBD39C400FE7967 /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
+		86F8C6F21FBD40D300FE7967 /* StripeApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeApiManager.swift; sourceTree = "<group>"; };
 		A151700E925D25492F242BFA /* Pods-RoadDogg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDogg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg.debug.xcconfig"; sourceTree = "<group>"; };
 		D8C879DD9A51CD666468EA7F /* Pods-RoadDogg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDogg.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg.release.xcconfig"; sourceTree = "<group>"; };
 		EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDogg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +255,7 @@
 		525CA2CE1F9D40A90037855E /* RoadDogg */ = {
 			isa = PBXGroup;
 			children = (
+				86F8C6EF1FBD39A600FE7967 /* Payment */,
 				52C03C3E1FB957C500E06CE4 /* Login  */,
 				52C03C3D1FB7F42B00E06CE4 /* RoadDogg.entitlements */,
 				52CFFF0D1FB7E54D00F93951 /* OnBoarding View Controllers */,
@@ -410,6 +415,15 @@
 				52CFFF0E1FB7E58E00F93951 /* OnBoardTestViewController.swift */,
 			);
 			path = "OnBoarding View Controllers";
+			sourceTree = "<group>";
+		};
+		86F8C6EF1FBD39A600FE7967 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				86F8C6F01FBD39C400FE7967 /* PaymentManager.swift */,
+				86F8C6F21FBD40D300FE7967 /* StripeApiManager.swift */,
+			);
+			path = Payment;
 			sourceTree = "<group>";
 		};
 		A77E6A269D45863CEC8EF928 /* Pods */ = {
@@ -717,6 +731,7 @@
 				525CA3191FA0033E0037855E /* PostActionView.swift in Sources */,
 				52C03C441FB9726600E06CE4 /* InitialViewController.swift in Sources */,
 				86226A911FBCD69F001CE1C2 /* ProfileSettingViewCell.swift in Sources */,
+				86F8C6F11FBD39C400FE7967 /* PaymentManager.swift in Sources */,
 				525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */,
 				525CA31D1FA0036B0037855E /* PostAddCommentView.swift in Sources */,
 				52404AFB1FB1165D00AD64FA /* StringExtension.swift in Sources */,
@@ -726,6 +741,7 @@
 				525CA3201FA127060037855E /* Network.swift in Sources */,
 				86226A8F1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift in Sources */,
 				52D7CAE91FB51BC700609EC1 /* FriendProfileHeadViewCell.swift in Sources */,
+				86F8C6F31FBD40D300FE7967 /* StripeApiManager.swift in Sources */,
 				52CFFEFE1FB67B3A00F93951 /* Models.swift in Sources */,
 				525CA2D21F9D40A90037855E /* FeedViewController.swift in Sources */,
 				5259A6BE1FA5D39700078161 /* User.swift in Sources */,

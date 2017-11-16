@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         
         //Stripe SDK
         STPPaymentConfiguration.shared().publishableKey = "pk_live_rJjV7QnJ5N1zp5e8QSSTAjOt"
+        
+        //Initialize realm singleton
+        RealmManager.shared
 
         if ( RealmManager.shared.isLoggedin() ) {
             print("This user is already logged in, show the main page.")
