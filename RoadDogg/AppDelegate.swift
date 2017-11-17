@@ -11,15 +11,20 @@ import CoreData
 import FBSDKCoreKit
 import Onboard
 import Stripe
+import Firebase
+import UserNotifications
+import FirebaseMessaging
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelegate, MessagingDelegate {
+    
+    
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+        
         //Facebook SDK
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -29,9 +34,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         //Firebase SDK
         FirebaseApp.configure()
         
+        //Firebase Messaging
+        Messaging.messaging().delegate = self as! MessagingDelegate
+        
         //Initialize realm singleton
         RealmManager.shared
-
+        
+        //Register for push notifications
+        // iOS 10 support
+        if #available(iOS 10, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
+            application.registerForRemoteNotifications()
+        }
+            // iOS 9 support
+        else {
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+        
+        application.registerForRemoteNotifications()
+        
+        //Check if the user is logged in
         if ( RealmManager.shared.isLoggedin() ) {
             print("This user is already logged in, show the main page.")
         }
@@ -41,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
             let vc = storyboard.instantiateViewController(withIdentifier :"onboard1") as! OnBoardTestViewController
             //Set up onBoarding experience
             let firstPage = OnboardingContentViewController(title: "Welcome to Teilen!", body: "Automated and Social Ride Sharing", image: nil, buttonText: "Next") { () -> Void in
-    
+                
             }
             firstPage.movesToNextViewController = true
             firstPage.bodyLabel.font = firstPage.bodyLabel.font.withSize(18)
@@ -74,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
             fourthPage.actionButton.layer.borderWidth = 1.0
             fourthPage.actionButton.layer.backgroundColor = UIColor.blue.cgColor
             fourthPage.actionButton.layer.cornerRadius = 25
-
+            
             //Create the final view controller
             var onboardingVC = OnboardingViewController(backgroundImage: nil, contents: [firstPage, secondPage, thirdPage, fourthPage])
             onboardingVC?.view.backgroundColor = .blue
@@ -86,29 +109,72 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         return true
     }
     
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+    }
+    
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+        if let messageID = userInfo["gcmMessageIDKey"] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print(userInfo)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+        if let messageID = userInfo["gcmMessageIDKey"] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print(userInfo)
+        
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+
+    
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         let handled: Bool = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: options[.sourceApplication] as? String, annotation: options[.annotation])
         return handled
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
-
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
@@ -123,23 +189,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         }
         return true
     }
-
-
+    
+    
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentContainer(name: "RoadDogg")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -153,9 +219,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -169,6 +235,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
             }
         }
     }
-
+    
 }
 

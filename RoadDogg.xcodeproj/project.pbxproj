@@ -57,6 +57,8 @@
 		52DC32791FB547CE00A1DF6A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC32781FB547CE00A1DF6A /* Car.swift */; };
 		86226A8F1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86226A8E1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift */; };
 		86226A911FBCD69F001CE1C2 /* ProfileSettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86226A901FBCD69F001CE1C2 /* ProfileSettingViewCell.swift */; };
+		86A956FF1FBE8359008111CD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A956FE1FBE8359008111CD /* UserNotifications.framework */; };
+		86A957011FBE87AD008111CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86A957001FBE87AC008111CD /* GoogleService-Info.plist */; };
 		86F8C6F11FBD39C400FE7967 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F8C6F01FBD39C400FE7967 /* PaymentManager.swift */; };
 		86F8C6F31FBD40D300FE7967 /* StripeApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F8C6F21FBD40D300FE7967 /* StripeApiManager.swift */; };
 		B431CA9B1A55685DF1F5152F /* Pods_RoadDoggUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3147D8D49BB4F218476403 /* Pods_RoadDoggUITests.framework */; };
@@ -141,6 +143,8 @@
 		52DC32781FB547CE00A1DF6A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		86226A8E1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeadViewCell.swift; sourceTree = "<group>"; };
 		86226A901FBCD69F001CE1C2 /* ProfileSettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewCell.swift; sourceTree = "<group>"; };
+		86A956FE1FBE8359008111CD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		86A957001FBE87AC008111CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		86F8C6F01FBD39C400FE7967 /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
 		86F8C6F21FBD40D300FE7967 /* StripeApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeApiManager.swift; sourceTree = "<group>"; };
 		A151700E925D25492F242BFA /* Pods-RoadDogg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDogg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A956FF1FBE8359008111CD /* UserNotifications.framework in Frameworks */,
 				52CFFF0A1FB7E24600F93951 /* Bolts.framework in Frameworks */,
 				52250F3D1FA185DB00E97624 /* Alamofire.framework in Frameworks */,
 				52CFFF061FB7DF1900F93951 /* FBSDKCoreKit.framework in Frameworks */,
@@ -185,6 +190,7 @@
 		0FFF091B8EE4CD412E275E7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86A956FE1FBE8359008111CD /* UserNotifications.framework */,
 				52250F3E1FA185DC00E97624 /* Alamofire.framework */,
 				EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */,
 				518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */,
@@ -272,6 +278,7 @@
 				525CA2D91F9D40A90037855E /* Assets.xcassets */,
 				525CA2DB1F9D40A90037855E /* LaunchScreen.storyboard */,
 				525CA2DE1F9D40A90037855E /* Info.plist */,
+				86A957001FBE87AC008111CD /* GoogleService-Info.plist */,
 				525CA2D61F9D40A90037855E /* RoadDogg.xcdatamodeld */,
 			);
 			path = RoadDogg;
@@ -518,7 +525,13 @@
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -562,6 +575,7 @@
 			files = (
 				525CA2DD1F9D40A90037855E /* LaunchScreen.storyboard in Resources */,
 				525CA2DA1F9D40A90037855E /* Assets.xcassets in Resources */,
+				86A957011FBE87AD008111CD /* GoogleService-Info.plist in Resources */,
 				525CA2D51F9D40A90037855E /* Main.storyboard in Resources */,
 				52CFFF0C1FB7E50F00F93951 /* OnBoarding.storyboard in Resources */,
 			);
@@ -937,7 +951,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RoadDogg/RoadDogg.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J6P789DYDB;
+				DEVELOPMENT_TEAM = S57MEAYY9V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RoadDogg/Frameworks",
@@ -945,7 +959,7 @@
 				INFOPLIST_FILE = RoadDogg/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.HumphreyEnterprise.Teilen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HumphreyEnterprise.TeilenRideShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -959,7 +973,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RoadDogg/RoadDogg.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J6P789DYDB;
+				DEVELOPMENT_TEAM = S57MEAYY9V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RoadDogg/Frameworks",
@@ -967,7 +981,7 @@
 				INFOPLIST_FILE = RoadDogg/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.HumphreyEnterprise.Teilen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HumphreyEnterprise.TeilenRideShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
