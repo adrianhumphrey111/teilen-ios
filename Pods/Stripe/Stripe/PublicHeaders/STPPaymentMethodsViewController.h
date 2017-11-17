@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param completion The callback to run after the view controller is dismissed. You may specify nil for this parameter.
  */
-- (void)dismissWithCompletion:(nullable STPVoidBlock)completion;
+- (void) :(nullable STPVoidBlock)completion;
 
 @end
 

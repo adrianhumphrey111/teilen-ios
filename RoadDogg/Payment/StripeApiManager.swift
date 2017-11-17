@@ -22,16 +22,18 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
     }
     
     func completeCharge(_ result: STPPaymentResult,
-                        amount: Int,
+                        amount: Int, //In cents
                         shippingAddress: STPAddress?,
                         shippingMethod: PKShippingMethod?,
                         completion: @escaping STPErrorBlock) {
-        let url = "\(self.baseURL).charge"
+        let url = "\(self.baseURL)chargeRider"
         var params: [String: Any] = [
             "source": result.source.stripeID,
             "amount": amount
         ]
         params["shipping"] = STPAddress.shippingInfoForCharge(with: shippingAddress, shippingMethod: shippingMethod)
+        params["user_key"] = RealmManager.shared.selfUser?.key
+        print("Complete Charge is being called")
         Alamofire.request(url, method: .post, parameters: params)
             .validate(statusCode: 200..<300)
             .responseString { response in

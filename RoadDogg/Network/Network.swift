@@ -250,6 +250,29 @@ class Network {
 
         }
     }
+    
+    func chargeRider(amount: Int) -> Promise<[String: AnyObject]>{
+        let url = "\(self.baseurl)/chargeRider"
+        let params : [String : Any] = ["user_key": RealmManager.shared.selfUser!.key,
+                                       "customer_id": RealmManager.shared.selfUser!.customerId,
+                                       "amount": amount]
+        return Promise { fulfill, reject in
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+                switch response.result {
+                case .success:
+                    if let result = response.result.value{
+                        let json = result as! [String: AnyObject]
+                        fulfill( json )
+                    }
+                case .failure( let error ):
+                    reject(error)
+                }
+            }
+            
+        }
+    }
+    
+    
 
     
     func url(endpoint: String) -> String{

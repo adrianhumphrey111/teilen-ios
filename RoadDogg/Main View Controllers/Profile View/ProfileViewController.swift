@@ -17,6 +17,9 @@ class ProfileViewController : UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        
+        //Set Payment Context Delegate
+        PaymentManager.shared.paymentContext.delegate = self
     }
     
     func didSelectSettingRow(row: Int){
@@ -29,29 +32,67 @@ class ProfileViewController : UIViewController {
             return
         case 2:
             //Push new controller onto nav controller Payment
-            // Setup customer context
-            let customerContext = STPCustomerContext(keyProvider: MyAPIClient.sharedClient)
+            
 
             // Setup payment methods view controller
-            let vc = STPPaymentMethodsViewController(configuration: STPPaymentConfiguration.shared(), theme: STPTheme.default(), customerContext: customerContext, delegate: self)
+            let vc = STPPaymentMethodsViewController(configuration: STPPaymentConfiguration.shared(), theme: STPTheme.default(), customerContext: PaymentManager.shared.customerContext, delegate: self)
             self.tabBarController?.tabBar.isHidden = true
             
             // Present add card view controller
             self.navigationController?.pushViewController(vc, animated: true)
             
             //Remove both back buttons
-            self.navigationItem.setHidesBackButton(true, animated: false)
+            self.navigationController?.navigationBar.backItem?.backBarButtonItem = nil
             return
         case 3:
             //Push new controller onto nav controller Help
             return
         case 4:
             //Push new controller onto nav controller Sign out
+            PaymentManager.shared.requestCharge(amount: 50)
             return
         default:
             print("Error")
         }
     }
+    
+}
+
+extension ProfileViewController: STPPaymentContextDelegate{
+    func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
+        //Handle Payment failing with error,
+        print("Payment failed with error => " , error)
+
+    }
+    
+    func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
+        //        self.activityIndicator.animating = paymentContext.loading  update UI
+        //        self.paymentButton.enabled = paymentContext.selectedPaymentMethod != nil
+        //        self.paymentLabel.text = paymentContext.selectedPaymentMethod?.label
+        //        self.paymentIcon.image = paymentContext.selectedPaymentMethod?.image
+        print("Payment did change")
+    }
+    
+    func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
+        print("The payment deleagte was called")
+        MyAPIClient.sharedClient.completeCharge(paymentResult, amount: 50, shippingAddress: paymentContext.shippingAddress, shippingMethod: paymentContext.shippingMethods?[0], completion: completion)
+    }
+    
+    func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
+        switch status {
+        case .error:
+            //self.showError(error)
+            print(error)
+            return
+        case .success:
+            //self.showReceipt()
+            print("Success:")
+            return
+        case .userCancellation:
+            return // Do nothing
+        }
+    }
+    
     
 }
 
@@ -61,7 +102,7 @@ extension ProfileViewController: STPPaymentMethodsViewControllerDelegate{
     
     func paymentMethodsViewController(_ paymentMethodsViewController: STPPaymentMethodsViewController, didFailToLoadWithError error: Error) {
         // Dismiss payment methods view controller
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)
         self.tabBarController?.tabBar.isHidden = false
         print("What the fuck")
         // Present error to user...

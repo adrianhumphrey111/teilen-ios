@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         //Stripe SDK
-        STPPaymentConfiguration.shared().publishableKey = "pk_live_rJjV7QnJ5N1zp5e8QSSTAjOt"
+        STPPaymentConfiguration.shared().publishableKey = "pk_live_1SGsf48hM8JYS40mgge6CR8l"
         
         //Initialize realm singleton
         RealmManager.shared
