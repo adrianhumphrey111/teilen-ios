@@ -20,6 +20,7 @@ target 'RoadDogg' do
   pod "ILLoginKit"      #Login And Sign Up Pages
   pod 'Stripe'          #Stripe SDK to handle payents
   pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
   target 'RoadDoggTests' do
     inherit! :search_paths

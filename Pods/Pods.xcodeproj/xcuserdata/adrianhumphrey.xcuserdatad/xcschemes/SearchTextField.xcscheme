@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3527A72F72BA5FE400E970233B3855A4'
+               BlueprintIdentifier = '4C256796F08A6DCD0C0BCA7029EAEA1F'
                BlueprintName = 'SearchTextField'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'SearchTextField.framework'>

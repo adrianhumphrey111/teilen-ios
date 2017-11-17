@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "896C70B6278A2B93597AAA1BAE5D2760"
+               BlueprintIdentifier = "DF69E13842AF76CF260FE5B706846978"
                BuildableName = "Pods_RoadDogg.framework"
                BlueprintName = "Pods-RoadDogg"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "896C70B6278A2B93597AAA1BAE5D2760"
+            BlueprintIdentifier = "DF69E13842AF76CF260FE5B706846978"
             BuildableName = "Pods_RoadDogg.framework"
             BlueprintName = "Pods-RoadDogg"
             ReferencedContainer = "container:Pods.xcodeproj">
