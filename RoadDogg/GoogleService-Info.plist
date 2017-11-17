@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>252165490556-g1ro9av8s9mq2ov5jf9reg08n0a1d5l7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.252165490556-g1ro9av8s9mq2ov5jf9reg08n0a1d5l7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBSNFiO4SJf5II3y_RmbYPcyOJZV0iKu0k</string>
+	<key>GCM_SENDER_ID</key>
+	<string>252165490556</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.HumphreyEnterprise.TeilenRideShare</string>
+	<key>PROJECT_ID</key>
+	<string>goal-rise</string>
+	<key>STORAGE_BUCKET</key>
+	<string>goal-rise.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:252165490556:ios:ac313cdd1dc8f161</string>
+	<key>DATABASE_URL</key>
+	<string>https://goal-rise.firebaseio.com</string>
+</dict>
+</plist>

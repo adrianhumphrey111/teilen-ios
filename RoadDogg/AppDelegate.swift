@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         //Stripe SDK
         STPPaymentConfiguration.shared().publishableKey = "pk_live_1SGsf48hM8JYS40mgge6CR8l"
         
+        //Firebase SDK
+        FirebaseApp.configure()
+        
         //Initialize realm singleton
         RealmManager.shared
 
