@@ -272,7 +272,23 @@ class Network {
         }
     }
     
-    
+    func updateNotificationToken(token: String){
+        let url = "\(self.baseurl)/updateNotificationToken"
+        let params : [String : Any] = ["user_key": RealmManager.shared.selfUser!.key,
+                                       "token": token]
+        Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+            switch response.result {
+            case .success:
+                if let result = response.result.value{
+                    let json = result as! [String: AnyObject]
+                    print( json )
+                }
+            case .failure( let error ):
+                print( error )
+            }
+        }
+    }
+
 
     
     func url(endpoint: String) -> String{

@@ -16,6 +16,7 @@ class user: Object {
     @objc dynamic var key = ""
     @objc dynamic var email = ""
     @objc dynamic var facebookId = ""
+    @objc dynamic var notification_token = ""
     @objc dynamic var numberOfTrips = 0
     @objc dynamic var profilePicture: Data? = nil
     @objc dynamic var car: car?
@@ -29,6 +30,7 @@ class user: Object {
 final class loggedInUser: user{
     @objc dynamic var stripeAccountId = ""
     @objc dynamic var customerId = ""
+    
    //@objc dynamic var selectedPaymentMethod : STPPaymentMethod? = nil
     let posts = List<post>()
     

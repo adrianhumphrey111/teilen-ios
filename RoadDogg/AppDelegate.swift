@@ -111,6 +111,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
     
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
+        //Set this token to the saved user in the data, if their is already one, update it inside the saved user and to the database
+        if let user = RealmManager.shared.selfUser as? loggedInUser {
+            //Save token and user to database
+            user.notification_token = fcmToken
+            RealmManager.shared.updateLoggedInUser(user: user)
+            
+            //Update Token every time user gets new token
+            Network.shared.updateNotificationToken(token: fcmToken)
+        }
     }
     
     

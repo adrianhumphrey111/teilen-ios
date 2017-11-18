@@ -17,6 +17,7 @@ struct User{
     var profileUrl : String = ""
     var password : String = ""
     var key : String = ""
+    var notification_token : String = ""
     var posts : [Post]?
     var car : Car?
     var rating: Float!
@@ -64,6 +65,7 @@ struct User{
         dict["profile_pic_url"] = self.profileUrl != "" ? self.profileUrl : ""
         dict["facebook_id"] = self.facebookId != "" ? self.facebookId : ""
         dict["password"] = self.password != "" ? self.password : ""
+        dict["notification_token"] = self.notification_token != "" ? self.notification_token : ""
         print(dict)
         return dict
     }

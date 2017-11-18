@@ -62,11 +62,11 @@ class RealmManager {
         getLoggedInUser()
     }
     
-    @objc func updateLoggedInUser() {
+    @objc func updateLoggedInUser(user: loggedInUser) {
         try! realm.write {
             if ( self.selfUser != nil ){
                 //We are updating the logged in User in the database.
-                realm.add(selfUser!)
+                realm.add(user)
             }
         }
         getLoggedInUser()
