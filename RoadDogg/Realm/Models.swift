@@ -22,7 +22,7 @@ class user: Object {
     @objc dynamic var car: car?
    // let posts = List<Task>()
     
-    override static func primaryKey() -> String? {
+    override static func primaryKey() -> String {
         return "key"
     }
 }

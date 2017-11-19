@@ -46,7 +46,6 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     
     // Handle login via your API
     override func login(email: String, password: String) {
-        print("Login with: email =\(email) password = \(password)")
         Network.shared.login(email: email, password: password).then { result -> Void in
             let success = result["result"] as! Bool
             if ( success ){
@@ -125,7 +124,6 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                         let userKey = json["user_key"] as! String
                         let stripeAccountId = json["stripe_account_id"] as! String
                         let customerId = json["customer_id"] as! String
-                        print(json)
                         
                         //Save user to persistence
                         self.saveUserToDatabase(user: user, userKey: userKey, accId: stripeAccountId, custId: customerId)
@@ -169,6 +167,13 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
         
         //Save logged in user to database
         RealmManager.shared.saveLoggedInUser(user: userSelf)
+        
+        //Set the Network key to the saved user
+        Network.shared.setUserKey()
+        
+        //Save the users Notification Token Here
+        RealmManager.shared.saveNotificationToken(tokenstring: token)
+        
     }
     
 }

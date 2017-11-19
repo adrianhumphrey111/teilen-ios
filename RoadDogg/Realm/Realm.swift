@@ -24,25 +24,8 @@ class RealmManager {
     //The logged in user
     public var selfUser : loggedInUser?
     
-    private let tokenNotification : NotificationToken!
-    
-    
     init() {
         self.realm = try! Realm()
-        
-        self.tokenNotification = self.selfUser?.addNotificationBlock({ (change) in
-            switch change {
-            case .change(let properties):
-                print("The selfuser has been changed, now you can send the notification key off")
-                Network.shared.updateNotificationToken(token: (self.realm?.objects(token.self).first?.id)!)
-            case .deleted:
-                print("The user object was deleted")
-            case .error( let error ):
-                print("There was an error on the realm logged in user")
-            default:
-                print("Realm selfUser object notification ")
-            }
-        })
         
         //Check if there is loggedin user for the app
         getLoggedInUser()
@@ -77,7 +60,7 @@ class RealmManager {
             if ( self.selfUser == nil ){
                 //If there is already a logged in user, no need to save a new one. For right now
                 realm.add(user)
-                Network.shared.updateNotificationToken(token: user.notificationToken)
+                //Network.shared.updateNotificationToken(token: user.notificationToken)
             }
         }
         getLoggedInUser()

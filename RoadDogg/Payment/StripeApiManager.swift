@@ -33,7 +33,6 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
         ]
         params["shipping"] = STPAddress.shippingInfoForCharge(with: shippingAddress, shippingMethod: shippingMethod)
         params["user_key"] = RealmManager.shared.selfUser?.key
-        print("Complete Charge is being called")
         Alamofire.request(url, method: .post, parameters: params)
             .validate(statusCode: 200..<300)
             .responseString { response in
@@ -48,7 +47,6 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
     
     func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
         let url = "\(self.baseURL)ephemeral_keys"
-        print(RealmManager.shared.selfUser)
         var customer_id : String = (RealmManager.shared.selfUser?.customerId)!
         Alamofire.request(url, method: .post, parameters: [
             "api_version": apiVersion,

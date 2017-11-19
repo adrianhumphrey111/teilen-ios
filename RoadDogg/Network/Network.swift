@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import PromiseKit
 import FBSDKCoreKit
+import RealmSwift
 
 class Network {
     
@@ -19,13 +20,17 @@ class Network {
     var basedev = "http://localhost:8080/api"
     var baseProd = "https:goal-rise.appspot.com/api"
     
-    var user_key = ""
+    private var user_key = ""
     var prodKey = "agtzfmdvYWwtcmlzZXIRCxIEVXNlchiAgICAhLSKCgw"  //Production Adrian key
     var devKey = "ag1kZXZ-Z29hbC1yaXNlchELEgRVc2VyGICAgICAgPAKDA" //Development Key Adrian
     
     static let shared = Network(baseURL: "http://localhost:8080", dev: false) //https://goal-rise.appspot.com
     
+    private let tokenNotification : NotificationToken!
+    
     init(baseURL: String, dev: Bool) {
+        
+        print("This class is initialized every time you make a network call")
         
         if ( dev ){
            self.baseurl = basedev
@@ -33,7 +38,6 @@ class Network {
         }
         else{
             self.baseurl = baseProd
-            self.user_key = prodKey
         }
         
         if let user = RealmManager.shared.selfUser{
@@ -43,9 +47,31 @@ class Network {
             print("No calls will work, because there is no logged in user")
             //Handle this situation
         }
+        
+        //Set up Realm notification token
+        self.tokenNotification = RealmManager.shared.selfUser?.addNotificationBlock({ (change) in
+            switch change {
+            case .change(let properties):
+                print("The selfuser has been changed, now you can send the notification key off")
+                Network.shared.updateNotificationToken(token: RealmManager.shared.getSavedNotificationToken() )
+            case .deleted:
+                print("The user object was deleted")
+            case .error( let error ):
+                print("There was an error on the realm logged in user")
+            default:
+                print("Realm selfUser object notification ")
+            }
+        })
+    }
+    
+    public func setUserKey()
+    {
+        self.user_key = (RealmManager.shared.selfUser?.key)!
     }
     
     func getFeed() -> Promise<Feed> {
+        print("User saved in the database => ")
+        print(RealmManager.shared.selfUser)
         let url = "\(self.baseurl)/fetchFeed?user_key=\(self.user_key)"
         return Promise { fulfill, reject in
             //Make call to the API
@@ -280,6 +306,7 @@ class Network {
             switch response.result {
             case .success:
                 if let result = response.result.value{
+                    print("The notification token was successfully updated")
                     let json = result as! [String: AnyObject]
                     print( json )
                 }
@@ -288,7 +315,6 @@ class Network {
             }
         }
     }
-
 
     
     func url(endpoint: String) -> String{

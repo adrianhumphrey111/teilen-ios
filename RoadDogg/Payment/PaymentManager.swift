@@ -36,7 +36,7 @@ class PaymentManager {
     
     func requestCharge(amount: Int){
         Network.shared.chargeRider(amount: amount).then { result -> Void in
-            print(result) //Handle the response and update ui
+            //print(result) //Handle the response and update ui
             
             
 /*
