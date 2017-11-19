@@ -16,7 +16,7 @@ class user: Object {
     @objc dynamic var key = ""
     @objc dynamic var email = ""
     @objc dynamic var facebookId = ""
-    @objc dynamic var notification_token = ""
+    @objc dynamic var notificationToken = ""
     @objc dynamic var numberOfTrips = 0
     @objc dynamic var profilePicture: Data? = nil
     @objc dynamic var car: car?
@@ -34,6 +34,15 @@ final class loggedInUser: user{
    //@objc dynamic var selectedPaymentMethod : STPPaymentMethod? = nil
     let posts = List<post>()
     
+}
+
+final class token: Object{
+    @objc dynamic var id :  String = ""
+    
+    convenience init(token: String){
+        self.init()
+        self.id = token
+    }
 }
 
 final class car: Object {

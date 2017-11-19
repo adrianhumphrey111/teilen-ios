@@ -126,6 +126,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                         let stripeAccountId = json["stripe_account_id"] as! String
                         let customerId = json["customer_id"] as! String
                         print(json)
+                        
                         //Save user to persistence
                         self.saveUserToDatabase(user: user, userKey: userKey, accId: stripeAccountId, custId: customerId)
                         
@@ -151,6 +152,9 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     }
     
     func saveUserToDatabase(user: User, userKey: String, accId: String, custId: String){
+        //Get the current notification token
+        let token = RealmManager.shared.getSavedNotificationToken()
+        
         //Create a user to save in the datebase
         var userSelf = loggedInUser()
         userSelf.firstName = user.firstName
@@ -161,6 +165,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
         userSelf.stripeAccountId = accId
         userSelf.numberOfTrips = 0
         userSelf.customerId = custId
+        userSelf.notificationToken = token
         
         //Save logged in user to database
         RealmManager.shared.saveLoggedInUser(user: userSelf)
