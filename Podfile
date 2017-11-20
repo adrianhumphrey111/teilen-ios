@@ -7,7 +7,7 @@ target 'RoadDogg' do
 
   # Pods for RoadDogg
   
-
+  pod 'Alamofire', '~> 4.5.1'
   pod "PromiseKit", '~> 4.4'
   pod "PromiseKit/MapKit"          # MKDirections().promise().then { /*…*/ }
   pod "PromiseKit/CoreLocation"    # CLLocationManager.promise().then { /*…*/ }
