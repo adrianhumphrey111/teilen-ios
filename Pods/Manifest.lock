@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (4.5.1)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -77,7 +76,6 @@ PODS:
   - Validator (2.1.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.5.1)
   - DateTimePicker
   - DZNEmptyDataSet
   - FacebookCore
@@ -93,7 +91,6 @@ DEPENDENCIES:
   - Stripe
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   DateTimePicker: 518bffa5438ef83a7a687cc4d5e187e5c12012b8
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -117,6 +114,6 @@ SPEC CHECKSUMS:
   Stripe: 898f83a95d72180c6eb4acd65b2ae6158fc6a8bd
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: 88f996637b9247132d9f4121ef910388f162b668
+PODFILE CHECKSUM: 33cbee48f5d658237e2b830ec72442c09627d236
 
 COCOAPODS: 1.1.1
