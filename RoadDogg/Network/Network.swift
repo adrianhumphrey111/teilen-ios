@@ -66,11 +66,10 @@ class Network {
     
     public func setUserKey()
     {
-        self.user_key = (RealmManager.shared.selfUser?.key)!
+        self.user_key = RealmManager.shared.userKey()
     }
     
     func getFeed() -> Promise<Feed> {
-        print("User saved in the database => ")
         print(RealmManager.shared.selfUser)
         let url = "\(self.baseurl)/fetchFeed?user_key=\(self.user_key)"
         return Promise { fulfill, reject in
@@ -81,7 +80,11 @@ class Network {
                     //get response
                     if let result = response.result.value{
                         let posts = result as! [[String:Any]]
+                        print(posts)
                         let feed = Feed(feed: posts)
+                        for post in feed.posts{
+                            print(post.text)
+                        }
                         fulfill(feed)
                     }
                 case .failure(let error):

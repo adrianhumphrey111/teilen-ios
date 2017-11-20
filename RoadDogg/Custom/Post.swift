@@ -21,6 +21,7 @@ class Post{
     var createdAt = ""
     var fontSize : CGFloat = 14
     var textHeight : CGFloat = 0.0
+    var trip : Trip? = nil
     var likeCountString : String {
         get{
             if ( likeCount == 1){
@@ -44,9 +45,17 @@ class Post{
     }
     
     init(post: [String: Any]){
+        //Create a user object
         self.user = User( user: post["user"] as! [String : Any] )
+        
+        //Set the post text
         self.text = post["text"] as! String
-        self.text = self.text.decoded()
+        if ( self.text.containsEmoji() ){
+            print("This string does contain an emoji, decode it")
+            self.text = self.text.decoded()
+        }else{
+            print("This string does not contain an emoji, do not decode it." )
+        }
         self.postKey = post["post_key"] as! String
         self.likeCount = post["like_count"] as! Int
         self.commentCount = post["comment_count"] as! Int
@@ -58,6 +67,11 @@ class Post{
         for comment in comments{
             self.comments.append( Comment( comment: comment) )
         }
+        
+        //Create a trip object
+        let trip = post["trip"] as! [String : AnyObject]
+        let tripObj = Trip(trip: trip)
+        self.trip = tripObj
     }
     
     func unlike(){

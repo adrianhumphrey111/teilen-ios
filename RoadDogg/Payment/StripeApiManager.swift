@@ -32,7 +32,7 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
             "amount": amount
         ]
         params["shipping"] = STPAddress.shippingInfoForCharge(with: shippingAddress, shippingMethod: shippingMethod)
-        params["user_key"] = RealmManager.shared.selfUser?.key
+        params["user_key"] = RealmManager.shared.userKey()
         Alamofire.request(url, method: .post, parameters: params)
             .validate(statusCode: 200..<300)
             .responseString { response in

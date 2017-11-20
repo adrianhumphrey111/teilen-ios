@@ -39,8 +39,9 @@ class FeedViewController: UIViewController, FeedPostDelegate, DZNEmptyDataSetSou
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.tabBar.isHidden = false
-        self.collectionView.reloadData()
+        //self.fetchFeed()
     }
+    
 
     @objc func fetchFeed(){
         //Begin Refreshing

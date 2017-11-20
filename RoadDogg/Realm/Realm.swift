@@ -112,6 +112,10 @@ class RealmManager {
         }
     }
     
+    func userKey() -> String{
+        return self.selfUser != nil ? (self.selfUser?.key)! : ""
+    }
+    
 }
 
 //    // Query and update from any thread

@@ -16,7 +16,10 @@ enum Status {
     case STARTENTERED
     case ENDENTERED
     case DESIREDCHOSEN
-    case RADIUSCHOSEN
+    case TIMECHOSEN
+    case SEATSCHOSEN
+    case RATECHOSEN
+    case RADIUSPICKED
     case TEXTENTERED
     case FINISHED
 }
@@ -56,10 +59,22 @@ class ModalNewPostViewController: UIViewController {
     @IBOutlet weak var setTimeLabel: UILabel!
     @IBOutlet weak var departureButton: UIButton!
     @IBOutlet weak var arrivalButton: UIButton!
-    @IBOutlet weak var radiusTextField: UITextField!
     @IBOutlet weak var radiusLabel: UILabel!
     @IBOutlet weak var postTextView: UITextView!
-
+    @IBOutlet weak var seatsStackView: UIStackView!
+    @IBOutlet weak var seatsLabel: UILabel!
+    @IBOutlet weak var radiusTextField: UITextField!
+    @IBOutlet weak var rateTextField: UITextField!
+    @IBOutlet weak var rateLabel: UILabel!
+    
+    //Seat buttons
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button5: UIButton!
+    @IBOutlet weak var button6: UIButton!
+    @IBOutlet weak var button7: UIButton!
     
     //Top Label Constants
     var TOP_BUTTON_HEIGHT : CGFloat!
@@ -77,6 +92,9 @@ class ModalNewPostViewController: UIViewController {
     
     //Trip Object To Send to Server
     var tripObject = Trip()
+    
+    //Number of seats that the user has chosen
+    var seatsAvailable : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -190,6 +208,8 @@ class ModalNewPostViewController: UIViewController {
         endLocationTextField.frame.size.width = self.view.frame.width - 40
         radiusTextField.center.x += self.view.bounds.width * 2
         radiusTextField.frame.size.width = self.view.frame.width - 40
+        rateTextField.center.x += self.view.bounds.width * 2
+        rateTextField.frame.size.width = self.view.frame.width - 40
         
         //Set Up TextField AutoComplete START
         startLocationTextField.theme = SearchTextFieldTheme.darkTheme()
@@ -232,6 +252,8 @@ class ModalNewPostViewController: UIViewController {
         endDestinationLabel.center.x += self.view.bounds.width
         radiusLabel.center.x += self.view.bounds.width
         setTimeLabel.center.x += self.view.bounds.width
+        seatsLabel.center.x += self.view.bounds.width
+        rateLabel.center.x += self.view.bounds.width
         
         //Set Up Text View
         postTextView.center.x -= view.bounds.width
@@ -239,6 +261,12 @@ class ModalNewPostViewController: UIViewController {
         postTextView.textContainerInset = UIEdgeInsetsMake(20, 20, 20, 20)
         postTextView.placeholder = "What Would You Like To Share. . ."
         postTextView.textColor = UIColor.lightGray
+        
+        //Set Up Stack View
+        seatsStackView.center.y = INITIAL_DRIVING_HEIGHT
+        seatsStackView.center.x += self.view.bounds.width
+        seatsStackView.frame = CGRect(x: view.frame.width, y: INITIAL_DRIVING_HEIGHT, width: view.frame.width, height: 100)
+        
         
         //Set Up Profile Image View
         profileImageView.layer.borderWidth = 1
@@ -367,6 +395,16 @@ class ModalNewPostViewController: UIViewController {
             UIView.animate(withDuration: 0.5) {
                 self.setTimeLabel.center.x -= self.view.bounds.width
             }
+        case "seats":
+            UIView.animate(withDuration: 0.5) {
+                self.seatsStackView.center.x -= self.view.bounds.width
+                self.seatsLabel.center.x -= self.view.bounds.width
+            }
+        case "radius":
+            UIView.animate(withDuration: 0.5) {
+                self.radiusTextField.center.x -= self.view.bounds.width
+                self.radiusLabel.center.x -= self.view.bounds.width
+            }
         default:
             //Do Nothing
             return
@@ -405,7 +443,24 @@ class ModalNewPostViewController: UIViewController {
                 self.departureButton.center.x = self.view.center.x
                 self.arrivalButton.center.x = self.view.center.x
             }
-        
+        case "seats":
+            //Animate Start text Field on
+            UIView.animate(withDuration: 0.5) {
+                self.seatsLabel.center.x = self.view.center.x
+                self.seatsStackView.frame = CGRect(x: 0, y: self.INITIAL_DRIVING_HEIGHT, width: self.view.frame.width, height: 100)
+            }
+        case "radius":
+            //Animate Start text Field on
+            UIView.animate(withDuration: 0.5) {
+                self.radiusLabel.center.x = self.view.center.x
+                self.radiusTextField.center.x = self.view.center.x
+            }
+        case "rate":
+            //Animate Start text Field on
+            UIView.animate(withDuration: 0.5) {
+                self.rateLabel.center.x = self.view.center.x
+                self.rateTextField.center.x = self.view.center.x
+            }
         default:
             //Do nothing
             return
@@ -487,20 +542,35 @@ class ModalNewPostViewController: UIViewController {
     }
     
     func next(){
+        
         switch self.status{
         case Status.TYPECHOSEN:
             animateON(obj: "endDestination")
             animateOFF(obj: "startDestination")
             endLocationTextField.becomeFirstResponder()
             status = Status.STARTENTERED
+            print(self.status)
         case Status.STARTENTERED:
             animateOFF(obj: "endDestination")
             animateON(obj: "setTimeButtons")
             view.endEditing( true )
             status = Status.ENDENTERED
-        case Status.ENDENTERED:
-            return
-        case Status.DESIREDCHOSEN:
+            self.nextButton.isUserInteractionEnabled = false
+            print(self.status)
+        case Status.TIMECHOSEN:
+            animateOFF(obj: "departureButton")
+            animateON(obj: "seats")
+            print("Show the seats to be picked")
+            print(self.status)
+        case Status.SEATSCHOSEN:
+            animateOFF(obj: "seats")
+            animateON(obj: "radius")
+            status = Status.RADIUSPICKED
+        case Status.RADIUSPICKED:
+            animateOFF(obj: "radius")
+            animateON(obj: "rate")
+            status = Status.RATECHOSEN
+        case Status.RATECHOSEN:
             //Animate off top button
             if (trip == TypeOfTrip.DRIVING ){
                 animateOFF(obj: "drivingButton")
@@ -531,6 +601,8 @@ class ModalNewPostViewController: UIViewController {
             
             //Set Status
             status = Status.FINISHED
+            
+            print(self.status)
 
         case Status.FINISHED:
             tripObject.postText = postTextView.text
@@ -542,9 +614,12 @@ class ModalNewPostViewController: UIViewController {
                     let trip_key = key_array[1]
                 }
             })
+            
+            print(self.status)
         default:
             return
         }
+        
     }
     
     @IBAction func nextAction(_ sender: Any) {
@@ -594,6 +669,7 @@ class ModalNewPostViewController: UIViewController {
             animateBACK(obj: "desired")
             
             status = Status.STARTENTERED
+            self.nextButton.isUserInteractionEnabled = true
         case Status.DESIREDCHOSEN:
             if ( leaveTime == LeaveTime.DEPARTURE ){
                 animateTopButtonDOWN(button: "departure")
@@ -617,16 +693,18 @@ class ModalNewPostViewController: UIViewController {
         leaveTime = LeaveTime.DEPARTURE
         animateOFF(obj: "setTimeLabel")
         animateOFF(obj: "arrivalButton")
-        status = Status.DESIREDCHOSEN
+        status = Status.TIMECHOSEN
         showTimePicker()
+        print(self.status)
     }
     
     @IBAction func arrivalAction(_ sender: Any) {
         leaveTime = LeaveTime.ARRIVAL
         animateOFF(obj: "setTimeLabel")
         animateOFF(obj: "departureButton")
-        status = Status.DESIREDCHOSEN
+        status = Status.TIMECHOSEN
         showTimePicker()
+        print(self.status)
     }
     
     func showTimePicker(){
@@ -648,4 +726,75 @@ class ModalNewPostViewController: UIViewController {
              */
         }
     }
+
+    @IBAction func button1Action(_ sender: Any) {
+        buttonChosen(int: 1)
+    }
+    @IBAction func button2Action(_ sender: Any) {
+        buttonChosen(int: 2)
+    }
+    @IBAction func button3Action(_ sender: Any) {
+        buttonChosen(int: 3)
+    }
+    @IBAction func button4Action(_ sender: Any) {
+        buttonChosen(int: 4)
+    }
+    @IBAction func button5Action(_ sender: Any) {
+        buttonChosen(int: 5)
+    }
+    @IBAction func button6Action(_ sender: Any) {
+        buttonChosen(int: 6)
+    }
+    @IBAction func button7Action(_ sender: Any) {
+        buttonChosen(int: 7)
+    }
+    
+    func buttonChosen(int: Int){
+        
+        resetAllButtonBackgrounds()
+        
+        switch int {
+        case 1:
+            button1.backgroundColor = .black
+            tripObject.seatsAvailable = 1
+        case 2:
+            button2.backgroundColor = .black
+            tripObject.seatsAvailable = 2
+        case 3:
+            button3.backgroundColor = .black
+            tripObject.seatsAvailable = 3
+        case 4:
+            button4.backgroundColor = .black
+            tripObject.seatsAvailable = 4
+        case 5:
+            button5.backgroundColor = .black
+            tripObject.seatsAvailable = 5
+        case 6:
+            button6.backgroundColor = .black
+            tripObject.seatsAvailable = 6
+        case 7:
+            button7.backgroundColor = .black
+            tripObject.seatsAvailable = 7
+        default:
+            return
+        }
+
+        //Enable the next button
+        nextButton.isUserInteractionEnabled = true
+        
+        //Set the status for next transition
+        status = Status.SEATSCHOSEN
+    }
+    
+    func resetAllButtonBackgrounds(){
+        button1.backgroundColor = .clear
+        button2.backgroundColor = .clear
+        button3.backgroundColor = .clear
+        button4.backgroundColor = .clear
+        button5.backgroundColor = .clear
+        button6.backgroundColor = .clear
+        button7.backgroundColor = .clear
+    }
+
+    
 }

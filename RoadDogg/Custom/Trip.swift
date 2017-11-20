@@ -16,10 +16,40 @@ struct Trip {
     var eta: String! //Departure or Arrival
     var time: Date! //Date Object
     var postText: String!
-    var postedBy : String! //User key
+    var postedBy : String! //"driver" or "rider"
+    var tripType : String! //Driving look for Riders, or Riders looking for drivers
+    var driverKey : String! //User that is currently looking for riders
+    var passengerKeys : [String]!
+    var ratePerSeat : Float!
+    var seatsAvailable : Int!
+    var radius: Int = 5     //Set this as a default value
     
     init() {
         //Do Nothing
+    }
+    
+    init(trip: [String: AnyObject]){
+        if let driverKey = trip["driver_key"] as? String{
+            self.driverKey = driverKey
+        }
+        
+        if let rate = trip["rate_per_seat"] as? Float{
+            self.ratePerSeat = rate
+        }
+        
+        if let passKeys = trip["passenger_keys"] as? [String]{
+            self.passengerKeys = passKeys
+        }
+
+        if let seats = trip["seats_available"] as? Int {
+            self.seatsAvailable = seats
+        }
+        
+        //Start Address
+        self.startLocation = Address(address: trip["start_location"] as! [String : AnyObject])
+        
+        //End location
+        self.endLocation = Address(address: trip["end_location"] as! [String : AnyObject])
     }
     
     func to_dict() -> [String: Any]{
@@ -31,6 +61,8 @@ struct Trip {
         dict["time"] = self.time != nil ? self.time.to_string() : ""
         dict["post_text"] = self.postText != nil ? self.postText : ""
         dict["posted_by"] = self.postedBy != nil ? self.postedBy : ""
+        dict["posted_by_key"] = RealmManager.shared.userKey()
+        dict["seats_available"] = self.seatsAvailable != nil ? self.seatsAvailable : ""
         return dict
     }
 }

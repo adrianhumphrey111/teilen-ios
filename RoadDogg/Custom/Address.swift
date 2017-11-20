@@ -14,18 +14,35 @@ public struct Address {
     var address2 : String?
     var city : String!
     var state : String!
-    var zipCode : String!
-    var terms : [[String: AnyObject]]
+    var zipCode : String?
+    var terms : [[String: AnyObject]]?
+    var latitude : Float?
+    var longitude : Float?
+    
     
     init(prediction: [String: AnyObject]){
         //Nothing right now
         self.address1 = prediction["structured_formatting"]!["main_text"] as! String
         self.terms = prediction["terms"]! as! [[String: AnyObject]]
-        if 0...self.terms.count ~= self.terms.count - 3 {
-          self.city = self.terms[self.terms.count - 3]["value"] as! String
+        if 0...(self.terms?.count)! ~= (self.terms?.count)! - 3 {
+            self.city = self.terms![(self.terms?.count)! - 3]["value"] as! String
         }
-        if 0...self.terms.count ~= self.terms.count - 2 {
-            self.state = self.terms[self.terms.count - 2]["value"] as! String
+        if 0...(self.terms?.count)! ~= (self.terms?.count)! - 2 {
+            self.state = self.terms![(self.terms?.count)! - 2]["value"] as! String
+        }
+    }
+    
+    init(address: [String: AnyObject]){
+        self.address1 = address["address1"] as! String
+        self.address2 = address["address2"] as! String
+        self.city = address["city"] as! String
+        self.state = address["state"] as! String
+        
+        if let lat = address["latitude"] as? Float {
+            self.latitude = lat
+        }
+        if let lon = address["longitude"] as? Float {
+            self.longitude = lon
         }
     }
     
