@@ -42,6 +42,11 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - IGListKit (3.1.1):
+    - IGListKit/Default (= 3.1.1)
+  - IGListKit/Default (3.1.1):
+    - IGListKit/Diffing
+  - IGListKit/Diffing (3.1.1)
   - ILLoginKit (0.1.1):
     - FBSDKLoginKit (= 4.26.0)
     - Validator (~> 2.1.1)
@@ -83,6 +88,7 @@ DEPENDENCIES:
   - FacebookCore
   - Firebase/Core
   - Firebase/Messaging
+  - IGListKit (~> 3.0)
   - ILLoginKit
   - Onboard
   - PromiseKit (~> 4.4)
@@ -106,6 +112,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: c4c7fca62c7b7330caee5da04f19a37ea37bb1c1
   FirebaseMessaging: 85af6c27188538b3a6f7dfd0b3b0596358cb0c39
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  IGListKit: cb97f405ae43e59fe1da74271e19427ec20d3c07
   ILLoginKit: e57d634ead1dac4c0085c235fdd6121f9c271285
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
@@ -117,6 +124,6 @@ SPEC CHECKSUMS:
   Stripe: 898f83a95d72180c6eb4acd65b2ae6158fc6a8bd
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: 88f996637b9247132d9f4121ef910388f162b668
+PODFILE CHECKSUM: d2a934c125da23da7a5bf2c714639606be04653c
 
 COCOAPODS: 1.1.1

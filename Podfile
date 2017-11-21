@@ -21,6 +21,7 @@ target 'RoadDogg' do
   pod 'Stripe'          #Stripe SDK to handle payents
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'IGListKit', '~> 3.0'
 
   target 'RoadDoggTests' do
     inherit! :search_paths
