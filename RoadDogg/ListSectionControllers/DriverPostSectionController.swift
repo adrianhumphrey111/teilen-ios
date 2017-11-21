@@ -27,7 +27,7 @@ class DriverPostSectionController : ListSectionController{
 extension DriverPostSectionController  {
     
     override func numberOfItems() -> Int {
-        return 3
+        return 6
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
@@ -130,6 +130,24 @@ extension DriverPostSectionController  {
             cell.startToEndLabel.text = "Isla Vista -> San Francisco"
             cell.priceLabel.text = "$25"
             cell.backgroundColor = .white
+        }
+    }
+    
+    func configureTimeStampCell(cell: UICollectionViewCell){
+        if let cell = cell as? TimeStampCollectionViewCell{
+            cell.backgroundColor = .blue
+        }
+    }
+    
+    func configureLikeCommentCell(cell: UICollectionViewCell){
+        if let cell = cell as? LikeCommentCollectionViewCell{
+            cell.backgroundColor = .red
+        }
+    }
+    
+    func configureActionCell(cell: UICollectionViewCell){
+        if let cell = cell as? ActionCollectionViewCell{
+            cell.backgroundColor = .black
         }
     }
 
