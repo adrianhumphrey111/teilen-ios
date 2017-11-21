@@ -17,10 +17,11 @@ struct Trip {
     var time: Date! //Date Object
     var postText: String!
     var postedBy : String! //"driver" or "rider"
+    var postedByKey : String! //Key of the person that submited the post, could be a driver or rider
     var tripType : String! //Driving look for Riders, or Riders looking for drivers
     var driverKey : String! //User that is currently looking for riders
     var passengerKeys : [String]!
-    var ratePerSeat : Float!
+    var ratePerSeat : Int!
     var seatsAvailable : Int!
     var radius: Int = 5     //Set this as a default value
     
@@ -33,7 +34,7 @@ struct Trip {
             self.driverKey = driverKey
         }
         
-        if let rate = trip["rate_per_seat"] as? Float{
+        if let rate = trip["rate_per_seat"] as? Int{
             self.ratePerSeat = rate
         }
         
@@ -42,6 +43,22 @@ struct Trip {
         }
 
         if let seats = trip["seats_available"] as? Int {
+            self.seatsAvailable = seats
+        }
+        
+        if let postedBy = trip["posted_by"] as? String{
+            self.postedBy = postedBy
+        }
+        
+        if let key = trip["posted_by_key"] as? String{
+            self.postedByKey = key
+        }
+        
+        if let radius = trip["radius"] as? Int{
+            self.radius = radius
+        }
+        
+        if let seats = trip["seats_available"] as? Int{
             self.seatsAvailable = seats
         }
         
@@ -62,7 +79,9 @@ struct Trip {
         dict["post_text"] = self.postText != nil ? self.postText : ""
         dict["posted_by"] = self.postedBy != nil ? self.postedBy : ""
         dict["posted_by_key"] = RealmManager.shared.userKey()
+        dict["radius"] = self.radius != nil ? self.radius : ""
         dict["seats_available"] = self.seatsAvailable != nil ? self.seatsAvailable : ""
+        dict["rate_per_seat"] = self.ratePerSeat != nil ? self.ratePerSeat : ""
         return dict
     }
 }

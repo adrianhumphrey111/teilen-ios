@@ -55,6 +55,7 @@
 		52CFFF0F1FB7E58E00F93951 /* OnBoardTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFFF0E1FB7E58E00F93951 /* OnBoardTestViewController.swift */; };
 		52D7CAE91FB51BC700609EC1 /* FriendProfileHeadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D7CAE81FB51BC700609EC1 /* FriendProfileHeadViewCell.swift */; };
 		52DC32791FB547CE00A1DF6A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC32781FB547CE00A1DF6A /* Car.swift */; };
+		52DEF50A1FC3D6DD00FF37BC /* IGListFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEF5091FC3D6DD00FF37BC /* IGListFeedViewController.swift */; };
 		86226A8F1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86226A8E1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift */; };
 		86226A911FBCD69F001CE1C2 /* ProfileSettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86226A901FBCD69F001CE1C2 /* ProfileSettingViewCell.swift */; };
 		86A956FF1FBE8359008111CD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A956FE1FBE8359008111CD /* UserNotifications.framework */; };
@@ -141,11 +142,11 @@
 		52CFFF0E1FB7E58E00F93951 /* OnBoardTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardTestViewController.swift; sourceTree = "<group>"; };
 		52D7CAE81FB51BC700609EC1 /* FriendProfileHeadViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileHeadViewCell.swift; sourceTree = "<group>"; };
 		52DC32781FB547CE00A1DF6A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		52DEF5091FC3D6DD00FF37BC /* IGListFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGListFeedViewController.swift; sourceTree = "<group>"; };
 		86226A8E1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeadViewCell.swift; sourceTree = "<group>"; };
 		86226A901FBCD69F001CE1C2 /* ProfileSettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewCell.swift; sourceTree = "<group>"; };
 		86A956FE1FBE8359008111CD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		86A957001FBE87AC008111CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		86D315EB1FC394D200581B5E /* RoadDogg-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RoadDogg-Bridging-Header.h"; sourceTree = "<group>"; };
 		86F8C6F01FBD39C400FE7967 /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
 		86F8C6F21FBD40D300FE7967 /* StripeApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeApiManager.swift; sourceTree = "<group>"; };
 		A151700E925D25492F242BFA /* Pods-RoadDogg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDogg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg.debug.xcconfig"; sourceTree = "<group>"; };
@@ -240,7 +241,6 @@
 		525CA2C31F9D40A90037855E = {
 			isa = PBXGroup;
 			children = (
-				86D315EB1FC394D200581B5E /* RoadDogg-Bridging-Header.h */,
 				525CA2CE1F9D40A90037855E /* RoadDogg */,
 				525CA2E61F9D40A90037855E /* RoadDoggTests */,
 				525CA2F11F9D40A90037855E /* RoadDoggUITests */,
@@ -321,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				525CA2D11F9D40A90037855E /* FeedViewController.swift */,
+				52DEF5091FC3D6DD00FF37BC /* IGListFeedViewController.swift */,
 				5251515F1FA8730300317BC5 /* TripViewController.swift */,
 			);
 			path = "Feed View";
@@ -750,6 +751,7 @@
 				86F8C6F11FBD39C400FE7967 /* PaymentManager.swift in Sources */,
 				525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */,
 				525CA31D1FA0036B0037855E /* PostAddCommentView.swift in Sources */,
+				52DEF50A1FC3D6DD00FF37BC /* IGListFeedViewController.swift in Sources */,
 				52404AFB1FB1165D00AD64FA /* StringExtension.swift in Sources */,
 				52404AFD1FB11C0100AD64FA /* Address.swift in Sources */,
 				525151651FA875D800317BC5 /* CommentViewCell.swift in Sources */,
@@ -963,7 +965,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HumphreyEnterprise.TeilenRideShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/aahumphrey/Documents/adrian/ios/teilen-ios/RoadDogg-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -986,7 +988,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HumphreyEnterprise.TeilenRideShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/aahumphrey/Documents/adrian/ios/teilen-ios/RoadDogg-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -16,6 +16,7 @@ enum Status {
     case STARTENTERED
     case ENDENTERED
     case DESIREDCHOSEN
+    case TIMESHOWN
     case TIMECHOSEN
     case SEATSCHOSEN
     case RATECHOSEN
@@ -410,6 +411,10 @@ class ModalNewPostViewController: UIViewController {
                 self.rateLabel.center.x -= self.view.bounds.width
                 self.rateTextField.center.x -= self.view.bounds.width
             }
+        case "textField":
+            UIView.animate(withDuration: 0.5) {
+                self.postTextView.frame = CGRect(x: self.view.bounds.size.width, y: self.view.bounds.size.height, width: 0, height: 0)
+            }
         default:
             //Do Nothing
             return
@@ -466,6 +471,14 @@ class ModalNewPostViewController: UIViewController {
                 self.rateLabel.center.x = self.view.center.x
                 self.rateTextField.center.x = self.view.center.x
             }
+        case "text":
+            //Animate Text View in
+            UIView.animate(withDuration: 0.5) {
+                self.postTextView.frame = self.textViewFrame
+                self.postTextView.becomeFirstResponder()
+            }
+            self.nextButton.setTitle("Post", for: .normal)
+            self.nextButton.isUserInteractionEnabled = true
         default:
             //Do nothing
             return
@@ -500,6 +513,21 @@ class ModalNewPostViewController: UIViewController {
                 self.departureButton.center.x += self.view.bounds.width
                 self.arrivalButton.center.x += self.view.bounds.width
                 self.setTimeLabel.center.x += self.view.bounds.width
+            }
+        case "seats":
+            UIView.animate(withDuration: 0.5) {
+                self.seatsLabel.center.x += self.view.bounds.width
+                self.seatsStackView.center.x += self.view.bounds.width
+            }
+        case "radius":
+            UIView.animate(withDuration: 0.5) {
+                self.radiusLabel.center.x += self.view.bounds.width
+                self.radiusTextField.center.x += self.view.bounds.width
+            }
+        case "rate":
+            UIView.animate(withDuration: 0.5) {
+                self.rateLabel.center.x += self.view.bounds.width
+                self.rateTextField.center.x += self.view.bounds.width
             }
         default:
             return
@@ -547,13 +575,13 @@ class ModalNewPostViewController: UIViewController {
     }
     
     func next(){
+        
         switch self.status{
         case Status.TYPECHOSEN:
             animateON(obj: "endDestination")
             animateOFF(obj: "startDestination")
             endLocationTextField.becomeFirstResponder()
             status = Status.STARTENTERED
-            print(self.status)
             
         case Status.STARTENTERED:
             animateOFF(obj: "endDestination")
@@ -561,18 +589,23 @@ class ModalNewPostViewController: UIViewController {
             view.endEditing( true )
             status = Status.ENDENTERED
             self.nextButton.isUserInteractionEnabled = false
-            print(self.status)
             
         case Status.TIMECHOSEN:
+            return
+        case Status.TIMESHOWN:
             if ( leaveTime == LeaveTime.ARRIVAL){
                 animateOFF(obj: "arrivalButton")
             }else{
                 animateOFF(obj: "departureButton")
             }
             
-            animateON(obj: "seats")
-            print("Show the seats to be picked")
-            print(self.status)
+            if ( trip == TypeOfTrip.LOOKING ){
+                animateON(obj: "text")
+                status = Status.FINISHED
+            }else{
+                animateON(obj: "seats")
+                status = Status.TIMECHOSEN
+            }
             
         case Status.SEATSCHOSEN:
             animateOFF(obj: "seats")
@@ -600,7 +633,7 @@ class ModalNewPostViewController: UIViewController {
             }
             
             //Save the rate to the tripobject
-            tripObject.ratePerSeat = Float( rateTextField.text! )
+            tripObject.ratePerSeat = Int( rateTextField.text! )
             
             //Animate Off Rate Chosen
             animateOFF(obj: "rate")
@@ -611,21 +644,24 @@ class ModalNewPostViewController: UIViewController {
             //Show the keyboard
             postTextView.becomeFirstResponder()
             
-            //Animate Text View in
-            UIView.animate(withDuration: 0.5) {
-                self.postTextView.frame = self.textViewFrame
-            }
+            animateON(obj: "text")
             
             //Set Next Title for button
             nextButton.setTitle("Post Trip", for: .normal)
             
             //Set Status
             status = Status.FINISHED
-            
-            print(self.status)
 
         case Status.FINISHED:
             tripObject.postText = postTextView.text
+            tripObject.radius = Int( radiusTextField.text! )!
+            tripObject.ratePerSeat = Int( rateTextField.text! )
+            if ( trip == TypeOfTrip.DRIVING ){
+                tripObject.postedBy = "driver"
+            }
+            else{
+                tripObject.postedBy = "rider"
+            }
             view.endEditing( true )
             self.dismiss(animated: true, completion: {
                 //Do something with this, idk what yet though, maybe refresh feed
@@ -635,10 +671,10 @@ class ModalNewPostViewController: UIViewController {
                 }
             })
             
-            print(self.status)
         default:
             return
         }
+        print(status)
         
     }
     
@@ -678,13 +714,13 @@ class ModalNewPostViewController: UIViewController {
             animateBACK(obj: "startDestination")
             status = Status.INITIAL
         case Status.TIMECHOSEN:
-            if ( leaveTime == LeaveTime.DEPARTURE){
-                animateBACK(obj: "arrival")
-            }else{
-                animateBACK(obj: "departure")
-            }
+            animateBACK(obj: "seats")
+            animateON(obj: "setTimeButtons")
+            status = Status.TIMESHOWN
+        case Status.TIMESHOWN:
+            animateBACK(obj: "departure")
+            animateBACK(obj: "arrival")
             status = Status.ENDENTERED
-            
         case Status.STARTENTERED:
             startLocationTextField.becomeFirstResponder()
             animateBACK(obj: "endDestination")
@@ -694,9 +730,9 @@ class ModalNewPostViewController: UIViewController {
         case Status.ENDENTERED:
             animateON(obj: "endDestination")
             animateBACK(obj: "desired")
-            
             status = Status.STARTENTERED
             self.nextButton.isUserInteractionEnabled = true
+            
         case Status.DESIREDCHOSEN:
             if ( leaveTime == LeaveTime.DEPARTURE ){
                 animateTopButtonDOWN(button: "departure")
@@ -707,31 +743,45 @@ class ModalNewPostViewController: UIViewController {
                 animateBACK(obj: "departure")
                 status = Status.ENDENTERED
             }
+        case Status.SEATSCHOSEN:
+            animateBACK(obj: "seats")
+            animateON(obj: "setTimeButtons")
+            status = Status.DESIREDCHOSEN
+            
+        case Status.RADIUSPICKED:
+            animateBACK(obj: "radius")
+            animateON(obj: "seats")
+            status = Status.SEATSCHOSEN
+            
+        case Status.RATECHOSEN:
+            animateBACK(obj: "rate")
+            animateON(obj: "radius")
+            status = Status.RADIUSPICKED
+            
         case Status.FINISHED:
-            UIView.animate(withDuration: 0.5) {
-                self.postTextView.frame = CGRect(x: self.view.bounds.size.width, y: self.view.bounds.size.height, width: 0, height: 0)
-            }
+            animateOFF(obj: "textField")
+            animateON(obj: "rate")
+            status = Status.RATECHOSEN
         default:
             return
         }
+        print(status)
     }
     
     @IBAction func departureAction(_ sender: Any) {
         leaveTime = LeaveTime.DEPARTURE
         animateOFF(obj: "setTimeLabel")
         animateOFF(obj: "arrivalButton")
-        status = Status.TIMECHOSEN
+        status = Status.TIMESHOWN
         showTimePicker()
-        print(self.status)
     }
     
     @IBAction func arrivalAction(_ sender: Any) {
         leaveTime = LeaveTime.ARRIVAL
         animateOFF(obj: "setTimeLabel")
         animateOFF(obj: "departureButton")
-        status = Status.TIMECHOSEN
+        status = Status.TIMESHOWN
         showTimePicker()
-        print(self.status)
     }
     
     func showTimePicker(){
@@ -739,7 +789,6 @@ class ModalNewPostViewController: UIViewController {
         picker.highlightColor = UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
         picker.isDatePickerOnly = false // to hide time and show only date picker
         picker.completionHandler = { date in
-            print(date)
             self.tripObject.eta = date.to_string()
             self.next()
             
