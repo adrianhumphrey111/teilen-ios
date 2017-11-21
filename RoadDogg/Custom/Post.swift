@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import IGListKit
+
 class Post{
     
     var user : User!
@@ -19,7 +21,7 @@ class Post{
     var comments = [Comment]()
     var liked = false
     var createdAt = ""
-    var fontSize : CGFloat = 14
+    public var fontSize : CGFloat = 20
     var textHeight : CGFloat = 0.0
     var trip : Trip? = nil
     var likeCountString : String {
@@ -90,6 +92,32 @@ class Post{
         let estimatedFrame = NSString(string: self.text).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         return estimatedFrame.height
     }
+    
+}
+
+extension Post: Equatable{
+    
+    static public func ==(rhs: Post, lhs: Post) -> Bool{
+        return rhs.postKey == lhs.postKey
+    }
+}
+
+extension Post : ListDiffable{
+    public func diffIdentifier() -> NSObjectProtocol {
+        return postKey as NSObjectProtocol
+    }
+    
+    public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        guard let object = object as? Post else{
+            return false
+        }
+        
+        return self.postKey == object.postKey
+    }
+    
+    
+    
+    
     
 }
 

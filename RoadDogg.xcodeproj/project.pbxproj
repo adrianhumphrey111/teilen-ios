@@ -36,13 +36,9 @@
 		525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3061F9FF5FD0037855E /* Notification View.swift */; };
 		525CA30A1F9FF61D0037855E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3091F9FF61D0037855E /* ProfileViewController.swift */; };
 		525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA30C1F9FF63C0037855E /* NewPostViewController.swift */; };
-		525CA3131FA002F50037855E /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3121FA002F50037855E /* PostView.swift */; };
-		525CA3151FA003090037855E /* PostHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3141FA003090037855E /* PostHeaderView.swift */; };
-		525CA3171FA0031C0037855E /* PostTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3161FA0031C0037855E /* PostTextView.swift */; };
-		525CA3191FA0033E0037855E /* PostActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3181FA0033E0037855E /* PostActionView.swift */; };
-		525CA31B1FA003530037855E /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31A1FA003530037855E /* PostCommentView.swift */; };
-		525CA31D1FA0036B0037855E /* PostAddCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31C1FA0036B0037855E /* PostAddCommentView.swift */; };
 		525CA3201FA127060037855E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31F1FA127050037855E /* Network.swift */; };
+		529C37B81FC420FE002F02EC /* PostTextViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C37B61FC420FE002F02EC /* PostTextViewCollectionViewCell.swift */; };
+		529C37B91FC420FE002F02EC /* PostTextViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529C37B71FC420FE002F02EC /* PostTextViewCollectionViewCell.xib */; };
 		52C03C421FB9604D00E06CE4 /* LoginCooridinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C03C411FB9604D00E06CE4 /* LoginCooridinator.swift */; };
 		52C03C441FB9726600E06CE4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C03C431FB9726600E06CE4 /* InitialViewController.swift */; };
 		52C03C461FBA6B4F00E06CE4 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C03C451FBA6B4E00E06CE4 /* Realm.swift */; };
@@ -56,6 +52,15 @@
 		52D7CAE91FB51BC700609EC1 /* FriendProfileHeadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D7CAE81FB51BC700609EC1 /* FriendProfileHeadViewCell.swift */; };
 		52DC32791FB547CE00A1DF6A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC32781FB547CE00A1DF6A /* Car.swift */; };
 		52DEF50A1FC3D6DD00FF37BC /* IGListFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEF5091FC3D6DD00FF37BC /* IGListFeedViewController.swift */; };
+		52DEF50D1FC3E55400FF37BC /* DriverPostSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEF50C1FC3E55400FF37BC /* DriverPostSectionController.swift */; };
+		52DEF5111FC4105100FF37BC /* PostHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEF50F1FC4105100FF37BC /* PostHeaderCollectionViewCell.swift */; };
+		52DEF5121FC4105100FF37BC /* PostHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52DEF5101FC4105100FF37BC /* PostHeaderCollectionViewCell.xib */; };
+		52E313AD1FC4314200DA6724 /* RideInformationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E313AB1FC4314200DA6724 /* RideInformationCollectionViewCell.swift */; };
+		52E313AE1FC4314200DA6724 /* RideInformationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E313AC1FC4314200DA6724 /* RideInformationCollectionViewCell.xib */; };
+		52E313B11FC4346200DA6724 /* TimeStampCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E313AF1FC4346200DA6724 /* TimeStampCollectionViewCell.swift */; };
+		52E313B21FC4346200DA6724 /* TimeStampCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E313B01FC4346200DA6724 /* TimeStampCollectionViewCell.xib */; };
+		52E313B51FC4348500DA6724 /* LikeCommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E313B31FC4348500DA6724 /* LikeCommentCollectionViewCell.swift */; };
+		52E313B61FC4348500DA6724 /* LikeCommentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E313B41FC4348500DA6724 /* LikeCommentCollectionViewCell.xib */; };
 		86226A8F1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86226A8E1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift */; };
 		86226A911FBCD69F001CE1C2 /* ProfileSettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86226A901FBCD69F001CE1C2 /* ProfileSettingViewCell.swift */; };
 		86A956FF1FBE8359008111CD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A956FE1FBE8359008111CD /* UserNotifications.framework */; };
@@ -122,13 +127,9 @@
 		525CA3061F9FF5FD0037855E /* Notification View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification View.swift"; sourceTree = "<group>"; };
 		525CA3091F9FF61D0037855E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		525CA30C1F9FF63C0037855E /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
-		525CA3121FA002F50037855E /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
-		525CA3141FA003090037855E /* PostHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderView.swift; sourceTree = "<group>"; };
-		525CA3161FA0031C0037855E /* PostTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextView.swift; sourceTree = "<group>"; };
-		525CA3181FA0033E0037855E /* PostActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActionView.swift; sourceTree = "<group>"; };
-		525CA31A1FA003530037855E /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
-		525CA31C1FA0036B0037855E /* PostAddCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAddCommentView.swift; sourceTree = "<group>"; };
 		525CA31F1FA127050037855E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		529C37B61FC420FE002F02EC /* PostTextViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		529C37B71FC420FE002F02EC /* PostTextViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTextViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		52C03C3D1FB7F42B00E06CE4 /* RoadDogg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RoadDogg.entitlements; sourceTree = "<group>"; };
 		52C03C411FB9604D00E06CE4 /* LoginCooridinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCooridinator.swift; sourceTree = "<group>"; };
 		52C03C431FB9726600E06CE4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +144,15 @@
 		52D7CAE81FB51BC700609EC1 /* FriendProfileHeadViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileHeadViewCell.swift; sourceTree = "<group>"; };
 		52DC32781FB547CE00A1DF6A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		52DEF5091FC3D6DD00FF37BC /* IGListFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGListFeedViewController.swift; sourceTree = "<group>"; };
+		52DEF50C1FC3E55400FF37BC /* DriverPostSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPostSectionController.swift; sourceTree = "<group>"; };
+		52DEF50F1FC4105100FF37BC /* PostHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		52DEF5101FC4105100FF37BC /* PostHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		52E313AB1FC4314200DA6724 /* RideInformationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideInformationCollectionViewCell.swift; sourceTree = "<group>"; };
+		52E313AC1FC4314200DA6724 /* RideInformationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RideInformationCollectionViewCell.xib; sourceTree = "<group>"; };
+		52E313AF1FC4346200DA6724 /* TimeStampCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampCollectionViewCell.swift; sourceTree = "<group>"; };
+		52E313B01FC4346200DA6724 /* TimeStampCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeStampCollectionViewCell.xib; sourceTree = "<group>"; };
+		52E313B31FC4348500DA6724 /* LikeCommentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCommentCollectionViewCell.swift; sourceTree = "<group>"; };
+		52E313B41FC4348500DA6724 /* LikeCommentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeCommentCollectionViewCell.xib; sourceTree = "<group>"; };
 		86226A8E1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeadViewCell.swift; sourceTree = "<group>"; };
 		86226A901FBCD69F001CE1C2 /* ProfileSettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewCell.swift; sourceTree = "<group>"; };
 		86A956FE1FBE8359008111CD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
@@ -263,6 +273,7 @@
 		525CA2CE1F9D40A90037855E /* RoadDogg */ = {
 			isa = PBXGroup;
 			children = (
+				52DEF50B1FC3E52B00FF37BC /* ListSectionControllers */,
 				86F8C6EF1FBD39A600FE7967 /* Payment */,
 				52C03C3E1FB957C500E06CE4 /* Login  */,
 				52C03C3D1FB7F42B00E06CE4 /* RoadDogg.entitlements */,
@@ -364,13 +375,8 @@
 		525CA3111FA002E00037855E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				52DEF50E1FC40F5600FF37BC /* Post Cell Components */,
 				525151611FA8757500317BC5 /* Cells */,
-				525CA3121FA002F50037855E /* PostView.swift */,
-				525CA3141FA003090037855E /* PostHeaderView.swift */,
-				525CA3161FA0031C0037855E /* PostTextView.swift */,
-				525CA3181FA0033E0037855E /* PostActionView.swift */,
-				525CA31A1FA003530037855E /* PostCommentView.swift */,
-				525CA31C1FA0036B0037855E /* PostAddCommentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -425,6 +431,31 @@
 				52CFFF0E1FB7E58E00F93951 /* OnBoardTestViewController.swift */,
 			);
 			path = "OnBoarding View Controllers";
+			sourceTree = "<group>";
+		};
+		52DEF50B1FC3E52B00FF37BC /* ListSectionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				52DEF50C1FC3E55400FF37BC /* DriverPostSectionController.swift */,
+			);
+			path = ListSectionControllers;
+			sourceTree = "<group>";
+		};
+		52DEF50E1FC40F5600FF37BC /* Post Cell Components */ = {
+			isa = PBXGroup;
+			children = (
+				52DEF50F1FC4105100FF37BC /* PostHeaderCollectionViewCell.swift */,
+				52DEF5101FC4105100FF37BC /* PostHeaderCollectionViewCell.xib */,
+				529C37B61FC420FE002F02EC /* PostTextViewCollectionViewCell.swift */,
+				529C37B71FC420FE002F02EC /* PostTextViewCollectionViewCell.xib */,
+				52E313AB1FC4314200DA6724 /* RideInformationCollectionViewCell.swift */,
+				52E313AC1FC4314200DA6724 /* RideInformationCollectionViewCell.xib */,
+				52E313AF1FC4346200DA6724 /* TimeStampCollectionViewCell.swift */,
+				52E313B01FC4346200DA6724 /* TimeStampCollectionViewCell.xib */,
+				52E313B31FC4348500DA6724 /* LikeCommentCollectionViewCell.swift */,
+				52E313B41FC4348500DA6724 /* LikeCommentCollectionViewCell.xib */,
+			);
+			path = "Post Cell Components";
 			sourceTree = "<group>";
 		};
 		86F8C6EF1FBD39A600FE7967 /* Payment */ = {
@@ -576,11 +607,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529C37B91FC420FE002F02EC /* PostTextViewCollectionViewCell.xib in Resources */,
 				525CA2DD1F9D40A90037855E /* LaunchScreen.storyboard in Resources */,
 				525CA2DA1F9D40A90037855E /* Assets.xcassets in Resources */,
 				86A957011FBE87AD008111CD /* GoogleService-Info.plist in Resources */,
 				525CA2D51F9D40A90037855E /* Main.storyboard in Resources */,
+				52DEF5121FC4105100FF37BC /* PostHeaderCollectionViewCell.xib in Resources */,
 				52CFFF0C1FB7E50F00F93951 /* OnBoarding.storyboard in Resources */,
+				52E313B61FC4348500DA6724 /* LikeCommentCollectionViewCell.xib in Resources */,
+				52E313B21FC4346200DA6724 /* TimeStampCollectionViewCell.xib in Resources */,
+				52E313AE1FC4314200DA6724 /* RideInformationCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,13 +780,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				525CA30A1F9FF61D0037855E /* ProfileViewController.swift in Sources */,
-				525CA3151FA003090037855E /* PostHeaderView.swift in Sources */,
-				525CA3191FA0033E0037855E /* PostActionView.swift in Sources */,
+				52E313B51FC4348500DA6724 /* LikeCommentCollectionViewCell.swift in Sources */,
 				52C03C441FB9726600E06CE4 /* InitialViewController.swift in Sources */,
 				86226A911FBCD69F001CE1C2 /* ProfileSettingViewCell.swift in Sources */,
 				86F8C6F11FBD39C400FE7967 /* PaymentManager.swift in Sources */,
 				525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */,
-				525CA31D1FA0036B0037855E /* PostAddCommentView.swift in Sources */,
 				52DEF50A1FC3D6DD00FF37BC /* IGListFeedViewController.swift in Sources */,
 				52404AFB1FB1165D00AD64FA /* StringExtension.swift in Sources */,
 				52404AFD1FB11C0100AD64FA /* Address.swift in Sources */,
@@ -763,6 +797,9 @@
 				52CFFEFE1FB67B3A00F93951 /* Models.swift in Sources */,
 				525CA2D21F9D40A90037855E /* FeedViewController.swift in Sources */,
 				5259A6BE1FA5D39700078161 /* User.swift in Sources */,
+				529C37B81FC420FE002F02EC /* PostTextViewCollectionViewCell.swift in Sources */,
+				52DEF5111FC4105100FF37BC /* PostHeaderCollectionViewCell.swift in Sources */,
+				52E313AD1FC4314200DA6724 /* RideInformationCollectionViewCell.swift in Sources */,
 				525151601FA8730300317BC5 /* TripViewController.swift in Sources */,
 				52C03C421FB9604D00E06CE4 /* LoginCooridinator.swift in Sources */,
 				525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */,
@@ -771,18 +808,17 @@
 				525151AD1FAD65E100317BC5 /* ModalNewPostViewController.swift in Sources */,
 				525151631FA875B600317BC5 /* PostViewCell.swift in Sources */,
 				52DC32791FB547CE00A1DF6A /* Car.swift in Sources */,
+				52DEF50D1FC3E55400FF37BC /* DriverPostSectionController.swift in Sources */,
 				52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */,
 				52CFFF0F1FB7E58E00F93951 /* OnBoardTestViewController.swift in Sources */,
+				52E313B11FC4346200DA6724 /* TimeStampCollectionViewCell.swift in Sources */,
 				525151AB1FAD5D0000317BC5 /* TabBarViewController.swift in Sources */,
-				525CA31B1FA003530037855E /* PostCommentView.swift in Sources */,
-				525CA3171FA0031C0037855E /* PostTextView.swift in Sources */,
 				52474C6B1FB3F84300422CAD /* FriendProfileViewController.swift in Sources */,
 				52404AF91FB05AE500AD64FA /* Trip.swift in Sources */,
 				5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */,
 				52CFFF011FB7D59400F93951 /* GeneralSettings.swift in Sources */,
 				525CA2D01F9D40A90037855E /* AppDelegate.swift in Sources */,
 				5259A6C21FA5FCEE00078161 /* Post.swift in Sources */,
-				525CA3131FA002F50037855E /* PostView.swift in Sources */,
 				52C03C461FBA6B4F00E06CE4 /* Realm.swift in Sources */,
 				525CA3041F9FF5D60037855E /* MapViewController.swift in Sources */,
 			);

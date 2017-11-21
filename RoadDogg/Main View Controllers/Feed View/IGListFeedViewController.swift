@@ -25,7 +25,10 @@ class IGListFeedViewController : UIViewController{
     }()
     
     //Posts that will populate CollectionView
-    var posts : [Post]?
+    var posts : [Post] = []
+    
+    //Refresher
+    var refresher:UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +40,13 @@ class IGListFeedViewController : UIViewController{
         
         //Grab All posts
         fetchFeed()
+        
+        //Add Refresh To Collection View
+        self.refresher = UIRefreshControl()
+        self.collectionView.alwaysBounceVertical = true
+        self.refresher.tintColor = UIColor.red
+        self.refresher.addTarget(self, action: #selector(fetchFeed), for: .valueChanged)
+        self.collectionView.refreshControl = refresher
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,9 +54,14 @@ class IGListFeedViewController : UIViewController{
         collectionView.frame = view.bounds
     }
     
-    func fetchFeed(){
+    @objc func fetchFeed(){
         Network.shared.getFeed().then { feed -> Void in
+            //End Refreshing
+            self.collectionView.refreshControl?.endRefreshing()
+            
+            //Set the post and perform updates
             self.posts = feed.posts
+            self.adapter.performUpdates(animated: true, completion: nil)
         }
     }
 }
@@ -54,15 +69,19 @@ class IGListFeedViewController : UIViewController{
 extension IGListFeedViewController: ListAdapterDataSource {
     // 1
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return self.posts as! [ListDiffable]
+        return (self.posts as? [ListDiffable])!
     }
     
     // 2
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         //Check if this post was posted by a rider or a driver
-        return ListSectionController()
+        return DriverPostSectionController()
     }
     
     // 3
-    func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil  } //Return a certatin view later
+    func emptyView(for listAdapter: ListAdapter) -> UIView? {
+        print("The view is empty and was not updated")
+        return nil
+        
+    } //Return a certatin view later
 }

@@ -77,6 +77,14 @@ PODS:
   - Realm/Headers (2.10.0)
   - RealmSwift (2.10.0):
     - Realm (= 2.10.0)
+  - Reusable (4.0.0):
+    - Reusable/Storyboard (= 4.0.0)
+    - Reusable/View (= 4.0.0)
+  - Reusable/Storyboard (4.0.0)
+  - Reusable/View (4.0.0)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - SearchTextField (1.1.8)
   - Stripe (11.2.0)
   - Validator (2.1.1)
@@ -95,6 +103,8 @@ DEPENDENCIES:
   - PromiseKit/CoreLocation
   - PromiseKit/MapKit
   - RealmSwift
+  - Reusable (~> 4.0)
+  - SDWebImage (~> 3.8)
   - SearchTextField
   - Stripe
 
@@ -120,10 +130,12 @@ SPEC CHECKSUMS:
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
   Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
   RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
+  Reusable: 98e5fff1e0e2e00872199699b276dde08ee56c07
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SearchTextField: 1d43b423c2acd3a9e2b37a74180e0cb137fcf1e7
   Stripe: 898f83a95d72180c6eb4acd65b2ae6158fc6a8bd
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: d2a934c125da23da7a5bf2c714639606be04653c
+PODFILE CHECKSUM: 2a1812e4652e8c9beed123a1fb941abdcbf53989
 
 COCOAPODS: 1.1.1

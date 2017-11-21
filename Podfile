@@ -22,6 +22,8 @@ target 'RoadDogg' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'IGListKit', '~> 3.0'
+  pod 'Reusable', '~> 4.0'
+  pod 'SDWebImage', '~> 3.8'
 
   target 'RoadDoggTests' do
     inherit! :search_paths
