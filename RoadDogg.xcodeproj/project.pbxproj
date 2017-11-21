@@ -61,6 +61,8 @@
 		52E313B21FC4346200DA6724 /* TimeStampCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E313B01FC4346200DA6724 /* TimeStampCollectionViewCell.xib */; };
 		52E313B51FC4348500DA6724 /* LikeCommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E313B31FC4348500DA6724 /* LikeCommentCollectionViewCell.swift */; };
 		52E313B61FC4348500DA6724 /* LikeCommentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E313B41FC4348500DA6724 /* LikeCommentCollectionViewCell.xib */; };
+		52E313BD1FC4358500DA6724 /* ActionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E313BB1FC4358500DA6724 /* ActionCollectionViewCell.swift */; };
+		52E313BE1FC4358500DA6724 /* ActionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E313BC1FC4358500DA6724 /* ActionCollectionViewCell.xib */; };
 		86226A8F1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86226A8E1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift */; };
 		86226A911FBCD69F001CE1C2 /* ProfileSettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86226A901FBCD69F001CE1C2 /* ProfileSettingViewCell.swift */; };
 		86A956FF1FBE8359008111CD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A956FE1FBE8359008111CD /* UserNotifications.framework */; };
@@ -153,6 +155,8 @@
 		52E313B01FC4346200DA6724 /* TimeStampCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeStampCollectionViewCell.xib; sourceTree = "<group>"; };
 		52E313B31FC4348500DA6724 /* LikeCommentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCommentCollectionViewCell.swift; sourceTree = "<group>"; };
 		52E313B41FC4348500DA6724 /* LikeCommentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeCommentCollectionViewCell.xib; sourceTree = "<group>"; };
+		52E313BB1FC4358500DA6724 /* ActionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCollectionViewCell.swift; sourceTree = "<group>"; };
+		52E313BC1FC4358500DA6724 /* ActionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionCollectionViewCell.xib; sourceTree = "<group>"; };
 		86226A8E1FBCD58E001CE1C2 /* UserProfileHeadViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeadViewCell.swift; sourceTree = "<group>"; };
 		86226A901FBCD69F001CE1C2 /* ProfileSettingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewCell.swift; sourceTree = "<group>"; };
 		86A956FE1FBE8359008111CD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
@@ -454,6 +458,8 @@
 				52E313B01FC4346200DA6724 /* TimeStampCollectionViewCell.xib */,
 				52E313B31FC4348500DA6724 /* LikeCommentCollectionViewCell.swift */,
 				52E313B41FC4348500DA6724 /* LikeCommentCollectionViewCell.xib */,
+				52E313BB1FC4358500DA6724 /* ActionCollectionViewCell.swift */,
+				52E313BC1FC4358500DA6724 /* ActionCollectionViewCell.xib */,
 			);
 			path = "Post Cell Components";
 			sourceTree = "<group>";
@@ -614,6 +620,7 @@
 				525CA2D51F9D40A90037855E /* Main.storyboard in Resources */,
 				52DEF5121FC4105100FF37BC /* PostHeaderCollectionViewCell.xib in Resources */,
 				52CFFF0C1FB7E50F00F93951 /* OnBoarding.storyboard in Resources */,
+				52E313BE1FC4358500DA6724 /* ActionCollectionViewCell.xib in Resources */,
 				52E313B61FC4348500DA6724 /* LikeCommentCollectionViewCell.xib in Resources */,
 				52E313B21FC4346200DA6724 /* TimeStampCollectionViewCell.xib in Resources */,
 				52E313AE1FC4314200DA6724 /* RideInformationCollectionViewCell.xib in Resources */,
@@ -801,6 +808,7 @@
 				52DEF5111FC4105100FF37BC /* PostHeaderCollectionViewCell.swift in Sources */,
 				52E313AD1FC4314200DA6724 /* RideInformationCollectionViewCell.swift in Sources */,
 				525151601FA8730300317BC5 /* TripViewController.swift in Sources */,
+				52E313BD1FC4358500DA6724 /* ActionCollectionViewCell.swift in Sources */,
 				52C03C421FB9604D00E06CE4 /* LoginCooridinator.swift in Sources */,
 				525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */,
 				525CA2D81F9D40A90037855E /* RoadDogg.xcdatamodeld in Sources */,

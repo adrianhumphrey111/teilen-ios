@@ -42,6 +42,8 @@ extension DriverPostSectionController  {
             let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: self.post.fontSize )]
             let estiamtedFrame = NSString( string: text ).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
             return CGSize(width: cellWidth, height: estiamtedFrame.height + 15)
+        case 3, 4, 5:
+            return CGSize(width: cellWidth, height: 35)
         default:
             return CGSize(width: 100, height: 100)
         }
@@ -65,6 +67,21 @@ extension DriverPostSectionController  {
             let cellClass : String = PostTextViewCollectionViewCell.reuseIdentifier
             let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
             configureTextCell( cell: cell )
+            return cell
+        case 3:
+            let cellClass : String = TimeStampCollectionViewCell.reuseIdentifier
+            let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
+            configureTimeStampCell( cell: cell )
+            return cell
+        case 4:
+            let cellClass : String = LikeCommentCollectionViewCell.reuseIdentifier
+            let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
+            configureLikeCommentCell( cell: cell )
+            return cell
+        case 5:
+            let cellClass : String = ActionCollectionViewCell.reuseIdentifier
+            let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
+            configureActionCell( cell: cell )
             return cell
         default:
             return UICollectionViewCell()
