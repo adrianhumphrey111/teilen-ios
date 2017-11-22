@@ -66,7 +66,6 @@ struct User{
         dict["facebook_id"] = self.facebookId != "" ? self.facebookId : ""
         dict["password"] = self.password != "" ? self.password : ""
         dict["notification_token"] = self.notification_token != "" ? self.notification_token : ""
-        print(dict)
         return dict
     }
 }

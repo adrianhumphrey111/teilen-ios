@@ -33,9 +33,7 @@ class OnBoardTestViewController: UIViewController {
         let loginManager = FBSDKLoginManager()
         loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends", "user_education_history"], from: self) { (result , error) in
             if ( error == nil ){
-                print( result?.grantedPermissions )
                 //This was successful
-                print( "Show main view controller" )
                 self.showMainViewController()
                 Network.shared.retriveUserFromFacebook().then { user -> Void in
                     Network.shared.createUser(user: user).then { result -> Void in

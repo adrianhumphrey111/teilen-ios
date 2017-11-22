@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		274EECB7C07175164D9A7DA2 /* Pods_RoadDogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */; };
+		401570E01FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401570DE1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift */; };
+		401570E11FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401570DF1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib */; };
 		52250F3D1FA185DB00E97624 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52250F3E1FA185DC00E97624 /* Alamofire.framework */; };
 		52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */; };
 		52404AF91FB05AE500AD64FA /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF81FB05AE500AD64FA /* Trip.swift */; };
@@ -93,6 +95,8 @@
 /* Begin PBXFileReference section */
 		06E045006CE507E8630B47D0 /* Pods-RoadDoggUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggUITests/Pods-RoadDoggUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2C3147D8D49BB4F218476403 /* Pods_RoadDoggUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDoggUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		401570DE1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		401570DF1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		49FF0ABDA8FB00ADF0C3C2E6 /* Pods-RoadDoggTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggTests/Pods-RoadDoggTests.debug.xcconfig"; sourceTree = "<group>"; };
 		518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDoggTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52250F3E1FA185DC00E97624 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -460,6 +464,8 @@
 				52E313B41FC4348500DA6724 /* LikeCommentCollectionViewCell.xib */,
 				52E313BB1FC4358500DA6724 /* ActionCollectionViewCell.swift */,
 				52E313BC1FC4358500DA6724 /* ActionCollectionViewCell.xib */,
+				401570DE1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift */,
+				401570DF1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib */,
 			);
 			path = "Post Cell Components";
 			sourceTree = "<group>";
@@ -615,6 +621,7 @@
 			files = (
 				529C37B91FC420FE002F02EC /* PostTextViewCollectionViewCell.xib in Resources */,
 				525CA2DD1F9D40A90037855E /* LaunchScreen.storyboard in Resources */,
+				401570E11FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib in Resources */,
 				525CA2DA1F9D40A90037855E /* Assets.xcassets in Resources */,
 				86A957011FBE87AD008111CD /* GoogleService-Info.plist in Resources */,
 				525CA2D51F9D40A90037855E /* Main.storyboard in Resources */,
@@ -665,13 +672,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RoadDogg-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		354F2D0860229449DEF0123F /* [CP] Check Pods Manifest.lock */ = {
@@ -680,13 +690,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RoadDoggTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		57EB75D531DAD275FB37131E /* [CP] Copy Pods Resources */ = {
@@ -755,9 +768,52 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/DateTimePicker/DateTimePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ILLoginKit/ILLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
+				"${BUILT_PRODUCTS_DIR}/Validator/Validator.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTimePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ILLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Validator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -770,13 +826,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RoadDoggUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -792,6 +851,7 @@
 				86226A911FBCD69F001CE1C2 /* ProfileSettingViewCell.swift in Sources */,
 				86F8C6F11FBD39C400FE7967 /* PaymentManager.swift in Sources */,
 				525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */,
+				401570E01FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift in Sources */,
 				52DEF50A1FC3D6DD00FF37BC /* IGListFeedViewController.swift in Sources */,
 				52404AFB1FB1165D00AD64FA /* StringExtension.swift in Sources */,
 				52404AFD1FB11C0100AD64FA /* Address.swift in Sources */,

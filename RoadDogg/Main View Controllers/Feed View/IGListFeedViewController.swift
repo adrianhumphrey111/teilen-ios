@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 import IGListKit
 
-class IGListFeedViewController : UIViewController{
+class IGListFeedViewController : UIViewController, FeedPostDelegate{
+    
+    func pushPostViewController(vc: UIViewController) {
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     //Collection View
     let collectionView: UICollectionView = {
@@ -32,6 +36,10 @@ class IGListFeedViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Make tab bar visible
+        tabBarController?.tabBar.isHidden = false
+        
+        //Add colelctionview
         view.addSubview(collectionView)
         
         //Set up collection Adapter
@@ -54,6 +62,14 @@ class IGListFeedViewController : UIViewController{
         collectionView.frame = view.bounds
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //Make tab bar visible
+        tabBarController?.tabBar.isHidden = false
+        
+        fetchFeed()
+    }
+    
     @objc func fetchFeed(){
         Network.shared.getFeed().then { feed -> Void in
             //End Refreshing
@@ -61,7 +77,10 @@ class IGListFeedViewController : UIViewController{
             
             //Set the post and perform updates
             self.posts = feed.posts
-            self.adapter.performUpdates(animated: true, completion: nil)
+            print("Post after the fetch => ", self.posts)
+            self.adapter.performUpdates(animated: true, completion: { (bool) in
+                print("Posts after the updates have been performed => ", self.posts)
+            })
         }
     }
 }
@@ -75,7 +94,15 @@ extension IGListFeedViewController: ListAdapterDataSource {
     // 2
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         //Check if this post was posted by a rider or a driver
-        return DriverPostSectionController()
+        let post = object as? Post
+        if ( post?.trip?.postedBy == "driver" ){
+            return DriverPostSectionController()
+        }
+        else{
+            print("This was posted by a rider")
+            return DriverPostSectionController()
+        }
+        
     }
     
     // 3

@@ -11,6 +11,8 @@ import Reusable
 
 class TimeStampCollectionViewCell: UICollectionViewCell, NibReusable {
 
+    @IBOutlet weak var timeStampLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

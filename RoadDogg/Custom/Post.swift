@@ -53,10 +53,7 @@ class Post{
         //Set the post text
         self.text = post["text"] as! String
         if ( self.text.containsEmoji() ){
-            print("This string does contain an emoji, decode it")
             self.text = self.text.decoded()
-        }else{
-            print("This string does not contain an emoji, do not decode it." )
         }
         self.postKey = post["post_key"] as! String
         self.likeCount = post["like_count"] as! Int
@@ -114,10 +111,6 @@ extension Post : ListDiffable{
         
         return self.postKey == object.postKey
     }
-    
-    
-    
-    
     
 }
 
