@@ -10,8 +10,10 @@ import Foundation
 import IGListKit
 import Reusable
 import SDWebImage
+import PopupDialog
 
 class DriverPostSectionController : ListSectionController, PostActionDelegate{
+    
     
     var post: Post!
     var trip: Trip!
@@ -33,15 +35,17 @@ extension DriverPostSectionController  {
     override func sizeForItem(at index: Int) -> CGSize {
         let cellWidth = ((collectionContext?.containerSize.width)! - 20)
         switch index{
-        case 0, 1:
+        case 0:
             return CGSize(width: cellWidth, height: 65)
+        case 1:
+            return CGSize(width: cellWidth, height: 50)
         case 2:
             //Get estimation of the height of the cell
             let text = self.post.text
             let size = CGSize(width: cellWidth, height: 1000)
             let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: self.post.fontSize )]
             let estiamtedFrame = NSString( string: text ).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
-            return CGSize(width: cellWidth, height: estiamtedFrame.height + 15)
+            return CGSize(width: cellWidth, height: estiamtedFrame.height + 10)
         case 3:
             return CGSize(width: cellWidth, height: 45)
         case 4, 5, 6:
@@ -52,7 +56,6 @@ extension DriverPostSectionController  {
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
-        
         
         switch index{
         case 0:
@@ -71,14 +74,14 @@ extension DriverPostSectionController  {
             configureTextCell( cell: cell )
             return cell
         case 3:
-            let cellClass : String = DriverButtonCollectionViewCell.reuseIdentifier
-            let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
-            configureDriverButtonCell( cell: cell )
-            return cell
-        case 4:
             let cellClass : String = TimeStampCollectionViewCell.reuseIdentifier
             let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
             configureTimeStampCell( cell: cell )
+            return cell
+        case 4:
+            let cellClass : String = DriverButtonCollectionViewCell.reuseIdentifier
+            let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
+            configureDriverButtonCell( cell: cell )
             return cell
         case 5:
             let cellClass : String = LikeCommentCollectionViewCell.reuseIdentifier
@@ -109,6 +112,7 @@ extension DriverPostSectionController  {
             let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
             vc.user = self.post?.user
             viewController?.navigationController?.pushViewController(vc, animated: true)
+
         default:
             return
         }
@@ -118,11 +122,43 @@ extension DriverPostSectionController  {
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func performUpdates() {
+    func performUpdatesForLike() {
         if let vc = viewController as? IGListFeedViewController{
-            vc.adapter.performUpdates(animated: true, completion: { (bool) in
-                print("Updates were performed")
-            })
+            vc.adapter.collectionView?.reloadData()
+        }
+    }
+    
+    func reserveSeat() {
+        if let vc = viewController as? IGListFeedViewController{
+            // Create a custom view controller
+            // Create a custom view controller
+            let ratingVC = ReserveSeatPopupViewController(nibName: "ReserveSeatPopupViewController", bundle: nil)
+            
+            // Create the dialog
+            let popup = PopupDialog(viewController: ratingVC, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
+            
+            // Create first button
+            let buttonOne = CancelButton(title: "CANCEL", height: 60) {
+                //self.label.text = "You canceled the rating dialog"
+            }
+            
+            // Create second button
+            let buttonTwo = DefaultButton(title: "RATE", height: 60) {
+                //self.label.text = "You rated \(ratingVC.cosmosStarRating.rating) stars"
+            }
+            
+            // Add buttons to dialog
+            //popup.addButtons([buttonOne, buttonTwo])
+            
+            // Present dialog
+            vc.present(popup, animated: true, completion: nil)
+            //vc.reserveSeat()
+        }
+    }
+    
+    func notifyRider() {
+        if let vc = viewController as? IGListFeedViewController{
+            vc.notifyRider()
         }
     }
     
@@ -133,15 +169,15 @@ extension DriverPostSectionController  {
             cell.fullNameLabel.text = self.user.fullName
             
             //Make profile image round
-            cell.profileImageView.layer.borderWidth = 1
             cell.profileImageView.layer.masksToBounds = false
-            cell.profileImageView.backgroundColor = .black
             cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.height/2
             cell.profileImageView.clipsToBounds = true
             
             //Set the profile image
             cell.profileImageView.sd_setImage(with: URL(string: self.user.profileUrl) ) //TODO: Change to with placeholder
-            cell.backgroundColor = .red
+            cell.backgroundColor = .clear
+            
+            //Round top two corners
         }
     }
     
@@ -163,6 +199,7 @@ extension DriverPostSectionController  {
     func configureDriverButtonCell(cell : UICollectionViewCell){
         if let cell = cell as? DriverButtonCollectionViewCell{
             cell.driverButton.backgroundColor = .green
+            cell.delegate = self
             cell.driverButton.setTitleColor(.white, for: .normal)
             if ( self.trip.seatsAvailable > 0 ){
                 cell.driverButton.setTitle("Reserve Seat", for: .normal)
@@ -175,7 +212,7 @@ extension DriverPostSectionController  {
     
     func configureTimeStampCell(cell: UICollectionViewCell){
         if let cell = cell as? TimeStampCollectionViewCell{
-            cell.backgroundColor = .blue
+            cell.backgroundColor = .white
             cell.timeStampLabel.text = self.post.createdAt
         }
     }
@@ -184,6 +221,7 @@ extension DriverPostSectionController  {
         if let cell = cell as? LikeCommentCollectionViewCell{
             cell.backgroundColor = .red
             //Like Label
+            print("the fucking like count inside of the cell is => ", self.post.likeCount)
             switch self.post.likeCount{
             case 1:
                 cell.likeLabel.text = "1 Like"
@@ -203,7 +241,7 @@ extension DriverPostSectionController  {
     
     func configureActionCell(cell: UICollectionViewCell){
         if let cell = cell as? ActionCollectionViewCell{
-            cell.backgroundColor = .purple
+            cell.backgroundColor = .clear
             cell.likeButton.setTitle("Like", for: .normal)
             cell.commentButton.setTitle("Comment", for: .normal)
             cell.shareButton.setTitle("Share", for: .normal)

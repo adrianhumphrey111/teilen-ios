@@ -10,10 +10,15 @@
 		274EECB7C07175164D9A7DA2 /* Pods_RoadDogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */; };
 		401570E01FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401570DE1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift */; };
 		401570E11FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401570DF1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib */; };
+		5217E93B1FC533CC000DBF99 /* SharedPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5217E93A1FC533CC000DBF99 /* SharedPosts.swift */; };
+		5217E93D1FC5411E000DBF99 /* RiderPostSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5217E93C1FC5411E000DBF99 /* RiderPostSectionController.swift */; };
 		52250F3D1FA185DB00E97624 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52250F3E1FA185DC00E97624 /* Alamofire.framework */; };
+		522F15FB1FC62ABA003F33B7 /* Popups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522F15FA1FC62ABA003F33B7 /* Popups.storyboard */; };
+		522F16161FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F16141FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift */; };
+		522F16171FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */; };
 		52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */; };
 		52404AF91FB05AE500AD64FA /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF81FB05AE500AD64FA /* Trip.swift */; };
-		52404AFB1FB1165D00AD64FA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFA1FB1165C00AD64FA /* StringExtension.swift */; };
+		52404AFB1FB1165D00AD64FA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFA1FB1165C00AD64FA /* Extensions.swift */; };
 		52404AFD1FB11C0100AD64FA /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFC1FB11C0100AD64FA /* Address.swift */; };
 		52474C6B1FB3F84300422CAD /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52474C6A1FB3F84300422CAD /* FriendProfileViewController.swift */; };
 		525151601FA8730300317BC5 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251515F1FA8730300317BC5 /* TripViewController.swift */; };
@@ -39,6 +44,8 @@
 		525CA30A1F9FF61D0037855E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3091F9FF61D0037855E /* ProfileViewController.swift */; };
 		525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA30C1F9FF63C0037855E /* NewPostViewController.swift */; };
 		525CA3201FA127060037855E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31F1FA127050037855E /* Network.swift */; };
+		529B2B1D1FC545F500CBD2D0 /* RideButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B2B1B1FC545F500CBD2D0 /* RideButtonCollectionViewCell.swift */; };
+		529B2B1E1FC545F500CBD2D0 /* RideButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529B2B1C1FC545F500CBD2D0 /* RideButtonCollectionViewCell.xib */; };
 		529C37B81FC420FE002F02EC /* PostTextViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C37B61FC420FE002F02EC /* PostTextViewCollectionViewCell.swift */; };
 		529C37B91FC420FE002F02EC /* PostTextViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529C37B71FC420FE002F02EC /* PostTextViewCollectionViewCell.xib */; };
 		52C03C421FB9604D00E06CE4 /* LoginCooridinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C03C411FB9604D00E06CE4 /* LoginCooridinator.swift */; };
@@ -99,10 +106,15 @@
 		401570DF1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		49FF0ABDA8FB00ADF0C3C2E6 /* Pods-RoadDoggTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggTests/Pods-RoadDoggTests.debug.xcconfig"; sourceTree = "<group>"; };
 		518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDoggTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5217E93A1FC533CC000DBF99 /* SharedPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedPosts.swift; sourceTree = "<group>"; };
+		5217E93C1FC5411E000DBF99 /* RiderPostSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderPostSectionController.swift; sourceTree = "<group>"; };
 		52250F3E1FA185DC00E97624 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		522F15FA1FC62ABA003F33B7 /* Popups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popups.storyboard; sourceTree = "<group>"; };
+		522F16141FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveSeatPopupViewController.swift; sourceTree = "<group>"; };
+		522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReserveSeatPopupViewController.xib; sourceTree = "<group>"; };
 		52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		52404AF81FB05AE500AD64FA /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
-		52404AFA1FB1165C00AD64FA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		52404AFA1FB1165C00AD64FA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		52404AFC1FB11C0100AD64FA /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		52474C6A1FB3F84300422CAD /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		5251515F1FA8730300317BC5 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +146,8 @@
 		525CA3091F9FF61D0037855E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		525CA30C1F9FF63C0037855E /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		525CA31F1FA127050037855E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		529B2B1B1FC545F500CBD2D0 /* RideButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		529B2B1C1FC545F500CBD2D0 /* RideButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RideButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		529C37B61FC420FE002F02EC /* PostTextViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		529C37B71FC420FE002F02EC /* PostTextViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTextViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		52C03C3D1FB7F42B00E06CE4 /* RoadDogg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RoadDogg.entitlements; sourceTree = "<group>"; };
@@ -250,7 +264,7 @@
 				5259A6C31FA5FEBD00078161 /* Comment.swift */,
 				52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */,
 				52404AF81FB05AE500AD64FA /* Trip.swift */,
-				52404AFA1FB1165C00AD64FA /* StringExtension.swift */,
+				52404AFA1FB1165C00AD64FA /* Extensions.swift */,
 				52404AFC1FB11C0100AD64FA /* Address.swift */,
 			);
 			path = Custom;
@@ -281,6 +295,7 @@
 		525CA2CE1F9D40A90037855E /* RoadDogg */ = {
 			isa = PBXGroup;
 			children = (
+				529B2B1F1FC61CFA00CBD2D0 /* PopOvers */,
 				52DEF50B1FC3E52B00FF37BC /* ListSectionControllers */,
 				86F8C6EF1FBD39A600FE7967 /* Payment */,
 				52C03C3E1FB957C500E06CE4 /* Login  */,
@@ -295,6 +310,7 @@
 				525CA3001F9FF5650037855E /* Main View Controllers */,
 				525CA2CF1F9D40A90037855E /* AppDelegate.swift */,
 				525CA2D31F9D40A90037855E /* Main.storyboard */,
+				522F15FA1FC62ABA003F33B7 /* Popups.storyboard */,
 				52CFFF0B1FB7E50E00F93951 /* OnBoarding.storyboard */,
 				525CA2D91F9D40A90037855E /* Assets.xcassets */,
 				525CA2DB1F9D40A90037855E /* LaunchScreen.storyboard */,
@@ -393,8 +409,18 @@
 			isa = PBXGroup;
 			children = (
 				525CA31F1FA127050037855E /* Network.swift */,
+				5217E93A1FC533CC000DBF99 /* SharedPosts.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		529B2B1F1FC61CFA00CBD2D0 /* PopOvers */ = {
+			isa = PBXGroup;
+			children = (
+				522F16141FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift */,
+				522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */,
+			);
+			path = PopOvers;
 			sourceTree = "<group>";
 		};
 		52C03C3E1FB957C500E06CE4 /* Login  */ = {
@@ -445,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				52DEF50C1FC3E55400FF37BC /* DriverPostSectionController.swift */,
+				5217E93C1FC5411E000DBF99 /* RiderPostSectionController.swift */,
 			);
 			path = ListSectionControllers;
 			sourceTree = "<group>";
@@ -466,6 +493,8 @@
 				52E313BC1FC4358500DA6724 /* ActionCollectionViewCell.xib */,
 				401570DE1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift */,
 				401570DF1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib */,
+				529B2B1B1FC545F500CBD2D0 /* RideButtonCollectionViewCell.swift */,
+				529B2B1C1FC545F500CBD2D0 /* RideButtonCollectionViewCell.xib */,
 			);
 			path = "Post Cell Components";
 			sourceTree = "<group>";
@@ -621,13 +650,16 @@
 			files = (
 				529C37B91FC420FE002F02EC /* PostTextViewCollectionViewCell.xib in Resources */,
 				525CA2DD1F9D40A90037855E /* LaunchScreen.storyboard in Resources */,
+				522F15FB1FC62ABA003F33B7 /* Popups.storyboard in Resources */,
 				401570E11FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib in Resources */,
 				525CA2DA1F9D40A90037855E /* Assets.xcassets in Resources */,
+				529B2B1E1FC545F500CBD2D0 /* RideButtonCollectionViewCell.xib in Resources */,
 				86A957011FBE87AD008111CD /* GoogleService-Info.plist in Resources */,
 				525CA2D51F9D40A90037855E /* Main.storyboard in Resources */,
 				52DEF5121FC4105100FF37BC /* PostHeaderCollectionViewCell.xib in Resources */,
 				52CFFF0C1FB7E50F00F93951 /* OnBoarding.storyboard in Resources */,
 				52E313BE1FC4358500DA6724 /* ActionCollectionViewCell.xib in Resources */,
+				522F16171FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib in Resources */,
 				52E313B61FC4348500DA6724 /* LikeCommentCollectionViewCell.xib in Resources */,
 				52E313B21FC4346200DA6724 /* TimeStampCollectionViewCell.xib in Resources */,
 				52E313AE1FC4314200DA6724 /* RideInformationCollectionViewCell.xib in Resources */,
@@ -681,7 +713,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		354F2D0860229449DEF0123F /* [CP] Check Pods Manifest.lock */ = {
@@ -699,7 +731,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		57EB75D531DAD275FB37131E /* [CP] Copy Pods Resources */ = {
@@ -835,7 +867,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -853,7 +885,7 @@
 				525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */,
 				401570E01FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift in Sources */,
 				52DEF50A1FC3D6DD00FF37BC /* IGListFeedViewController.swift in Sources */,
-				52404AFB1FB1165D00AD64FA /* StringExtension.swift in Sources */,
+				52404AFB1FB1165D00AD64FA /* Extensions.swift in Sources */,
 				52404AFD1FB11C0100AD64FA /* Address.swift in Sources */,
 				525151651FA875D800317BC5 /* CommentViewCell.swift in Sources */,
 				5259A6C01FA5FB8900078161 /* FeedPostCell.swift in Sources */,
@@ -863,6 +895,7 @@
 				86F8C6F31FBD40D300FE7967 /* StripeApiManager.swift in Sources */,
 				52CFFEFE1FB67B3A00F93951 /* Models.swift in Sources */,
 				525CA2D21F9D40A90037855E /* FeedViewController.swift in Sources */,
+				522F16161FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift in Sources */,
 				5259A6BE1FA5D39700078161 /* User.swift in Sources */,
 				529C37B81FC420FE002F02EC /* PostTextViewCollectionViewCell.swift in Sources */,
 				52DEF5111FC4105100FF37BC /* PostHeaderCollectionViewCell.swift in Sources */,
@@ -883,12 +916,15 @@
 				525151AB1FAD5D0000317BC5 /* TabBarViewController.swift in Sources */,
 				52474C6B1FB3F84300422CAD /* FriendProfileViewController.swift in Sources */,
 				52404AF91FB05AE500AD64FA /* Trip.swift in Sources */,
+				5217E93D1FC5411E000DBF99 /* RiderPostSectionController.swift in Sources */,
 				5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */,
 				52CFFF011FB7D59400F93951 /* GeneralSettings.swift in Sources */,
+				529B2B1D1FC545F500CBD2D0 /* RideButtonCollectionViewCell.swift in Sources */,
 				525CA2D01F9D40A90037855E /* AppDelegate.swift in Sources */,
 				5259A6C21FA5FCEE00078161 /* Post.swift in Sources */,
 				52C03C461FBA6B4F00E06CE4 /* Realm.swift in Sources */,
 				525CA3041F9FF5D60037855E /* MapViewController.swift in Sources */,
+				5217E93B1FC533CC000DBF99 /* SharedPosts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

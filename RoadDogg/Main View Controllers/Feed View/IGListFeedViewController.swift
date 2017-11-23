@@ -19,7 +19,7 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate{
     //Collection View
     let collectionView: UICollectionView = {
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
-        view.backgroundColor = UIColor.gray
+        view.backgroundColor = UIColor().colorWithHexString(hex: "#cfcecb", alpha: 0.75)
         return view
     }()
     
@@ -55,6 +55,7 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate{
         self.refresher.tintColor = UIColor.red
         self.refresher.addTarget(self, action: #selector(fetchFeed), for: .valueChanged)
         self.collectionView.refreshControl = refresher
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -66,7 +67,8 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate{
         super.viewWillAppear(animated)
         //Make tab bar visible
         tabBarController?.tabBar.isHidden = false
-        
+        self.tabBarController?.tabBar.isTranslucent = false
+        self.navigationController?.navigationBar.isTranslucent = false
         fetchFeed()
     }
     
@@ -74,13 +76,19 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate{
         Network.shared.getFeed().then { feed -> Void in
             //End Refreshing
             self.collectionView.refreshControl?.endRefreshing()
-            
-            //Set the post and perform updates
-            self.posts = feed.posts
-            print("Post after the fetch => ", self.posts)
-            self.adapter.performUpdates(animated: true, completion: { (bool) in
-                print("Posts after the updates have been performed => ", self.posts)
-            })
+            self.adapter.performUpdates(animated: true, completion: nil)
+        }
+    }
+    
+    func notifyRider(){
+        Network.shared.notifyRider().then { result -> Void in
+            //Show another modal popup that says the rider has been notified
+        }
+    }
+    
+    func reserveSeat(){
+        Network.shared.reserveSeat().then { result -> Void in
+            //Show another modal popup that says the driver has been notified
         }
     }
 }
@@ -88,7 +96,7 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate{
 extension IGListFeedViewController: ListAdapterDataSource {
     // 1
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return (self.posts as? [ListDiffable])!
+        return (Posts.shared.feedPosts as? [ListDiffable])!
     }
     
     // 2
@@ -100,7 +108,7 @@ extension IGListFeedViewController: ListAdapterDataSource {
         }
         else{
             print("This was posted by a rider")
-            return DriverPostSectionController()
+            return RiderPostSectionContoller()
         }
         
     }

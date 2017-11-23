@@ -70,7 +70,6 @@ class Network {
     }
     
     func getFeed() -> Promise<Feed> {
-        print(RealmManager.shared.selfUser)
         let url = "\(self.baseurl)/fetchFeed?user_key=\(self.user_key)"
         return Promise { fulfill, reject in
             //Make call to the API
@@ -80,11 +79,11 @@ class Network {
                     //get response
                     if let result = response.result.value{
                         let posts = result as! [[String:Any]]
-                        print(posts)
                         let feed = Feed(feed: posts)
                         for post in feed.posts{
-                            print(post.text)
+                            print(post.comments)
                         }
+                        Posts.shared.feedPosts = feed.posts
                         fulfill(feed)
                     }
                 case .failure(let error):
@@ -318,6 +317,44 @@ class Network {
             }
         }
     }
+    
+    func notifyRider() -> Promise<String>{
+        let url = "\(self.baseurl)/notifyRider"
+        let params : [String : Any] = [:]
+        return Promise { fulfill, reject in
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+                switch response.result {
+                case .success:
+                    if let result = response.result.value{
+                        let json = result as! [String: AnyObject]
+                        fulfill( "success" )
+                    }
+                case .failure( let error ):
+                    reject(error)
+                }
+            }
+        }
+    }
+    
+    func reserveSeat() -> Promise<String>{
+        let url = "\(self.baseurl)/reserveSeat"
+        let params : [String : Any] = [:]
+        return Promise { fulfill, reject in
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+                switch response.result {
+                case .success:
+                    if let result = response.result.value{
+                        let json = result as! [String: AnyObject]
+                        fulfill( "success" )
+                    }
+                case .failure( let error ):
+                    reject(error)
+                }
+            }
+        }
+    }
+    
+    
 
     
     func url(endpoint: String) -> String{

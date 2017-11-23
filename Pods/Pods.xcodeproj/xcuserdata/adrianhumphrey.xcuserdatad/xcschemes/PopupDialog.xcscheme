@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D386C75EFD4F03725E4EFB866B600B9A'
-               BlueprintName = 'DZNEmptyDataSet'
+               BlueprintIdentifier = 'F87E7A277ADB0D0DBAB9AF5544F66CB7'
+               BlueprintName = 'PopupDialog'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'DZNEmptyDataSet.framework'>
+               BuildableName = 'PopupDialog.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

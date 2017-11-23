@@ -11,6 +11,8 @@ import Reusable
 
 class DriverButtonCollectionViewCell: UICollectionViewCell, NibReusable {
 
+    var delegate : PostActionDelegate?
+    
     @IBOutlet weak var driverButton: UIButton!
     
     override func awakeFromNib() {
@@ -19,6 +21,7 @@ class DriverButtonCollectionViewCell: UICollectionViewCell, NibReusable {
     }
 
     @IBAction func buttonAction(_ sender: Any) {
-        print("Reserve Your seat Now!")
+        print("Are you sure that you want to reserve this ride?")
+        delegate?.reserveSeat()
     }
 }

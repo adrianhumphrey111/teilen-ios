@@ -8,9 +8,9 @@
 
 import UIKit
 import PromiseKit
-import DZNEmptyDataSet
 
-class FeedViewController: UIViewController, FeedPostDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+
+class FeedViewController: UIViewController, FeedPostDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -20,9 +20,7 @@ class FeedViewController: UIViewController, FeedPostDelegate, DZNEmptyDataSetSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Set up emtpy dataset source
-        self.collectionView.emptyDataSetSource = self
-        self.collectionView.emptyDataSetDelegate = self
+
         
         //Grab all the posts
         fetchFeed()

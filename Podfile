@@ -13,7 +13,6 @@ target 'RoadDogg' do
   pod "PromiseKit/CoreLocation"    # CLLocationManager.promise().then { /*…*/ }
   pod 'DateTimePicker'
   pod 'SearchTextField'
-  pod 'DZNEmptyDataSet'
   pod 'RealmSwift'
   pod 'FacebookCore'
   pod 'Onboard'         #Onboarding Pages
@@ -24,6 +23,7 @@ target 'RoadDogg' do
   pod 'IGListKit', '~> 3.0'
   pod 'Reusable', '~> 4.0'
   pod 'SDWebImage', '~> 3.8'
+  pod 'PopupDialog', '~> 0.6'
 
   target 'RoadDoggTests' do
     inherit! :search_paths

@@ -7,7 +7,6 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
   - DateTimePicker (1.1.2)
-  - DZNEmptyDataSet (1.8.1)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -56,6 +55,7 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Onboard (2.3.1)
+  - PopupDialog (0.6.1)
   - PromiseKit (4.4.0):
     - PromiseKit/Foundation (= 4.4.0)
     - PromiseKit/QuartzCore (= 4.4.0)
@@ -92,13 +92,13 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.5.1)
   - DateTimePicker
-  - DZNEmptyDataSet
   - FacebookCore
   - Firebase/Core
   - Firebase/Messaging
   - IGListKit (~> 3.0)
   - ILLoginKit
   - Onboard
+  - PopupDialog (~> 0.6)
   - PromiseKit (~> 4.4)
   - PromiseKit/CoreLocation
   - PromiseKit/MapKit
@@ -112,7 +112,6 @@ SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   DateTimePicker: 518bffa5438ef83a7a687cc4d5e187e5c12012b8
-  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
   FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
@@ -126,6 +125,7 @@ SPEC CHECKSUMS:
   ILLoginKit: e57d634ead1dac4c0085c235fdd6121f9c271285
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
+  PopupDialog: 1bdd1efbfb49eb619a280faa9a3bbaac76f94120
   PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
   Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
@@ -136,6 +136,6 @@ SPEC CHECKSUMS:
   Stripe: 898f83a95d72180c6eb4acd65b2ae6158fc6a8bd
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: 2a1812e4652e8c9beed123a1fb941abdcbf53989
+PODFILE CHECKSUM: aabf80dc018dddb570b763a507978e40940114c7
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.1.1

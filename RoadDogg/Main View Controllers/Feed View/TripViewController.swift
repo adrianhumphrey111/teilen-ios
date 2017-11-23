@@ -61,6 +61,12 @@ class TripViewController: UIViewController, PostViewCellDelegate {
         if ( commenting ){ inputTextField.becomeFirstResponder() }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isTranslucent = true
+        self.navigationController?.navigationBar.isTranslucent = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white

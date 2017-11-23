@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,8 +19,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="435" height="73"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHd-9T-ZuS">
+                        <rect key="frame" x="0.0" y="-30" width="435" height="103"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="L9N-vq-DF9">
-                        <rect key="frame" x="0.0" y="0.0" width="356" height="80"/>
+                        <rect key="frame" x="0.0" y="0.0" width="435" height="73"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9y-77-IY9">
                                 <rect key="frame" x="0.0" y="0.0" width="145" height="73"/>
@@ -45,21 +49,36 @@
                             </button>
                         </subviews>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zkf-Jc-DCa">
+                        <rect key="frame" x="0.0" y="0.0" width="435" height="1"/>
+                        <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="veb-P4-3Wo"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="L9N-vq-DF9" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="AiI-dw-nY3"/>
                 <constraint firstItem="L9N-vq-DF9" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="BQf-38-wIm"/>
+                <constraint firstItem="aHd-9T-ZuS" firstAttribute="bottom" secondItem="ZTg-uK-7eu" secondAttribute="bottom" id="BsJ-Cm-jDy"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="L9N-vq-DF9" secondAttribute="trailing" id="CHA-D2-DOT"/>
+                <constraint firstItem="aHd-9T-ZuS" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="D7G-Q9-Je6"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="aHd-9T-ZuS" secondAttribute="top" constant="30" id="FTz-Vw-PUr"/>
                 <constraint firstItem="L9N-vq-DF9" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="Pmb-Jz-bdG"/>
+                <constraint firstItem="Zkf-Jc-DCa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dOc-xh-KEu"/>
                 <constraint firstItem="L9N-vq-DF9" firstAttribute="bottom" secondItem="ZTg-uK-7eu" secondAttribute="bottom" id="ezv-Hb-n1D"/>
                 <constraint firstItem="L9N-vq-DF9" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" id="hsG-HH-aHe"/>
+                <constraint firstAttribute="trailing" secondItem="Zkf-Jc-DCa" secondAttribute="trailing" id="nqb-2X-37h"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="aHd-9T-ZuS" secondAttribute="trailing" id="x8k-3H-CSs"/>
+                <constraint firstItem="Zkf-Jc-DCa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xEC-oH-U4D"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="435" height="73"/>
             <connections>
                 <outlet property="commentButton" destination="HiP-zG-XsH" id="kRG-Li-Z5Q"/>
                 <outlet property="likeButton" destination="A9y-77-IY9" id="09Z-ba-Rqx"/>
+                <outlet property="roundedBackgroundView" destination="aHd-9T-ZuS" id="6cw-f0-LK9"/>
                 <outlet property="shareButton" destination="O9z-Kw-9PG" id="NXa-ZT-qCa"/>
             </connections>
             <point key="canvasLocation" x="237.5" y="70.5"/>

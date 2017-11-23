@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,6 +19,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="363" height="69"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIq-Xs-ESU">
+                        <rect key="frame" x="0.0" y="0.0" width="363" height="109"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OA-qW-an2">
                         <rect key="frame" x="74" y="9" width="150" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -44,12 +48,19 @@
                     </imageView>
                 </subviews>
             </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="fIq-Xs-ESU" secondAttribute="bottom" constant="-40" id="6co-Nl-tFp"/>
+                <constraint firstItem="fIq-Xs-ESU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8WY-Ky-krF"/>
+                <constraint firstItem="fIq-Xs-ESU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="S6h-HV-VsR"/>
+                <constraint firstAttribute="trailing" secondItem="fIq-Xs-ESU" secondAttribute="trailing" id="qAS-O0-vcf"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="363" height="69"/>
             <connections>
                 <outlet property="fullNameLabel" destination="7OA-qW-an2" id="2BO-Ds-EYC"/>
                 <outlet property="optionButton" destination="w61-E7-1jd" id="fFi-GQ-5wy"/>
                 <outlet property="profileImageView" destination="T6j-dI-mHY" id="VlX-U5-q78"/>
+                <outlet property="roundedBackgroundView" destination="fIq-Xs-ESU" id="alJ-3e-RJy"/>
                 <outlet property="usernameLabel" destination="1Cs-5t-VYK" id="FS9-3Y-Bfd"/>
             </connections>
             <point key="canvasLocation" x="107.5" y="82.5"/>

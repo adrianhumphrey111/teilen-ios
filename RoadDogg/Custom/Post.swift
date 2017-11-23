@@ -109,7 +109,7 @@ extension Post : ListDiffable{
             return false
         }
         
-        return self.postKey == object.postKey
+        return ( self.postKey == object.postKey && self.likeCount == object.likeCount && self.commentCount == object.commentCount )
     }
     
 }

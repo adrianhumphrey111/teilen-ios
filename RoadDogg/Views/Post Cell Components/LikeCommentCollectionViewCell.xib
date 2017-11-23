@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,6 +19,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="412" height="44"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLw-6u-J64">
+                        <rect key="frame" x="0.0" y="-30" width="412" height="74"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdA-Xa-0NM">
                         <rect key="frame" x="10" y="12" width="60" height="21"/>
                         <constraints>
@@ -41,9 +45,13 @@
             </view>
             <constraints>
                 <constraint firstItem="f8A-k4-xSS" firstAttribute="leading" secondItem="pdA-Xa-0NM" secondAttribute="trailing" constant="25" id="5fg-AP-4gj"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="hLw-6u-J64" secondAttribute="trailing" id="Ay2-2H-RF0"/>
+                <constraint firstItem="hLw-6u-J64" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="L52-NJ-kF3"/>
                 <constraint firstItem="f8A-k4-xSS" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Pfc-q7-fg5"/>
                 <constraint firstItem="pdA-Xa-0NM" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Ugt-aQ-q6x"/>
                 <constraint firstItem="pdA-Xa-0NM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="jNJ-sV-f8e"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="hLw-6u-J64" secondAttribute="top" constant="30" id="rgV-cG-Q5N"/>
+                <constraint firstItem="hLw-6u-J64" firstAttribute="bottom" secondItem="ZTg-uK-7eu" secondAttribute="bottom" id="yN3-vP-jrP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="412" height="44"/>

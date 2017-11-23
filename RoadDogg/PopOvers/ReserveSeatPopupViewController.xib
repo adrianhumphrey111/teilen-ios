@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReserveSeatPopupViewController" customModule="RoadDogg" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="qna-2P-Lw8" id="CHi-Ya-ZTm"/>
+                <outlet property="priceLabel" destination="gue-xy-04j" id="PaE-eh-qqD"/>
+                <outlet property="reserveButton" destination="5TC-o0-nSg" id="JC9-FO-IKh"/>
+                <outlet property="view" destination="s1d-Mg-gW7" id="Wca-lc-M5b"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="s1d-Mg-gW7">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="390"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTw-np-AFd">
+                    <rect key="frame" x="0.0" y="0.0" width="426" height="390"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reserve Your Seat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mT-H8-hjY">
+                            <rect key="frame" x="138" y="25" width="138" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="138" id="D0G-Hl-ZB5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                            <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Send the driver of this trip a request to reserve your seat. Once the driver accepts your request, you will be charged:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sad-ey-SvY">
+                            <rect key="frame" x="15" y="60" width="396" height="75"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="75" id="TFx-yd-Zs1"/>
+                            </constraints>
+                            <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gue-xy-04j">
+                            <rect key="frame" x="168.5" y="155" width="89.5" height="45.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qna-2P-Lw8">
+                            <rect key="frame" x="10" y="320" width="406" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="CQM-Xe-f8H"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="NW5-eU-mFG"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TC-o0-nSg">
+                            <rect key="frame" x="20" y="250" width="396" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="bm1-pe-uQ1"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="reserveAction:" destination="-1" eventType="touchUpInside" id="Bz4-IA-RmX"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Sad-ey-SvY" secondAttribute="trailing" constant="15" id="4eg-WM-Nap"/>
+                        <constraint firstItem="Sad-ey-SvY" firstAttribute="leading" secondItem="bTw-np-AFd" secondAttribute="leading" constant="15" id="Bno-Jd-cOy"/>
+                        <constraint firstAttribute="trailing" secondItem="qna-2P-Lw8" secondAttribute="trailing" constant="10" id="FHV-6W-ejt"/>
+                        <constraint firstItem="qna-2P-Lw8" firstAttribute="leading" secondItem="bTw-np-AFd" secondAttribute="leading" constant="10" id="HSj-f8-djY"/>
+                        <constraint firstItem="9mT-H8-hjY" firstAttribute="top" secondItem="bTw-np-AFd" secondAttribute="top" constant="25" id="ULl-te-GF9"/>
+                        <constraint firstItem="5TC-o0-nSg" firstAttribute="leading" secondItem="bTw-np-AFd" secondAttribute="leading" constant="20" id="UiQ-ES-sjc"/>
+                        <constraint firstItem="qna-2P-Lw8" firstAttribute="top" secondItem="5TC-o0-nSg" secondAttribute="bottom" constant="10" id="YtK-2Z-bZO"/>
+                        <constraint firstItem="9mT-H8-hjY" firstAttribute="centerX" secondItem="bTw-np-AFd" secondAttribute="centerX" constant="-6" id="cPQ-sd-SHo"/>
+                        <constraint firstItem="Sad-ey-SvY" firstAttribute="top" secondItem="9mT-H8-hjY" secondAttribute="bottom" constant="15" id="k9X-pr-bJn"/>
+                        <constraint firstItem="gue-xy-04j" firstAttribute="top" secondItem="Sad-ey-SvY" secondAttribute="bottom" constant="20" id="kNu-8X-oDj"/>
+                        <constraint firstAttribute="bottom" secondItem="qna-2P-Lw8" secondAttribute="bottom" constant="10" id="kQU-rD-wfG"/>
+                        <constraint firstItem="gue-xy-04j" firstAttribute="centerX" secondItem="bTw-np-AFd" secondAttribute="centerX" id="o1f-7L-3DD"/>
+                        <constraint firstAttribute="trailing" secondItem="5TC-o0-nSg" secondAttribute="trailing" constant="10" id="oRh-1O-acw"/>
+                        <constraint firstAttribute="height" constant="390" id="xhI-Eh-p35"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bTw-np-AFd" firstAttribute="top" secondItem="s1d-Mg-gW7" secondAttribute="top" id="Bn8-J7-52f"/>
+                <constraint firstItem="bTw-np-AFd" firstAttribute="leading" secondItem="s1d-Mg-gW7" secondAttribute="leading" id="SoL-15-SyT"/>
+                <constraint firstAttribute="bottom" secondItem="bTw-np-AFd" secondAttribute="bottom" id="fU7-xe-qGT"/>
+                <constraint firstAttribute="trailing" secondItem="bTw-np-AFd" secondAttribute="trailing" constant="-10" id="x5i-jw-f5R"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Jkf-Ao-8wD"/>
+            <point key="canvasLocation" x="326" y="372"/>
+        </view>
+    </objects>
+</document>

@@ -11,11 +11,14 @@ import Reusable
 
 protocol PostActionDelegate {
     func pushPostViewController( vc : UIViewController)
-    func performUpdates()
+    func performUpdatesForLike()
+    func reserveSeat()
+    func notifyRider()
 }
 
 class ActionCollectionViewCell: UICollectionViewCell, NibReusable {
 
+    @IBOutlet weak var roundedBackgroundView: UIView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
@@ -27,6 +30,10 @@ class ActionCollectionViewCell: UICollectionViewCell, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        roundedBackgroundView.backgroundColor = .white
+        let radius = self.frame.height / 6
+        
+        roundedBackgroundView.layer.cornerRadius = radius
     }
     
     @IBAction func likeAction(_ sender: Any) {
@@ -43,7 +50,7 @@ class ActionCollectionViewCell: UICollectionViewCell, NibReusable {
            // self.likeButtonLabel.setTitle("UnLike", for: .normal)
         }
         print(self.post.likeCount)
-        delegate.performUpdates()
+        delegate.performUpdatesForLike()
     }
 
     @IBAction func commentAction(_ sender: Any) {

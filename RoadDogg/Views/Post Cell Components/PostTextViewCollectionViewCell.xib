@@ -26,13 +26,23 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdO-dG-bOz">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="4"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="4" id="IZZ-SC-UlV"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="NdO-dG-bOz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="60N-SQ-GiX"/>
+                <constraint firstItem="NdO-dG-bOz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7rt-Ga-Tp0"/>
                 <constraint firstItem="po4-HM-03n" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Bma-7x-Jiu"/>
                 <constraint firstAttribute="bottom" secondItem="po4-HM-03n" secondAttribute="bottom" id="G5E-5q-RHH"/>
                 <constraint firstItem="po4-HM-03n" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gnC-eU-Tn6"/>
                 <constraint firstAttribute="trailing" secondItem="po4-HM-03n" secondAttribute="trailing" id="hK5-Vh-7Hs"/>
+                <constraint firstAttribute="trailing" secondItem="NdO-dG-bOz" secondAttribute="trailing" id="yCL-wl-N6d"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="390" height="147"/>
