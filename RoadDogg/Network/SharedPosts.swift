@@ -17,4 +17,8 @@ class Posts {
     init(){
         
     }
+    
+    public func updatesPost(posts: [Post]){
+        self.feedPosts = posts
+    }
 }

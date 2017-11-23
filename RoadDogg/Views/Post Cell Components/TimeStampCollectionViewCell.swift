@@ -16,6 +16,8 @@ class TimeStampCollectionViewCell: UICollectionViewCell, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.backgroundColor = .white
     }
 
 }

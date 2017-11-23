@@ -13,8 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReserveSeatPopupViewController" customModule="RoadDogg" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="qna-2P-Lw8" id="CHi-Ya-ZTm"/>
+                <outlet property="heightConstraint" destination="xhI-Eh-p35" id="Hq6-rM-UD5"/>
                 <outlet property="priceLabel" destination="gue-xy-04j" id="PaE-eh-qqD"/>
                 <outlet property="reserveButton" destination="5TC-o0-nSg" id="JC9-FO-IKh"/>
+                <outlet property="textView" destination="Sad-ey-SvY" id="KPj-K8-TzR"/>
                 <outlet property="view" destination="s1d-Mg-gW7" id="Wca-lc-M5b"/>
             </connections>
         </placeholder>
@@ -52,7 +54,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qna-2P-Lw8">
-                            <rect key="frame" x="10" y="320" width="406" height="60"/>
+                            <rect key="frame" x="10" y="320" width="396" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="CQM-Xe-f8H"/>
                             </constraints>
@@ -62,7 +64,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TC-o0-nSg">
-                            <rect key="frame" x="20" y="250" width="396" height="60"/>
+                            <rect key="frame" x="10" y="250" width="396" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="bm1-pe-uQ1"/>
                             </constraints>
@@ -75,17 +77,17 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Sad-ey-SvY" secondAttribute="trailing" constant="15" id="4eg-WM-Nap"/>
                         <constraint firstItem="Sad-ey-SvY" firstAttribute="leading" secondItem="bTw-np-AFd" secondAttribute="leading" constant="15" id="Bno-Jd-cOy"/>
-                        <constraint firstAttribute="trailing" secondItem="qna-2P-Lw8" secondAttribute="trailing" constant="10" id="FHV-6W-ejt"/>
+                        <constraint firstAttribute="trailing" secondItem="qna-2P-Lw8" secondAttribute="trailing" constant="20" id="FHV-6W-ejt"/>
                         <constraint firstItem="qna-2P-Lw8" firstAttribute="leading" secondItem="bTw-np-AFd" secondAttribute="leading" constant="10" id="HSj-f8-djY"/>
                         <constraint firstItem="9mT-H8-hjY" firstAttribute="top" secondItem="bTw-np-AFd" secondAttribute="top" constant="25" id="ULl-te-GF9"/>
-                        <constraint firstItem="5TC-o0-nSg" firstAttribute="leading" secondItem="bTw-np-AFd" secondAttribute="leading" constant="20" id="UiQ-ES-sjc"/>
+                        <constraint firstItem="5TC-o0-nSg" firstAttribute="leading" secondItem="bTw-np-AFd" secondAttribute="leading" constant="10" id="UiQ-ES-sjc"/>
                         <constraint firstItem="qna-2P-Lw8" firstAttribute="top" secondItem="5TC-o0-nSg" secondAttribute="bottom" constant="10" id="YtK-2Z-bZO"/>
                         <constraint firstItem="9mT-H8-hjY" firstAttribute="centerX" secondItem="bTw-np-AFd" secondAttribute="centerX" constant="-6" id="cPQ-sd-SHo"/>
                         <constraint firstItem="Sad-ey-SvY" firstAttribute="top" secondItem="9mT-H8-hjY" secondAttribute="bottom" constant="15" id="k9X-pr-bJn"/>
                         <constraint firstItem="gue-xy-04j" firstAttribute="top" secondItem="Sad-ey-SvY" secondAttribute="bottom" constant="20" id="kNu-8X-oDj"/>
                         <constraint firstAttribute="bottom" secondItem="qna-2P-Lw8" secondAttribute="bottom" constant="10" id="kQU-rD-wfG"/>
                         <constraint firstItem="gue-xy-04j" firstAttribute="centerX" secondItem="bTw-np-AFd" secondAttribute="centerX" id="o1f-7L-3DD"/>
-                        <constraint firstAttribute="trailing" secondItem="5TC-o0-nSg" secondAttribute="trailing" constant="10" id="oRh-1O-acw"/>
+                        <constraint firstAttribute="trailing" secondItem="5TC-o0-nSg" secondAttribute="trailing" constant="20" id="oRh-1O-acw"/>
                         <constraint firstAttribute="height" constant="390" id="xhI-Eh-p35"/>
                     </constraints>
                 </view>

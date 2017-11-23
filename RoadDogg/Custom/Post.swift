@@ -48,6 +48,7 @@ class Post{
     
     init(post: [String: Any]){
         //Create a user object
+        print(post)
         self.user = User( user: post["user"] as! [String : Any] )
         
         //Set the post text
@@ -109,7 +110,7 @@ extension Post : ListDiffable{
             return false
         }
         
-        return ( self.postKey == object.postKey && self.likeCount == object.likeCount && self.commentCount == object.commentCount )
+        return ( self.postKey == object.postKey && self.likeCount == object.likeCount && self.commentCount == object.commentCount && self.text == object.text)
     }
     
 }

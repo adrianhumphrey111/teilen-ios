@@ -18,6 +18,8 @@ class DriverButtonCollectionViewCell: UICollectionViewCell, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        driverButton.backgroundColor = UIColor().colorWithHexString(hex: "#76D2CE", alpha: 1.0)
+        driverButton.setTitleColor(.white, for: .normal)
     }
 
     @IBAction func buttonAction(_ sender: Any) {

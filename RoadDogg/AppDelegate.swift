@@ -20,7 +20,6 @@ import FirebaseMessaging
 class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelegate, MessagingDelegate {
     
     
-    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -35,23 +34,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         FirebaseApp.configure()
         
         //Firebase Messaging
-        Messaging.messaging().delegate = self as! MessagingDelegate
-        
-        //Initialize realm singleton
-        RealmManager.shared
+        Messaging.messaging().delegate = self
         
         //Register for push notifications
         // iOS 10 support
         if #available(iOS 10, *) {
             UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
             application.registerForRemoteNotifications()
-        }
-            // iOS 9 support
-        else {
+        }else {
             UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
             UIApplication.shared.registerForRemoteNotifications()
         }
         
+        Network.shared.updateNotificationToken(token: RealmManager.shared.getSavedNotificationToken() )
+        
+        //Remote Notifcations
         application.registerForRemoteNotifications()
         
         //Check if the user is logged in
@@ -61,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         else{
             //print("Either have the user log in or sign in through facebook")
             let storyboard = UIStoryboard(name: "OnBoarding", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier :"onboard1") as! OnBoardTestViewController
             //Set up onBoarding experience
             let firstPage = OnboardingContentViewController(title: "Welcome to Teilen!", body: "Automated and Social Ride Sharing", image: nil, buttonText: "Next") { () -> Void in
                 
@@ -99,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
             fourthPage.actionButton.layer.cornerRadius = 25
             
             //Create the final view controller
-            var onboardingVC = OnboardingViewController(backgroundImage: nil, contents: [firstPage, secondPage, thirdPage, fourthPage])
+            let onboardingVC = OnboardingViewController(backgroundImage: nil, contents: [firstPage, secondPage, thirdPage, fourthPage])
             onboardingVC?.view.backgroundColor = .blue
             onboardingVC?.allowSkipping = true;
             
@@ -114,6 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         
         //Set this token to the saved user in the data, if their is already one, update it inside the saved user and to the database
         RealmManager.shared.saveNotificationToken(tokenstring: fcmToken)
+        
     }
     
     

@@ -18,7 +18,7 @@ class Network {
     
     var baseurl = ""
     var basedev = "http://localhost:8080/api"
-    var baseProd = "https:goal-rise.appspot.com/api"
+    var baseProd = "https:teilen-ride.com/api"
     
     private var user_key = ""
     var prodKey = "agtzfmdvYWwtcmlzZXIRCxIEVXNlchiAgICAhLSKCgw"  //Production Adrian key
@@ -71,6 +71,7 @@ class Network {
     
     func getFeed() -> Promise<Feed> {
         let url = "\(self.baseurl)/fetchFeed?user_key=\(self.user_key)"
+        print(url)
         return Promise { fulfill, reject in
             //Make call to the API
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
@@ -80,10 +81,7 @@ class Network {
                     if let result = response.result.value{
                         let posts = result as! [[String:Any]]
                         let feed = Feed(feed: posts)
-                        for post in feed.posts{
-                            print(post.comments)
-                        }
-                        Posts.shared.feedPosts = feed.posts
+                        Posts.shared.updatesPost(posts: feed.posts)
                         fulfill(feed)
                     }
                 case .failure(let error):
@@ -336,16 +334,18 @@ class Network {
         }
     }
     
-    func reserveSeat() -> Promise<String>{
+    func reserveSeat(postKey: String) -> Promise<Bool>{
         let url = "\(self.baseurl)/reserveSeat"
-        let params : [String : Any] = [:]
+        let params : [String : Any] = ["user_key": self.user_key,
+                                       "post_key": postKey]
         return Promise { fulfill, reject in
             Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
                 switch response.result {
                 case .success:
                     if let result = response.result.value{
                         let json = result as! [String: AnyObject]
-                        fulfill( "success" )
+                        let bool = json["success"] as! Bool
+                        fulfill( bool )
                     }
                 case .failure( let error ):
                     reject(error)
@@ -354,9 +354,28 @@ class Network {
         }
     }
     
+    func getNotifications() -> Promise<[TNotification]> {
+        let url = "\(self.baseurl)/fetchNotifications?user_key=\(self.user_key)"
+        print(url)
+        return Promise { fulfill, reject in
+            //Make call to the API
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+                switch response.result {
+                case .success:
+                    //get response
+                    if let result = response.result.value{
+                        let posts = result as! [[String:Any]]
+                        fulfill(feed)
+                    }
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }
+    }
+    
     
 
-    
     func url(endpoint: String) -> String{
         return self.baseurl + endpoint
     }

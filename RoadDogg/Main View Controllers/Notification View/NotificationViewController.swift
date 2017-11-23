@@ -1,8 +1,8 @@
 //
-//  IGListFeedViewController.swift
+//  Notification View.swift
 //  RoadDogg
 //
-//  Created by Adrian Humphrey on 11/20/17.
+//  Created by Adrian Humphrey on 10/24/17.
 //  Copyright © 2017 Adrian Humphrey. All rights reserved.
 //
 
@@ -10,11 +10,8 @@ import Foundation
 import UIKit
 import IGListKit
 
-class IGListFeedViewController : UIViewController, FeedPostDelegate{
+class NotificationViewController : UIViewController {
     
-    func pushPostViewController(vc: UIViewController) {
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
     
     //Collection View
     let collectionView: UICollectionView = {
@@ -28,14 +25,14 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate{
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
     
-    //Posts that will populate CollectionView
-    var posts : [Post] = []
-    
     //Refresher
     var refresher:UIRefreshControl!
     
+    var notifications : [TNotification] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Make tab bar visible
         tabBarController?.tabBar.isHidden = false
         
@@ -46,16 +43,15 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate{
         adapter.collectionView = collectionView
         adapter.dataSource = self
         
-        //Grab All posts
-        fetchFeed()
+        //Grab all the notification
+        fetchNotifications()
         
         //Add Refresh To Collection View
         self.refresher = UIRefreshControl()
         self.collectionView.alwaysBounceVertical = true
         self.refresher.tintColor = UIColor.red
-        self.refresher.addTarget(self, action: #selector(fetchFeed), for: .valueChanged)
+        self.refresher.addTarget(self, action: #selector(fetchNotifications), for: .valueChanged)
         self.collectionView.refreshControl = refresher
-
     }
     
     override func viewDidLayoutSubviews() {
@@ -69,43 +65,37 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate{
         tabBarController?.tabBar.isHidden = false
         self.tabBarController?.tabBar.isTranslucent = false
         self.navigationController?.navigationBar.isTranslucent = false
-        fetchFeed()
     }
     
-    @objc func fetchFeed(){
-        Network.shared.getFeed().then { feed -> Void in
+    @objc func fetchNotifications(){
+        Network.shared.getNotifications().then { notifications -> Void in
             //End Refreshing
+            self.notifications = notifications
             self.collectionView.refreshControl?.endRefreshing()
             self.adapter.performUpdates(animated: true, completion: nil)
         }
     }
     
 }
+    
+extension NotificationViewController: ListAdapterDataSource {
+        // 1
+        func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+            return (self.notifications as? [ListDiffable])!
+        }
+        
+        // 2
+        func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
+            return NotificationSectionController()
+            
+        }
+        
+        // 3
+        func emptyView(for listAdapter: ListAdapter) -> UIView? {
+            print("The view is empty and was not updated")
+            return nil
+            
+        } //Return a certatin view later
+    }
+    
 
-extension IGListFeedViewController: ListAdapterDataSource {
-    // 1
-    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return (Posts.shared.feedPosts as? [ListDiffable])!
-    }
-    
-    // 2
-    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        //Check if this post was posted by a rider or a driver
-        let post = object as? Post
-        if ( post?.trip?.postedBy == "driver" ){
-            return DriverPostSectionController()
-        }
-        else{
-            print("This was posted by a rider")
-            return RiderPostSectionContoller()
-        }
-        
-    }
-    
-    // 3
-    func emptyView(for listAdapter: ListAdapter) -> UIView? {
-        print("The view is empty and was not updated")
-        return nil
-        
-    } //Return a certatin view later
-}

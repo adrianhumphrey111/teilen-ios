@@ -130,29 +130,9 @@ extension DriverPostSectionController  {
     
     func reserveSeat() {
         if let vc = viewController as? IGListFeedViewController{
-            // Create a custom view controller
-            // Create a custom view controller
-            let ratingVC = ReserveSeatPopupViewController(nibName: "ReserveSeatPopupViewController", bundle: nil)
-            
-            // Create the dialog
-            let popup = PopupDialog(viewController: ratingVC, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
-            
-            // Create first button
-            let buttonOne = CancelButton(title: "CANCEL", height: 60) {
-                //self.label.text = "You canceled the rating dialog"
-            }
-            
-            // Create second button
-            let buttonTwo = DefaultButton(title: "RATE", height: 60) {
-                //self.label.text = "You rated \(ratingVC.cosmosStarRating.rating) stars"
-            }
-            
-            // Add buttons to dialog
-            //popup.addButtons([buttonOne, buttonTwo])
-            
-            // Present dialog
-            vc.present(popup, animated: true, completion: nil)
-            //vc.reserveSeat()
+            //Show Reserve Seat Popup Over
+            vc.present(PopupManager.shared.reserveSeat(price: self.trip.ratePerSeat!, postKey: self.post.postKey ), animated: true, completion: nil)
+
         }
     }
     
@@ -198,9 +178,7 @@ extension DriverPostSectionController  {
     
     func configureDriverButtonCell(cell : UICollectionViewCell){
         if let cell = cell as? DriverButtonCollectionViewCell{
-            cell.driverButton.backgroundColor = .green
             cell.delegate = self
-            cell.driverButton.setTitleColor(.white, for: .normal)
             if ( self.trip.seatsAvailable > 0 ){
                 cell.driverButton.setTitle("Reserve Seat", for: .normal)
             }
@@ -212,16 +190,13 @@ extension DriverPostSectionController  {
     
     func configureTimeStampCell(cell: UICollectionViewCell){
         if let cell = cell as? TimeStampCollectionViewCell{
-            cell.backgroundColor = .white
             cell.timeStampLabel.text = self.post.createdAt
         }
     }
     
     func configureLikeCommentCell(cell: UICollectionViewCell){
         if let cell = cell as? LikeCommentCollectionViewCell{
-            cell.backgroundColor = .red
             //Like Label
-            print("the fucking like count inside of the cell is => ", self.post.likeCount)
             switch self.post.likeCount{
             case 1:
                 cell.likeLabel.text = "1 Like"
@@ -241,10 +216,6 @@ extension DriverPostSectionController  {
     
     func configureActionCell(cell: UICollectionViewCell){
         if let cell = cell as? ActionCollectionViewCell{
-            cell.backgroundColor = .clear
-            cell.likeButton.setTitle("Like", for: .normal)
-            cell.commentButton.setTitle("Comment", for: .normal)
-            cell.shareButton.setTitle("Share", for: .normal)
             cell.post = self.post
             cell.delegate = self
         }

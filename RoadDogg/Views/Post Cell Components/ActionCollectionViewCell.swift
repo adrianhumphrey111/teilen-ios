@@ -29,11 +29,21 @@ class ActionCollectionViewCell: UICollectionViewCell, NibReusable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // IConfigure background
         roundedBackgroundView.backgroundColor = .white
         let radius = self.frame.height / 6
-        
         roundedBackgroundView.layer.cornerRadius = radius
+        backgroundColor = .clear
+        
+        // Configure Like Button
+        likeButton.setTitle("Like", for: .normal)
+        
+        // Configure comment button
+        commentButton.setTitle("Comment", for: .normal)
+        
+        // Configure share button
+        shareButton.setTitle("Share", for: .normal)
+
     }
     
     @IBAction func likeAction(_ sender: Any) {

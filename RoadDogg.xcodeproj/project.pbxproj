@@ -16,6 +16,8 @@
 		522F15FB1FC62ABA003F33B7 /* Popups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522F15FA1FC62ABA003F33B7 /* Popups.storyboard */; };
 		522F16161FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F16141FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift */; };
 		522F16171FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */; };
+		5239434A1FC69FBE006E73B8 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523943491FC69FBE006E73B8 /* PopupManager.swift */; };
+		5239434D1FC6FC4C006E73B8 /* TNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5239434C1FC6FC4C006E73B8 /* TNotification.swift */; };
 		52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */; };
 		52404AF91FB05AE500AD64FA /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF81FB05AE500AD64FA /* Trip.swift */; };
 		52404AFB1FB1165D00AD64FA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFA1FB1165C00AD64FA /* Extensions.swift */; };
@@ -40,7 +42,7 @@
 		525CA2E81F9D40A90037855E /* RoadDoggTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA2E71F9D40A90037855E /* RoadDoggTests.swift */; };
 		525CA2F31F9D40A90037855E /* RoadDoggUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA2F21F9D40A90037855E /* RoadDoggUITests.swift */; };
 		525CA3041F9FF5D60037855E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3031F9FF5D60037855E /* MapViewController.swift */; };
-		525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3061F9FF5FD0037855E /* Notification View.swift */; };
+		525CA3071F9FF5FD0037855E /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3061F9FF5FD0037855E /* NotificationViewController.swift */; };
 		525CA30A1F9FF61D0037855E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3091F9FF61D0037855E /* ProfileViewController.swift */; };
 		525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA30C1F9FF63C0037855E /* NewPostViewController.swift */; };
 		525CA3201FA127060037855E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31F1FA127050037855E /* Network.swift */; };
@@ -112,6 +114,8 @@
 		522F15FA1FC62ABA003F33B7 /* Popups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popups.storyboard; sourceTree = "<group>"; };
 		522F16141FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveSeatPopupViewController.swift; sourceTree = "<group>"; };
 		522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReserveSeatPopupViewController.xib; sourceTree = "<group>"; };
+		523943491FC69FBE006E73B8 /* PopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
+		5239434C1FC6FC4C006E73B8 /* TNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNotification.swift; sourceTree = "<group>"; };
 		52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		52404AF81FB05AE500AD64FA /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		52404AFA1FB1165C00AD64FA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -142,7 +146,7 @@
 		525CA2F21F9D40A90037855E /* RoadDoggUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadDoggUITests.swift; sourceTree = "<group>"; };
 		525CA2F41F9D40A90037855E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		525CA3031F9FF5D60037855E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		525CA3061F9FF5FD0037855E /* Notification View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification View.swift"; sourceTree = "<group>"; };
+		525CA3061F9FF5FD0037855E /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		525CA3091F9FF61D0037855E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		525CA30C1F9FF63C0037855E /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		525CA31F1FA127050037855E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -233,6 +237,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5239434B1FC6F97A006E73B8 /* Notification Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Notification Cells";
+			sourceTree = "<group>";
+		};
 		525151611FA8757500317BC5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				5259A6BB1FA5CF8400078161 /* Feed.swift */,
+				5239434C1FC6FC4C006E73B8 /* TNotification.swift */,
 				5259A6BD1FA5D39700078161 /* User.swift */,
 				52DC32781FB547CE00A1DF6A /* Car.swift */,
 				5259A6C11FA5FCEE00078161 /* Post.swift */,
@@ -373,7 +385,7 @@
 		525CA3051F9FF5E10037855E /* Notification View */ = {
 			isa = PBXGroup;
 			children = (
-				525CA3061F9FF5FD0037855E /* Notification View.swift */,
+				525CA3061F9FF5FD0037855E /* NotificationViewController.swift */,
 			);
 			path = "Notification View";
 			sourceTree = "<group>";
@@ -399,6 +411,7 @@
 		525CA3111FA002E00037855E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5239434B1FC6F97A006E73B8 /* Notification Cells */,
 				52DEF50E1FC40F5600FF37BC /* Post Cell Components */,
 				525151611FA8757500317BC5 /* Cells */,
 			);
@@ -419,6 +432,7 @@
 			children = (
 				522F16141FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift */,
 				522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */,
+				523943491FC69FBE006E73B8 /* PopupManager.swift */,
 			);
 			path = PopOvers;
 			sourceTree = "<group>";
@@ -601,6 +615,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplePay = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.Keychain = {
@@ -882,7 +899,7 @@
 				52C03C441FB9726600E06CE4 /* InitialViewController.swift in Sources */,
 				86226A911FBCD69F001CE1C2 /* ProfileSettingViewCell.swift in Sources */,
 				86F8C6F11FBD39C400FE7967 /* PaymentManager.swift in Sources */,
-				525CA3071F9FF5FD0037855E /* Notification View.swift in Sources */,
+				525CA3071F9FF5FD0037855E /* NotificationViewController.swift in Sources */,
 				401570E01FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift in Sources */,
 				52DEF50A1FC3D6DD00FF37BC /* IGListFeedViewController.swift in Sources */,
 				52404AFB1FB1165D00AD64FA /* Extensions.swift in Sources */,
@@ -902,10 +919,12 @@
 				52E313AD1FC4314200DA6724 /* RideInformationCollectionViewCell.swift in Sources */,
 				525151601FA8730300317BC5 /* TripViewController.swift in Sources */,
 				52E313BD1FC4358500DA6724 /* ActionCollectionViewCell.swift in Sources */,
+				5239434D1FC6FC4C006E73B8 /* TNotification.swift in Sources */,
 				52C03C421FB9604D00E06CE4 /* LoginCooridinator.swift in Sources */,
 				525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */,
 				525CA2D81F9D40A90037855E /* RoadDogg.xcdatamodeld in Sources */,
 				5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */,
+				5239434A1FC69FBE006E73B8 /* PopupManager.swift in Sources */,
 				525151AD1FAD65E100317BC5 /* ModalNewPostViewController.swift in Sources */,
 				525151631FA875B600317BC5 /* PostViewCell.swift in Sources */,
 				52DC32791FB547CE00A1DF6A /* Car.swift in Sources */,
