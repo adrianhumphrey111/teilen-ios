@@ -112,6 +112,7 @@ extension DriverPostSectionController  {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
             vc.user = self.post?.user
+            vc.profileArray.append( self.post?.user as AnyObject )
             viewController?.navigationController?.pushViewController(vc, animated: true)
         case 1,2:
             let storyboard = UIStoryboard(name: "Main", bundle: nil)

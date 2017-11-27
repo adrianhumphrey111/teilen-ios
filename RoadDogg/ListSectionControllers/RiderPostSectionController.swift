@@ -63,7 +63,7 @@ extension RiderPostSectionContoller  {
             configureHeaderCell( cell: cell )
             return cell
         case 1:
-            let cellClass : String = RideInformationCollectionViewCell.reuseIdentifier
+            let cellClass : String = RiderInformationCollectionViewCell.reuseIdentifier
             let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
             configureRideInformationCell( cell: cell )
             return cell
@@ -110,6 +110,7 @@ extension RiderPostSectionContoller  {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
             vc.user = self.post?.user
+            vc.profileArray.append( self.post?.user as AnyObject )
             viewController?.navigationController?.pushViewController(vc, animated: true)
         case 1,2:
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -169,16 +170,9 @@ extension RiderPostSectionContoller  {
     }
     
     func configureRideInformationCell(cell: UICollectionViewCell){
-        if let cell = cell as? RideInformationCollectionViewCell{
-            cell.startToEndLabel.text = "\(self.trip.startLocation.city!) -> \(self.trip.endLocation.city!)"
+        if let cell = cell as? RiderInformationCollectionViewCell{
+            cell.startEndLabel.text = "\(self.trip.startLocation.city!) -> \(self.trip.endLocation.city!)"
             cell.backgroundColor = .white
-            
-            if ( self.post.trip?.postedBy == "ridker"){
-                print("Why in the fuck are these being hidden!!")
-                cell.priceLabel.isHidden = true
-                cell.seatsAvailableLabel.isHidden = true
-                cell.seatsAvailableIcon.isHidden = true
-            }
         }
     }
     

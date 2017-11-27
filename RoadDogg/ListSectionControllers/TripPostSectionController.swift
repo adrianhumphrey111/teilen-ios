@@ -76,10 +76,19 @@ extension TripPostSectionController  {
             configureHeaderCell( cell: cell )
             return cell
         case 1:
-            let cellClass : String = RideInformationCollectionViewCell.reuseIdentifier
-            let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
-            configureRideInformationCell( cell: cell )
-            return cell
+            if (self.trip.postedBy == "driver"){
+                let cellClass : String = RideInformationCollectionViewCell.reuseIdentifier
+                let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
+                configureRideInformationCell( cell: cell )
+                return cell
+            }
+            else{
+                let cellClass : String = RiderInformationCollectionViewCell.reuseIdentifier
+                let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
+                configureRiderInformationCell( cell: cell )
+                return cell
+            }
+            
         case 2:
             let cellClass : String = PostTextViewCollectionViewCell.reuseIdentifier
             let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
@@ -91,10 +100,18 @@ extension TripPostSectionController  {
             configureTimeStampCell( cell: cell )
             return cell
         case 4:
-            let cellClass : String = DriverButtonCollectionViewCell.reuseIdentifier
-            let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
-            configureDriverButtonCell( cell: cell )
-            return cell
+            if (self.trip.postedBy == "driver"){
+                let cellClass : String = DriverButtonCollectionViewCell.reuseIdentifier
+                let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
+                configureDriverButtonCell( cell: cell )
+                return cell
+            }
+            else{
+                let cellClass : String = RideButtonCollectionViewCell.reuseIdentifier
+                let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
+                configureRiderButtonCell( cell: cell )
+                return cell
+            }
         case 5:
             let cellClass : String = LikeCommentCollectionViewCell.reuseIdentifier
             let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
@@ -123,6 +140,7 @@ extension TripPostSectionController  {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
             vc.user = self.post?.user
+            vc.profileArray.append( self.post?.user as AnyObject )
             viewController?.navigationController?.pushViewController(vc, animated: true)
         default:
             return
@@ -193,6 +211,13 @@ extension TripPostSectionController  {
         }
     }
     
+    func configureRiderInformationCell(cell: UICollectionViewCell){
+        if let cell = cell as? RiderInformationCollectionViewCell{
+            cell.startEndLabel.text = "\(self.trip.startLocation.city!) -> \(self.trip.endLocation.city!)"
+            cell.backgroundColor = .white
+        }
+    }
+    
     func configureDriverButtonCell(cell : UICollectionViewCell){
         if let cell = cell as? DriverButtonCollectionViewCell{
             cell.delegate = self
@@ -206,6 +231,12 @@ extension TripPostSectionController  {
                 cell.driverButton.setTitle("Join Waitlist", for: .normal)
             }
             
+        }
+    }
+    
+    func configureRiderButtonCell(cell : UICollectionViewCell){
+        if let cell = cell as? RideButtonCollectionViewCell{
+            cell.delegate = self
         }
     }
     

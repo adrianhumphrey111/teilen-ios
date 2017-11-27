@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import IGListKit
 
 
-struct User{
+final class User{
     var firstName : String = ""
     var lastName : String = ""
     var email : String = ""
@@ -18,10 +19,11 @@ struct User{
     var password : String = ""
     var key : String = ""
     var notification_token : String = ""
-    var posts : [Post]?
+    var posts : [AnyObject] = []
     var car : Car?
     var rating: Float!
     var numberOfTrips: Int!
+    var isFriend = true
     
     var fullName : String {
         get{
@@ -71,6 +73,28 @@ struct User{
         return dict
     }
 }
+
+extension User: Equatable{
+    
+    static public func ==(rhs: User, lhs: User) -> Bool{
+        return rhs.key == lhs.key
+    }
+}
+
+extension User : ListDiffable{
+    public func diffIdentifier() -> NSObjectProtocol {
+        return key as NSObjectProtocol
+    }
+    
+    public func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+        guard let object = object as? User else{
+            return false
+        }
+        
+        return ( self.key == object.key && self.posts.count == object.posts.count && self.isFriend == object.isFriend )
+    }
+}
+
 
 /*
 
