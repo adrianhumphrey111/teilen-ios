@@ -18,7 +18,7 @@ class Post{
     var likeCount : Int = 0
     var commentCount : Int = 0
     var isLiked : Bool = false
-    var comments = [Comment]()
+    var comments = Comments()
     var liked = false
     var createdAt = ""
     public var fontSize : CGFloat = 20
@@ -48,7 +48,6 @@ class Post{
     
     init(post: [String: Any]){
         //Create a user object
-        print(post)
         self.user = User( user: post["user"] as! [String : Any] )
         
         //Set the post text
@@ -65,7 +64,7 @@ class Post{
         }
         var comments = post["comments"] as! [[String:Any]]
         for comment in comments{
-            self.comments.append( Comment( comment: comment) )
+            self.comments.addComment( comment: Comment( comment: comment) )
         }
         
         //Create a trip object
@@ -110,9 +109,8 @@ extension Post : ListDiffable{
             return false
         }
         
-        return ( self.postKey == object.postKey && self.likeCount == object.likeCount && self.commentCount == object.commentCount && self.text == object.text)
+        return ( self.postKey == object.postKey && self.likeCount == object.likeCount && self.commentCount == object.commentCount && self.text == object.text && self.trip?.seatsAvailable == object.trip?.seatsAvailable && self.createdAt == object.createdAt)
     }
-    
 }
 
 /*

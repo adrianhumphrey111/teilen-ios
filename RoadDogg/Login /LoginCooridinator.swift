@@ -164,15 +164,21 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
         userSelf.numberOfTrips = 0
         userSelf.customerId = custId
         userSelf.notificationToken = token
+        userSelf.profileUrl = user.profileUrl
         
-        //Save logged in user to database
-        RealmManager.shared.saveLoggedInUser(user: userSelf)
-        
-        //Set the Network key to the saved user
-        Network.shared.setUserKey()
-        
-        //Save the users Notification Token Here
-        RealmManager.shared.saveNotificationToken(tokenstring: token)
+        Network.shared.grabProfileImage(urlString: user.profileUrl).then{ image -> Void in
+            //Save the image and filepath
+            userSelf.imageFileName = RealmManager.shared.saveImage(image: image, fileName: "profileImage")!
+                
+            //Save logged in user to database
+            RealmManager.shared.saveLoggedInUser(user: userSelf)
+            
+            //Set the Network key to the saved user
+            Network.shared.setUserKey()
+            
+            //Save the users Notification Token Here
+            RealmManager.shared.saveNotificationToken(tokenstring: token)
+        }
         
     }
     

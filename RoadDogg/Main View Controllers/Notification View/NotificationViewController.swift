@@ -12,7 +12,6 @@ import IGListKit
 
 class NotificationViewController : UIViewController {
     
-    
     //Collection View
     let collectionView: UICollectionView = {
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -32,6 +31,8 @@ class NotificationViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Navigation bar
+        self.title = "Notifications"
         
         //Make tab bar visible
         tabBarController?.tabBar.isHidden = false
@@ -70,18 +71,16 @@ class NotificationViewController : UIViewController {
     @objc func fetchNotifications(){
         Network.shared.getNotifications().then { notifications -> Void in
             //End Refreshing
-            self.notifications = notifications
             self.collectionView.refreshControl?.endRefreshing()
             self.adapter.performUpdates(animated: true, completion: nil)
         }
     }
-    
 }
     
 extension NotificationViewController: ListAdapterDataSource {
         // 1
         func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-            return (self.notifications as? [ListDiffable])!
+            return ( RealmManager.shared.getNotifications() as? [ListDiffable])!
         }
         
         // 2
@@ -92,10 +91,10 @@ extension NotificationViewController: ListAdapterDataSource {
         
         // 3
         func emptyView(for listAdapter: ListAdapter) -> UIView? {
-            print("The view is empty and was not updated")
+            print("You have no ntotications")
             return nil
             
         } //Return a certatin view later
-    }
+}
     
 

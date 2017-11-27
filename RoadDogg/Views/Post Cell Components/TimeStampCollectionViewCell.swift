@@ -18,6 +18,8 @@ class TimeStampCollectionViewCell: UICollectionViewCell, NibReusable {
         // Initialization code
         
         self.backgroundColor = .white
+        timeStampLabel.textColor = .gray
+        timeStampLabel.font = UIFont.systemFont(ofSize: 16)
     }
 
 }

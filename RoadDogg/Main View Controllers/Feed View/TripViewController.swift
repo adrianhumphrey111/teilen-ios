@@ -7,16 +7,26 @@
 //
 
 import UIKit
+import IGListKit
 
 //TODO: ADD Tap gesture to Tripview, becuase maybe the post does not have any comments yet.
 
-class TripViewController: UIViewController, PostViewCellDelegate {
+class TripViewController: UIViewController, PostViewCellDelegate, PopupDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate {
     
-    
-    @IBOutlet weak var collectionView: UICollectionView!
-    var post : Post!
-    var comments: [Comment]!
+    var tripArray : [AnyObject] = [] //First object will be the post, that the driver or rider will configure, second will be array of comments if any
     var commenting = false
+    
+    //Collection View
+    let collectionView: UICollectionView = {
+        let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+        view.backgroundColor = UIColor().colorWithHexString(hex: "#cfcecb", alpha: 0.75)
+        return view
+    }()
+    
+    //IGList Adapter
+    lazy var adapter: ListAdapter = {
+        return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
+    }()
     
     //Setup message container view
     let messageInputContainerView: UIView = {
@@ -43,17 +53,26 @@ class TripViewController: UIViewController, PostViewCellDelegate {
     //Set up send button
     let sendButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Send", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-        button.backgroundColor = .black
+        button.setTitle("Post", for: .normal)
+        button.setTitleColor(UIColor().colorWithHexString(hex: "#76D2CE", alpha: 0.5), for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.addTarget(self, action:#selector(handleSendPressed), for: .touchUpInside)
+        button.isUserInteractionEnabled = false
         return button
-        
     }()
     
-    @IBOutlet weak var collectionViewBottomConstraint: NSLayoutConstraint!
+    
+    //Constriaint for the bottom textview
     var bottomConstraint: NSLayoutConstraint?
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        // Disallow recognition of tap gestures in the segmented control.
+        if (touch.view == self.sendButton) {
+            //change it to your condition
+            return false
+        }
+        return true
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -69,12 +88,31 @@ class TripViewController: UIViewController, PostViewCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        //Set up tabbar and nav controller
         self.title = "Trip"
         tabBarController?.tabBar.isHidden = true
         
+        //TextView set delegate
+        inputTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControlEvents.editingChanged)
+        
+        
+        //Add colelctionview
+        view.addSubview(collectionView)
+        
+        //Set up collection Adapter
+        adapter.collectionView = collectionView
+        adapter.dataSource = self
+        
         //Set up Message View Container
         view.addSubview( messageInputContainerView )
+        
+        //Tap gesture to dismiss keyboard
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        tap.delegate = self
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
         
         //Set up the input field view and constraints
         messageInputContainerView.translatesAutoresizingMaskIntoConstraints = false
@@ -100,13 +138,18 @@ class TripViewController: UIViewController, PostViewCellDelegate {
                                                object: nil)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let collectionFrame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - 48)
+        collectionView.frame = collectionFrame
+    }
+    
     
     @objc func handleKeyboardNotification(notification: NSNotification){
         if let userInfo = notification.userInfo {
             let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as! CGRect
             let isKeyboardShowing = notification.name == Notification.Name.UIKeyboardWillShow
             bottomConstraint?.constant = isKeyboardShowing ? -keyboardFrame.height : 0
-            collectionViewBottomConstraint.constant = isKeyboardShowing ? -( keyboardFrame.height + 48 ) : 48
             UIView.animate(withDuration: 0, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 self.view.layoutIfNeeded()
                 
@@ -114,8 +157,8 @@ class TripViewController: UIViewController, PostViewCellDelegate {
     
                 DispatchQueue.main.async {
                     if isKeyboardShowing{
-                    let indexPath = IndexPath(item: self.comments.count - 1, section: 1)
-                    self.collectionView.scrollToItem(at: indexPath as IndexPath, at: .bottom, animated: true)
+//                    let indexPath = IndexPath(item: self.comments.count - 1, section: 1)
+//
                     }
                 }
             })
@@ -133,27 +176,32 @@ class TripViewController: UIViewController, PostViewCellDelegate {
         inputTextField.text = ""
         
         //Add the comment to the post, with a "posting", once the promise is returned, update the ui to "Just Now"
-        var comment = Comment(comment: text)
-        comment.createdAt = "Posting"
-        post.comments.append( comment )
-        comments.append( comment )
+        let post = self.tripArray[0] as? Post
+        let comment = Comment(comment: text)
+        comment.createdAt = "less than minute ago"
+        comment.user = User()
+        comment.user?.profileUrl = RealmManager.shared.selfUser!.profileUrl
         
-        //Reload Table so that Comment shows up instantly
-        self.collectionView.reloadData()
+        //Add to the post
+        post?.comments.addComment( comment: comment )
         
-        Network.shared.commentPost(postKey: post.postKey, comment: text).then { returnedComment -> Void in
-            //Add comment key to the comment which is returned by the server
-            //comment.commentKey = returnedComment.commentKey
-            //comment.createdAt = returnedComment.createdAt
-            comment.createdAt = "Just Now"
+        //Add to the diffable array
+        self.tripArray.append( comment )
+        
+        //Reload Section Controller
+        self.adapter.performUpdates(animated: true) { (bool) in
+            print("The comment was posted and should have shown up")
+        }
+        
+        Network.shared.commentPost(postKey: (post?.postKey)!, comment: text).then { returnedComment -> Void in
+            comment.createdAt = returnedComment.createdAt
             comment.postKey = returnedComment.postKey
             comment.userKey = returnedComment.userKey
-            
             //Enable Send button
             self.sendButton.isUserInteractionEnabled = true
             
             //Reload CollectionView
-            self.collectionView.reloadData()
+            self.adapter.performUpdates(animated: true, completion: nil)
             
             }.catch { error -> Void in
                 print(error)
@@ -172,9 +220,9 @@ class TripViewController: UIViewController, PostViewCellDelegate {
         //Set up send button to message container view
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         messageInputContainerView.addSubview( sendButton )
-        NSLayoutConstraint(item: sendButton, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: messageInputContainerView, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: -10 ).isActive = true
+        NSLayoutConstraint(item: sendButton, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: messageInputContainerView, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: -5 ).isActive = true
         NSLayoutConstraint(item: sendButton, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: messageInputContainerView, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: sendButton, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: view.frame.width * 0.10 ).isActive = true
+        NSLayoutConstraint(item: sendButton, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: view.frame.width * 0.15 ).isActive = true
         NSLayoutConstraint(item: sendButton, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 42).isActive = true
         
     }
@@ -183,100 +231,70 @@ class TripViewController: UIViewController, PostViewCellDelegate {
         inputTextField.becomeFirstResponder()
     }
     
+    //MARK Delegate Methods
+    
     func pushPostViewController(vc: UIViewController) {
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func goToPaymentController() {
+        //Take user to the payment page
+    }
+    
+    func showKeyboard() {
+        inputTextField.becomeFirstResponder()
+    }
+    
+    func reserveSeat(price: Int, postKey: String){
+        var vc = PopupManager.shared.reserveSeat(price: price, postKey: postKey)
+        if let requestVc = vc.viewController as? ReserveSeatPopupViewController{
+            requestVc.delegate = self
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    @objc func textFieldDidChange(textField : UITextField){
+        if let count = self.inputTextField.text?.characters.count {
+            if ( count > 0){
+                self.sendButton.setTitleColor(UIColor().colorWithHexString(hex: "#76D2CE", alpha: 1.0), for: .normal)
+                self.sendButton.isUserInteractionEnabled = true
+            }
+            else{
+                self.sendButton.setTitleColor(UIColor().colorWithHexString(hex: "#76D2CE", alpha: 0.5), for: .normal)
+                self.sendButton.isUserInteractionEnabled = false
+            }
+        }
+    }
+    
 }
 
-extension TripViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+extension TripViewController: ListAdapterDataSource {
+    // 1
+    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+        print("Trip array => " , self.tripArray)
+        return (self.tripArray as? [ListDiffable])!
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        inputTextField.endEditing( true )
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
-        if (indexPath.section == 0){
-            let estimatedTextHeight = self.post?.getEstimatedTextViewSize(width: view.frame.width - 20)
-            let postHeight : CGFloat = 200
-            let allPostHeight = postHeight + estimatedTextHeight!
-            return CGSize(width: view.frame.width, height: allPostHeight)
-        }
-        else{
-            let estimatedTextHeight = self.post?.comments[indexPath.row].getEstimatedTextViewSize(width: view.frame.width - 20)
-            let postHeight : CGFloat = 40
-            let allPostHeight = postHeight + estimatedTextHeight!
-            return CGSize(width: view.frame.width, height: allPostHeight)
-        }
+    // 2
+    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ( section == 0 ) ? 1 : post.comments.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if indexPath.section == 0 {
-            //make sure the identifier of your cell for first section
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postViewCell", for: indexPath) as! PostViewCell
-            configurePostCell(cell: cell, post: post)
-            return cell
+        if let post = object as? Post{
+            return TripPostSectionController() //Handle the driver and rider distinction inside class
+            
         }else{
-            //make sure the identifier of your cell for second section
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "commentCell", for: indexPath) as! CommentViewCell
-            configureCommentCell(cell: cell, comment: post.comments[indexPath.row])
-            return cell
+            return CommentsSectionsController()
         }
     }
     
-    func configurePostCell( cell: PostViewCell, post: Post){
-        cell.post = post
-        cell.profileImageView.backgroundColor = .black
-        cell.fullNameLabel.text = (post.user.firstName) + " " + (post.user.lastName)
-        cell.userNameLabel.text = "username here"
+    // 3
+    func emptyView(for listAdapter: ListAdapter) -> UIView? {
+        print("The Trip controller is empty")
+        return nil
         
-        //Create TextView in Post Cell
-        let textView = UITextView(frame: CGRect(x: 10, y: 0, width: view.frame.width - 20, height: cell.textAreaView.frame.height))
-        textView.text = post.text
-        textView.font = UIFont.systemFont(ofSize: (post.fontSize))
-        textView.isUserInteractionEnabled = false
-        textView.isScrollEnabled = false
-        cell.textAreaView.addSubview( textView )
-        cell.timeStampLabel.text = post.createdAt
-        cell.numberOfLikesLabel.text = post.likeCountString
-        cell.numberOfCommentsLabel.text = post.commentCountString
-        
-        //Set delegate
-        cell.delegate = self
-        
-        //Set Like Label
-        if ( post.isLiked ){
-            cell.likeButton.setTitle("UnLike", for: .normal)
-        }
-        else{
-            cell.likeButton.setTitle("Like", for: .normal)
-        }
-    }
-    
-    func configureCommentCell( cell: CommentViewCell, comment: Comment){
-        cell.comment = comment
-        cell.profileImageView.backgroundColor = .black
-        
-        //Create TextView in Comment Cell
-        let textView = UITextView(frame: CGRect(x: 10, y: 0, width: view.frame.width - 20, height: cell.textAreaView.frame.height))
-        textView.text = comment.text
-        textView.backgroundColor = .blue
-        textView.font = UIFont.systemFont(ofSize: (post.fontSize))
-        textView.isUserInteractionEnabled = false
-        textView.isScrollEnabled = false
-        cell.textAreaView.addSubview( textView )
-        
-        cell.timeStampLabel.text = comment.createdAt
-        
-    }
+    } //Return a certatin view later
 }

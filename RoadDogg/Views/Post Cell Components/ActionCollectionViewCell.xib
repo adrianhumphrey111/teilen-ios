@@ -50,10 +50,10 @@
                         </subviews>
                     </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zkf-Jc-DCa">
-                        <rect key="frame" x="0.0" y="0.0" width="435" height="1"/>
+                        <rect key="frame" x="10" y="0.0" width="415" height="1"/>
                         <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="veb-P4-3Wo"/>
+                            <constraint firstAttribute="height" constant="0.5" id="veb-P4-3Wo"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -69,9 +69,9 @@
                 <constraint firstItem="Zkf-Jc-DCa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dOc-xh-KEu"/>
                 <constraint firstItem="L9N-vq-DF9" firstAttribute="bottom" secondItem="ZTg-uK-7eu" secondAttribute="bottom" id="ezv-Hb-n1D"/>
                 <constraint firstItem="L9N-vq-DF9" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" id="hsG-HH-aHe"/>
-                <constraint firstAttribute="trailing" secondItem="Zkf-Jc-DCa" secondAttribute="trailing" id="nqb-2X-37h"/>
+                <constraint firstAttribute="trailing" secondItem="Zkf-Jc-DCa" secondAttribute="trailing" constant="10" id="nqb-2X-37h"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="aHd-9T-ZuS" secondAttribute="trailing" id="x8k-3H-CSs"/>
-                <constraint firstItem="Zkf-Jc-DCa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xEC-oH-U4D"/>
+                <constraint firstItem="Zkf-Jc-DCa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="xEC-oH-U4D"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="435" height="73"/>

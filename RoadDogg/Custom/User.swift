@@ -47,7 +47,9 @@ struct User{
         self.rating = user["rating"] as! Float
         self.numberOfTrips = user["numberOfCompletedTrips"] != nil ? 0 : user["numberOfCompletedTrips"] as! Int
         self.profileUrl = user["profile_pic_url"] as! String
-        self.key = user["user_key"] as! String
+        if let key = user["user_key"] as? String{
+            self.key = key
+        }
         if let car = user["car"] as? [String: AnyObject]{
             self.car = Car( car: car)
         }

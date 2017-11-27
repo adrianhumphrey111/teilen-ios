@@ -81,7 +81,7 @@ struct Trip {
         dict["posted_by_key"] = RealmManager.shared.userKey()
         dict["radius"] = self.radius != nil ? self.radius : ""
         dict["seats_available"] = self.seatsAvailable != nil ? self.seatsAvailable : ""
-        dict["rate_per_seat"] = self.ratePerSeat != nil ? self.ratePerSeat : ""
+        dict["rate_per_seat"] = self.ratePerSeat != nil ? self.ratePerSeat * 100 : ""
         return dict
     }
 }

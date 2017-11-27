@@ -26,11 +26,7 @@ class Network {
     
     static let shared = Network(baseURL: "http://localhost:8080", dev: false) //https://goal-rise.appspot.com
     
-    private let tokenNotification : NotificationToken!
-    
     init(baseURL: String, dev: Bool) {
-        
-        print("This class is initialized every time you make a network call")
         
         if ( dev ){
            self.baseurl = basedev
@@ -47,21 +43,6 @@ class Network {
             print("No calls will work, because there is no logged in user")
             //Handle this situation
         }
-        
-        //Set up Realm notification token
-        self.tokenNotification = RealmManager.shared.selfUser?.addNotificationBlock({ (change) in
-            switch change {
-            case .change(let properties):
-                print("The selfuser has been changed, now you can send the notification key off")
-                Network.shared.updateNotificationToken(token: RealmManager.shared.getSavedNotificationToken() )
-            case .deleted:
-                print("The user object was deleted")
-            case .error( let error ):
-                print("There was an error on the realm logged in user")
-            default:
-                print("Realm selfUser object notification ")
-            }
-        })
     }
     
     public func setUserKey()
@@ -69,9 +50,23 @@ class Network {
         self.user_key = RealmManager.shared.userKey()
     }
     
+    func grabProfileImage(urlString: String) -> Promise<UIImage>{
+        return Promise{ fulfill, reject in
+            let url = URL(string: urlString)
+            let data = try? Data(contentsOf: url!)
+            if let imageData = data {
+                if let image = UIImage(data: imageData){
+                    fulfill( image )
+                }
+            }
+            else{
+                reject ( "Error" as! Error )
+            }
+        }
+    }
+    
     func getFeed() -> Promise<Feed> {
         let url = "\(self.baseurl)/fetchFeed?user_key=\(self.user_key)"
-        print(url)
         return Promise { fulfill, reject in
             //Make call to the API
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
@@ -149,10 +144,14 @@ class Network {
     }
     
     func createPost(trip: Trip) -> Promise<[String]> {
+        let timeZone : String = String( describing: TimeZone.current )
+        let tz = timeZone.components(separatedBy: " ")[0]
+        print("TZ = > " , tz)
         let url = "\(self.baseurl)/createPost"
         let params : [String : Any] = ["user_key": self.user_key,
                       "post_text": trip.postText!.encoded(),
-                      "trip": trip.to_dict()
+                      "trip": trip.to_dict(),
+                      "time_zone" : tz
                     ]
         var keys : [String] = []
         return Promise { fulfill, reject in
@@ -221,8 +220,7 @@ class Network {
                     user.email = email as! String
                     user.profileUrl = picUrl
                     user.facebookId = facebook_id as! String
-                    print(data)
-                    fulfill(user)
+                    fulfill( user )
                 }
                 else{
                     print(error as Any)
@@ -306,9 +304,7 @@ class Network {
             switch response.result {
             case .success:
                 if let result = response.result.value{
-                    print("The notification token was successfully updated")
                     let json = result as! [String: AnyObject]
-                    print( json )
                 }
             case .failure( let error ):
                 print( error )
@@ -334,7 +330,7 @@ class Network {
         }
     }
     
-    func reserveSeat(postKey: String) -> Promise<Bool>{
+    func reserveSeat(postKey: String) -> Promise<[String : AnyObject]>{
         let url = "\(self.baseurl)/reserveSeat"
         let params : [String : Any] = ["user_key": self.user_key,
                                        "post_key": postKey]
@@ -344,8 +340,8 @@ class Network {
                 case .success:
                     if let result = response.result.value{
                         let json = result as! [String: AnyObject]
-                        let bool = json["success"] as! Bool
-                        fulfill( bool )
+                        
+                        fulfill( json )
                     }
                 case .failure( let error ):
                     reject(error)
@@ -354,9 +350,8 @@ class Network {
         }
     }
     
-    func getNotifications() -> Promise<[TNotification]> {
+    func getNotifications() -> Promise<String> {
         let url = "\(self.baseurl)/fetchNotifications?user_key=\(self.user_key)"
-        print(url)
         return Promise { fulfill, reject in
             //Make call to the API
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
@@ -364,8 +359,13 @@ class Network {
                 case .success:
                     //get response
                     if let result = response.result.value{
-                        let posts = result as! [[String:Any]]
-                        fulfill(feed)
+                        let notifcations = result as! [[String:Any]]
+                        var results : [realmNotification] = []
+                        for notification in notifcations{
+                            results.append( realmNotification(notification: notification as! [String: AnyObject]) )
+                        }
+                        RealmManager.shared.saveNotifications( notifications: results )
+                        fulfill( "Success" )
                     }
                 case .failure(let error):
                     reject(error)
@@ -374,6 +374,49 @@ class Network {
         }
     }
     
+    func acceptRider(notification: realmNotification) -> Promise<[String: Any]> {
+        let url = "\(self.baseurl)/acceptRider"
+        let params : [String : Any] = ["user_key": self.user_key,
+                                      "rider_key" : notification.fromUserKey,
+                                      "trip_key" : notification.tripKey]
+        return Promise { fulfill, reject in
+            //Make call to the API
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+                switch response.result {
+                case .success:
+                    //get response
+                    if let result = response.result.value{
+                        let success = result as! [String:Any]
+                        fulfill( success )
+                    }
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }
+    }
+    
+    func denyRider(notification: realmNotification)-> Promise<[String : Any]>{
+        let url = "\(self.baseurl)/denyRider"
+        let params : [String : Any] = ["user_key": self.user_key,
+                                       "rider_key" : notification.fromUserKey,
+                                       "trip_key" : notification.tripKey]
+        return Promise { fulfill, reject in
+            //Make call to the API
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+                switch response.result {
+                case .success:
+                    //get response
+                    if let result = response.result.value{
+                        let success = result as! [String:Any]
+                        fulfill( success )
+                    }
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }
+    }
     
 
     func url(endpoint: String) -> String{

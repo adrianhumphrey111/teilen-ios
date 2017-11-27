@@ -13,17 +13,18 @@ import SDWebImage
 import PopupDialog
 
 class DriverPostSectionController : ListSectionController, PostActionDelegate{
-    
+
     
     var post: Post!
     var trip: Trip!
     var user: User!
     
+    var tripBooked : Bool = false
+    
     override init(){
         super.init()
         inset =  UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
     }
-    
 }
 
 extension DriverPostSectionController  {
@@ -96,13 +97,13 @@ extension DriverPostSectionController  {
         default:
             return UICollectionViewCell()
         }
-        
     }
     
     override func didUpdate(to object: Any) {
         self.post = object as? Post
         self.trip = self.post.trip
         self.user = self.post.user
+        self.tripBooked = self.trip.passengerKeys.contains( RealmManager.shared.selfUser!.key ) ? true : false
     }
     
     override func didSelectItem(at index: Int) {
@@ -112,7 +113,12 @@ extension DriverPostSectionController  {
             let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
             vc.user = self.post?.user
             viewController?.navigationController?.pushViewController(vc, animated: true)
-
+        case 1,2:
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier :"Trip") as! TripViewController
+            vc.tripArray.append( self.post )
+            vc.tripArray += self.post.comments.comments
+            viewController?.navigationController?.pushViewController(vc, animated: true)
         default:
             return
         }
@@ -131,15 +137,18 @@ extension DriverPostSectionController  {
     func reserveSeat() {
         if let vc = viewController as? IGListFeedViewController{
             //Show Reserve Seat Popup Over
-            vc.present(PopupManager.shared.reserveSeat(price: self.trip.ratePerSeat!, postKey: self.post.postKey ), animated: true, completion: nil)
-
+            vc.reserveSeat(price: self.trip.ratePerSeat!, postKey: self.post.postKey)
         }
     }
     
     func notifyRider() {
         if let vc = viewController as? IGListFeedViewController{
-            vc.notifyRider()
+            
         }
+    }
+    
+    func showKeyboard() {
+        //show keyboard
     }
     
     func configureHeaderCell(cell: UICollectionViewCell) {
@@ -148,16 +157,8 @@ extension DriverPostSectionController  {
             cell.usernameLabel.text = "@username"
             cell.fullNameLabel.text = self.user.fullName
             
-            //Make profile image round
-            cell.profileImageView.layer.masksToBounds = false
-            cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.height/2
-            cell.profileImageView.clipsToBounds = true
-            
             //Set the profile image
             cell.profileImageView.sd_setImage(with: URL(string: self.user.profileUrl) ) //TODO: Change to with placeholder
-            cell.backgroundColor = .clear
-            
-            //Round top two corners
         }
     }
     
@@ -171,8 +172,11 @@ extension DriverPostSectionController  {
     func configureRideInformationCell(cell: UICollectionViewCell){
         if let cell = cell as? RideInformationCollectionViewCell{
             cell.startToEndLabel.text = "\(self.trip.startLocation.city!) -> \(self.trip.endLocation.city!)"
-            cell.priceLabel.text = "$25"
             cell.backgroundColor = .white
+            let dollarAmount : Int = self.trip.ratePerSeat / 100
+            cell.priceLabel.text = "$\(dollarAmount)"
+            cell.priceLabel.textColor = .green
+            cell.seatsAvailableLabel.text = "\(self.trip.seatsAvailable!)"
         }
     }
     
@@ -182,6 +186,9 @@ extension DriverPostSectionController  {
             if ( self.trip.seatsAvailable > 0 ){
                 cell.driverButton.setTitle("Reserve Seat", for: .normal)
             }
+            else if( self.tripBooked ){
+                cell.driverButton.setTitle("Trip Booked", for: .normal)
+            }
             else{
                 cell.driverButton.setTitle("Join Waitlist", for: .normal)
             }
@@ -189,6 +196,7 @@ extension DriverPostSectionController  {
     }
     
     func configureTimeStampCell(cell: UICollectionViewCell){
+        let date = self.post.createdAt.dateFromISO8601 //.description(with: Locale.current )
         if let cell = cell as? TimeStampCollectionViewCell{
             cell.timeStampLabel.text = self.post.createdAt
         }

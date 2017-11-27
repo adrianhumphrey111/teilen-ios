@@ -45,9 +45,9 @@ class FeedPostCell: UICollectionViewCell {
     @IBAction func commentPressed(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier :"Trip") as! TripViewController
-        vc.post = self.post
+       // vc.post = self.post
         vc.commenting = true
-        vc.comments = self.post?.comments
+        //vc.comments = self.post?.comments
         delegate?.pushPostViewController( vc: vc )
     }
     

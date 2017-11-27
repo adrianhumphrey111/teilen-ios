@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProfileSettingCollectionViewCell" customModule="RoadDogg" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ats-zn-147">
+                        <rect key="frame" x="5" y="5" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="FLh-tZ-99E"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGE-eE-D27">
+                        <rect key="frame" x="70" y="15" width="150" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="Tin-2S-IMI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Spn-gr-kYq">
+                        <rect key="frame" x="70" y="49" width="275" height="1"/>
+                        <color key="backgroundColor" red="0.71003434638650986" green="0.71706438942003969" blue="0.71706438942003969" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Lzm-xJ-ISu"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rx0-qf-KqZ">
+                        <rect key="frame" x="305" y="10" width="30" height="29"/>
+                        <state key="normal" title="&gt;"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="mGE-eE-D27" firstAttribute="leading" secondItem="Ats-zn-147" secondAttribute="trailing" constant="25" id="01m-YQ-LFb"/>
+                <constraint firstAttribute="trailing" secondItem="Rx0-qf-KqZ" secondAttribute="trailing" constant="10" id="03A-t5-fcG"/>
+                <constraint firstAttribute="trailing" secondItem="Spn-gr-kYq" secondAttribute="trailing" id="24J-2L-LdZ"/>
+                <constraint firstItem="Spn-gr-kYq" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="70" id="DUf-3X-YSa"/>
+                <constraint firstItem="mGE-eE-D27" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Kgd-qU-A9m"/>
+                <constraint firstItem="Ats-zn-147" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="TpR-Yi-uAS"/>
+                <constraint firstItem="Rx0-qf-KqZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="VwP-vN-0uS"/>
+                <constraint firstAttribute="bottom" secondItem="Ats-zn-147" secondAttribute="bottom" constant="5" id="Z4y-x0-ocX"/>
+                <constraint firstAttribute="bottom" secondItem="Spn-gr-kYq" secondAttribute="bottom" id="rkh-5b-rEt"/>
+                <constraint firstItem="Ats-zn-147" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="vx3-7i-Sp6"/>
+                <constraint firstItem="Spn-gr-kYq" firstAttribute="top" secondItem="Rx0-qf-KqZ" secondAttribute="bottom" constant="10" id="wzp-kg-Dym"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="345" height="50"/>
+            <connections>
+                <outlet property="imageView" destination="Ats-zn-147" id="wbv-sk-hLM"/>
+                <outlet property="settingLabel" destination="mGE-eE-D27" id="cbd-uh-hUC"/>
+            </connections>
+            <point key="canvasLocation" x="181.5" y="54"/>
+        </collectionViewCell>
+    </objects>
+</document>

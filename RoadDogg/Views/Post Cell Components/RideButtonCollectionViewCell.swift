@@ -16,6 +16,9 @@ class RideButtonCollectionViewCell: UICollectionViewCell, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        riderButton.backgroundColor = UIColor().colorWithHexString(hex: "#76D2CE", alpha: 1.0)
+        riderButton.setTitleColor(.white, for: .normal)
+        riderButton.setTitle("Notify Rider", for: .normal)
     }
 
     @IBAction func buttonAction(_ sender: Any) {

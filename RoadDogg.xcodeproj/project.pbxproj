@@ -18,6 +18,7 @@
 		522F16171FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */; };
 		5239434A1FC69FBE006E73B8 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523943491FC69FBE006E73B8 /* PopupManager.swift */; };
 		5239434D1FC6FC4C006E73B8 /* TNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5239434C1FC6FC4C006E73B8 /* TNotification.swift */; };
+		5239434F1FC70748006E73B8 /* NotificationSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5239434E1FC70748006E73B8 /* NotificationSectionController.swift */; };
 		52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */; };
 		52404AF91FB05AE500AD64FA /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF81FB05AE500AD64FA /* Trip.swift */; };
 		52404AFB1FB1165D00AD64FA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFA1FB1165C00AD64FA /* Extensions.swift */; };
@@ -34,7 +35,6 @@
 		5259A6C21FA5FCEE00078161 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6C11FA5FCEE00078161 /* Post.swift */; };
 		5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5259A6C31FA5FEBD00078161 /* Comment.swift */; };
 		525CA2D01F9D40A90037855E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA2CF1F9D40A90037855E /* AppDelegate.swift */; };
-		525CA2D21F9D40A90037855E /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA2D11F9D40A90037855E /* FeedViewController.swift */; };
 		525CA2D51F9D40A90037855E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525CA2D31F9D40A90037855E /* Main.storyboard */; };
 		525CA2D81F9D40A90037855E /* RoadDogg.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 525CA2D61F9D40A90037855E /* RoadDogg.xcdatamodeld */; };
 		525CA2DA1F9D40A90037855E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525CA2D91F9D40A90037855E /* Assets.xcassets */; };
@@ -46,10 +46,23 @@
 		525CA30A1F9FF61D0037855E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA3091F9FF61D0037855E /* ProfileViewController.swift */; };
 		525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA30C1F9FF63C0037855E /* NewPostViewController.swift */; };
 		525CA3201FA127060037855E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CA31F1FA127050037855E /* Network.swift */; };
+		526869881FC7F38800109A9F /* RequestNotificationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526869861FC7F38800109A9F /* RequestNotificationCollectionViewCell.swift */; };
+		526869891FC7F38800109A9F /* RequestNotificationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526869871FC7F38800109A9F /* RequestNotificationCollectionViewCell.xib */; };
+		5268698B1FC84ABB00109A9F /* SelfProfileSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268698A1FC84ABB00109A9F /* SelfProfileSectionController.swift */; };
+		526869911FC84CF200109A9F /* ProfileHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268698F1FC84CF200109A9F /* ProfileHeaderCollectionViewCell.swift */; };
+		526869921FC84CF200109A9F /* ProfileHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526869901FC84CF200109A9F /* ProfileHeaderCollectionViewCell.xib */; };
+		526869951FC8CBD900109A9F /* ProfileSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526869931FC8CBD900109A9F /* ProfileSettingCollectionViewCell.swift */; };
+		526869961FC8CBD900109A9F /* ProfileSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526869941FC8CBD900109A9F /* ProfileSettingCollectionViewCell.xib */; };
+		528D40B81FC9AEAD00676534 /* DateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528D40B71FC9AEAD00676534 /* DateHandler.swift */; };
+		528D40BC1FCBC1BB00676534 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528D40BB1FCBC1BB00676534 /* Comments.swift */; };
+		528D40BE1FCBC43600676534 /* CommentsSectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528D40BD1FCBC43600676534 /* CommentsSectionsController.swift */; };
 		529B2B1D1FC545F500CBD2D0 /* RideButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B2B1B1FC545F500CBD2D0 /* RideButtonCollectionViewCell.swift */; };
 		529B2B1E1FC545F500CBD2D0 /* RideButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529B2B1C1FC545F500CBD2D0 /* RideButtonCollectionViewCell.xib */; };
 		529C37B81FC420FE002F02EC /* PostTextViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C37B61FC420FE002F02EC /* PostTextViewCollectionViewCell.swift */; };
 		529C37B91FC420FE002F02EC /* PostTextViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529C37B71FC420FE002F02EC /* PostTextViewCollectionViewCell.xib */; };
+		529CD5EF1FCBC90A00C38098 /* CommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CD5ED1FCBC90A00C38098 /* CommentCollectionViewCell.swift */; };
+		529CD5F01FCBC90A00C38098 /* CommentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529CD5EE1FCBC90A00C38098 /* CommentCollectionViewCell.xib */; };
+		529CD5F41FCBE23900C38098 /* TripPostSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CD5F31FCBE23900C38098 /* TripPostSectionController.swift */; };
 		52C03C421FB9604D00E06CE4 /* LoginCooridinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C03C411FB9604D00E06CE4 /* LoginCooridinator.swift */; };
 		52C03C441FB9726600E06CE4 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C03C431FB9726600E06CE4 /* InitialViewController.swift */; };
 		52C03C461FBA6B4F00E06CE4 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C03C451FBA6B4E00E06CE4 /* Realm.swift */; };
@@ -116,6 +129,7 @@
 		522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReserveSeatPopupViewController.xib; sourceTree = "<group>"; };
 		523943491FC69FBE006E73B8 /* PopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
 		5239434C1FC6FC4C006E73B8 /* TNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNotification.swift; sourceTree = "<group>"; };
+		5239434E1FC70748006E73B8 /* NotificationSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationSectionController.swift; path = RoadDogg/Custom/NotificationSectionController.swift; sourceTree = SOURCE_ROOT; };
 		52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		52404AF81FB05AE500AD64FA /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		52404AFA1FB1165C00AD64FA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -133,7 +147,6 @@
 		5259A6C31FA5FEBD00078161 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		525CA2CC1F9D40A90037855E /* RoadDogg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadDogg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		525CA2CF1F9D40A90037855E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		525CA2D11F9D40A90037855E /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		525CA2D41F9D40A90037855E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		525CA2D71F9D40A90037855E /* RoadDogg.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RoadDogg.xcdatamodel; sourceTree = "<group>"; };
 		525CA2D91F9D40A90037855E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -150,10 +163,23 @@
 		525CA3091F9FF61D0037855E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		525CA30C1F9FF63C0037855E /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		525CA31F1FA127050037855E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		526869861FC7F38800109A9F /* RequestNotificationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNotificationCollectionViewCell.swift; sourceTree = "<group>"; };
+		526869871FC7F38800109A9F /* RequestNotificationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestNotificationCollectionViewCell.xib; sourceTree = "<group>"; };
+		5268698A1FC84ABB00109A9F /* SelfProfileSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileSectionController.swift; sourceTree = "<group>"; };
+		5268698F1FC84CF200109A9F /* ProfileHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		526869901FC84CF200109A9F /* ProfileHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		526869931FC8CBD900109A9F /* ProfileSettingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingCollectionViewCell.swift; sourceTree = "<group>"; };
+		526869941FC8CBD900109A9F /* ProfileSettingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingCollectionViewCell.xib; sourceTree = "<group>"; };
+		528D40B71FC9AEAD00676534 /* DateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHandler.swift; sourceTree = "<group>"; };
+		528D40BB1FCBC1BB00676534 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
+		528D40BD1FCBC43600676534 /* CommentsSectionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsSectionsController.swift; sourceTree = "<group>"; };
 		529B2B1B1FC545F500CBD2D0 /* RideButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		529B2B1C1FC545F500CBD2D0 /* RideButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RideButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		529C37B61FC420FE002F02EC /* PostTextViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		529C37B71FC420FE002F02EC /* PostTextViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTextViewCollectionViewCell.xib; sourceTree = "<group>"; };
+		529CD5ED1FCBC90A00C38098 /* CommentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCollectionViewCell.swift; sourceTree = "<group>"; };
+		529CD5EE1FCBC90A00C38098 /* CommentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCollectionViewCell.xib; sourceTree = "<group>"; };
+		529CD5F31FCBE23900C38098 /* TripPostSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPostSectionController.swift; sourceTree = "<group>"; };
 		52C03C3D1FB7F42B00E06CE4 /* RoadDogg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RoadDogg.entitlements; sourceTree = "<group>"; };
 		52C03C411FB9604D00E06CE4 /* LoginCooridinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCooridinator.swift; sourceTree = "<group>"; };
 		52C03C431FB9726600E06CE4 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -240,6 +266,8 @@
 		5239434B1FC6F97A006E73B8 /* Notification Cells */ = {
 			isa = PBXGroup;
 			children = (
+				526869861FC7F38800109A9F /* RequestNotificationCollectionViewCell.swift */,
+				526869871FC7F38800109A9F /* RequestNotificationCollectionViewCell.xib */,
 			);
 			path = "Notification Cells";
 			sourceTree = "<group>";
@@ -269,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				5259A6BB1FA5CF8400078161 /* Feed.swift */,
+				528D40BB1FCBC1BB00676534 /* Comments.swift */,
 				5239434C1FC6FC4C006E73B8 /* TNotification.swift */,
 				5259A6BD1FA5D39700078161 /* User.swift */,
 				52DC32781FB547CE00A1DF6A /* Car.swift */,
@@ -278,6 +307,7 @@
 				52404AF81FB05AE500AD64FA /* Trip.swift */,
 				52404AFA1FB1165C00AD64FA /* Extensions.swift */,
 				52404AFC1FB11C0100AD64FA /* Address.swift */,
+				528D40B71FC9AEAD00676534 /* DateHandler.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -367,7 +397,6 @@
 		525CA3011F9FF59C0037855E /* Feed View */ = {
 			isa = PBXGroup;
 			children = (
-				525CA2D11F9D40A90037855E /* FeedViewController.swift */,
 				52DEF5091FC3D6DD00FF37BC /* IGListFeedViewController.swift */,
 				5251515F1FA8730300317BC5 /* TripViewController.swift */,
 			);
@@ -411,6 +440,9 @@
 		525CA3111FA002E00037855E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5268698E1FC84CC100109A9F /* Trip Cells */,
+				5268698D1FC84CB000109A9F /* User Profile Cells */,
+				5268698C1FC84C6E00109A9F /* Profile Cells */,
 				5239434B1FC6F97A006E73B8 /* Notification Cells */,
 				52DEF50E1FC40F5600FF37BC /* Post Cell Components */,
 				525151611FA8757500317BC5 /* Cells */,
@@ -425,6 +457,33 @@
 				5217E93A1FC533CC000DBF99 /* SharedPosts.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		5268698C1FC84C6E00109A9F /* Profile Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5268698F1FC84CF200109A9F /* ProfileHeaderCollectionViewCell.swift */,
+				526869901FC84CF200109A9F /* ProfileHeaderCollectionViewCell.xib */,
+				526869931FC8CBD900109A9F /* ProfileSettingCollectionViewCell.swift */,
+				526869941FC8CBD900109A9F /* ProfileSettingCollectionViewCell.xib */,
+			);
+			path = "Profile Cells";
+			sourceTree = "<group>";
+		};
+		5268698D1FC84CB000109A9F /* User Profile Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "User Profile Cells";
+			sourceTree = "<group>";
+		};
+		5268698E1FC84CC100109A9F /* Trip Cells */ = {
+			isa = PBXGroup;
+			children = (
+				529CD5ED1FCBC90A00C38098 /* CommentCollectionViewCell.swift */,
+				529CD5EE1FCBC90A00C38098 /* CommentCollectionViewCell.xib */,
+			);
+			path = "Trip Cells";
 			sourceTree = "<group>";
 		};
 		529B2B1F1FC61CFA00CBD2D0 /* PopOvers */ = {
@@ -485,7 +544,11 @@
 			isa = PBXGroup;
 			children = (
 				52DEF50C1FC3E55400FF37BC /* DriverPostSectionController.swift */,
+				529CD5F31FCBE23900C38098 /* TripPostSectionController.swift */,
+				528D40BD1FCBC43600676534 /* CommentsSectionsController.swift */,
 				5217E93C1FC5411E000DBF99 /* RiderPostSectionController.swift */,
+				5239434E1FC70748006E73B8 /* NotificationSectionController.swift */,
+				5268698A1FC84ABB00109A9F /* SelfProfileSectionController.swift */,
 			);
 			path = ListSectionControllers;
 			sourceTree = "<group>";
@@ -666,9 +729,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				529C37B91FC420FE002F02EC /* PostTextViewCollectionViewCell.xib in Resources */,
+				526869891FC7F38800109A9F /* RequestNotificationCollectionViewCell.xib in Resources */,
 				525CA2DD1F9D40A90037855E /* LaunchScreen.storyboard in Resources */,
+				529CD5F01FCBC90A00C38098 /* CommentCollectionViewCell.xib in Resources */,
 				522F15FB1FC62ABA003F33B7 /* Popups.storyboard in Resources */,
 				401570E11FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib in Resources */,
+				526869921FC84CF200109A9F /* ProfileHeaderCollectionViewCell.xib in Resources */,
 				525CA2DA1F9D40A90037855E /* Assets.xcassets in Resources */,
 				529B2B1E1FC545F500CBD2D0 /* RideButtonCollectionViewCell.xib in Resources */,
 				86A957011FBE87AD008111CD /* GoogleService-Info.plist in Resources */,
@@ -680,6 +746,7 @@
 				52E313B61FC4348500DA6724 /* LikeCommentCollectionViewCell.xib in Resources */,
 				52E313B21FC4346200DA6724 /* TimeStampCollectionViewCell.xib in Resources */,
 				52E313AE1FC4314200DA6724 /* RideInformationCollectionViewCell.xib in Resources */,
+				526869961FC8CBD900109A9F /* ProfileSettingCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -894,6 +961,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528D40B81FC9AEAD00676534 /* DateHandler.swift in Sources */,
 				525CA30A1F9FF61D0037855E /* ProfileViewController.swift in Sources */,
 				52E313B51FC4348500DA6724 /* LikeCommentCollectionViewCell.swift in Sources */,
 				52C03C441FB9726600E06CE4 /* InitialViewController.swift in Sources */,
@@ -902,6 +970,7 @@
 				525CA3071F9FF5FD0037855E /* NotificationViewController.swift in Sources */,
 				401570E01FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift in Sources */,
 				52DEF50A1FC3D6DD00FF37BC /* IGListFeedViewController.swift in Sources */,
+				5239434F1FC70748006E73B8 /* NotificationSectionController.swift in Sources */,
 				52404AFB1FB1165D00AD64FA /* Extensions.swift in Sources */,
 				52404AFD1FB11C0100AD64FA /* Address.swift in Sources */,
 				525151651FA875D800317BC5 /* CommentViewCell.swift in Sources */,
@@ -911,7 +980,6 @@
 				52D7CAE91FB51BC700609EC1 /* FriendProfileHeadViewCell.swift in Sources */,
 				86F8C6F31FBD40D300FE7967 /* StripeApiManager.swift in Sources */,
 				52CFFEFE1FB67B3A00F93951 /* Models.swift in Sources */,
-				525CA2D21F9D40A90037855E /* FeedViewController.swift in Sources */,
 				522F16161FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift in Sources */,
 				5259A6BE1FA5D39700078161 /* User.swift in Sources */,
 				529C37B81FC420FE002F02EC /* PostTextViewCollectionViewCell.swift in Sources */,
@@ -924,8 +992,11 @@
 				525CA30D1F9FF63C0037855E /* NewPostViewController.swift in Sources */,
 				525CA2D81F9D40A90037855E /* RoadDogg.xcdatamodeld in Sources */,
 				5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */,
+				5268698B1FC84ABB00109A9F /* SelfProfileSectionController.swift in Sources */,
 				5239434A1FC69FBE006E73B8 /* PopupManager.swift in Sources */,
 				525151AD1FAD65E100317BC5 /* ModalNewPostViewController.swift in Sources */,
+				526869951FC8CBD900109A9F /* ProfileSettingCollectionViewCell.swift in Sources */,
+				526869881FC7F38800109A9F /* RequestNotificationCollectionViewCell.swift in Sources */,
 				525151631FA875B600317BC5 /* PostViewCell.swift in Sources */,
 				52DC32791FB547CE00A1DF6A /* Car.swift in Sources */,
 				52DEF50D1FC3E55400FF37BC /* DriverPostSectionController.swift in Sources */,
@@ -934,13 +1005,18 @@
 				52E313B11FC4346200DA6724 /* TimeStampCollectionViewCell.swift in Sources */,
 				525151AB1FAD5D0000317BC5 /* TabBarViewController.swift in Sources */,
 				52474C6B1FB3F84300422CAD /* FriendProfileViewController.swift in Sources */,
+				529CD5F41FCBE23900C38098 /* TripPostSectionController.swift in Sources */,
+				526869911FC84CF200109A9F /* ProfileHeaderCollectionViewCell.swift in Sources */,
 				52404AF91FB05AE500AD64FA /* Trip.swift in Sources */,
+				529CD5EF1FCBC90A00C38098 /* CommentCollectionViewCell.swift in Sources */,
 				5217E93D1FC5411E000DBF99 /* RiderPostSectionController.swift in Sources */,
 				5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */,
 				52CFFF011FB7D59400F93951 /* GeneralSettings.swift in Sources */,
 				529B2B1D1FC545F500CBD2D0 /* RideButtonCollectionViewCell.swift in Sources */,
+				528D40BE1FCBC43600676534 /* CommentsSectionsController.swift in Sources */,
 				525CA2D01F9D40A90037855E /* AppDelegate.swift in Sources */,
 				5259A6C21FA5FCEE00078161 /* Post.swift in Sources */,
+				528D40BC1FCBC1BB00676534 /* Comments.swift in Sources */,
 				52C03C461FBA6B4F00E06CE4 /* Realm.swift in Sources */,
 				525CA3041F9FF5D60037855E /* MapViewController.swift in Sources */,
 				5217E93B1FC533CC000DBF99 /* SharedPosts.swift in Sources */,

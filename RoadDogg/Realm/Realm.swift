@@ -24,6 +24,11 @@ class RealmManager {
     //The logged in user
     public var selfUser : loggedInUser?
     
+    //Docuemnts path
+    var documentsUrl: URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    }
+    
     init() {
         self.realm = try! Realm()
         
@@ -36,6 +41,29 @@ class RealmManager {
         }
 
     }
+    
+    //Save profile image
+    func saveImage(image: UIImage, fileName: String) -> String? {
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+            try? imageData.write(to: fileURL, options: .atomic)
+            return fileName // ----> Save fileName
+        }
+        print("Error saving image")
+        return nil
+    }
+    
+    func loadImage(fileName: String) -> UIImage? {
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        do {
+            let imageData = try Data(contentsOf: fileURL)
+            return UIImage(data: imageData)
+        } catch {
+            print("Error loading image : \(error)")
+        }
+        return nil
+    }
+    
     
     @objc func isLoggedin() -> Bool{
         return ( self.loggedIn || ( FBSDKAccessToken.current() != nil ) )
@@ -70,6 +98,17 @@ class RealmManager {
             if ( self.selfUser != nil ){
                 //We are updating the logged in User in the database.
                 realm.add(user)
+            }
+        }
+        getLoggedInUser()
+    }
+    
+    @objc func paymentVerified(){
+        try! realm.write {
+            if ( self.selfUser != nil ){
+                //We are updating the logged in User in the database.
+                self.selfUser?.paymentVerified = true
+                realm.add( self.selfUser! )
             }
         }
         getLoggedInUser()
@@ -112,6 +151,29 @@ class RealmManager {
     
     func userKey() -> String{
         return self.selfUser != nil ? (self.selfUser?.key)! : ""
+    }
+    
+    func getNotifications() ->[realmNotification] {
+        return Array( realm.objects(realmNotification.self) )
+    }
+    
+    func updateNotification(notification: realmNotification, accepted: String){
+        try! realm.write {
+            notification.accepted = accepted
+            realm.add( notification )
+        }
+    }
+    
+    func saveNotifications(notifications: [realmNotification]){
+        try! realm.write {
+            for not in notifications{
+                if let existingCategory = realm.object(ofType: realmNotification.self, forPrimaryKey: not.createdAt) {
+                    //Notification already exist
+                }else{
+                    realm.add( not )
+                }
+            }
+        }
     }
     
 }

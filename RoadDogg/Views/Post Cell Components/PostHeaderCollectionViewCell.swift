@@ -20,12 +20,21 @@ class PostHeaderCollectionViewCell: UICollectionViewCell, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        roundedBackgroundView.backgroundColor = .white
-        let radius = self.frame.height / 6
+        backgroundColor = .clear
+        roundedBackgroundView.backgroundColor = .white        
+        roundedBackgroundView.layer.cornerRadius = 8
         
-        roundedBackgroundView.layer.cornerRadius = radius
+        //Make profile image round
+        profileImageView.layer.masksToBounds = false
+        profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+        profileImageView.clipsToBounds = true
         
+        //Set Options image
+        var optionsImage : UIImage = UIImage(named: "Option")!
+        optionButton.setImage(optionsImage, for: .normal)
         
     }
 
 }
+
+

@@ -10,16 +10,19 @@ import UIKit
 import Reusable
 
 class RideInformationCollectionViewCell: UICollectionViewCell, NibReusable {
-    
-    @IBOutlet weak var priceView: UIView!
+
+    @IBOutlet weak var seatsAvailableLabel: UILabel!
     
     @IBOutlet weak var startToEndLabel: UILabel!
     
     @IBOutlet weak var priceLabel: UILabel!
     
+    @IBOutlet weak var seatsAvailableIcon: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        seatsAvailableIcon.backgroundColor = .black
     }
 
 }

@@ -10,11 +10,8 @@ import Foundation
 import UIKit
 import IGListKit
 
-class IGListFeedViewController : UIViewController, FeedPostDelegate{
+class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelegate{
     
-    func pushPostViewController(vc: UIViewController) {
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
     
     //Collection View
     let collectionView: UICollectionView = {
@@ -69,7 +66,6 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate{
         tabBarController?.tabBar.isHidden = false
         self.tabBarController?.tabBar.isTranslucent = false
         self.navigationController?.navigationBar.isTranslucent = false
-        fetchFeed()
     }
     
     @objc func fetchFeed(){
@@ -78,6 +74,28 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate{
             self.collectionView.refreshControl?.endRefreshing()
             self.adapter.performUpdates(animated: true, completion: nil)
         }
+    }
+    
+    func reserveSeat(price: Int, postKey: String){
+        var vc = PopupManager.shared.reserveSeat(price: price, postKey: postKey)
+        if let requestVc = vc.viewController as? ReserveSeatPopupViewController{
+            requestVc.delegate = self
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func goToPaymentController() {
+        print("Take the user to the payment page")
+        tabBarController?.selectedIndex = 4
+        if let navController = tabBarController?.viewControllers![4] as? UINavigationController{
+            if let vc = navController.viewControllers[0] as? ProfileViewController{
+                vc.showPayment()
+            }
+        }
+    }
+    
+    func pushPostViewController(vc: UIViewController) {
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -99,7 +117,6 @@ extension IGListFeedViewController: ListAdapterDataSource {
             print("This was posted by a rider")
             return RiderPostSectionContoller()
         }
-        
     }
     
     // 3

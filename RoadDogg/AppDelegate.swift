@@ -19,7 +19,6 @@ import FirebaseMessaging
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelegate, MessagingDelegate {
     
-    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -46,7 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
             UIApplication.shared.registerForRemoteNotifications()
         }
         
-        Network.shared.updateNotificationToken(token: RealmManager.shared.getSavedNotificationToken() )
+        //Update token
+        if ( RealmManager.shared.getSavedNotificationToken() != "")
+        {
+            Network.shared.updateNotificationToken(token: RealmManager.shared.getSavedNotificationToken() )
+        }
         
         //Remote Notifcations
         application.registerForRemoteNotifications()

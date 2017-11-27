@@ -1,14 +1,4 @@
 //
-//  RiderPostSectionController.swift
-//  RoadDogg
-//
-//  Created by Adrian Humphrey on 11/21/17.
-//  Copyright © 2017 Adrian Humphrey. All rights reserved.
-//
-
-import Foundation
-
-//
 //  DriverPostSectionController.swift
 //  RoadDogg
 //
@@ -38,7 +28,7 @@ class RiderPostSectionContoller : ListSectionController, PostActionDelegate{
 extension RiderPostSectionContoller  {
     
     override func numberOfItems() -> Int {
-        return 6
+        return 7
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
@@ -47,15 +37,17 @@ extension RiderPostSectionContoller  {
         case 0:
             return CGSize(width: cellWidth, height: 65)
         case 1:
+            return CGSize(width: cellWidth, height: 50)
+        case 2:
             //Get estimation of the height of the cell
             let text = self.post.text
             let size = CGSize(width: cellWidth, height: 1000)
             let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: self.post.fontSize )]
             let estiamtedFrame = NSString( string: text ).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
             return CGSize(width: cellWidth, height: estiamtedFrame.height + 10)
-        case 2:
+        case 3:
             return CGSize(width: cellWidth, height: 45)
-        case 3, 4, 5:
+        case 4, 5, 6:
             return CGSize(width: cellWidth, height: 35)
         default:
             return CGSize(width: 100, height: 100)
@@ -71,26 +63,31 @@ extension RiderPostSectionContoller  {
             configureHeaderCell( cell: cell )
             return cell
         case 1:
+            let cellClass : String = RideInformationCollectionViewCell.reuseIdentifier
+            let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
+            configureRideInformationCell( cell: cell )
+            return cell
+        case 2:
             let cellClass : String = PostTextViewCollectionViewCell.reuseIdentifier
             let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
             configureTextCell( cell: cell )
             return cell
-        case 2:
+        case 3:
             let cellClass : String = TimeStampCollectionViewCell.reuseIdentifier
             let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
             configureTimeStampCell( cell: cell )
             return cell
-        case 3:
+        case 4:
             let cellClass : String = RideButtonCollectionViewCell.reuseIdentifier
             let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
             configureRiderButtonCell( cell: cell )
             return cell
-        case 4:
+        case 5:
             let cellClass : String = LikeCommentCollectionViewCell.reuseIdentifier
             let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
             configureLikeCommentCell( cell: cell )
             return cell
-        case 5:
+        case 6:
             let cellClass : String = ActionCollectionViewCell.reuseIdentifier
             let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
             configureActionCell( cell: cell )
@@ -114,9 +111,12 @@ extension RiderPostSectionContoller  {
             let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
             vc.user = self.post?.user
             viewController?.navigationController?.pushViewController(vc, animated: true)
-        case 2:
-            //Show the modal pop up to notify rider
-            print("Rider has been notifiied")
+        case 1,2:
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier :"Trip") as! TripViewController
+            vc.tripArray.append( self.post )
+            vc.tripArray += self.post.comments.comments
+            viewController?.navigationController?.pushViewController(vc, animated: true)
         default:
             return
         }
@@ -134,13 +134,13 @@ extension RiderPostSectionContoller  {
     
     func reserveSeat() {
         if let vc = viewController as? IGListFeedViewController{
-            vc.reserveSeat()
+            
         }
     }
     
     func notifyRider() {
         if let vc = viewController as? IGListFeedViewController{
-            vc.notifyRider()
+            
         }
     }
     
@@ -171,17 +171,21 @@ extension RiderPostSectionContoller  {
     func configureRideInformationCell(cell: UICollectionViewCell){
         if let cell = cell as? RideInformationCollectionViewCell{
             cell.startToEndLabel.text = "\(self.trip.startLocation.city!) -> \(self.trip.endLocation.city!)"
-            cell.priceLabel.text = "$25"
             cell.backgroundColor = .white
+            
+            if ( self.post.trip?.postedBy == "ridker"){
+                print("Why in the fuck are these being hidden!!")
+                cell.priceLabel.isHidden = true
+                cell.seatsAvailableLabel.isHidden = true
+                cell.seatsAvailableIcon.isHidden = true
+            }
         }
     }
     
     func configureRiderButtonCell(cell : UICollectionViewCell){
         if let cell = cell as? RideButtonCollectionViewCell{
-            cell.riderButton.backgroundColor = .green
             cell.delegate = self
-            cell.riderButton.setTitleColor(.white, for: .normal)
-            cell.riderButton.setTitle("Notify Rider", for: .normal)
+            
         }
     }
     
@@ -196,7 +200,6 @@ extension RiderPostSectionContoller  {
         if let cell = cell as? LikeCommentCollectionViewCell{
             cell.backgroundColor = .white
             //Like Label
-            print("the fucking like count inside of the cell is => ", self.post.likeCount)
             switch self.post.likeCount{
             case 1:
                 cell.likeLabel.text = "1 Like"
@@ -226,6 +229,10 @@ extension RiderPostSectionContoller  {
             cell.post = self.post
             cell.delegate = self
         }
+    }
+    
+    func showKeyboard() {
+        //Show keyboard
     }
     
 }

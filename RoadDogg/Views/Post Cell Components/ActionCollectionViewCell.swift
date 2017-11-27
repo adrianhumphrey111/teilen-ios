@@ -14,6 +14,7 @@ protocol PostActionDelegate {
     func performUpdatesForLike()
     func reserveSeat()
     func notifyRider()
+    func showKeyboard()
 }
 
 class ActionCollectionViewCell: UICollectionViewCell, NibReusable {
@@ -27,22 +28,26 @@ class ActionCollectionViewCell: UICollectionViewCell, NibReusable {
     
     var delegate : PostActionDelegate!
     
+    var feed : Bool = true
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // IConfigure background
         roundedBackgroundView.backgroundColor = .white
-        let radius = self.frame.height / 6
-        roundedBackgroundView.layer.cornerRadius = radius
+        roundedBackgroundView.layer.cornerRadius = 8
         backgroundColor = .clear
         
         // Configure Like Button
         likeButton.setTitle("Like", for: .normal)
+        likeButton.setTitleColor(.gray, for: .normal)
         
         // Configure comment button
         commentButton.setTitle("Comment", for: .normal)
+        commentButton.setTitleColor(.gray, for: .normal)
         
         // Configure share button
         shareButton.setTitle("Share", for: .normal)
+        shareButton.setTitleColor(.gray, for: .normal)
 
     }
     
@@ -51,26 +56,28 @@ class ActionCollectionViewCell: UICollectionViewCell, NibReusable {
         if ( self.post?.isLiked )!{
             Network.shared.unLikePost(postKey: (post?.postKey)!)
             self.post?.unlike()
-           // self.likeLabel.text = post?.likeCountString
-           // self.likeButtonLabel.setTitle("Like", for: .normal)
+            likeButton.setTitle("Like", for: .normal)
         }else{
             Network.shared.likePost(postKey: (post?.postKey)!)
             self.post?.like()
-            //self.likeLabel.text = post?.likeCountString
-           // self.likeButtonLabel.setTitle("UnLike", for: .normal)
+            likeButton.setTitle("Unlike", for: .normal)
         }
         print(self.post.likeCount)
         delegate.performUpdatesForLike()
     }
 
     @IBAction func commentAction(_ sender: Any) {
-        print("Comment")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier :"Trip") as! TripViewController
-        vc.post = self.post
-        vc.commenting = true
-        vc.comments = self.post?.comments
-        delegate.pushPostViewController( vc: vc )
+        if ( feed == false ){
+            delegate?.showKeyboard()
+        }
+        else{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier :"Trip") as! TripViewController
+            vc.tripArray.append( self.post )
+            vc.tripArray += self.post.comments.comments
+            vc.commenting = true
+            delegate.pushPostViewController( vc: vc )
+        }
     }
     
     @IBAction func shareAction(_ sender: Any) {
