@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeleteAccountPopupViewController" customModule="Teilen" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="3TJ-7E-13L" id="jbg-l8-UZd"/>
+                <outlet property="view" destination="bWr-DF-tVA" id="em8-ll-q9G"/>
+                <outlet property="yesButton" destination="osy-2X-4YD" id="HJw-f1-EXr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="jjm-ry-lOB">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="312"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWr-DF-tVA">
+                    <rect key="frame" x="0.0" y="0.0" width="426" height="300"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELETE ACCOUNT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCB-6b-jgU">
+                            <rect key="frame" x="0.0" y="25" width="426" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TJ-7E-13L">
+                            <rect key="frame" x="20" y="209" width="386" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="aZa-cT-ifa"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="eVH-cg-Xpc"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osy-2X-4YD">
+                            <rect key="frame" x="20" y="139" width="386" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="7rQ-b9-6qk"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="yesAction:" destination="-1" eventType="touchUpInside" id="LUM-Pq-Jel"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Are you sure you want to delete your account ?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ATS-S5-6ux">
+                            <rect key="frame" x="15" y="64" width="396" height="55"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="55" id="E44-Lz-Bff"/>
+                            </constraints>
+                            <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="hCB-6b-jgU" firstAttribute="leading" secondItem="bWr-DF-tVA" secondAttribute="leading" id="2fi-L5-ox7"/>
+                        <constraint firstItem="3TJ-7E-13L" firstAttribute="leading" secondItem="bWr-DF-tVA" secondAttribute="leading" constant="20" id="51i-wm-rF3"/>
+                        <constraint firstAttribute="height" constant="300" id="8l5-XL-oab"/>
+                        <constraint firstItem="osy-2X-4YD" firstAttribute="top" secondItem="ATS-S5-6ux" secondAttribute="bottom" constant="20" id="Aft-cu-k8A"/>
+                        <constraint firstAttribute="trailing" secondItem="3TJ-7E-13L" secondAttribute="trailing" constant="20" id="E3Z-2h-34Y"/>
+                        <constraint firstAttribute="trailing" secondItem="hCB-6b-jgU" secondAttribute="trailing" id="Jbw-oN-yJN"/>
+                        <constraint firstAttribute="trailing" secondItem="osy-2X-4YD" secondAttribute="trailing" constant="20" id="Mpr-WX-9Mz"/>
+                        <constraint firstAttribute="trailing" secondItem="ATS-S5-6ux" secondAttribute="trailing" constant="15" id="OmH-ci-j1W"/>
+                        <constraint firstItem="osy-2X-4YD" firstAttribute="leading" secondItem="bWr-DF-tVA" secondAttribute="leading" constant="20" id="QIy-Cy-uju"/>
+                        <constraint firstItem="3TJ-7E-13L" firstAttribute="top" secondItem="osy-2X-4YD" secondAttribute="bottom" constant="10" id="X33-rw-Iva"/>
+                        <constraint firstItem="hCB-6b-jgU" firstAttribute="centerX" secondItem="bWr-DF-tVA" secondAttribute="centerX" constant="-6" id="b8d-Qj-X07"/>
+                        <constraint firstItem="ATS-S5-6ux" firstAttribute="leading" secondItem="bWr-DF-tVA" secondAttribute="leading" constant="15" id="emA-4M-7Vf"/>
+                        <constraint firstItem="ATS-S5-6ux" firstAttribute="top" secondItem="hCB-6b-jgU" secondAttribute="bottom" constant="15" id="j65-Mh-ilh"/>
+                        <constraint firstItem="hCB-6b-jgU" firstAttribute="top" secondItem="bWr-DF-tVA" secondAttribute="top" constant="25" id="rek-Vh-M3a"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bWr-DF-tVA" secondAttribute="trailing" constant="-10" id="GYc-ge-pOp"/>
+                <constraint firstAttribute="bottom" secondItem="bWr-DF-tVA" secondAttribute="bottom" id="HKl-zY-b2B"/>
+                <constraint firstItem="bWr-DF-tVA" firstAttribute="top" secondItem="jjm-ry-lOB" secondAttribute="top" id="YeO-An-3lW"/>
+                <constraint firstItem="bWr-DF-tVA" firstAttribute="leading" secondItem="jjm-ry-lOB" secondAttribute="leading" id="pzd-r5-zb4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="lxJ-lr-kWw"/>
+            <point key="canvasLocation" x="326" y="333"/>
+        </view>
+    </objects>
+</document>

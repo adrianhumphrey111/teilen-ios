@@ -7,6 +7,7 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
   - DateTimePicker (1.1.2)
+  - Eureka (4.0.1)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -92,6 +93,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.5.1)
   - DateTimePicker
+  - Eureka
   - FacebookCore
   - Firebase/Core
   - Firebase/Messaging
@@ -112,6 +114,7 @@ SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   DateTimePicker: 518bffa5438ef83a7a687cc4d5e187e5c12012b8
+  Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
   FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
@@ -136,6 +139,6 @@ SPEC CHECKSUMS:
   Stripe: 898f83a95d72180c6eb4acd65b2ae6158fc6a8bd
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: aabf80dc018dddb570b763a507978e40940114c7
+PODFILE CHECKSUM: 18ba830980c5cf37b88a134213b82b4bc2c76552
 
 COCOAPODS: 1.1.1

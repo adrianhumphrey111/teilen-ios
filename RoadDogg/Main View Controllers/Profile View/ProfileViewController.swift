@@ -25,6 +25,15 @@ class ProfileViewController : UIViewController {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
     
+    var selfUser = RealmManager.shared.selfUser!
+    var profileArray : [AnyObject] = []
+    
+    //Refresher
+    var refresher:UIRefreshControl!
+    
+    //Self User
+    var user: loggedInUser!
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         
@@ -40,6 +49,20 @@ class ProfileViewController : UIViewController {
         //Set up collection Adapter
         adapter.collectionView = collectionView
         adapter.dataSource = self
+        
+        //Add user to user array
+        profileArray.append( RealmManager.shared.selfUser! )
+        
+        //Add Refresh To Collection View
+        self.refresher = UIRefreshControl()
+        self.collectionView.alwaysBounceVertical = true
+        self.refresher.tintColor = UIColor.black
+        self.refresher.addTarget(self, action: #selector(fetchUserFeed), for: .valueChanged)
+        self.collectionView.refreshControl = refresher
+        self.collectionView.refreshControl?.beginRefreshing()
+        
+        //Fetch the post by the user
+        fetchUserFeed()
 
     }
     
@@ -66,6 +89,36 @@ class ProfileViewController : UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc func fetchUserFeed(){
+        print("there is no key here")
+        Network.shared.getUserFeed(user_key: self.selfUser.key).then { feed -> Void in
+            
+            guard let post = feed.posts[0] as? Post else {
+                //If they do not hav any post add a section controller saying they dont have any post
+                return
+            }
+            guard let user = post.user as? User else {
+                //The user has no post
+                return
+                
+            }
+            //Save the user
+            RealmManager.shared.updateLoggedInUser(loggedInUser: self.selfUser, user: user )
+            self.selfUser = RealmManager.shared.selfUser!
+            self.profileArray = []
+            self.profileArray.append( self.selfUser )
+
+            self.profileArray += feed.posts
+            
+            //End Refreshing
+            self.collectionView.refreshControl?.endRefreshing()
+            
+            self.adapter.performUpdates(animated: true, completion: nil)
+            
+            }.catch { error -> Void in
+                print(error)
+        }
+    }
  
     
 }
@@ -73,14 +126,22 @@ class ProfileViewController : UIViewController {
 extension ProfileViewController: ListAdapterDataSource {
     // 1
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        let selfUser = RealmManager.shared.selfUser!
-        let userArr : [loggedInUser] = [selfUser]
-        return (userArr as? [ListDiffable])!
+        return (self.profileArray as? [ListDiffable])!
     }
     
     // 2
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return SelfProfileSectionController()
+        
+        if let post = object as? Post{
+            if ( post.trip?.postedBy == "driver"){
+                return DriverPostSectionController()
+            }
+            else{
+                return RiderPostSectionContoller()
+            }
+        }else{
+            return SelfProfileSectionController()
+        }
     }
     
     // 3

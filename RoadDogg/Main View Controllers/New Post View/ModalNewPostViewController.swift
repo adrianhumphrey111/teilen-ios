@@ -97,8 +97,16 @@ class ModalNewPostViewController: UIViewController {
     //Number of seats that the user has chosen
     var seatsAvailable : Int?
     
+    //Universal color
+    let color = UIColor().colorWithHexString(hex: "#76D2CE", alpha: 1.0)
+    let disabledColor = UIColor().colorWithHexString(hex: "#76D2CE", alpha: 0.3)
+    
+    var user : loggedInUser?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Set user
+        self.user = RealmManager.shared.selfUser!
         
         //Set selectors for textfields
         startLocationTextField.addTarget(self, action: #selector(textStartFieldDidChange), for: UIControlEvents.editingChanged)
@@ -107,7 +115,10 @@ class ModalNewPostViewController: UIViewController {
         //Set the local label height
         TOP_BUTTON_HEIGHT = 50
         INITIAL_DRIVING_HEIGHT = view.bounds.height / 3
-        INITIAL_RIDING_HEIGHT = INITIAL_DRIVING_HEIGHT + 45
+        INITIAL_RIDING_HEIGHT = INITIAL_DRIVING_HEIGHT + 70
+        
+        //Set up the button looks
+        setUpBViewDesigns()
         
         //Set Up All Initial views
         setInitialPositions()
@@ -178,6 +189,57 @@ class ModalNewPostViewController: UIViewController {
         }
     }
     
+    func setUpBViewDesigns(){
+        
+        //Choose seat available buttons
+        self.resetAllButtonBackgrounds()
+        
+        //Driving Button
+        drivingButton.backgroundColor = color
+        drivingButton.setTitleColor(.white, for: .normal)
+        drivingButton.frame.size.width = self.view.frame.size.width - 40
+        drivingButton.frame.size.height = 50
+        drivingButton.layer.cornerRadius = 8
+        
+        //RidingButton
+        ridingButton.backgroundColor = color
+        ridingButton.setTitleColor(.white, for: .normal)
+        ridingButton.frame.size.width = self.view.frame.size.width - 40
+        ridingButton.frame.size.height = 50
+        ridingButton.layer.cornerRadius = 8
+        
+        //Departure Button
+        departureButton.backgroundColor = color
+        departureButton.setTitleColor(.white, for: .normal)
+        departureButton.frame.size.width = self.view.frame.size.width - 40
+        departureButton.frame.size.height = 50
+        departureButton.layer.cornerRadius = 8
+        
+        //Arrival Button
+        arrivalButton.backgroundColor = color
+        arrivalButton.setTitleColor(.white, for: .normal)
+        arrivalButton.frame.size.width = self.view.frame.size.width - 40
+        arrivalButton.frame.size.height = 50
+        arrivalButton.layer.cornerRadius = 8
+        
+        //Next Button
+        nextButton.backgroundColor = color
+        nextButton.setTitleColor(.white, for: .normal)
+        nextButton.setTitle("Next", for: .normal)
+        nextButton.frame.size.width = self.view.frame.size.width
+        nextButton.frame.size.height = 50
+        nextButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+
+        //Exit Button
+        exitButton.setTitleColor(color, for: .normal)
+        
+        //Back Button
+        backButton.setTitleColor(color, for: .normal)
+        
+        
+        
+    }
+    
     func setInitialPositions(){
         //Hide Next Button
         nextButton.isHidden = true
@@ -214,10 +276,11 @@ class ModalNewPostViewController: UIViewController {
         
         //Set Up TextField AutoComplete START
         startLocationTextField.theme = SearchTextFieldTheme.darkTheme()
-        startLocationTextField.theme.font = UIFont.systemFont(ofSize: 12)
-        startLocationTextField.theme.bgColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.3)
-        startLocationTextField.theme.borderColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-        startLocationTextField.theme.separatorColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.5)
+        startLocationTextField.theme.font = UIFont.systemFont(ofSize: 20)
+        startLocationTextField.theme.fontColor = UIColor.black
+        startLocationTextField.theme.bgColor = UIColor.white
+        startLocationTextField.theme.borderColor = UIColor.black
+        startLocationTextField.theme.separatorColor = UIColor.black
         startLocationTextField.theme.cellHeight = 50
         startLocationTextField.maxNumberOfResults = 4
         startLocationTextField.maxResultsListHeight = 200
@@ -225,10 +288,11 @@ class ModalNewPostViewController: UIViewController {
         
         //Set Up TextField AutoComplete END
         endLocationTextField.theme = SearchTextFieldTheme.darkTheme()
-        endLocationTextField.theme.font = UIFont.systemFont(ofSize: 12)
-        endLocationTextField.theme.bgColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.3)
-        endLocationTextField.theme.borderColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-        endLocationTextField.theme.separatorColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.5)
+        endLocationTextField.theme.font = UIFont.systemFont(ofSize: 20)
+        endLocationTextField.theme.fontColor = UIColor.black
+        endLocationTextField.theme.bgColor = UIColor.white
+        endLocationTextField.theme.borderColor = UIColor.black
+        endLocationTextField.theme.separatorColor = UIColor.black
         endLocationTextField.theme.cellHeight = 50
         endLocationTextField.maxNumberOfResults = 4
         endLocationTextField.maxResultsListHeight = 200
@@ -275,14 +339,8 @@ class ModalNewPostViewController: UIViewController {
         profileImageView.backgroundColor = .black
         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
         profileImageView.clipsToBounds = true
-        
-        //Set Up Next Button
-        nextButton.layer.cornerRadius = 8.0
-        nextButton.layer.masksToBounds = true
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.setTitleColor(.blue, for: .normal)
-        nextButton.backgroundColor = .black
-        nextButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        profileImageView.sd_setImage(with: URL(string: (self.user?.profileUrl)!), placeholderImage: UIImage(named: "Profile_Placeholder"))
+
         
         //Constraints for next button
         //Set up the input field view and constraints
@@ -479,6 +537,7 @@ class ModalNewPostViewController: UIViewController {
             }
             self.nextButton.setTitle("Post", for: .normal)
             self.nextButton.isUserInteractionEnabled = true
+            self.nextButton.backgroundColor = color
         default:
             //Do nothing
             return
@@ -589,6 +648,7 @@ class ModalNewPostViewController: UIViewController {
             view.endEditing( true )
             status = Status.ENDENTERED
             self.nextButton.isUserInteractionEnabled = false
+            self.nextButton.backgroundColor = disabledColor
             
         case Status.TIMECHOSEN:
             return
@@ -732,7 +792,7 @@ class ModalNewPostViewController: UIViewController {
             animateBACK(obj: "desired")
             status = Status.STARTENTERED
             self.nextButton.isUserInteractionEnabled = true
-            
+            self.nextButton.backgroundColor = color
         case Status.DESIREDCHOSEN:
             if ( leaveTime == LeaveTime.DEPARTURE ){
                 animateTopButtonDOWN(button: "departure")
@@ -774,6 +834,7 @@ class ModalNewPostViewController: UIViewController {
         animateOFF(obj: "arrivalButton")
         status = Status.TIMESHOWN
         showTimePicker()
+        tripObject.chosenTime = "departure"
     }
     
     @IBAction func arrivalAction(_ sender: Any) {
@@ -782,13 +843,16 @@ class ModalNewPostViewController: UIViewController {
         animateOFF(obj: "departureButton")
         status = Status.TIMESHOWN
         showTimePicker()
+        tripObject.chosenTime = "arrival"
     }
     
     func showTimePicker(){
         let picker = DateTimePicker.show()
-        picker.highlightColor = UIColor(red: 255.0/255.0, green: 138.0/255.0, blue: 138.0/255.0, alpha: 1)
+        picker.highlightColor = color
         picker.isDatePickerOnly = false // to hide time and show only date picker
+        picker.is12HourFormat = true
         picker.completionHandler = { date in
+            print( date.to_string() )
             self.tripObject.eta = date.to_string()
             self.next()
             
@@ -831,25 +895,32 @@ class ModalNewPostViewController: UIViewController {
         
         switch int {
         case 1:
-            button1.backgroundColor = .black
+            button1.backgroundColor = color
+            button1.setTitleColor(.white, for: .normal)
             tripObject.seatsAvailable = 1
         case 2:
-            button2.backgroundColor = .black
+            button2.backgroundColor = color
+            button2.setTitleColor(.white, for: .normal)
             tripObject.seatsAvailable = 2
         case 3:
-            button3.backgroundColor = .black
+            button3.backgroundColor = color
+            button3.setTitleColor(.white, for: .normal)
             tripObject.seatsAvailable = 3
         case 4:
-            button4.backgroundColor = .black
+            button4.backgroundColor = color
+            button4.setTitleColor(.white, for: .normal)
             tripObject.seatsAvailable = 4
         case 5:
-            button5.backgroundColor = .black
+            button5.backgroundColor = color
+            button5.setTitleColor(.white, for: .normal)
             tripObject.seatsAvailable = 5
         case 6:
-            button6.backgroundColor = .black
+            button6.backgroundColor = color
+            button6.setTitleColor(.white, for: .normal)
             tripObject.seatsAvailable = 6
         case 7:
-            button7.backgroundColor = .black
+            button7.backgroundColor = color
+            button7.setTitleColor(.white, for: .normal)
             tripObject.seatsAvailable = 7
         default:
             return
@@ -857,6 +928,7 @@ class ModalNewPostViewController: UIViewController {
 
         //Enable the next button
         nextButton.isUserInteractionEnabled = true
+        nextButton.backgroundColor = color
         
         //Set the status for next transition
         status = Status.SEATSCHOSEN
@@ -870,7 +942,37 @@ class ModalNewPostViewController: UIViewController {
         button5.backgroundColor = .clear
         button6.backgroundColor = .clear
         button7.backgroundColor = .clear
+        
+        button1.setTitleColor(color, for: .normal)
+        button2.setTitleColor(color, for: .normal)
+        button3.setTitleColor(color, for: .normal)
+        button4.setTitleColor(color, for: .normal)
+        button5.setTitleColor(color, for: .normal)
+        button6.setTitleColor(color, for: .normal)
+        button7.setTitleColor(color, for: .normal)
+        
+        button1.layer.borderColor = UIColor.black.cgColor
+        button2.layer.borderColor = UIColor.black.cgColor
+        button3.layer.borderColor = UIColor.black.cgColor
+        button4.layer.borderColor = UIColor.black.cgColor
+        button5.layer.borderColor = UIColor.black.cgColor
+        button6.layer.borderColor = UIColor.black.cgColor
+        button7.layer.borderColor = UIColor.black.cgColor
+        
+        button1.layer.borderWidth = 1
+        button2.layer.borderWidth = 1
+        button3.layer.borderWidth = 1
+        button4.layer.borderWidth = 1
+        button5.layer.borderWidth = 1
+        button6.layer.borderWidth = 1
+        button7.layer.borderWidth = 1
+        
+        button1.layer.cornerRadius = 8
+        button2.layer.cornerRadius = 8
+        button3.layer.cornerRadius = 8
+        button4.layer.cornerRadius = 8
+        button5.layer.cornerRadius = 8
+        button6.layer.cornerRadius = 8
+        button7.layer.cornerRadius = 8
     }
-
-    
 }

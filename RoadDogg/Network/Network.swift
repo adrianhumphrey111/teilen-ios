@@ -70,13 +70,15 @@ class Network {
         return Promise { fulfill, reject in
             //Make call to the API
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+                print(response.request)
+                print(response.request?.httpBody)
                 switch response.result {
                 case .success:
                     //get response
                     if let result = response.result.value{
                         let posts = result as! [[String:Any]]
                         let feed = Feed(feed: posts)
-                        Posts.shared.updatesPost(posts: feed.posts)
+                        Posts.shared.updatesPost(posts: feed.posts as! [Post])
                         fulfill(feed)
                     }
                 case .failure(let error):
@@ -87,7 +89,7 @@ class Network {
     }
     
     func getUserFeed(user_key: String) -> Promise<Feed> {
-        let url = "\(self.baseurl)/fetchUserFeed?user_key=\(self.user_key)"
+        let url = "\(self.baseurl)/fetchUserFeed?user_key=\(user_key)"
         return Promise { fulfill, reject in
             //Make call to the API
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
@@ -156,6 +158,7 @@ class Network {
         var keys : [String] = []
         return Promise { fulfill, reject in
             Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+                
                 switch response.result {
                 case .success:
                     //get response
@@ -417,6 +420,121 @@ class Network {
             }
         }
     }
+    
+    func requestFriend(friendKey: String){
+        let url = "\(self.baseurl)/requestFriend"
+        let params : [String : Any] = ["user_key": self.user_key,
+                                       "friend_key" : friendKey]
+        print("reqeustFriedn url => " , url)
+        //Make call to the API
+        Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                //get response
+                if let result = response.result.value{
+                    let success = result as! [String:Any]
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func removeFriend(friendKey: String){
+        let url = "\(self.baseurl)/removeFriend"
+        let params : [String : Any] = ["user_key": self.user_key,
+                                       "friend_key" : friendKey]
+        //Make call to the API
+        Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                //get response
+                if let result = response.result.value{
+                    let success = result as! [String:Any]
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func removeRequest(friendKey: String){
+        let url = "\(self.baseurl)/removeRequest"
+        let params : [String : Any] = ["user_key": self.user_key,
+                                       "friend_key" : friendKey]
+        //Make call to the API
+        Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                //get response
+                if let result = response.result.value{
+                    let success = result as! [String:Any]
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func acceptFriendRequest(friendKey: String){
+        let url = "\(self.baseurl)/addFriend"
+        let params : [String : Any] = ["user_key": self.user_key,
+                                       "friend_key" : friendKey]
+        //Make call to the API
+        Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                //get response
+                if let result = response.result.value{
+                    let success = result as! [String:Any]
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func deletePost(postKey: String) -> Promise<Bool>{
+        let url = "\(self.baseurl)/deletePost"
+        let params : [String : Any] = ["post_key": postKey]
+        return Promise { fulfill, reject in
+            //Make call to the API
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+                switch response.result {
+                case .success:
+                    //get response
+                    fulfill(true)
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }
+    }
+    
+    
+    func deleteAccount() -> Promise<Bool>{
+        let url = "\(self.baseurl)/deleteAccount"
+        let params : [String : Any] = ["user_key": self.user_key]
+        return Promise { fulfill, reject in
+            //Make call to the API
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+                switch response.result {
+                case .success:
+                    //get response
+                    if let result = response.result.value{
+                        let json = result as! [String:Any]
+                        let success = json["success"] as? Bool
+                        fulfill( success! )
+                    }
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }
+    }
+    
+    
+    
     
 
     func url(endpoint: String) -> String{

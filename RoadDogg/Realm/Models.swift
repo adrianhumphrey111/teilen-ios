@@ -18,6 +18,8 @@ class user: Object {
     @objc dynamic var key = ""
     @objc dynamic var email = ""
     @objc dynamic var facebookId = ""
+    @objc dynamic var numberOfFriends = 0
+    @objc dynamic var numberOfPosts = 0
     @objc dynamic var notificationToken = ""
     @objc dynamic var numberOfTrips = 0
     @objc dynamic var userName = ""
@@ -35,6 +37,10 @@ final class loggedInUser: user{
     @objc dynamic var customerId = ""
     @objc dynamic var paymentVerified = false
     let posts = List<post>()
+    
+    func fullName() -> String{
+        return "\(self.firstName) \(self.lastName)"
+    }
     
 }
 
@@ -72,14 +78,21 @@ final class realmNotification: Object {
     @objc dynamic var tripKey : String = ""
     @objc dynamic var userProlfileUrl : String = ""
     @objc dynamic var accepted : String = ""
+    @objc dynamic var timeStamp : String = ""
     
     convenience init(notification: [String: AnyObject]) {
         self.init()
         self.message = notification["message"] as! String
         self.type = notification["type"] as! String
         self.createdAt = notification["created_at"] as! String
+        if let timeStamp = notification["time_stamp"] as? String{
+            self.timeStamp = timeStamp
+        }
         self.fromUserKey = notification["from_user_key"] as! String
-        self.tripKey = notification["trip_key"] as! String
+        if let key = notification["trip_key"] as? String{
+            self.tripKey = key
+        }
+        
         if let user = notification["user"] as? [String : AnyObject]{
             self.userProlfileUrl = user["profile_pic_url"] as! String
         }

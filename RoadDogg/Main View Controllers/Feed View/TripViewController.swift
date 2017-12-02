@@ -253,6 +253,10 @@ class TripViewController: UIViewController, PostViewCellDelegate, PopupDelegate,
         self.present(vc, animated: true, completion: nil)
     }
     
+    func logout() {
+        //Do nothing
+    }
+    
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "525CA2CB1F9D40A90037855E"
-               BuildableName = "RoadDogg.app"
-               BlueprintName = "RoadDogg"
+               BuildableName = "Teilen.app"
+               BlueprintName = "Teilen"
                ReferencedContainer = "container:RoadDogg.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -54,8 +54,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "525CA2CB1F9D40A90037855E"
-            BuildableName = "RoadDogg.app"
-            BlueprintName = "RoadDogg"
+            BuildableName = "Teilen.app"
+            BlueprintName = "Teilen"
             ReferencedContainer = "container:RoadDogg.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -78,8 +78,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "525CA2CB1F9D40A90037855E"
-            BuildableName = "RoadDogg.app"
-            BlueprintName = "RoadDogg"
+            BuildableName = "Teilen.app"
+            BlueprintName = "Teilen"
             ReferencedContainer = "container:RoadDogg.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -97,8 +97,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "525CA2CB1F9D40A90037855E"
-            BuildableName = "RoadDogg.app"
-            BlueprintName = "RoadDogg"
+            BuildableName = "Teilen.app"
+            BlueprintName = "Teilen"
             ReferencedContainer = "container:RoadDogg.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

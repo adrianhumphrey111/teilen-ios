@@ -10,6 +10,7 @@ import UIKit
 
 protocol PopupDelegate {
     func goToPaymentController()
+    func logout()
 }
 class ReserveSeatPopupViewController: UIViewController {
     

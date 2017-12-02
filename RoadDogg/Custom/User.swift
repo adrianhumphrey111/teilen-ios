@@ -22,8 +22,10 @@ final class User{
     var posts : [AnyObject] = []
     var car : Car?
     var rating: Float!
-    var numberOfTrips: Int!
-    var isFriend = true
+    var numberOfTrips: Int = 0
+    var numberOfFriends : Int = 0
+    var numberOfPosts : Int = 0
+    var isFriend : String!
     
     var fullName : String {
         get{
@@ -39,7 +41,7 @@ final class User{
     
     var numberOfTripsString : String {
         get{
-            return "\(numberOfTrips!)"
+            return "\(numberOfTrips)"
         }
     }
     
@@ -48,7 +50,12 @@ final class User{
         self.lastName = user["last_name"] as! String
         self.rating = user["rating"] as! Float
         self.numberOfTrips = user["numberOfCompletedTrips"] != nil ? 0 : user["numberOfCompletedTrips"] as! Int
+        self.numberOfPosts = user["numberOfPost"] as! Int
+        self.numberOfFriends = user["numberOfFriends"] as! Int
         self.profileUrl = user["profile_pic_url"] as! String
+        if let is_friend = user["is_friend"] as? String {
+            self.isFriend = is_friend
+        }
         if let key = user["user_key"] as? String{
             self.key = key
         }
@@ -91,7 +98,7 @@ extension User : ListDiffable{
             return false
         }
         
-        return ( self.key == object.key && self.posts.count == object.posts.count && self.isFriend == object.isFriend )
+        return ( self.key == object.key && self.posts.count == object.posts.count && self.isFriend == object.isFriend && self.numberOfPosts == object.numberOfPosts && self.numberOfFriends == self.numberOfFriends && self.numberOfTrips == object.numberOfTrips)
     }
 }
 

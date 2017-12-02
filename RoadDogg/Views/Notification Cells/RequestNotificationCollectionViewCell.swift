@@ -93,6 +93,17 @@ class RequestNotificationCollectionViewCell: UICollectionViewCell, NibReusable {
     @IBAction func acceptAction(_ sender: Any) {
         self.isAccepted()
         RealmManager.shared.updateNotification(notification: self.notification, accepted: "accepted" )
+        switch self.notification.type{
+        case "friend_request":
+            self.acceptFriendRequest()
+        case "seat_request":
+            self.acceptRider()
+        default:
+            return
+        }
+    }
+    
+    func acceptRider(){
         Network.shared.acceptRider(notification: self.notification).then { result -> Void in
             //Handle accepting the notification
             if let success = result["success"] as? Bool {
@@ -105,7 +116,10 @@ class RequestNotificationCollectionViewCell: UICollectionViewCell, NibReusable {
             }
             print(result)
         }
-        print("Accept notification")
+    }
+    
+    func acceptFriendRequest(){
+        Network.shared.acceptFriendRequest(friendKey: self.notification.fromUserKey)
     }
 }
 

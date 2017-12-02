@@ -22,7 +22,7 @@ class RideInformationCollectionViewCell: UICollectionViewCell, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        seatsAvailableIcon.backgroundColor = .black
+        seatsAvailableIcon.image = UIImage(named: "Seats_Available")
     }
 
 }

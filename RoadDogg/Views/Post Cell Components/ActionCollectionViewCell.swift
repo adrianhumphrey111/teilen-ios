@@ -15,6 +15,8 @@ protocol PostActionDelegate {
     func reserveSeat()
     func notifyRider()
     func showKeyboard()
+    func shareAction()
+    func showOptions()
 }
 
 class ActionCollectionViewCell: UICollectionViewCell, NibReusable {
@@ -81,6 +83,7 @@ class ActionCollectionViewCell: UICollectionViewCell, NibReusable {
     }
     
     @IBAction func shareAction(_ sender: Any) {
-        print("share")
+        delegate.shareAction()
+        
     }
 }

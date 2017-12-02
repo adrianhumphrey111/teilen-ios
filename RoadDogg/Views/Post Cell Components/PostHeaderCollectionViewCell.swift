@@ -11,11 +11,14 @@ import Reusable
 
 class PostHeaderCollectionViewCell: UICollectionViewCell, NibReusable {
     
-    @IBOutlet weak var usernameLabel : UILabel!
+ 
+    @IBOutlet weak var etaLabel: UILabel!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var roundedBackgroundView: UIView!
     @IBOutlet weak var optionButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
+    
+    var delegate : PostActionDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,6 +38,9 @@ class PostHeaderCollectionViewCell: UICollectionViewCell, NibReusable {
         
     }
 
+    @IBAction func optionAction(_ sender: Any) {
+        delegate?.showOptions()
+    }
 }
 
 

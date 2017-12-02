@@ -14,7 +14,7 @@ struct Trip {
     var endLocation: Address!
     var role: String! //Driving or Looking for Ride
     var eta: String! //Departure or Arrival
-    var time: Date! //Date Object
+    var chosenTime: String! //String Object
     var postText: String!
     var postedBy : String! //"driver" or "rider"
     var postedByKey : String! //Key of the person that submited the post, could be a driver or rider
@@ -62,6 +62,17 @@ struct Trip {
             self.seatsAvailable = seats
         }
         
+        if let eta = trip["eta"] as? String {
+            self.eta = eta
+        }else{
+            self.eta = "Not Set"
+        }
+        
+        if let chosenTime = trip["time_chosen"] as? String{
+            self.chosenTime = chosenTime
+        }
+
+        
         //Start Address
         self.startLocation = Address(address: trip["start_location"] as! [String : AnyObject])
         
@@ -75,7 +86,7 @@ struct Trip {
         dict["endAddress"] = self.endLocation != nil ? self.endLocation.to_dict() : ""
         dict["role"] = self.role != nil ? self.role : ""
         dict["eta"] = self.eta != nil ? self.eta : ""
-        dict["time"] = self.time != nil ? self.time.to_string() : ""
+        dict["chosen_time"] = self.chosenTime != nil ? self.chosenTime : ""
         dict["post_text"] = self.postText != nil ? self.postText : ""
         dict["posted_by"] = self.postedBy != nil ? self.postedBy : ""
         dict["posted_by_key"] = RealmManager.shared.userKey()

@@ -8,7 +8,7 @@
 
 import Foundation
 struct Feed{
-    var posts = [Post]()
+    var posts = [AnyObject]()
     
     init(feed: [[String:Any]]){
         for post in feed{

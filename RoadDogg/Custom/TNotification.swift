@@ -18,6 +18,7 @@ class TNotification {
     var user: User!
     var fromUserKey : String!
     var tripKey : String!
+    var timeStamp : String!
     
     init(notification: [String : AnyObject]){
         self.key = notification["key"] as! String
@@ -27,6 +28,9 @@ class TNotification {
         self.fromUserKey = notification["from_user_key"] as! String
         self.user = User(user: notification["user"] as! [String: Any])
         self.tripKey = notification["trip_key"] as! String
+        if let timeStamp = notification["time_stamp"] as? String{
+            self.timeStamp = timeStamp
+        }
     }
 }
 

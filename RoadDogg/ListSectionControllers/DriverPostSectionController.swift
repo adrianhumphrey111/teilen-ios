@@ -14,7 +14,6 @@ import PopupDialog
 
 class DriverPostSectionController : ListSectionController, PostActionDelegate{
 
-    
     var post: Post!
     var trip: Trip!
     var user: User!
@@ -152,14 +151,80 @@ extension DriverPostSectionController  {
         //show keyboard
     }
     
+    func showOptions() {
+        //Show options
+        var message = ""
+        
+        if ( self.post.user.key == RealmManager.shared.selfUser!.key ){
+            //If this is the users own post, ask to delete it
+            message = "Are you sure that you want to delete this post?"
+        }else{
+            //If this is someone else post, ask to report it
+            message = "Are you sure that you want to report this post?"
+        }
+        
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            // ...
+        }
+        alertController.addAction(cancelAction)
+        
+        let reportAction = UIAlertAction(title: "Report Post", style: .default) { action in
+            // ... Report this post pop up
+        }
+        
+        let deleteAction = UIAlertAction(title: "Delete Post", style: .default){ action in
+            print("Delete this post")
+            Network.shared.deletePost(postKey: self.post.postKey).then{ success -> Void in
+                //Call a refresh on the page
+                if let vc = self.viewController as? IGListFeedViewController{
+                    vc.fetchFeed()
+                }
+            }
+        }
+        
+        if ( self.post.user.key == RealmManager.shared.selfUser!.key ){
+            //If this is the users own post, ask to delete it
+            alertController.addAction(deleteAction)
+        }else{
+            //If this is someone else post, ask to report it
+            alertController.addAction(reportAction)
+        }
+        
+        
+        
+        viewController?.present(alertController, animated: true) {
+            // ...
+        }
+    }
+    
+    func shareAction(){
+        // text to share
+        let text = "This is some text that I want to share."
+        
+        // set up activity view controller
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = viewController?.view // so that iPads won't crash
+        
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.mail  ]
+        
+        // present the view controller
+        viewController?.present(activityViewController, animated: true, completion: nil)
+    }
+    
     func configureHeaderCell(cell: UICollectionViewCell) {
         
         if let cell = cell as? PostHeaderCollectionViewCell{
-            cell.usernameLabel.text = "@username"
+            let eta = self.post.trip!.eta
+            print( "chosen time =" , self.post.trip?.chosenTime)
+            cell.etaLabel.text = self.post.trip?.chosenTime == "departure" ? "Est. Dpt: \(eta!)" : "Est. Arv: \(eta!)"
             cell.fullNameLabel.text = self.user.fullName
-            
+            cell.delegate = self
             //Set the profile image
-            cell.profileImageView.sd_setImage(with: URL(string: self.user.profileUrl) ) //TODO: Change to with placeholder
+            cell.profileImageView.sd_setImage(with: URL(string: self.user.profileUrl), placeholderImage: UIImage(named: "Profile_Placeholder") )
         }
     }
     
@@ -197,9 +262,8 @@ extension DriverPostSectionController  {
     }
     
     func configureTimeStampCell(cell: UICollectionViewCell){
-        let date = self.post.createdAt.dateFromISO8601 //.description(with: Locale.current )
         if let cell = cell as? TimeStampCollectionViewCell{
-            cell.timeStampLabel.text = self.post.createdAt
+            cell.timeStampLabel.text = self.post.timeStamp
         }
     }
     

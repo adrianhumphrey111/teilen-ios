@@ -1,0 +1,6 @@
+framework module Pods_Teilen {
+  umbrella header "Pods-Teilen-umbrella.h"
+
+  export *
+  module * { export * }
+}

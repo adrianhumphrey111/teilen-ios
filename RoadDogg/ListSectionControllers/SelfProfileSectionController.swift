@@ -1,56 +1,79 @@
+
 //
-//  SelfProfileSectionController.swift
+//  FriendProfileHeadSectionController.swift
 //  RoadDogg
 //
-//  Created by Adrian Humphrey on 11/24/17.
+//  Created by Adrian Humphrey on 11/27/17.
 //  Copyright © 2017 Adrian Humphrey. All rights reserved.
 //
+
 import Foundation
 import IGListKit
 import Reusable
 import SDWebImage
 
-class SelfProfileSectionController : ListSectionController{
+class SelfProfileSectionController : ListSectionController, ProfileActionDelegate{
     
-    
-    var user : loggedInUser!
+    var user: loggedInUser!
     
     override init(){
         super.init()
         inset =  UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
     }
+    
+    func showSettings(){
+        let vc = SettingsViewController()
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
 }
+
 
 extension SelfProfileSectionController  {
     
     override func numberOfItems() -> Int {
-        return 8
+        return 3
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
         let cellWidth = ((collectionContext?.containerSize.width)! - 20)
-        switch index{
+        switch index {
         case 0:
-            return CGSize(width: cellWidth, height: 260) //Height of top main square
+            return CGSize(width: cellWidth, height: 120)
+        case 1:
+            return CGSize(width: cellWidth, height: 50)
+        case 2:
+            if let car = self.user.car{
+                return CGSize(width: cellWidth, height: 150)
+            }
+            else{
+                return CGSize(width: cellWidth, height: 0)
+            }
         default:
-            return CGSize(width: cellWidth, height: 50) //Every other cell for the users settings
+            return CGSize(width: 100, height: 100)
         }
+        
     }
     
+    
     override func cellForItem(at index: Int) -> UICollectionViewCell {
-        
-        switch index{
+        switch index {
         case 0:
-            let cellClass : String = ProfileHeaderCollectionViewCell.reuseIdentifier
+            let cellClass : String = FriendHeadCollectionViewCell.reuseIdentifier
             let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
-            configureProfileHeaderCell( cell: cell )
+            configureFriendHeadCell( cell: cell )
+            return cell
+        case 1:
+            let cellClass : String = FriendInfoCollectionViewCell.reuseIdentifier
+            let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
+            configureFriendInfoCell( cell: cell )
+            return cell
+        case 2:
+            let cellClass : String = FriendCarCollectionViewCell.reuseIdentifier
+            let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
+            configureFriendCarCell( cell: cell )
             return cell
         default:
-            //Use the index to configure the cell
-            let cellClass : String = ProfileSettingCollectionViewCell.reuseIdentifier
-            let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
-            configureSettingCell( cell: cell, ndx: index )
-            return cell
+            return UICollectionViewCell()
         }
         
     }
@@ -60,38 +83,57 @@ extension SelfProfileSectionController  {
     }
     
     override func didSelectItem(at index: Int) {
-
+        //Nothing
     }
     
-    
-    func configureProfileHeaderCell(cell: UICollectionViewCell) {
-        if let cell = cell as? ProfileHeaderCollectionViewCell{
-            cell.userProfileImageView.image = RealmManager.shared.loadImage( fileName: self.user.imageFileName )
+    func configureFriendHeadCell(cell: UICollectionViewCell){
+        if let cell = cell as? FriendHeadCollectionViewCell{
+            
+            cell.numberOfTripsLabel.text = "\(self.user.numberOfTrips)"
+            cell.numberOfFriendsLabel.text = "\(self.user.numberOfFriends)"
+            cell.numberOfPostsLabel.text = "\(self.user.numberOfPosts)"
+            cell.profileImageView.sd_setImage(with: URL(string: (self.user?.profileUrl)!), placeholderImage: UIImage(named: "Profile_Placeholder"))
+            
+            cell.userKey = self.user.key
+            
+            //Configure the look of the profile page
+            cell.isOwnProfile = true
+            cell.delegate = self
+            
+            //Change add friend to edit profile
+            cell.addFrindButton.layer.borderColor = UIColor.black.cgColor
+            cell.addFrindButton.layer.cornerRadius = 8
+            cell.addFrindButton.layer.borderWidth = 1
+            cell.addFrindButton.setTitleColor(.black, for: .normal)
+            cell.addFrindButton.setTitle("Settings", for: .normal)
+            cell.addFriendImageView.image = nil
+            cell.addFrindButton.contentHorizontalAlignment = .center
+            cell.addFrindButton.titleEdgeInsets.left = 0
+            
+            //Change message button to settings button
+            cell.messageButton.setImage( UIImage(named: "Gray_Card"), for: .normal)
         }
     }
     
-    func configureSettingCell(cell: UICollectionViewCell, ndx: Int){
-        if let cell = cell as? ProfileSettingCollectionViewCell{
-            switch ndx {
-            case 0:
-                cell.settingLabel.text = "Your Profile"
-            case 1:
-                cell.settingLabel.text = "Help"
-            case 2:
-                cell.settingLabel.text = "Get Paid"
-            case 3:
-                cell.settingLabel.text = "Payment"
-            case 4:
-                cell.settingLabel.text = "About"
-            case 5:
-                cell.settingLabel.text = "Sign Out"
-            case 6:
-                cell.settingLabel.text = "Delete Account"
-            default:
-                return
+    func configureFriendInfoCell(cell: UICollectionViewCell){
+        if let cell = cell as? FriendInfoCollectionViewCell{
+            cell.fullNameLabel.text = self.user.fullName()
+            
+            //Check if the user has a car
+            if let car = self.user.car {
+                //Do what ever
+            }
+            else{
+                cell.roundBackgroundView.layer.cornerRadius = 8
             }
         }
     }
-
+    
+    func configureFriendCarCell(cell: UICollectionViewCell){
+        if let cell = cell as? FriendCarCollectionViewCell{
+            
+        }
+    }
+    
 }
 

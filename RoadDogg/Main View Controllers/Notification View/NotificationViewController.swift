@@ -50,7 +50,7 @@ class NotificationViewController : UIViewController {
         //Add Refresh To Collection View
         self.refresher = UIRefreshControl()
         self.collectionView.alwaysBounceVertical = true
-        self.refresher.tintColor = UIColor.red
+        self.refresher.tintColor = UIColor.black
         self.refresher.addTarget(self, action: #selector(fetchNotifications), for: .valueChanged)
         self.collectionView.refreshControl = refresher
     }

@@ -527,6 +527,9 @@ extension DateTimePicker: UITableViewDataSource, UITableViewDelegate {
             }
             
         } else if tableView == minuteTableView {
+            print(components.minute)
+            print(indexPath.row - 60)
+            print((indexPath.row - 60)%60)
             components.minute = (indexPath.row - 60)%60
         } else if tableView == amPmTableView {
             if let hour = components.hour,

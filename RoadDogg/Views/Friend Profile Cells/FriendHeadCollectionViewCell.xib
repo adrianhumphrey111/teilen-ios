@@ -38,18 +38,17 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdl-8N-Sqz">
-                        <rect key="frame" x="150" y="68" width="244" height="30"/>
+                        <rect key="frame" x="150" y="68" width="254" height="37"/>
                         <state key="normal" title="Button"/>
                         <connections>
                             <action selector="addFriendAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="tIJ-va-Wwg"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZn-gE-AdN">
-                        <rect key="frame" x="429" y="67.5" width="40" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZn-gE-AdN">
+                        <rect key="frame" x="429" y="67.5" width="40" height="37.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="z4E-hL-XW3"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
                         <connections>
                             <action selector="messageUserAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="VDN-w2-Naw"/>
                         </connections>
@@ -146,6 +145,12 @@
                             </view>
                         </subviews>
                     </stackView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IQ8-RC-3ee">
+                        <rect key="frame" x="364" y="73" width="30" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="wH6-IK-K33"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
@@ -157,12 +162,18 @@
                 <constraint firstItem="7ND-b3-fyV" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="10" id="F54-DO-v3R"/>
                 <constraint firstItem="RUz-Qy-sTF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Gne-TA-8oh"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="SZn-gE-AdN" secondAttribute="trailing" constant="10" id="Lpe-OA-Ov2"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="Hdl-8N-Sqz" secondAttribute="bottom" constant="10" id="MNk-Zf-rwg"/>
                 <constraint firstItem="6nw-s1-YmK" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="PD7-mY-RPM"/>
+                <constraint firstItem="IQ8-RC-3ee" firstAttribute="trailing" secondItem="Hdl-8N-Sqz" secondAttribute="trailing" constant="-10" id="SzS-lw-NuS"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="SZn-gE-AdN" secondAttribute="bottom" constant="10" id="Wk4-Qe-LiB"/>
                 <constraint firstItem="7oO-8H-iUJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="Yau-sy-TDA"/>
                 <constraint firstItem="7oO-8H-iUJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="ZHG-PZ-Z7J"/>
-                <constraint firstItem="SZn-gE-AdN" firstAttribute="leading" secondItem="Hdl-8N-Sqz" secondAttribute="trailing" constant="35" id="cIj-qM-OUJ"/>
+                <constraint firstItem="IQ8-RC-3ee" firstAttribute="bottom" secondItem="Hdl-8N-Sqz" secondAttribute="bottom" constant="-5" id="aM4-w7-2EH"/>
+                <constraint firstItem="SZn-gE-AdN" firstAttribute="leading" secondItem="Hdl-8N-Sqz" secondAttribute="trailing" constant="25" id="cIj-qM-OUJ"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="7ND-b3-fyV" secondAttribute="trailing" constant="10" id="fDQ-ct-Byi"/>
                 <constraint firstItem="RUz-Qy-sTF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hfR-eb-GAQ"/>
+                <constraint firstItem="IQ8-RC-3ee" firstAttribute="centerY" secondItem="Hdl-8N-Sqz" secondAttribute="centerY" id="hoe-lv-bRb"/>
+                <constraint firstItem="IQ8-RC-3ee" firstAttribute="top" secondItem="Hdl-8N-Sqz" secondAttribute="top" constant="5" id="htm-5C-ghk"/>
                 <constraint firstItem="Hdl-8N-Sqz" firstAttribute="leading" secondItem="7oO-8H-iUJ" secondAttribute="trailing" constant="35" id="iVP-9m-71L"/>
                 <constraint firstItem="6nw-s1-YmK" firstAttribute="leading" secondItem="7oO-8H-iUJ" secondAttribute="trailing" constant="25" id="jRp-AW-ARc"/>
                 <constraint firstAttribute="bottom" secondItem="RUz-Qy-sTF" secondAttribute="bottom" constant="-20" id="ofD-n1-ST0"/>
@@ -171,6 +182,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="479" height="115"/>
             <connections>
+                <outlet property="addFriendImageView" destination="IQ8-RC-3ee" id="maQ-Jp-uFY"/>
                 <outlet property="addFrindButton" destination="Hdl-8N-Sqz" id="fT0-TN-EcH"/>
                 <outlet property="messageButton" destination="SZn-gE-AdN" id="lBL-Cn-Y9R"/>
                 <outlet property="numberOfFriendsLabel" destination="sHs-ZV-1Un" id="UPE-De-T1m"/>

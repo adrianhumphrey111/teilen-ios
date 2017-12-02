@@ -26,6 +26,11 @@ class CommentCollectionViewCell: UICollectionViewCell, NibReusable {
         backgroundColor = .white
         self.layer.cornerRadius = 8
         
+        //Profile Image View
+        imageView.layer.masksToBounds = false
+        imageView.layer.cornerRadius = imageView.frame.height/2
+        imageView.clipsToBounds = true
+        
     }
 
 }

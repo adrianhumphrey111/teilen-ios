@@ -49,7 +49,7 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelega
         //Add Refresh To Collection View
         self.refresher = UIRefreshControl()
         self.collectionView.alwaysBounceVertical = true
-        self.refresher.tintColor = UIColor.red
+        self.refresher.tintColor = UIColor.black
         self.refresher.addTarget(self, action: #selector(fetchFeed), for: .valueChanged)
         self.collectionView.refreshControl = refresher
 
@@ -63,6 +63,7 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //Make tab bar visible
+        self.adapter.performUpdates(animated: true, completion: nil)
         tabBarController?.tabBar.isHidden = false
         self.tabBarController?.tabBar.isTranslucent = false
         self.navigationController?.navigationBar.isTranslucent = false
@@ -82,6 +83,10 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelega
             requestVc.delegate = self
         }
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    func logout(){
+        //Do nothing
     }
     
     func goToPaymentController() {

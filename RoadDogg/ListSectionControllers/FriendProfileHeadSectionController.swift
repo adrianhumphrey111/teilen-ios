@@ -80,14 +80,26 @@ extension FriendProfileHeadSectionController  {
     
     func configureFriendHeadCell(cell: UICollectionViewCell){
         if let cell = cell as? FriendHeadCollectionViewCell{
-            cell.profileImageView.sd_setImage(with: URL(string: self.user.profileUrl))
             
-            //Add friend cell
-            if (user.isFriend){
-                cell.addFrindButton.setTitle("Unfriend", for: .normal)
-                cell.addFrindButton.setTitleColor(.white, for: .normal)
-                cell.addFrindButton.backgroundColor = UIColor().colorWithHexString(hex: "#76D2CE", alpha: 1.0)
-                cell.addFrindButton.layer.cornerRadius = 8
+            cell.numberOfTripsLabel.text = "\(self.user.numberOfTrips)"
+            cell.numberOfFriendsLabel.text = "\(self.user.numberOfFriends)"
+            cell.numberOfPostsLabel.text = "\(self.user.numberOfPosts )"
+            cell.profileImageView.sd_setImage(with: URL(string: self.user.profileUrl), placeholderImage: UIImage(named: "Profile_Placeholder"))
+            
+            cell.userKey = self.user.key
+            
+            if (user.isFriend == "friend"){
+                cell.status = user.isFriend
+                cell.buttonToUnfriend()
+            }
+            else if(user.isFriend == "requested"){
+                cell.status = user.isFriend
+                cell.buttonToRequested()
+            }
+            else{
+                //This person is not a friend, so add the friend
+                cell.status = user.isFriend
+                cell.buttonToAddFriend()
             }
         }
     }
@@ -101,7 +113,7 @@ extension FriendProfileHeadSectionController  {
                 //Do what ever
             }
             else{
-                cell.layer.cornerRadius = 8
+                cell.roundBackgroundView.layer.cornerRadius = 8
             }
         }
     }

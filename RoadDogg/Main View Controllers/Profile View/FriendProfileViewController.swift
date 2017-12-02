@@ -54,10 +54,10 @@ class FriendProfileViewController: UIViewController , FeedPostDelegate {
         //Add Refresh To Collection View
         self.refresher = UIRefreshControl()
         self.collectionView.alwaysBounceVertical = true
-        self.refresher.tintColor = UIColor.red
+        self.refresher.tintColor = UIColor.black
         self.refresher.addTarget(self, action: #selector(fetchUserFeed), for: .valueChanged)
         self.collectionView.refreshControl = refresher
-        
+        self.collectionView.refreshControl?.beginRefreshing()
     }
     
     override func viewDidLayoutSubviews() {
@@ -66,8 +66,13 @@ class FriendProfileViewController: UIViewController , FeedPostDelegate {
     }
     
     @objc func fetchUserFeed(){
+        print("there is no key here")
         Network.shared.getUserFeed(user_key: self.user.key).then { feed -> Void in
             //Set the post to the user
+
+            guard let post = feed.posts[0] as? Post else { return }
+            guard let user = post.user as? User else { return }
+            self.user = user
             self.user.posts = feed.posts
             self.profileArray += self.user.posts
             

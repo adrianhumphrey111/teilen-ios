@@ -21,6 +21,7 @@ class Post{
     var comments = Comments()
     var liked = false
     var createdAt = ""
+    var timeStamp = ""
     public var fontSize : CGFloat = 20
     var textHeight : CGFloat = 0.0
     var trip : Trip? = nil
@@ -59,6 +60,7 @@ class Post{
         self.likeCount = post["like_count"] as! Int
         self.commentCount = post["comment_count"] as! Int
         self.createdAt = post["created_at"] as! String
+        self.timeStamp = post["time_stamp"] as! String
         if ( post["user_liked"] as! Bool == true ){
             self.isLiked = true
         }

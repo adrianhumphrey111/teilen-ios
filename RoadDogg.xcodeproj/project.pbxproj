@@ -16,6 +16,10 @@
 		522F15FB1FC62ABA003F33B7 /* Popups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522F15FA1FC62ABA003F33B7 /* Popups.storyboard */; };
 		522F16161FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F16141FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift */; };
 		522F16171FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */; };
+		523347AC1FD2633C00EB7F15 /* DeleteAccountPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523347AA1FD2633C00EB7F15 /* DeleteAccountPopupViewController.swift */; };
+		523347AD1FD2633C00EB7F15 /* DeleteAccountPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523347AB1FD2633C00EB7F15 /* DeleteAccountPopupViewController.xib */; };
+		523347B01FD26DFB00EB7F15 /* LogoutPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523347AE1FD26DFB00EB7F15 /* LogoutPopupViewController.swift */; };
+		523347B11FD26DFB00EB7F15 /* LogoutPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523347AF1FD26DFB00EB7F15 /* LogoutPopupViewController.xib */; };
 		5239434A1FC69FBE006E73B8 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523943491FC69FBE006E73B8 /* PopupManager.swift */; };
 		5239434D1FC6FC4C006E73B8 /* TNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5239434C1FC6FC4C006E73B8 /* TNotification.swift */; };
 		5239434F1FC70748006E73B8 /* NotificationSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5239434E1FC70748006E73B8 /* NotificationSectionController.swift */; };
@@ -23,6 +27,7 @@
 		52404AF91FB05AE500AD64FA /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF81FB05AE500AD64FA /* Trip.swift */; };
 		52404AFB1FB1165D00AD64FA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFA1FB1165C00AD64FA /* Extensions.swift */; };
 		52404AFD1FB11C0100AD64FA /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFC1FB11C0100AD64FA /* Address.swift */; };
+		5241552C1FD231E300DE572F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241552B1FD231E300DE572F /* SettingsViewController.swift */; };
 		52474C6B1FB3F84300422CAD /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52474C6A1FB3F84300422CAD /* FriendProfileViewController.swift */; };
 		525151601FA8730300317BC5 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251515F1FA8730300317BC5 /* TripViewController.swift */; };
 		525151631FA875B600317BC5 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151621FA875B600317BC5 /* PostViewCell.swift */; };
@@ -102,6 +107,7 @@
 		86A957011FBE87AD008111CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86A957001FBE87AC008111CD /* GoogleService-Info.plist */; };
 		86F8C6F11FBD39C400FE7967 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F8C6F01FBD39C400FE7967 /* PaymentManager.swift */; };
 		86F8C6F31FBD40D300FE7967 /* StripeApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F8C6F21FBD40D300FE7967 /* StripeApiManager.swift */; };
+		87AA3997C4A9D270640C61BE /* Pods_Teilen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B9913C2705374FABF669D1 /* Pods_Teilen.framework */; };
 		B431CA9B1A55685DF1F5152F /* Pods_RoadDoggUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3147D8D49BB4F218476403 /* Pods_RoadDoggUITests.framework */; };
 		FF67686558267A45D03A2D97 /* Pods_RoadDoggTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */; };
 /* End PBXBuildFile section */
@@ -125,7 +131,9 @@
 
 /* Begin PBXFileReference section */
 		06E045006CE507E8630B47D0 /* Pods-RoadDoggUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggUITests/Pods-RoadDoggUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		20271A6F36230BB3F66F65F0 /* Pods-Teilen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teilen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Teilen/Pods-Teilen.debug.xcconfig"; sourceTree = "<group>"; };
 		2C3147D8D49BB4F218476403 /* Pods_RoadDoggUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDoggUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35B9913C2705374FABF669D1 /* Pods_Teilen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teilen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		401570DE1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		401570DF1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		49FF0ABDA8FB00ADF0C3C2E6 /* Pods-RoadDoggTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggTests/Pods-RoadDoggTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +144,10 @@
 		522F15FA1FC62ABA003F33B7 /* Popups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popups.storyboard; sourceTree = "<group>"; };
 		522F16141FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveSeatPopupViewController.swift; sourceTree = "<group>"; };
 		522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReserveSeatPopupViewController.xib; sourceTree = "<group>"; };
+		523347AA1FD2633C00EB7F15 /* DeleteAccountPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountPopupViewController.swift; sourceTree = "<group>"; };
+		523347AB1FD2633C00EB7F15 /* DeleteAccountPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteAccountPopupViewController.xib; sourceTree = "<group>"; };
+		523347AE1FD26DFB00EB7F15 /* LogoutPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPopupViewController.swift; sourceTree = "<group>"; };
+		523347AF1FD26DFB00EB7F15 /* LogoutPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutPopupViewController.xib; sourceTree = "<group>"; };
 		523943491FC69FBE006E73B8 /* PopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
 		5239434C1FC6FC4C006E73B8 /* TNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNotification.swift; sourceTree = "<group>"; };
 		5239434E1FC70748006E73B8 /* NotificationSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationSectionController.swift; path = RoadDogg/Custom/NotificationSectionController.swift; sourceTree = SOURCE_ROOT; };
@@ -143,6 +155,7 @@
 		52404AF81FB05AE500AD64FA /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		52404AFA1FB1165C00AD64FA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		52404AFC1FB11C0100AD64FA /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		5241552B1FD231E300DE572F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		52474C6A1FB3F84300422CAD /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		5251515F1FA8730300317BC5 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		525151621FA875B600317BC5 /* PostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
@@ -154,7 +167,7 @@
 		5259A6BF1FA5FB8900078161 /* FeedPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostCell.swift; sourceTree = "<group>"; };
 		5259A6C11FA5FCEE00078161 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5259A6C31FA5FEBD00078161 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		525CA2CC1F9D40A90037855E /* RoadDogg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadDogg.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		525CA2CC1F9D40A90037855E /* Teilen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teilen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		525CA2CF1F9D40A90037855E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		525CA2D41F9D40A90037855E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		525CA2D71F9D40A90037855E /* RoadDogg.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RoadDogg.xcdatamodel; sourceTree = "<group>"; };
@@ -230,6 +243,7 @@
 		86F8C6F01FBD39C400FE7967 /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
 		86F8C6F21FBD40D300FE7967 /* StripeApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeApiManager.swift; sourceTree = "<group>"; };
 		A151700E925D25492F242BFA /* Pods-RoadDogg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDogg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg.debug.xcconfig"; sourceTree = "<group>"; };
+		C45571917C733C32A71424C8 /* Pods-Teilen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teilen.release.xcconfig"; path = "Pods/Target Support Files/Pods-Teilen/Pods-Teilen.release.xcconfig"; sourceTree = "<group>"; };
 		D8C879DD9A51CD666468EA7F /* Pods-RoadDogg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDogg.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg.release.xcconfig"; sourceTree = "<group>"; };
 		EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDogg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F67A51CDEE93847C28DFC1B9 /* Pods-RoadDoggTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggTests/Pods-RoadDoggTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -247,6 +261,7 @@
 				52CFFF061FB7DF1900F93951 /* FBSDKCoreKit.framework in Frameworks */,
 				52CFFF081FB7DF2700F93951 /* FBSDKLoginKit.framework in Frameworks */,
 				274EECB7C07175164D9A7DA2 /* Pods_RoadDogg.framework in Frameworks */,
+				87AA3997C4A9D270640C61BE /* Pods_Teilen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +292,7 @@
 				EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */,
 				518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */,
 				2C3147D8D49BB4F218476403 /* Pods_RoadDoggUITests.framework */,
+				35B9913C2705374FABF669D1 /* Pods_Teilen.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -284,8 +300,8 @@
 		5239434B1FC6F97A006E73B8 /* Notification Cells */ = {
 			isa = PBXGroup;
 			children = (
-				526869861FC7F38800109A9F /* RequestNotificationCollectionViewCell.swift */,
 				526869871FC7F38800109A9F /* RequestNotificationCollectionViewCell.xib */,
+				526869861FC7F38800109A9F /* RequestNotificationCollectionViewCell.swift */,
 			);
 			path = "Notification Cells";
 			sourceTree = "<group>";
@@ -345,7 +361,7 @@
 		525CA2CD1F9D40A90037855E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				525CA2CC1F9D40A90037855E /* RoadDogg.app */,
+				525CA2CC1F9D40A90037855E /* Teilen.app */,
 				525CA2E31F9D40A90037855E /* RoadDoggTests.xctest */,
 				525CA2EE1F9D40A90037855E /* RoadDoggUITests.xctest */,
 			);
@@ -442,6 +458,7 @@
 			children = (
 				525CA3091F9FF61D0037855E /* ProfileViewController.swift */,
 				52474C6A1FB3F84300422CAD /* FriendProfileViewController.swift */,
+				5241552B1FD231E300DE572F /* SettingsViewController.swift */,
 			);
 			path = "Profile View";
 			sourceTree = "<group>";
@@ -516,6 +533,10 @@
 				522F16141FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift */,
 				522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */,
 				523943491FC69FBE006E73B8 /* PopupManager.swift */,
+				523347AA1FD2633C00EB7F15 /* DeleteAccountPopupViewController.swift */,
+				523347AB1FD2633C00EB7F15 /* DeleteAccountPopupViewController.xib */,
+				523347AE1FD26DFB00EB7F15 /* LogoutPopupViewController.swift */,
+				523347AF1FD26DFB00EB7F15 /* LogoutPopupViewController.xib */,
 			);
 			path = PopOvers;
 			sourceTree = "<group>";
@@ -621,6 +642,8 @@
 				F67A51CDEE93847C28DFC1B9 /* Pods-RoadDoggTests.release.xcconfig */,
 				06E045006CE507E8630B47D0 /* Pods-RoadDoggUITests.debug.xcconfig */,
 				F956A8AED6736DADE6C80C71 /* Pods-RoadDoggUITests.release.xcconfig */,
+				20271A6F36230BB3F66F65F0 /* Pods-Teilen.debug.xcconfig */,
+				C45571917C733C32A71424C8 /* Pods-Teilen.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -628,9 +651,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		525CA2CB1F9D40A90037855E /* RoadDogg */ = {
+		525CA2CB1F9D40A90037855E /* Teilen */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 525CA2F71F9D40A90037855E /* Build configuration list for PBXNativeTarget "RoadDogg" */;
+			buildConfigurationList = 525CA2F71F9D40A90037855E /* Build configuration list for PBXNativeTarget "Teilen" */;
 			buildPhases = (
 				09AE9BD84F62CA7C01747FC4 /* [CP] Check Pods Manifest.lock */,
 				525CA2C81F9D40A90037855E /* Sources */,
@@ -643,9 +666,9 @@
 			);
 			dependencies = (
 			);
-			name = RoadDogg;
+			name = Teilen;
 			productName = RoadDogg;
-			productReference = 525CA2CC1F9D40A90037855E /* RoadDogg.app */;
+			productReference = 525CA2CC1F9D40A90037855E /* Teilen.app */;
 			productType = "com.apple.product-type.application";
 		};
 		525CA2E21F9D40A90037855E /* RoadDoggTests */ = {
@@ -743,7 +766,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				525CA2CB1F9D40A90037855E /* RoadDogg */,
+				525CA2CB1F9D40A90037855E /* Teilen */,
 				525CA2E21F9D40A90037855E /* RoadDoggTests */,
 				525CA2ED1F9D40A90037855E /* RoadDoggUITests */,
 			);
@@ -758,6 +781,7 @@
 				529C37B91FC420FE002F02EC /* PostTextViewCollectionViewCell.xib in Resources */,
 				526869891FC7F38800109A9F /* RequestNotificationCollectionViewCell.xib in Resources */,
 				525CA2DD1F9D40A90037855E /* LaunchScreen.storyboard in Resources */,
+				523347B11FD26DFB00EB7F15 /* LogoutPopupViewController.xib in Resources */,
 				529CD5F01FCBC90A00C38098 /* CommentCollectionViewCell.xib in Resources */,
 				5267D6381FCC446D000C5B46 /* FriendCarCollectionViewCell.xib in Resources */,
 				522F15FB1FC62ABA003F33B7 /* Popups.storyboard in Resources */,
@@ -771,6 +795,7 @@
 				52DEF5121FC4105100FF37BC /* PostHeaderCollectionViewCell.xib in Resources */,
 				5267D6301FCC444D000C5B46 /* FriendHeadCollectionViewCell.xib in Resources */,
 				5267D6341FCC445F000C5B46 /* FriendInfoCollectionViewCell.xib in Resources */,
+				523347AD1FD2633C00EB7F15 /* DeleteAccountPopupViewController.xib in Resources */,
 				52CFFF0C1FB7E50F00F93951 /* OnBoarding.storyboard in Resources */,
 				52E313BE1FC4358500DA6724 /* ActionCollectionViewCell.xib in Resources */,
 				522F16171FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib in Resources */,
@@ -906,7 +931,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Teilen/Pods-Teilen-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9DFAEB08C8FDA1AF9BCC67DF /* [CP] Embed Pods Frameworks */ = {
@@ -964,7 +989,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Teilen/Pods-Teilen-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AB69B4FDFCA605CF5B417117 /* [CP] Check Pods Manifest.lock */ = {
@@ -998,6 +1023,7 @@
 				52E313B51FC4348500DA6724 /* LikeCommentCollectionViewCell.swift in Sources */,
 				52C03C441FB9726600E06CE4 /* InitialViewController.swift in Sources */,
 				86226A911FBCD69F001CE1C2 /* ProfileSettingViewCell.swift in Sources */,
+				523347AC1FD2633C00EB7F15 /* DeleteAccountPopupViewController.swift in Sources */,
 				86F8C6F11FBD39C400FE7967 /* PaymentManager.swift in Sources */,
 				525CA3071F9FF5FD0037855E /* NotificationViewController.swift in Sources */,
 				5267D6331FCC445F000C5B46 /* FriendInfoCollectionViewCell.swift in Sources */,
@@ -1015,6 +1041,7 @@
 				52CFFEFE1FB67B3A00F93951 /* Models.swift in Sources */,
 				522F16161FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift in Sources */,
 				5259A6BE1FA5D39700078161 /* User.swift in Sources */,
+				5241552C1FD231E300DE572F /* SettingsViewController.swift in Sources */,
 				529C37B81FC420FE002F02EC /* PostTextViewCollectionViewCell.swift in Sources */,
 				52DEF5111FC4105100FF37BC /* PostHeaderCollectionViewCell.swift in Sources */,
 				52E313AD1FC4314200DA6724 /* RideInformationCollectionViewCell.swift in Sources */,
@@ -1055,6 +1082,7 @@
 				528D40BC1FCBC1BB00676534 /* Comments.swift in Sources */,
 				52C03C461FBA6B4F00E06CE4 /* Realm.swift in Sources */,
 				525CA3041F9FF5D60037855E /* MapViewController.swift in Sources */,
+				523347B01FD26DFB00EB7F15 /* LogoutPopupViewController.swift in Sources */,
 				5217E93B1FC533CC000DBF99 /* SharedPosts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1080,12 +1108,12 @@
 /* Begin PBXTargetDependency section */
 		525CA2E51F9D40A90037855E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 525CA2CB1F9D40A90037855E /* RoadDogg */;
+			target = 525CA2CB1F9D40A90037855E /* Teilen */;
 			targetProxy = 525CA2E41F9D40A90037855E /* PBXContainerItemProxy */;
 		};
 		525CA2F01F9D40A90037855E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 525CA2CB1F9D40A90037855E /* RoadDogg */;
+			target = 525CA2CB1F9D40A90037855E /* Teilen */;
 			targetProxy = 525CA2EF1F9D40A90037855E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1159,7 +1187,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1211,7 +1239,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1221,7 +1249,7 @@
 		};
 		525CA2F81F9D40A90037855E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A151700E925D25492F242BFA /* Pods-RoadDogg.debug.xcconfig */;
+			baseConfigurationReference = 20271A6F36230BB3F66F65F0 /* Pods-Teilen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RoadDogg/RoadDogg.entitlements;
@@ -1232,7 +1260,7 @@
 					"$(PROJECT_DIR)/RoadDogg/Frameworks",
 				);
 				INFOPLIST_FILE = RoadDogg/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HumphreyEnterprise.TeilenRideShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1244,7 +1272,7 @@
 		};
 		525CA2F91F9D40A90037855E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8C879DD9A51CD666468EA7F /* Pods-RoadDogg.release.xcconfig */;
+			baseConfigurationReference = C45571917C733C32A71424C8 /* Pods-Teilen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RoadDogg/RoadDogg.entitlements;
@@ -1255,7 +1283,7 @@
 					"$(PROJECT_DIR)/RoadDogg/Frameworks",
 				);
 				INFOPLIST_FILE = RoadDogg/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HumphreyEnterprise.TeilenRideShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1347,7 +1375,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		525CA2F71F9D40A90037855E /* Build configuration list for PBXNativeTarget "RoadDogg" */ = {
+		525CA2F71F9D40A90037855E /* Build configuration list for PBXNativeTarget "Teilen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				525CA2F81F9D40A90037855E /* Debug */,

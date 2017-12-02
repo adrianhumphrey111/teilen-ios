@@ -67,7 +67,7 @@ extension CommentsSectionsController {
             cell.textView.font = UIFont.systemFont(ofSize: 18)
             cell.textView.text = self.comment.text
             cell.timeStamp.text = self.comment.createdAt
-            cell.imageView.sd_setImage(with: URL(string: self.comment.user!.profileUrl) )
+            cell.imageView.sd_setImage(with: URL(string: self.comment.user!.profileUrl), placeholderImage: UIImage(named: "Profile_Placeholder") )
         }
     }
     

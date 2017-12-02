@@ -37,7 +37,15 @@ extension NotificationSectionController {
         let size = CGSize(width: estimatedWidth, height: 1000)
         let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18 )]
         let estiamtedFrame = NSString( string: text ).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
-        return CGSize(width: cellWidth, height: estiamtedFrame.height + 20) //10 at top and bottom
+        let standardHeight : CGFloat = 90
+        let calculatedHeight = estiamtedFrame.height + 20
+        if ( calculatedHeight > standardHeight ){
+            return CGSize(width: cellWidth, height: calculatedHeight) //10 at top and bottom
+        }
+        else{
+            return CGSize(width: cellWidth, height: standardHeight) //10 at top and bottom
+        }
+        
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
@@ -68,12 +76,11 @@ extension NotificationSectionController {
     func configureNotificationCell(cell: UICollectionViewCell){
         if let cell = cell as? RequestNotificationCollectionViewCell{
             //Set the profile image
-            cell.imageView.sd_setImage(with: URL(string: self.notification.userProlfileUrl) ) //TODO: Change to with placeholder
+            cell.imageView.sd_setImage(with: URL(string: self.notification.userProlfileUrl), placeholderImage: UIImage(named: "Profile_Placeholder") ) //TODO: Change to with placeholder
             cell.messageTextView.text = self.notification.message
             
             //Set notification
             cell.notification = self.notification
-            
             cell.configure()
         }
     }
