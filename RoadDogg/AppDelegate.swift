@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
             let firstPage = OnboardingContentViewController(title: "Welcome to Teilen!", body: "Automated and Social Ride Sharing", image: nil, buttonText: "Next") { () -> Void in
                 
             }
+            
             firstPage.movesToNextViewController = true
             firstPage.bodyLabel.font = firstPage.bodyLabel.font.withSize(18)
             //Customize button firstPage.actionButton =
@@ -94,11 +95,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
             //Customize the last button. What is the functionality? Get sTarted on What?
             fourthPage.actionButton.layer.borderColor = UIColor.white.cgColor
             fourthPage.actionButton.layer.borderWidth = 1.0
-            fourthPage.actionButton.layer.backgroundColor = UIColor.blue.cgColor
+            fourthPage.actionButton.layer.backgroundColor = UIColor.clear.cgColor
             fourthPage.actionButton.layer.cornerRadius = 25
             
             //Create the final view controller
-            let onboardingVC = OnboardingViewController(backgroundImage: nil, contents: [firstPage, secondPage, thirdPage, fourthPage])
+            let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "onboard4.jpg"), contents: [firstPage, secondPage, thirdPage, fourthPage])
             onboardingVC?.view.backgroundColor = .blue
             onboardingVC?.allowSkipping = true;
             
@@ -123,7 +124,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         // TODO: Handle data of notification
         
         // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        Messaging.messaging().appDidReceiveMessage(userInfo)
         
         // Print message ID.
         if let messageID = userInfo["gcmMessageIDKey"] {

@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import IGListKit
 
+protocol FeedPostDelegate{
+    func pushPostViewController( vc : UIViewController)
+}
+
+
 class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelegate{
     
     

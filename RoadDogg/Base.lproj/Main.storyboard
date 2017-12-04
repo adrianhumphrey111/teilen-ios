@@ -13,7 +13,7 @@
         <!--Feed-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Feed" id="BYZ-38-t0r" customClass="IGListFeedViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Feed" id="BYZ-38-t0r" customClass="IGListFeedViewController" customModule="Teilen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +29,7 @@
         <!--Trip View Controller-->
         <scene sceneID="4os-Ln-4ju">
             <objects>
-                <viewController storyboardIdentifier="Trip" id="6GW-5V-bf4" customClass="TripViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Trip" id="6GW-5V-bf4" customClass="TripViewController" customModule="Teilen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1de-ri-d40">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +44,7 @@
         <!--Friend Profile View Controller-->
         <scene sceneID="Jsn-yz-brD">
             <objects>
-                <viewController storyboardIdentifier="FriendProfile" id="Ioq-ra-acX" customClass="FriendProfileViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FriendProfile" id="Ioq-ra-acX" customClass="FriendProfileViewController" customModule="Teilen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fWL-33-Nhg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,7 +59,7 @@
         <!--Notification View Controller-->
         <scene sceneID="RLk-f7-BlN">
             <objects>
-                <viewController id="XdB-W6-L6q" customClass="NotificationViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XdB-W6-L6q" customClass="NotificationViewController" customModule="Teilen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GXU-wH-bhj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,7 +75,7 @@
         <!--New Post-->
         <scene sceneID="mep-ba-2Bm">
             <objects>
-                <viewController id="iGx-bg-nI1" customClass="NewPostViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iGx-bg-nI1" customClass="NewPostViewController" customModule="Teilen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k90-ov-sSG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,12 +86,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fr4-7Z-P6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2356" y="-716"/>
+            <point key="canvasLocation" x="-2016.8" y="-716.49175412293857"/>
         </scene>
         <!--Modal New Post View Controller-->
         <scene sceneID="jRQ-hb-TaR">
             <objects>
-                <viewController storyboardIdentifier="NewPost" id="8Ce-JA-eB7" customClass="ModalNewPostViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewPost" id="8Ce-JA-eB7" customClass="ModalNewPostViewController" customModule="Teilen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lfF-29-8FM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -367,26 +367,26 @@
             </objects>
             <point key="canvasLocation" x="-2356" y="-14.842578710644679"/>
         </scene>
-        <!--Map-->
+        <!--Search View Controller-->
         <scene sceneID="vhe-QR-nBc">
             <objects>
-                <viewController id="vaY-HY-p3a" customClass="Feed" sceneMemberID="viewController">
+                <viewController id="vaY-HY-p3a" customClass="SearchViewController" customModule="Teilen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hgg-e6-xng">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="3eD-kl-rxy"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="Gray_Map" selectedImage="Map" id="68r-cf-Cte"/>
+                    <navigationItem key="navigationItem" id="c0p-zx-Sd7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X41-Tr-Aca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3774" y="-734"/>
+            <point key="canvasLocation" x="-3775" y="63"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Kri-Gm-j9Y">
             <objects>
-                <tabBarController storyboardIdentifier="maintabview" automaticallyAdjustsScrollViewInsets="NO" id="Pwa-KZ-1Ky" customClass="TabBarViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="maintabview" automaticallyAdjustsScrollViewInsets="NO" id="Pwa-KZ-1Ky" customClass="TabBarViewController" customModule="Teilen" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DAP-NC-Yne">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -395,7 +395,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="5FS-GY-iPR" kind="relationship" relationship="viewControllers" id="srD-cC-z2x"/>
-                        <segue destination="vaY-HY-p3a" kind="relationship" relationship="viewControllers" id="jrg-Of-YyL"/>
+                        <segue destination="UFO-Kl-vHf" kind="relationship" relationship="viewControllers" id="jrg-Of-YyL"/>
                         <segue destination="iGx-bg-nI1" kind="relationship" relationship="viewControllers" id="Pfe-Ff-Mo4"/>
                         <segue destination="ggr-H5-rJH" kind="relationship" relationship="viewControllers" id="ULE-1C-tsr"/>
                         <segue destination="pHw-QP-k9Y" kind="relationship" relationship="viewControllers" id="vFJ-Np-1s0"/>
@@ -427,7 +427,7 @@
         <!--Profile View Controller-->
         <scene sceneID="KFd-PV-uIH">
             <objects>
-                <viewController id="Cv1-3o-3jZ" customClass="ProfileViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Cv1-3o-3jZ" customClass="ProfileViewController" customModule="Teilen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P5i-fF-BOP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -457,7 +457,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uMX-Fe-ap3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1374" y="-716"/>
+            <point key="canvasLocation" x="-1036" y="-716.49175412293857"/>
         </scene>
         <!--Profile-->
         <scene sceneID="w0o-E0-iKW">
@@ -476,18 +476,37 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C2q-tp-NAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-326" y="-734"/>
+            <point key="canvasLocation" x="12" y="-734.48275862068976"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="EaP-bN-QQx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UFO-Kl-vHf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="Gray_Search" selectedImage="Search" id="68r-cf-Cte"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jcB-jb-41o">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vaY-HY-p3a" kind="relationship" relationship="rootViewController" id="rRp-N1-N9n"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gP2-oU-wQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3774.4000000000001" y="-734.03298350824593"/>
         </scene>
     </scenes>
     <resources>
         <image name="Gray_Heart" width="22" height="20"/>
         <image name="Gray_Home" width="23" height="25"/>
-        <image name="Gray_Map" width="28" height="28"/>
         <image name="Gray_New_Post" width="25" height="24"/>
         <image name="Gray_Profile" width="25" height="25"/>
+        <image name="Gray_Search" width="23" height="23"/>
         <image name="Heart" width="22" height="20"/>
         <image name="Home" width="23" height="25"/>
-        <image name="Map" width="28" height="28"/>
         <image name="Profile" width="25" height="25"/>
+        <image name="Search" width="23" height="23"/>
     </resources>
 </document>

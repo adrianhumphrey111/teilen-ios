@@ -22,7 +22,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     // Customize LoginKit. All properties have defaults, only set the ones you want.
     func configureAppearance() {
         // Customize the look with background & logo images
-        // backgroundImage = #imageLiteral(resourceName: "Background")
+        backgroundImage = UIImage(named: "onboard2.jpg")!
         // mainLogoImage =
         // secondaryLogoImage =
         

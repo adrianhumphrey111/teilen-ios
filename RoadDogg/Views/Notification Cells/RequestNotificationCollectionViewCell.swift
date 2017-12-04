@@ -86,7 +86,6 @@ class RequestNotificationCollectionViewCell: UICollectionViewCell, NibReusable {
         self.acceptButton.setTitle("Denied", for: .normal)
         self.acceptButton.frame.size.width = self.acceptButton.frame.size.width + 20
         self.acceptButton.isUserInteractionEnabled = false
-        self.notification.accepted = "denied"
     }
     
     

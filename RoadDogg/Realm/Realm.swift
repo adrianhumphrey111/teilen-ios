@@ -39,6 +39,9 @@ class RealmManager {
         if  ( selfUser != nil ) {
             self.loggedIn = true
         }
+        else{
+            self.selfUser = loggedInUser()
+        }
 
     }
     
@@ -179,6 +182,21 @@ class RealmManager {
                     realm.add( not )
                 }
             }
+        }
+    }
+    
+    func saveSettings(first: String, last: String, email: String){
+        try! realm.write {
+            self.selfUser?.firstName = first
+            self.selfUser?.lastName = last
+            self.selfUser?.email = email
+            realm.add( self.selfUser! )
+        }
+    }
+    
+    func logout(){
+        try! realm.write {
+            realm.deleteAll()
         }
     }
     

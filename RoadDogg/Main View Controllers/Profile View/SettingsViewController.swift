@@ -9,30 +9,50 @@ let 👦🏼 = "👦🏼", 🍐 = "🍐", 💁🏻 = "💁🏻", 🐗 = "🐗", 
 
 class SettingsViewController : FormViewController, PopupDelegate, SettingsDelegate {
     
+    //Set the user that is saved in the database
+    var user = RealmManager.shared.selfUser!
     
+    var loggingOut = false
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //Save the user updated settings to the realm database
+        let dict = form.values()
+        
+        let firstName = dict["firstName"] as! String
+        let lastName = dict["lastName"] as! String
+        let email = dict["email"] as! String
+        
+        if (!loggingOut){
+            //Save these values to the realm user
+            RealmManager.shared.saveSettings(first: firstName, last: lastName, email: email)
+            
+            //Save the settings in the cloud
+            Network.shared.updateSettings(first: firstName, last: lastName, email: email)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Set the title to the settings page
         self.title = "Settings"
         
-        
-        //Set the user that is saved in the database
-        var user = RealmManager.shared.selfUser!
-        
         form +++ Section("Account")
             <<< TextRow(){ row in
                 row.title = "First Name"
+                row.tag = "firstName"
                 row.value = user.firstName
             }
             
             <<< TextRow(){ row in
                 row.title = "Last Name"
+                row.tag = "lastName"
                 row.value = user.lastName
             }
             
             <<< TextRow(){ row in
                 row.title = "Email"
+                row.tag = "email"
                 row.value = user.email
             }
             
@@ -50,45 +70,22 @@ class SettingsViewController : FormViewController, PopupDelegate, SettingsDelega
                     self?.showPayment()
             }
             
-            +++ Section("Notifications")
-            <<< SwitchRow() {
-                $0.title = "Likes"
-                $0.value = true
-            }
-            
-            <<< SwitchRow() {
-                $0.title = "Comments"
-                $0.value = true
-            }
-            
-            <<< SwitchRow() {
-                $0.title = "Trip Updates"
-                $0.value = true
-            }
-            
-            <<< SwitchRow() {
-                $0.title = "Friend Request"
-                $0.value = true
-            }
-            
-            <<< SwitchRow() {
-                $0.title = "Friend Approvals"
-                $0.value = true
-            }
-            
+
             +++ Section("Notifications")
             <<< LabelRow () {
                 $0.title = "Terms"
                 }
                 .onCellSelection { cell, row in
-                    //self.performSegue(withIdentifier: "yourSegue", sender: self)
+                    let vc = TermsViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
             }
             
             <<< LabelRow () {
                 $0.title = "Privacy Policy"
                 }
                 .onCellSelection { cell, row in
-                    //self.performSegue(withIdentifier: "yourSegue", sender: self)
+                    let vc = PrivacyViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
             }
             
             +++ Section("")
@@ -138,6 +135,8 @@ class SettingsViewController : FormViewController, PopupDelegate, SettingsDelega
     }
     
     func logout(){
+        loggingOut = true
+        
         //Show the user a popup and confirm that they want to delete the account
         var vc = PopupManager.shared.logout()
         if let logoutVC = vc.viewController as? LogoutPopupViewController{

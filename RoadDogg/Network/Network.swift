@@ -533,7 +533,54 @@ class Network {
         }
     }
     
+    func updateSettings(first: String, last: String, email: String){
+        let url = "\(self.baseurl)/updateUser"
+        let params : [String : Any] = ["user_key": self.user_key,
+                                       "first_name": first,
+                                       "last_name": last,
+                                       "email": email]
+        
+        //Make call to the API
+        Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                //get response
+                if let result = response.result.value{
+                    let json = result as! [String:Any]
+                    let success = json["success"] as? Bool
+                    print( success )
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        
+    }
     
+    func searchAllUsers(query: String) -> Promise<[User]>{
+        let url = "\(self.baseurl)/search"
+        let params : [String : Any] = ["q" : query]
+        var users : [User] = []
+        return Promise { fulfill, reject in
+            //Make call to the API
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+                switch response.result {
+                case .success:
+                    //get response
+                    if let result = response.result.value{
+                        let json = result as! [[String:Any]]
+                        for user in users{
+                            users.append( User(user: (user as? [String : Any])!) )
+                        }
+                        fulfill( users )
+                    }
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }
+    }
     
     
 

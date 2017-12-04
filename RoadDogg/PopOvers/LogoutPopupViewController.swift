@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FacebookCore
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class LogoutPopupViewController: UIViewController {
 
@@ -33,6 +36,24 @@ class LogoutPopupViewController: UIViewController {
     }
     
     @IBAction func yesAction(_ sender: Any) {
+        //Clear Realm database
+        RealmManager.shared.logout()
+        
+        //Reset all default values
+        let appDomain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: appDomain)
+        
+        //Send user back to the main page
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
+        
+        //If the user is logged in with facebook log them out
+        if ( FBSDKAccessToken.current() != nil ){
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut() // this is an instance function
+        }
+        
+        //Go to the main screen
         delegate?.showStartScreen()
     }
     

@@ -9,6 +9,12 @@
 import UIKit
 import IGListKit
 
+protocol PostViewCellDelegate {
+    func comment()
+    func pushPostViewController( vc : UIViewController)
+    
+}
+
 //TODO: ADD Tap gesture to Tripview, becuase maybe the post does not have any comments yet.
 
 class TripViewController: UIViewController, PostViewCellDelegate, PopupDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate {
