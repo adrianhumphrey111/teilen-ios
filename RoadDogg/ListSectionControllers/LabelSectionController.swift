@@ -14,13 +14,22 @@
 
 import UIKit
 import IGListKit
+import SDWebImage
 
 final class LabelSectionController: ListSectionController {
     
-    private var user: User?
+    private var user: User!
     
     override func sizeForItem(at index: Int) -> CGSize {
         return CGSize(width: collectionContext!.containerSize.width, height: 80)
+    }
+    
+    override func didSelectItem(at index: Int) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
+        vc.user = self.user!
+        vc.profileArray.append( self.user! as AnyObject )
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
@@ -38,6 +47,21 @@ final class LabelSectionController: ListSectionController {
     func configureRiderInformationCell( cell: UICollectionViewCell ){
         if let cell = cell as? LabelCell{
             cell.fullNameLabel.text = self.user?.fullName
+            cell.userKey = self.user.key
+            cell.imageView.sd_setImage(with: URL(string: self.user!.profileUrl), placeholderImage: UIImage(named: "Profile_Placeholder") )
+            if (self.user?.isFriend == "friend"){
+                cell.status = (user?.isFriend)!
+                cell.buttonToUnfriend()
+            }
+            else if(self.user?.isFriend == "requested"){
+                cell.status = (user?.isFriend)!
+                cell.buttonToRequested()
+            }
+            else{
+                //This person is not a friend, so add the friend
+                cell.status = (self.user?.isFriend)!
+                cell.buttonToAddFriend()
+            }
         }
     }
     

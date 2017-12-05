@@ -3,6 +3,7 @@ import ILLoginKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 import FacebookCore
+import PKHUD
 
 class LoginCoordinator: ILLoginKit.LoginCoordinator {
     
@@ -10,6 +11,11 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     
     override func start() {
         super.start()
+        
+        HUD.dimsBackground = false
+        HUD.allowsInteraction = false
+        
+        
         configureAppearance()
     }
     
@@ -23,12 +29,13 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     func configureAppearance() {
         // Customize the look with background & logo images
         backgroundImage = UIImage(named: "onboard2.jpg")!
-        // mainLogoImage =
-        // secondaryLogoImage =
+        mainLogoImage = UIImage(named: "signuptitleclear.png")!
+        // secondaryLogoImage = UIImage(named: "signuptitleclear.png")!
+        
         
         // Change colors
-        tintColor = UIColor(red: 52.0/255.0, green: 152.0/255.0, blue: 219.0/255.0, alpha: 1)
-        errorTintColor = UIColor(red: 253.0/255.0, green: 227.0/255.0, blue: 167.0/255.0, alpha: 1)
+        tintColor = UIColor(red: 118.0/255.0, green: 210.0/255.0, blue: 206.0/255.0, alpha: 1)
+        errorTintColor = UIColor(red: 255.0/255.0, green: 53.0/255.0, blue: 58.0/255.0, alpha: 1)
         
         // Change placeholder & button texts, useful for different marketing style or language.
         loginButtonText = "Sign In"
@@ -46,6 +53,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     
     // Handle login via your API
     override func login(email: String, password: String) {
+        HUD.show(.label("Logging In..."))
         Network.shared.login(email: email, password: password).then { result -> Void in
             let success = result["result"] as! Bool
             if ( success ){
@@ -63,6 +71,9 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                 //Save user to persistence
                 self.saveUserToDatabase(user: loggedinUser, userKey: userKey, accId: stripeAccountId, custId: customerId)
                 
+                //Hide Hud
+                HUD.hide()
+                
                 //Either way show the new screen
                 let root = self.rootViewController as! InitialViewController
                 root.showMainViewController()
@@ -78,6 +89,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     
     // Handle signup via your API
     override func signup(name: String, email: String, password: String) {
+        HUD.show(.label("Signing Up..."))
         print("Signup with: name = \(name) email =\(email) password = \(password)")
         var fullNameArr = parseName(name: name)
         var user = User()
@@ -92,6 +104,9 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
             let customerId = json["customer_id"] as! String
             //Save user to persistence
             self.saveUserToDatabase(user: user, userKey: userKey, accId: stripeAccountId, custId: customerId)
+            
+            //Hide Hud
+            HUD.hide()
             
             //Either way show the new screen
             let root = self.rootViewController as! InitialViewController
@@ -115,9 +130,12 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     }
     
     override func didSelectFacebook(_ viewController: UIViewController) {
+        
         let loginManager = FBSDKLoginManager()
         loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], from: self.rootViewController) { (result , error) in
             if ( error == nil ){
+                //Show the progress of signing in with facebook
+                HUD.show(.label("Creating Account..."))
                 Network.shared.retriveUserFromFacebook().then { user -> Void in
                     Network.shared.createUser(user: user).then { json -> Void in
                         //Either this is a new user, or this user already exist
@@ -127,6 +145,9 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                         
                         //Save user to persistence
                         self.saveUserToDatabase(user: user, userKey: userKey, accId: stripeAccountId, custId: customerId)
+                        
+                        //Hide the HUD
+                        HUD.hide()
                         
                         //Either way show the new screen
                         let root = self.rootViewController as! InitialViewController
@@ -172,7 +193,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
         if( user.profileUrl != "") {
             Network.shared.grabProfileImage(urlString: user.profileUrl).then{ image -> Void in
                 //Save the image and filepath
-                userSelf.imageFileName = RealmManager.shared.saveImage(image: image, fileName: "profileImage")!
+                RealmManager.shared.saveImage(image: image, fileName: "profileImage")
                 
                 //Save logged in user to database
                 RealmManager.shared.saveLoggedInUser(user: userSelf)

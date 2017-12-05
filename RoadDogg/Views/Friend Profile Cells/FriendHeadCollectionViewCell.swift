@@ -11,6 +11,7 @@ import Reusable
 
 protocol ProfileActionDelegate{
     func showSettings()
+    func showPayments()
 }
 
 class FriendHeadCollectionViewCell: UICollectionViewCell, NibReusable {
@@ -88,8 +89,8 @@ class FriendHeadCollectionViewCell: UICollectionViewCell, NibReusable {
     
     @IBAction func messageUserAction(_ sender: Any) {
         if ( isOwnProfile){
-            //Show the settings page
-            
+            //Show payments
+            delegate?.showPayments()
         }
         else{
             //show a page to message the user

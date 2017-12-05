@@ -136,6 +136,7 @@ extension TripPostSectionController  {
     override func didSelectItem(at index: Int) {
         switch index{
         case 0:
+            print("The profile should be shown now")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
             vc.user = self.post?.user

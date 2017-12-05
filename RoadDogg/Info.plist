@@ -33,6 +33,9 @@
 	<string>Teilen RideShare</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>snapchat</string>
+		<string>instagram</string>
+		<string>appstore</string>
 		<string>fbapi</string>
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>

@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		274EECB7C07175164D9A7DA2 /* Pods_RoadDogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF185049F6147F25EA1B0FE9 /* Pods_RoadDogg.framework */; };
 		401570E01FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401570DE1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift */; };
 		401570E11FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401570DF1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib */; };
+		403FDA9B1FD5BEBB003789F5 /* launchscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 403FDA9A1FD5BEBA003789F5 /* launchscreen.png */; };
+		403FDA9D1FD5C028003789F5 /* signuptitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 403FDA9C1FD5C028003789F5 /* signuptitle.png */; };
+		403FDA9F1FD5C05B003789F5 /* signuptitleclear.png in Resources */ = {isa = PBXBuildFile; fileRef = 403FDA9E1FD5C05A003789F5 /* signuptitleclear.png */; };
+		40FB35591FD60A0300DF8D6C /* EmptyFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FB35571FD60A0300DF8D6C /* EmptyFeedViewController.swift */; };
+		40FB355A1FD60A0300DF8D6C /* EmptyFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40FB35581FD60A0300DF8D6C /* EmptyFeedViewController.xib */; };
+		40FB355D1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FB355B1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.swift */; };
+		40FB355E1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40FB355C1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.xib */; };
 		5215423F1FD531D700015AE2 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215423E1FD531D700015AE2 /* TermsViewController.swift */; };
 		521542411FD531EE00015AE2 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521542401FD531EE00015AE2 /* PrivacyViewController.swift */; };
 		521542431FD5505300015AE2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521542421FD5505300015AE2 /* SearchViewController.swift */; };
@@ -141,6 +147,13 @@
 		35B9913C2705374FABF669D1 /* Pods_Teilen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teilen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		401570DE1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		401570DF1FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverButtonCollectionViewCell.xib; sourceTree = "<group>"; };
+		403FDA9A1FD5BEBA003789F5 /* launchscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchscreen.png; sourceTree = "<group>"; };
+		403FDA9C1FD5C028003789F5 /* signuptitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signuptitle.png; sourceTree = "<group>"; };
+		403FDA9E1FD5C05A003789F5 /* signuptitleclear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signuptitleclear.png; sourceTree = "<group>"; };
+		40FB35571FD60A0300DF8D6C /* EmptyFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFeedViewController.swift; sourceTree = "<group>"; };
+		40FB35581FD60A0300DF8D6C /* EmptyFeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyFeedViewController.xib; sourceTree = "<group>"; };
+		40FB355B1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyNotifiactionViewController.swift; sourceTree = "<group>"; };
+		40FB355C1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyNotifiactionViewController.xib; sourceTree = "<group>"; };
 		49FF0ABDA8FB00ADF0C3C2E6 /* Pods-RoadDoggTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggTests/Pods-RoadDoggTests.debug.xcconfig"; sourceTree = "<group>"; };
 		518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDoggTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5215423E1FD531D700015AE2 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
@@ -270,7 +283,6 @@
 				52250F3D1FA185DB00E97624 /* Alamofire.framework in Frameworks */,
 				52CFFF061FB7DF1900F93951 /* FBSDKCoreKit.framework in Frameworks */,
 				52CFFF081FB7DF2700F93951 /* FBSDKLoginKit.framework in Frameworks */,
-				274EECB7C07175164D9A7DA2 /* Pods_RoadDogg.framework in Frameworks */,
 				87AA3997C4A9D270640C61BE /* Pods_Teilen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +317,17 @@
 				35B9913C2705374FABF669D1 /* Pods_Teilen.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		40A9925F1FD5F4460094838E /* Empty Views */ = {
+			isa = PBXGroup;
+			children = (
+				40FB35571FD60A0300DF8D6C /* EmptyFeedViewController.swift */,
+				40FB35581FD60A0300DF8D6C /* EmptyFeedViewController.xib */,
+				40FB355B1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.swift */,
+				40FB355C1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.xib */,
+			);
+			path = "Empty Views";
 			sourceTree = "<group>";
 		};
 		521542461FD5514100015AE2 /* Search Cells */ = {
@@ -378,6 +401,7 @@
 		525CA2CE1F9D40A90037855E /* RoadDogg */ = {
 			isa = PBXGroup;
 			children = (
+				40A9925F1FD5F4460094838E /* Empty Views */,
 				529B2B1F1FC61CFA00CBD2D0 /* PopOvers */,
 				52DEF50B1FC3E52B00FF37BC /* ListSectionControllers */,
 				86F8C6EF1FBD39A600FE7967 /* Payment */,
@@ -589,6 +613,9 @@
 		52CFFF0D1FB7E54D00F93951 /* OnBoarding Images */ = {
 			isa = PBXGroup;
 			children = (
+				403FDA9C1FD5C028003789F5 /* signuptitle.png */,
+				403FDA9E1FD5C05A003789F5 /* signuptitleclear.png */,
+				403FDA9A1FD5BEBA003789F5 /* launchscreen.png */,
 				52729C1D1FD57D690052F435 /* onbaord3.jpg */,
 				52729C1E1FD57D690052F435 /* onboard1.jpg */,
 				52729C1C1FD57D690052F435 /* onboard2.jpg */,
@@ -803,11 +830,14 @@
 				52729C221FD57D690052F435 /* onbaord3.jpg in Resources */,
 				52729C251FD57D690052F435 /* onboard4.jpg in Resources */,
 				522F15FB1FC62ABA003F33B7 /* Popups.storyboard in Resources */,
+				403FDA9F1FD5C05B003789F5 /* signuptitleclear.png in Resources */,
 				401570E11FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib in Resources */,
 				526869921FC84CF200109A9F /* ProfileHeaderCollectionViewCell.xib in Resources */,
 				525CA2DA1F9D40A90037855E /* Assets.xcassets in Resources */,
 				529B2B1E1FC545F500CBD2D0 /* RideButtonCollectionViewCell.xib in Resources */,
 				86A957011FBE87AD008111CD /* GoogleService-Info.plist in Resources */,
+				40FB355A1FD60A0300DF8D6C /* EmptyFeedViewController.xib in Resources */,
+				40FB355E1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.xib in Resources */,
 				5267D62A1FCC366B000C5B46 /* RiderInformationCollectionViewCell.xib in Resources */,
 				525CA2D51F9D40A90037855E /* Main.storyboard in Resources */,
 				52DEF5121FC4105100FF37BC /* PostHeaderCollectionViewCell.xib in Resources */,
@@ -817,12 +847,14 @@
 				523347AD1FD2633C00EB7F15 /* DeleteAccountPopupViewController.xib in Resources */,
 				52CFFF0C1FB7E50F00F93951 /* OnBoarding.storyboard in Resources */,
 				52E313BE1FC4358500DA6724 /* ActionCollectionViewCell.xib in Resources */,
+				403FDA9D1FD5C028003789F5 /* signuptitle.png in Resources */,
 				522F16171FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib in Resources */,
 				52E313B61FC4348500DA6724 /* LikeCommentCollectionViewCell.xib in Resources */,
 				52E313B21FC4346200DA6724 /* TimeStampCollectionViewCell.xib in Resources */,
 				52E313AE1FC4314200DA6724 /* RideInformationCollectionViewCell.xib in Resources */,
 				521542541FD55A2300015AE2 /* LabelCell.xib in Resources */,
 				526869961FC8CBD900109A9F /* ProfileSettingCollectionViewCell.xib in Resources */,
+				403FDA9B1FD5BEBB003789F5 /* launchscreen.png in Resources */,
 				52729C231FD57D690052F435 /* onboard1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -870,11 +902,11 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RoadDogg-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Teilen-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		354F2D0860229449DEF0123F /* [CP] Check Pods Manifest.lock */ = {
@@ -892,7 +924,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		57EB75D531DAD275FB37131E /* [CP] Copy Pods Resources */ = {
@@ -961,11 +993,11 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RoadDogg/Pods-RoadDogg-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Teilen/Pods-Teilen-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTimePicker/DateTimePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
@@ -973,6 +1005,8 @@
 				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ILLoginKit/ILLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -988,8 +1022,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTimePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
@@ -997,6 +1031,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ILLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -1028,7 +1064,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1063,8 +1099,10 @@
 				529C37B81FC420FE002F02EC /* PostTextViewCollectionViewCell.swift in Sources */,
 				52DEF5111FC4105100FF37BC /* PostHeaderCollectionViewCell.swift in Sources */,
 				52E313AD1FC4314200DA6724 /* RideInformationCollectionViewCell.swift in Sources */,
+				40FB355D1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.swift in Sources */,
 				525151601FA8730300317BC5 /* TripViewController.swift in Sources */,
 				5215424C1FD551F300015AE2 /* SearchCell.swift in Sources */,
+				40FB35591FD60A0300DF8D6C /* EmptyFeedViewController.swift in Sources */,
 				52E313BD1FC4358500DA6724 /* ActionCollectionViewCell.swift in Sources */,
 				5215423F1FD531D700015AE2 /* TermsViewController.swift in Sources */,
 				5239434D1FC6FC4C006E73B8 /* TNotification.swift in Sources */,

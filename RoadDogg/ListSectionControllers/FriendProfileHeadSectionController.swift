@@ -32,7 +32,7 @@ extension FriendProfileHeadSectionController  {
         case 0:
             return CGSize(width: cellWidth, height: 120)
         case 1:
-            return CGSize(width: cellWidth, height: 50)
+            return CGSize(width: cellWidth, height: 65)
         case 2:
             if let car = self.user.car{
                 return CGSize(width: cellWidth, height: 150)

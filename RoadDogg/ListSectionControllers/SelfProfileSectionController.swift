@@ -14,7 +14,7 @@ import SDWebImage
 
 class SelfProfileSectionController : ListSectionController, ProfileActionDelegate{
     
-    var user: loggedInUser!
+    var user : loggedInUser!
     
     override init(){
         super.init()
@@ -24,6 +24,12 @@ class SelfProfileSectionController : ListSectionController, ProfileActionDelegat
     func showSettings(){
         let vc = SettingsViewController()
         viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showPayments(){
+        if let vc = viewController as? ProfileViewController{
+            vc.showPayment()
+        }
     }
 }
 
@@ -40,7 +46,7 @@ extension SelfProfileSectionController  {
         case 0:
             return CGSize(width: cellWidth, height: 120)
         case 1:
-            return CGSize(width: cellWidth, height: 50)
+            return CGSize(width: cellWidth, height: 65)
         case 2:
             if let car = self.user.car{
                 return CGSize(width: cellWidth, height: 150)
@@ -79,6 +85,7 @@ extension SelfProfileSectionController  {
     }
     
     override func didUpdate(to object: Any) {
+       //Dont do anything
         self.user = object as? loggedInUser
     }
     
@@ -92,7 +99,7 @@ extension SelfProfileSectionController  {
             cell.numberOfTripsLabel.text = "\(self.user.numberOfTrips)"
             cell.numberOfFriendsLabel.text = "\(self.user.numberOfFriends)"
             cell.numberOfPostsLabel.text = "\(self.user.numberOfPosts)"
-            cell.profileImageView.sd_setImage(with: URL(string: (self.user?.profileUrl)!), placeholderImage: UIImage(named: "Profile_Placeholder"))
+            cell.profileImageView.sd_setImage(with: URL(string: (self.user.profileUrl)), placeholderImage: UIImage(named: "Profile_Placeholder"))
             
             cell.userKey = self.user.key
             
@@ -118,6 +125,11 @@ extension SelfProfileSectionController  {
     func configureFriendInfoCell(cell: UICollectionViewCell){
         if let cell = cell as? FriendInfoCollectionViewCell{
             cell.fullNameLabel.text = self.user.fullName()
+            
+            //Set the current trip
+            if let dest = self.user.currentTripDestinationCity as? String{
+                cell.currentTripLabel.text = "Headed to \(self.user.currentTripDestinationCity!) on \(self.user.currentTripDate!)"
+            }
             
             //Check if the user has a car
             if let car = self.user.car {

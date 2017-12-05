@@ -44,7 +44,7 @@ final class SearchViewController: UIViewController, ListAdapterDataSource, Searc
         adapter.dataSource = self
         
         //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard) )
         view.addGestureRecognizer(tap)
         
         Network.shared.searchAllUsers(query: filterString).then { users -> Void in
@@ -92,7 +92,7 @@ final class SearchViewController: UIViewController, ListAdapterDataSource, Searc
     }
     
     //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }

@@ -166,8 +166,10 @@ class Network {
                         let json = result as! [String:Any]
                         let post_key = json["post_key"] as! String
                         let trip_key = json["trip_key"] as! String
+                        let eta = json["eta"] as! String
                         keys.append(post_key)
                         keys.append(trip_key)
+                        keys.append(eta)
                         fulfill(keys)
                     }
                 case .failure(let error):
@@ -559,8 +561,11 @@ class Network {
     }
     
     func searchAllUsers(query: String) -> Promise<[User]>{
+        var q : NSString = query as NSString
+        var cap = q.capitalized
         let url = "\(self.baseurl)/search"
-        let params : [String : Any] = ["q" : query]
+        let params : [String : Any] = ["q" : cap,
+                                       "user_key": self.user_key]
         var users : [User] = []
         return Promise { fulfill, reject in
             //Make call to the API
@@ -570,7 +575,8 @@ class Network {
                     //get response
                     if let result = response.result.value{
                         let json = result as! [[String:Any]]
-                        for user in users{
+                       
+                        for user in json{
                             users.append( User(user: (user as? [String : Any])!) )
                         }
                         fulfill( users )

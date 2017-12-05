@@ -131,8 +131,10 @@ extension IGListFeedViewController: ListAdapterDataSource {
     
     // 3
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
-        print("The view is empty and was not updated")
-        return nil
         
-    } //Return a certatin view later
+        let vc = EmptyFeedViewController(nibName: "EmptyFeedViewController", bundle: nil)
+        self.addChildViewController( vc )
+        vc.didMove(toParentViewController: self)
+        return vc.view
+    }
 }

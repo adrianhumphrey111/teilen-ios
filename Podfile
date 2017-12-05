@@ -25,6 +25,7 @@ target 'Teilen' do
   pod 'SDWebImage', '~> 3.8'
   pod 'PopupDialog', '~> 0.6'
   pod 'Eureka'
+  pod 'PKHUD', '~> 5.0'
 
   target 'RoadDoggTests' do
     inherit! :search_paths

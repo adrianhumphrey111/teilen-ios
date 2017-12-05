@@ -91,8 +91,10 @@ extension NotificationViewController: ListAdapterDataSource {
         
         // 3
         func emptyView(for listAdapter: ListAdapter) -> UIView? {
-            print("You have no ntotications")
-            return nil
+            let vc = EmptyNotifiactionViewController(nibName: "EmptyNotifiactionViewController", bundle: nil)
+            self.addChildViewController( vc )
+            vc.didMove(toParentViewController: self)
+            return vc.view
             
         } //Return a certatin view later
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -75,7 +75,7 @@
                             <color key="value" red="0.06262543797492981" green="0.028661217540502548" blue="0.085529766976833344" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="buttnColor">
-                            <color key="value" red="0.10296335071325302" green="0.27770897746086121" blue="0.95006066560745239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.10296335071325302" green="0.27770897746086121" blue="0.95006066560745239" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -99,17 +99,18 @@
                             <real key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="buttnColor">
-                            <color key="value" red="0.053865008056163788" green="0.37605693936347961" blue="0.85723459720611572" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.053865008056163788" green="0.37605693936347961" blue="0.85723459720611572" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="didSelectLogin:" destination="-1" eventType="touchUpInside" id="p85-YG-D3j"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wTd-tf-f9d">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signuptitleclear.png" translatesAutoresizingMaskIntoConstraints="NO" id="wTd-tf-f9d">
                     <rect key="frame" x="40" y="327" width="195" height="130"/>
-                    <color key="backgroundColor" red="0.46221965551376343" green="0.94237786531448364" blue="0.073928050696849823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.30788269237187094" green="0.62684191971862879" blue="0.051310073528068975" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="195" id="kdE-zK-zOj"/>
                         <constraint firstAttribute="height" constant="130" id="wgq-UG-1LL"/>
                     </constraints>
                 </imageView>
@@ -136,4 +137,7 @@
             <point key="canvasLocation" x="-7.5" y="-539.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="signuptitleclear.png" width="1610" height="1714"/>
+    </resources>
 </document>

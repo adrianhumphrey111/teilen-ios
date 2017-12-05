@@ -12,7 +12,7 @@ import Stripe
 import IGListKit
 
 class ProfileViewController : UIViewController {
-
+    
     //Collection View
     let collectionView: UICollectionView = {
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -33,6 +33,12 @@ class ProfileViewController : UIViewController {
     
     //Self User
     var user: loggedInUser!
+    
+    //All of the users post
+    var posts : [Post] = []
+    
+    //profile Token
+    let searchToken: NSNumber = 42
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -63,7 +69,7 @@ class ProfileViewController : UIViewController {
         
         //Fetch the post by the user
         fetchUserFeed()
-
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -92,23 +98,23 @@ class ProfileViewController : UIViewController {
     @objc func fetchUserFeed(){
         print("there is no key here")
         Network.shared.getUserFeed(user_key: self.selfUser.key).then { feed -> Void in
+            //If there are anypost
+            if ( feed.posts.count > 0 ){
+                guard let post = feed.posts[0] as? Post else {
+                    //If they do not hav any post add a section controller saying they dont have any post
+                    return
+                }
+                guard let user = post.user as? User else {
+                    //The user has no post
+                    return
+                }
+                //Save the user
+                print(self.selfUser)
+                RealmManager.shared.updateLoggedInUser(loggedInUser: self.selfUser, user: user )
             
-            guard let post = feed.posts[0] as? Post else {
-                //If they do not hav any post add a section controller saying they dont have any post
-                return
-            }
-            guard let user = post.user as? User else {
-                //The user has no post
-                return
                 
+                self.posts = feed.posts as! [Post]
             }
-            //Save the user
-            RealmManager.shared.updateLoggedInUser(loggedInUser: self.selfUser, user: user )
-            self.selfUser = RealmManager.shared.selfUser!
-            self.profileArray = []
-            self.profileArray.append( self.selfUser )
-
-            self.profileArray += feed.posts
             
             //End Refreshing
             self.collectionView.refreshControl?.endRefreshing()
@@ -119,29 +125,33 @@ class ProfileViewController : UIViewController {
                 print(error)
         }
     }
- 
-    
 }
 
 extension ProfileViewController: ListAdapterDataSource {
+    
+    
     // 1
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return (self.profileArray as? [ListDiffable])!
+        //Set the logged in user
+        RealmManager.shared.getLoggedInUser()
+        let user = RealmManager.shared.selfUser!
+        return [user] + posts
     }
     
     // 2
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         
-        if let post = object as? Post{
-            if ( post.trip?.postedBy == "driver"){
-                return DriverPostSectionController()
-            }
-            else{
-                return RiderPostSectionContoller()
-            }
-        }else{
-            return SelfProfileSectionController()
+            if let post = object as? Post{
+                if ( post.trip?.postedBy == "driver"){
+                    return DriverPostSectionController()
+                }
+                else{
+                    return RiderPostSectionContoller()
+                }
+            }else{
+                return SelfProfileSectionController()
         }
+        
     }
     
     // 3

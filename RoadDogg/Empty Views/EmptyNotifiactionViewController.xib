@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyNotifiactionViewController" customModule="Teilen" customModuleProvider="target">
+            <connections>
+                <outlet property="secondView" destination="Aip-O3-kwA" id="m4M-6o-1hA"/>
+                <outlet property="textView" destination="fFr-TA-Z6G" id="vS6-mP-aUg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aip-O3-kwA">
+                    <rect key="frame" x="50" y="120" width="275" height="297"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="T_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="GKR-xQ-z0a">
+                            <rect key="frame" x="102.5" y="15" width="70" height="70"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="70" id="3zJ-rp-pYs"/>
+                                <constraint firstAttribute="width" constant="70" id="ZkN-9B-1pU"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Teilen !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPy-Ed-WQ6">
+                            <rect key="frame" x="50" y="95" width="175.5" height="23"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="You currently have no Notifications. " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-TA-Z6G">
+                            <rect key="frame" x="20" y="123" width="235" height="49.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="GKR-xQ-z0a" firstAttribute="top" secondItem="Aip-O3-kwA" secondAttribute="top" constant="15" id="28B-LN-iEM"/>
+                        <constraint firstItem="fFr-TA-Z6G" firstAttribute="top" secondItem="MPy-Ed-WQ6" secondAttribute="bottom" constant="5" id="Eif-bw-bpR"/>
+                        <constraint firstItem="MPy-Ed-WQ6" firstAttribute="centerX" secondItem="Aip-O3-kwA" secondAttribute="centerX" id="aWQ-u2-QxX"/>
+                        <constraint firstItem="MPy-Ed-WQ6" firstAttribute="top" secondItem="GKR-xQ-z0a" secondAttribute="bottom" constant="10" id="bqg-M0-xax"/>
+                        <constraint firstItem="fFr-TA-Z6G" firstAttribute="centerX" secondItem="Aip-O3-kwA" secondAttribute="centerX" id="ejm-rA-7it"/>
+                        <constraint firstItem="GKR-xQ-z0a" firstAttribute="centerX" secondItem="Aip-O3-kwA" secondAttribute="centerX" id="oM8-xC-kLd"/>
+                        <constraint firstItem="fFr-TA-Z6G" firstAttribute="leading" secondItem="Aip-O3-kwA" secondAttribute="leading" constant="20" id="som-MX-WPH"/>
+                        <constraint firstAttribute="trailing" secondItem="fFr-TA-Z6G" secondAttribute="trailing" constant="20" id="xii-6U-4QH"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Aip-O3-kwA" secondAttribute="bottom" constant="250" id="HTC-Yz-SGR"/>
+                <constraint firstItem="Aip-O3-kwA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="XSo-S0-jji"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Aip-O3-kwA" secondAttribute="trailing" constant="50" id="Zqh-wp-h9t"/>
+                <constraint firstItem="Aip-O3-kwA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="vPl-7t-Qxk"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="T_Logo" width="260" height="258"/>
+    </resources>
+</document>

@@ -728,6 +728,9 @@ class ModalNewPostViewController: UIViewController {
                 Network.shared.createPost(trip: self.tripObject).then { key_array -> Void in
                     let post_key = key_array[0]
                     let trip_key = key_array[1]
+                    let eta = key_array[2]
+                    //Save the current trip key to the realm user
+                    RealmManager.shared.setCurrentTrip(destination: self.tripObject.endLocation.city, tripKey: trip_key, eta:eta)
                 }
             })
             

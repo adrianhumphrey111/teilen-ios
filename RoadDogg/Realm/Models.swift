@@ -33,8 +33,14 @@ class user: Object {
 }
 
 final class loggedInUser: user{
-    @objc dynamic var stripeAccountId = ""
-    @objc dynamic var customerId = ""
+    @objc dynamic var stripeAccountId : String? = nil
+    @objc dynamic var customerId : String? = nil
+    @objc dynamic var currentTripKey : String? = nil
+    @objc dynamic var currentTripDestinationCity : String? = nil
+    @objc dynamic var currentTripDate : String? = nil
+    @objc dynamic var lastFour : String? = nil
+    @objc dynamic var dateOfBirth : String? = nil
+    @objc dynamic var billingAddress : address? = nil
     @objc dynamic var paymentVerified = false
     let posts = List<post>()
     
@@ -55,7 +61,8 @@ extension loggedInUser : ListDiffable{
             return false
         }
         
-        return ( self.firstName == object.firstName && self.userName == object.userName )
+        return ( self.firstName == object.firstName && self.userName == object.userName && self.currentTripDestinationCity == object.currentTripDestinationCity && self.numberOfPosts == object.numberOfPosts
+        && self.numberOfFriends == object.numberOfFriends && self.numberOfTrips == object.numberOfTrips)
     }
     
 }

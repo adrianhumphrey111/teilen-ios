@@ -46,14 +46,16 @@ class RealmManager {
     }
     
     //Save profile image
-    func saveImage(image: UIImage, fileName: String) -> String? {
+    func saveImage(image: UIImage, fileName: String){
         let fileURL = documentsUrl.appendingPathComponent(fileName)
         if let imageData = UIImageJPEGRepresentation(image, 1.0) {
             try? imageData.write(to: fileURL, options: .atomic)
-            return fileName // ----> Save fileName
+            try! realm.write {
+                self.selfUser?.imageFileName =  fileName // ----> Save fileName
+            }
         }
         print("Error saving image")
-        return nil
+
     }
     
     func loadImage(fileName: String) -> UIImage? {
@@ -86,14 +88,10 @@ class RealmManager {
     @objc func saveLoggedInUser(user: loggedInUser){
         try! realm.write {
             self.loggedIn = true
-            if ( self.selfUser == nil ){
-                //If there is already a logged in user, no need to save a new one. For right now
-                realm.add(user)
-                //Network.shared.updateNotificationToken(token: user.notificationToken)
-            }
+            realm.add(user)
         }
         getLoggedInUser()
-        
+
     }
     
      func updateLoggedInUser(loggedInUser: loggedInUser, user: User) {
@@ -200,6 +198,25 @@ class RealmManager {
         }
     }
     
+    func setCurrentTrip(destination: String, tripKey: String, eta: String){
+        try! realm.write {
+            self.selfUser?.currentTripKey = tripKey
+            self.selfUser?.currentTripDestinationCity = destination
+            self.selfUser?.currentTripDate = eta
+            realm.add( self.selfUser! )
+        }
+    }
+    
+    func driverCanBePaidOut() -> Bool {
+        if (self.selfUser.lastFour != nil
+            && self.selfUser.dateOfBirth != nil
+            && self.selfUser.billingAddress != nil){
+            return true
+        }
+        else{
+            return false
+        }
+        
 }
 
 //    // Query and update from any thread
