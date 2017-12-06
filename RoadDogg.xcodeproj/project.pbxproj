@@ -34,14 +34,31 @@
 		523347AD1FD2633C00EB7F15 /* DeleteAccountPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523347AB1FD2633C00EB7F15 /* DeleteAccountPopupViewController.xib */; };
 		523347B01FD26DFB00EB7F15 /* LogoutPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523347AE1FD26DFB00EB7F15 /* LogoutPopupViewController.swift */; };
 		523347B11FD26DFB00EB7F15 /* LogoutPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523347AF1FD26DFB00EB7F15 /* LogoutPopupViewController.xib */; };
+		523354B01FD7C910002AE514 /* PostalAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523354AA1FD7C910002AE514 /* PostalAddressCell.swift */; };
+		523354B11FD7C910002AE514 /* PostalAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523354AB1FD7C910002AE514 /* PostalAddressCell.xib */; };
+		523354B21FD7C910002AE514 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 523354AD1FD7C910002AE514 /* Info.plist */; };
+		523354B31FD7C910002AE514 /* PostalAddressRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523354AF1FD7C910002AE514 /* PostalAddressRow.swift */; };
+		523354BB1FD7CCD5002AE514 /* CreditCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523354B61FD7CCD4002AE514 /* CreditCardCell.swift */; };
+		523354BC1FD7CCD5002AE514 /* CreditCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523354B71FD7CCD4002AE514 /* CreditCardCell.xib */; };
+		523354BD1FD7CCD5002AE514 /* CreditCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523354B81FD7CCD4002AE514 /* CreditCardRow.swift */; };
+		523354BE1FD7CCD5002AE514 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523354B91FD7CCD4002AE514 /* PaddedTextField.swift */; };
+		523354BF1FD7CCD5002AE514 /* String+CreditCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523354BA1FD7CCD4002AE514 /* String+CreditCardRow.swift */; };
+		523354C31FD7D11E002AE514 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 523354C21FD7D11D002AE514 /* Info.plist */; };
 		5239434A1FC69FBE006E73B8 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523943491FC69FBE006E73B8 /* PopupManager.swift */; };
 		5239434D1FC6FC4C006E73B8 /* TNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5239434C1FC6FC4C006E73B8 /* TNotification.swift */; };
 		5239434F1FC70748006E73B8 /* NotificationSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5239434E1FC70748006E73B8 /* NotificationSectionController.swift */; };
+		523C3BDC1FD76FFD00BD1609 /* PilotCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C3BDA1FD76FFD00BD1609 /* PilotCheckViewController.swift */; };
+		523C3BDD1FD76FFD00BD1609 /* PilotCheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523C3BDB1FD76FFD00BD1609 /* PilotCheckViewController.xib */; };
+		523C3BE01FD79A0400BD1609 /* PilotExcusionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C3BDE1FD79A0300BD1609 /* PilotExcusionViewController.swift */; };
+		523C3BE11FD79A0400BD1609 /* PilotExcusionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523C3BDF1FD79A0300BD1609 /* PilotExcusionViewController.xib */; };
+		523C3BE41FD7ABFC00BD1609 /* DriverCheckPayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C3BE21FD7ABFC00BD1609 /* DriverCheckPayoutViewController.swift */; };
+		523C3BE51FD7ABFC00BD1609 /* DriverCheckPayoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523C3BE31FD7ABFC00BD1609 /* DriverCheckPayoutViewController.xib */; };
 		52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */; };
 		52404AF91FB05AE500AD64FA /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AF81FB05AE500AD64FA /* Trip.swift */; };
 		52404AFB1FB1165D00AD64FA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFA1FB1165C00AD64FA /* Extensions.swift */; };
 		52404AFD1FB11C0100AD64FA /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52404AFC1FB11C0100AD64FA /* Address.swift */; };
 		5241552C1FD231E300DE572F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241552B1FD231E300DE572F /* SettingsViewController.swift */; };
+		5244E3861FD7AEB300D73767 /* DriverPayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5244E3851FD7AEB300D73767 /* DriverPayoutViewController.swift */; };
 		52474C6B1FB3F84300422CAD /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52474C6A1FB3F84300422CAD /* FriendProfileViewController.swift */; };
 		525151601FA8730300317BC5 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251515F1FA8730300317BC5 /* TripViewController.swift */; };
 		525151AB1FAD5D0000317BC5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525151AA1FAD5D0000317BC5 /* TabBarViewController.swift */; };
@@ -174,14 +191,33 @@
 		523347AB1FD2633C00EB7F15 /* DeleteAccountPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteAccountPopupViewController.xib; sourceTree = "<group>"; };
 		523347AE1FD26DFB00EB7F15 /* LogoutPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPopupViewController.swift; sourceTree = "<group>"; };
 		523347AF1FD26DFB00EB7F15 /* LogoutPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutPopupViewController.xib; sourceTree = "<group>"; };
+		523354AA1FD7C910002AE514 /* PostalAddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostalAddressCell.swift; sourceTree = "<group>"; };
+		523354AB1FD7C910002AE514 /* PostalAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostalAddressCell.xib; sourceTree = "<group>"; };
+		523354AD1FD7C910002AE514 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		523354AE1FD7C910002AE514 /* PostalAddressRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostalAddressRow.h; sourceTree = "<group>"; };
+		523354AF1FD7C910002AE514 /* PostalAddressRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostalAddressRow.swift; sourceTree = "<group>"; };
+		523354B61FD7CCD4002AE514 /* CreditCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardCell.swift; sourceTree = "<group>"; };
+		523354B71FD7CCD4002AE514 /* CreditCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditCardCell.xib; sourceTree = "<group>"; };
+		523354B81FD7CCD4002AE514 /* CreditCardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardRow.swift; sourceTree = "<group>"; };
+		523354B91FD7CCD4002AE514 /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
+		523354BA1FD7CCD4002AE514 /* String+CreditCardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+CreditCardRow.swift"; sourceTree = "<group>"; };
+		523354C11FD7D11D002AE514 /* CreditCardRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardRow.h; sourceTree = "<group>"; };
+		523354C21FD7D11D002AE514 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		523943491FC69FBE006E73B8 /* PopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
 		5239434C1FC6FC4C006E73B8 /* TNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TNotification.swift; sourceTree = "<group>"; };
 		5239434E1FC70748006E73B8 /* NotificationSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationSectionController.swift; path = RoadDogg/Custom/NotificationSectionController.swift; sourceTree = SOURCE_ROOT; };
+		523C3BDA1FD76FFD00BD1609 /* PilotCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotCheckViewController.swift; sourceTree = "<group>"; };
+		523C3BDB1FD76FFD00BD1609 /* PilotCheckViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PilotCheckViewController.xib; sourceTree = "<group>"; };
+		523C3BDE1FD79A0300BD1609 /* PilotExcusionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotExcusionViewController.swift; sourceTree = "<group>"; };
+		523C3BDF1FD79A0300BD1609 /* PilotExcusionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PilotExcusionViewController.xib; sourceTree = "<group>"; };
+		523C3BE21FD7ABFC00BD1609 /* DriverCheckPayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCheckPayoutViewController.swift; sourceTree = "<group>"; };
+		523C3BE31FD7ABFC00BD1609 /* DriverCheckPayoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverCheckPayoutViewController.xib; sourceTree = "<group>"; };
 		52404AF61FB0552000AD64FA /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		52404AF81FB05AE500AD64FA /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		52404AFA1FB1165C00AD64FA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		52404AFC1FB11C0100AD64FA /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		5241552B1FD231E300DE572F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5244E3851FD7AEB300D73767 /* DriverPayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPayoutViewController.swift; sourceTree = "<group>"; };
 		52474C6A1FB3F84300422CAD /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		5251515F1FA8730300317BC5 /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		525151AA1FAD5D0000317BC5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -340,6 +376,48 @@
 			path = "Search Cells";
 			sourceTree = "<group>";
 		};
+		523354A91FD7C910002AE514 /* Postal Cell Sources */ = {
+			isa = PBXGroup;
+			children = (
+				523354AC1FD7C910002AE514 /* PostalAddressRow */,
+				523354AA1FD7C910002AE514 /* PostalAddressCell.swift */,
+				523354AB1FD7C910002AE514 /* PostalAddressCell.xib */,
+				523354AF1FD7C910002AE514 /* PostalAddressRow.swift */,
+			);
+			path = "Postal Cell Sources";
+			sourceTree = "<group>";
+		};
+		523354AC1FD7C910002AE514 /* PostalAddressRow */ = {
+			isa = PBXGroup;
+			children = (
+				523354AD1FD7C910002AE514 /* Info.plist */,
+				523354AE1FD7C910002AE514 /* PostalAddressRow.h */,
+			);
+			path = PostalAddressRow;
+			sourceTree = "<group>";
+		};
+		523354B51FD7CCD4002AE514 /* Credit Card Sources */ = {
+			isa = PBXGroup;
+			children = (
+				523354C01FD7D11D002AE514 /* CreditCardRow */,
+				523354B61FD7CCD4002AE514 /* CreditCardCell.swift */,
+				523354B71FD7CCD4002AE514 /* CreditCardCell.xib */,
+				523354B81FD7CCD4002AE514 /* CreditCardRow.swift */,
+				523354B91FD7CCD4002AE514 /* PaddedTextField.swift */,
+				523354BA1FD7CCD4002AE514 /* String+CreditCardRow.swift */,
+			);
+			path = "Credit Card Sources";
+			sourceTree = "<group>";
+		};
+		523354C01FD7D11D002AE514 /* CreditCardRow */ = {
+			isa = PBXGroup;
+			children = (
+				523354C11FD7D11D002AE514 /* CreditCardRow.h */,
+				523354C21FD7D11D002AE514 /* Info.plist */,
+			);
+			path = CreditCardRow;
+			sourceTree = "<group>";
+		};
 		5239434B1FC6F97A006E73B8 /* Notification Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +479,8 @@
 		525CA2CE1F9D40A90037855E /* RoadDogg */ = {
 			isa = PBXGroup;
 			children = (
+				523354B51FD7CCD4002AE514 /* Credit Card Sources */,
+				523354A91FD7C910002AE514 /* Postal Cell Sources */,
 				40A9925F1FD5F4460094838E /* Empty Views */,
 				529B2B1F1FC61CFA00CBD2D0 /* PopOvers */,
 				52DEF50B1FC3E52B00FF37BC /* ListSectionControllers */,
@@ -490,6 +570,7 @@
 				525CA3091F9FF61D0037855E /* ProfileViewController.swift */,
 				52474C6A1FB3F84300422CAD /* FriendProfileViewController.swift */,
 				5241552B1FD231E300DE572F /* SettingsViewController.swift */,
+				5244E3851FD7AEB300D73767 /* DriverPayoutViewController.swift */,
 				5215423E1FD531D700015AE2 /* TermsViewController.swift */,
 				521542401FD531EE00015AE2 /* PrivacyViewController.swift */,
 			);
@@ -570,6 +651,12 @@
 				523347AB1FD2633C00EB7F15 /* DeleteAccountPopupViewController.xib */,
 				523347AE1FD26DFB00EB7F15 /* LogoutPopupViewController.swift */,
 				523347AF1FD26DFB00EB7F15 /* LogoutPopupViewController.xib */,
+				523C3BDA1FD76FFD00BD1609 /* PilotCheckViewController.swift */,
+				523C3BDB1FD76FFD00BD1609 /* PilotCheckViewController.xib */,
+				523C3BDE1FD79A0300BD1609 /* PilotExcusionViewController.swift */,
+				523C3BDF1FD79A0300BD1609 /* PilotExcusionViewController.xib */,
+				523C3BE21FD7ABFC00BD1609 /* DriverCheckPayoutViewController.swift */,
+				523C3BE31FD7ABFC00BD1609 /* DriverCheckPayoutViewController.xib */,
 			);
 			path = PopOvers;
 			sourceTree = "<group>";
@@ -824,15 +911,21 @@
 				526869891FC7F38800109A9F /* RequestNotificationCollectionViewCell.xib in Resources */,
 				52729C211FD57D690052F435 /* onboard2.jpg in Resources */,
 				525CA2DD1F9D40A90037855E /* LaunchScreen.storyboard in Resources */,
+				523354BC1FD7CCD5002AE514 /* CreditCardCell.xib in Resources */,
 				523347B11FD26DFB00EB7F15 /* LogoutPopupViewController.xib in Resources */,
 				529CD5F01FCBC90A00C38098 /* CommentCollectionViewCell.xib in Resources */,
 				5267D6381FCC446D000C5B46 /* FriendCarCollectionViewCell.xib in Resources */,
+				523354C31FD7D11E002AE514 /* Info.plist in Resources */,
 				52729C221FD57D690052F435 /* onbaord3.jpg in Resources */,
 				52729C251FD57D690052F435 /* onboard4.jpg in Resources */,
 				522F15FB1FC62ABA003F33B7 /* Popups.storyboard in Resources */,
 				403FDA9F1FD5C05B003789F5 /* signuptitleclear.png in Resources */,
+				523C3BE51FD7ABFC00BD1609 /* DriverCheckPayoutViewController.xib in Resources */,
 				401570E11FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.xib in Resources */,
+				523354B21FD7C910002AE514 /* Info.plist in Resources */,
+				523C3BDD1FD76FFD00BD1609 /* PilotCheckViewController.xib in Resources */,
 				526869921FC84CF200109A9F /* ProfileHeaderCollectionViewCell.xib in Resources */,
+				523354B11FD7C910002AE514 /* PostalAddressCell.xib in Resources */,
 				525CA2DA1F9D40A90037855E /* Assets.xcassets in Resources */,
 				529B2B1E1FC545F500CBD2D0 /* RideButtonCollectionViewCell.xib in Resources */,
 				86A957011FBE87AD008111CD /* GoogleService-Info.plist in Resources */,
@@ -840,6 +933,7 @@
 				40FB355E1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.xib in Resources */,
 				5267D62A1FCC366B000C5B46 /* RiderInformationCollectionViewCell.xib in Resources */,
 				525CA2D51F9D40A90037855E /* Main.storyboard in Resources */,
+				523C3BE11FD79A0400BD1609 /* PilotExcusionViewController.xib in Resources */,
 				52DEF5121FC4105100FF37BC /* PostHeaderCollectionViewCell.xib in Resources */,
 				5267D6301FCC444D000C5B46 /* FriendHeadCollectionViewCell.xib in Resources */,
 				52729C241FD57D690052F435 /* onboarding5.jpg in Resources */,
@@ -906,7 +1000,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		354F2D0860229449DEF0123F /* [CP] Check Pods Manifest.lock */ = {
@@ -924,7 +1018,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		57EB75D531DAD275FB37131E /* [CP] Copy Pods Resources */ = {
@@ -1064,7 +1158,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1079,6 +1173,7 @@
 				5267D62C1FCC3ED8000C5B46 /* FriendProfileHeadSectionController.swift in Sources */,
 				52E313B51FC4348500DA6724 /* LikeCommentCollectionViewCell.swift in Sources */,
 				52C03C441FB9726600E06CE4 /* InitialViewController.swift in Sources */,
+				523C3BDC1FD76FFD00BD1609 /* PilotCheckViewController.swift in Sources */,
 				523347AC1FD2633C00EB7F15 /* DeleteAccountPopupViewController.swift in Sources */,
 				86F8C6F11FBD39C400FE7967 /* PaymentManager.swift in Sources */,
 				525CA3071F9FF5FD0037855E /* NotificationViewController.swift in Sources */,
@@ -1088,6 +1183,9 @@
 				5239434F1FC70748006E73B8 /* NotificationSectionController.swift in Sources */,
 				52404AFB1FB1165D00AD64FA /* Extensions.swift in Sources */,
 				52404AFD1FB11C0100AD64FA /* Address.swift in Sources */,
+				523354BB1FD7CCD5002AE514 /* CreditCardCell.swift in Sources */,
+				523C3BE41FD7ABFC00BD1609 /* DriverCheckPayoutViewController.swift in Sources */,
+				5244E3861FD7AEB300D73767 /* DriverPayoutViewController.swift in Sources */,
 				525CA3201FA127060037855E /* Network.swift in Sources */,
 				86F8C6F31FBD40D300FE7967 /* StripeApiManager.swift in Sources */,
 				521542451FD550FB00015AE2 /* SearchSectionController.swift in Sources */,
@@ -1097,6 +1195,7 @@
 				5259A6BE1FA5D39700078161 /* User.swift in Sources */,
 				5241552C1FD231E300DE572F /* SettingsViewController.swift in Sources */,
 				529C37B81FC420FE002F02EC /* PostTextViewCollectionViewCell.swift in Sources */,
+				523354BD1FD7CCD5002AE514 /* CreditCardRow.swift in Sources */,
 				52DEF5111FC4105100FF37BC /* PostHeaderCollectionViewCell.swift in Sources */,
 				52E313AD1FC4314200DA6724 /* RideInformationCollectionViewCell.swift in Sources */,
 				40FB355D1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.swift in Sources */,
@@ -1120,6 +1219,7 @@
 				526869881FC7F38800109A9F /* RequestNotificationCollectionViewCell.swift in Sources */,
 				52DC32791FB547CE00A1DF6A /* Car.swift in Sources */,
 				52DEF50D1FC3E55400FF37BC /* DriverPostSectionController.swift in Sources */,
+				523354B01FD7C910002AE514 /* PostalAddressCell.swift in Sources */,
 				5215424E1FD5530500015AE2 /* LabelSectionController.swift in Sources */,
 				52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */,
 				521542531FD55A2300015AE2 /* LabelCell.swift in Sources */,
@@ -1132,9 +1232,13 @@
 				5267D6371FCC446D000C5B46 /* FriendCarCollectionViewCell.swift in Sources */,
 				529CD5EF1FCBC90A00C38098 /* CommentCollectionViewCell.swift in Sources */,
 				5217E93D1FC5411E000DBF99 /* RiderPostSectionController.swift in Sources */,
+				523354B31FD7C910002AE514 /* PostalAddressRow.swift in Sources */,
+				523C3BE01FD79A0400BD1609 /* PilotExcusionViewController.swift in Sources */,
 				5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */,
 				52CFFF011FB7D59400F93951 /* GeneralSettings.swift in Sources */,
 				529B2B1D1FC545F500CBD2D0 /* RideButtonCollectionViewCell.swift in Sources */,
+				523354BE1FD7CCD5002AE514 /* PaddedTextField.swift in Sources */,
+				523354BF1FD7CCD5002AE514 /* String+CreditCardRow.swift in Sources */,
 				528D40BE1FCBC43600676534 /* CommentsSectionsController.swift in Sources */,
 				525CA2D01F9D40A90037855E /* AppDelegate.swift in Sources */,
 				5259A6C21FA5FCEE00078161 /* Post.swift in Sources */,

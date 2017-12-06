@@ -575,7 +575,7 @@ class Network {
                     //get response
                     if let result = response.result.value{
                         let json = result as! [[String:Any]]
-                       
+                       print(json)
                         for user in json{
                             users.append( User(user: (user as? [String : Any])!) )
                         }
@@ -584,6 +584,50 @@ class Network {
                 case .failure(let error):
                     reject(error)
                 }
+            }
+        }
+    }
+    
+    func checkEmail(email: String) -> Promise<Bool> {
+        let url = "\(self.baseurl)/checkPilotEmail"
+        let params : [String : Any] = ["email" : email]
+        return Promise { fulfill, reject in
+            //Make call to the API
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+                switch response.result {
+                case .success:
+                    //get response
+                    if let result = response.result.value{
+                        let json = result as! [[String:Any]]
+                        fulfill( true )
+                    }
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }
+    }
+    
+    func addDriverPayoutInfo(dict: [String : Any], dob: String, creditCardInfo: CreditCardInfo, address:  PostalAddress){
+        let url = "\(self.baseurl)/updateDriverPayment"
+        //Make call to the API
+        
+        Alamofire.request(url, method: .post, parameters: dict, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                //get response
+                if let result = response.result.value{
+                    let json = result as! [String:Any]
+                    if let cardId = json["card_id"] as? String{
+                        //The card was saved successfully, save the users payout information to the database
+                        RealmManager.shared.saveDriverInfo(id: cardId, dob: dob, creditCardInfo: creditCardInfo, addy: address)
+                    }
+                    
+                    
+                    print( true )
+                }
+            case .failure(let error):
+                print(error)
             }
         }
     }

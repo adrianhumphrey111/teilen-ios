@@ -38,10 +38,14 @@ final class loggedInUser: user{
     @objc dynamic var currentTripKey : String? = nil
     @objc dynamic var currentTripDestinationCity : String? = nil
     @objc dynamic var currentTripDate : String? = nil
+    @objc dynamic var isOnCurrentTrip = false
     @objc dynamic var lastFour : String? = nil
+    @objc dynamic var studentEmail : String? = nil
     @objc dynamic var dateOfBirth : String? = nil
     @objc dynamic var billingAddress : address? = nil
     @objc dynamic var paymentVerified = false
+    @objc dynamic var cardId : String? = nil
+    @objc dynamic var currentCard : card? = nil
     let posts = List<post>()
     
     func fullName() -> String{
@@ -138,6 +142,12 @@ final class car: Object {
     @objc dynamic var mpg: Float = 0.0
 }
 
+final class card: Object {
+    @objc dynamic var number = ""
+    @objc dynamic var cvv = ""
+    @objc dynamic var exp = ""
+}
+
 final class post: Object {
     @objc dynamic var text = ""
     @objc dynamic var user : user? = nil
@@ -150,6 +160,7 @@ final class address: Object {
     @objc dynamic var address2 = ""
     @objc dynamic var city = ""
     @objc dynamic var state = ""
+    @objc dynamic var postalCode = ""
 }
 
 final class trip: Object {

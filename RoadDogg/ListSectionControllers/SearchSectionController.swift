@@ -36,6 +36,7 @@ final class SearchSectionController: ListSectionController, UISearchBarDelegate,
             fatalError()
         }
         cell.searchBar.delegate = self
+        cell.searchBar.placeholder = "Search By Full Name"
         return cell
     }
     

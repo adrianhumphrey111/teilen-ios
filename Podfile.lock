@@ -94,7 +94,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.5.1)
   - DateTimePicker
-  - Eureka
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`)
   - FacebookCore
   - Firebase/Core
   - Firebase/Messaging
@@ -112,11 +112,20 @@ DEPENDENCIES:
   - SearchTextField
   - Stripe
 
+EXTERNAL SOURCES:
+  Eureka:
+    :git: https://github.com/xmartlabs/Eureka.git
+
+CHECKOUT OPTIONS:
+  Eureka:
+    :commit: 076eaaa27d1c90c68f01a6389cfcaa0359ea1a10
+    :git: https://github.com/xmartlabs/Eureka.git
+
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   DateTimePicker: 518bffa5438ef83a7a687cc4d5e187e5c12012b8
-  Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
+  Eureka: 3311299432b1e11fa4b40796654fc759caabcd93
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
   FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
@@ -142,6 +151,6 @@ SPEC CHECKSUMS:
   Stripe: 898f83a95d72180c6eb4acd65b2ae6158fc6a8bd
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: 04e2cf34c9e8e8fcd6defe11affdfb1df43bd6e2
+PODFILE CHECKSUM: bb24ff09e0e524bf9d629f1eea506992d582b8c1
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.1.1

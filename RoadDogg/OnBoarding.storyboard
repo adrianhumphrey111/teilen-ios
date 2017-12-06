@@ -13,7 +13,7 @@
         <!--OnBoard11-->
         <scene sceneID="Rox-kG-mrN">
             <objects>
-                <viewController storyboardIdentifier="onboard1" title="OnBoard11" id="qxm-Iw-TCF" customClass="OnBoardTestViewController" customModule="RoadDogg" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="onboard1" title="OnBoard11" id="qxm-Iw-TCF" customClass="OnBoardTestViewController" customModule="Teilen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r3Z-zg-FOi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

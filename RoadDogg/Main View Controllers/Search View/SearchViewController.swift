@@ -45,6 +45,7 @@ final class SearchViewController: UIViewController, ListAdapterDataSource, Searc
         
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard) )
+        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
         Network.shared.searchAllUsers(query: filterString).then { users -> Void in

@@ -46,4 +46,17 @@ class PopupManager {
         return popup
     }
     
+    public func pilot() -> PopupDialog{
+        // Prepare the popup
+        let vc = PilotCheckViewController(nibName: "PilotCheckViewController", bundle: nil)
+        // Create the dialog
+        let popup = PopupDialog(viewController: vc, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
+        return popup
+    }
+    
 }
+
+
+
+
+

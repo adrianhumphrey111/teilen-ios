@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DriverCheckPayoutViewController" customModule="Teilen" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="B6O-nU-fdm" id="MV0-bK-1Ce"/>
+                <outlet property="continueButton" destination="7UR-Tg-U2m" id="F7J-wC-Syj"/>
+                <outlet property="view" destination="g8J-HI-r1s" id="0A1-hf-rHr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="g8J-HI-r1s">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="390"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8P-6j-aj7">
+                    <rect key="frame" x="0.0" y="0.0" width="426" height="390"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We Need To Be Able To Pay You!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMs-Xj-27D">
+                            <rect key="frame" x="44" y="25" width="326.5" height="26.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cBR-NY-XwJ">
+                            <rect key="frame" x="15" y="67" width="396" height="166.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="175" id="AHl-oX-uep"/>
+                            </constraints>
+                            <string key="text">When making a driving post, riders will be able to request a reservation in your car. Upon your approval, they will be charged the asking price. You will get paid the instant the trip starts. However we need some additional info in order for you to get paid. We only need this once.</string>
+                            <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6O-nU-fdm">
+                            <rect key="frame" x="10" y="320" width="396" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="Czu-5J-bNe"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="1BT-me-yip"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UR-Tg-U2m">
+                            <rect key="frame" x="10" y="250" width="396" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="IFe-BR-IRu"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="continueAction:" destination="-1" eventType="touchUpInside" id="tcv-L2-Blq"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="cMs-Xj-27D" firstAttribute="top" secondItem="G8P-6j-aj7" secondAttribute="top" constant="25" id="A9N-zJ-GT1"/>
+                        <constraint firstItem="cBR-NY-XwJ" firstAttribute="top" secondItem="cMs-Xj-27D" secondAttribute="bottom" constant="15" id="Elo-Vn-OxA"/>
+                        <constraint firstAttribute="bottom" secondItem="B6O-nU-fdm" secondAttribute="bottom" constant="10" id="Lrk-Lo-OJg"/>
+                        <constraint firstAttribute="trailing" secondItem="7UR-Tg-U2m" secondAttribute="trailing" constant="20" id="Nu7-k4-0wR"/>
+                        <constraint firstItem="B6O-nU-fdm" firstAttribute="top" secondItem="7UR-Tg-U2m" secondAttribute="bottom" constant="10" id="P4t-1N-D8Q"/>
+                        <constraint firstItem="B6O-nU-fdm" firstAttribute="leading" secondItem="G8P-6j-aj7" secondAttribute="leading" constant="10" id="P59-26-2k9"/>
+                        <constraint firstItem="7UR-Tg-U2m" firstAttribute="leading" secondItem="G8P-6j-aj7" secondAttribute="leading" constant="10" id="SCO-wB-ByH"/>
+                        <constraint firstItem="cBR-NY-XwJ" firstAttribute="leading" secondItem="G8P-6j-aj7" secondAttribute="leading" constant="15" id="Yae-by-6Xw"/>
+                        <constraint firstItem="cMs-Xj-27D" firstAttribute="centerX" secondItem="G8P-6j-aj7" secondAttribute="centerX" constant="-6" id="f4L-US-7yb"/>
+                        <constraint firstAttribute="trailing" secondItem="cBR-NY-XwJ" secondAttribute="trailing" constant="15" id="hDV-fn-cKV"/>
+                        <constraint firstAttribute="height" constant="390" id="sKv-vc-33P"/>
+                        <constraint firstAttribute="trailing" secondItem="B6O-nU-fdm" secondAttribute="trailing" constant="20" id="uY9-Ok-iZP"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="G8P-6j-aj7" firstAttribute="top" secondItem="g8J-HI-r1s" secondAttribute="top" id="32C-S2-P6S"/>
+                <constraint firstAttribute="trailing" secondItem="G8P-6j-aj7" secondAttribute="trailing" constant="-10" id="MBH-qQ-0ap"/>
+                <constraint firstAttribute="bottom" secondItem="G8P-6j-aj7" secondAttribute="bottom" id="NdQ-eE-45a"/>
+                <constraint firstItem="G8P-6j-aj7" firstAttribute="leading" secondItem="g8J-HI-r1s" secondAttribute="leading" id="bI1-zy-Tpw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="BU1-HH-dji"/>
+            <point key="canvasLocation" x="326" y="372"/>
+        </view>
+    </objects>
+</document>

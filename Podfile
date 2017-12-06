@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'Teilen' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -24,8 +24,9 @@ target 'Teilen' do
   pod 'Reusable', '~> 4.0'
   pod 'SDWebImage', '~> 3.8'
   pod 'PopupDialog', '~> 0.6'
-  pod 'Eureka'
+  pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git'
   pod 'PKHUD', '~> 5.0'
+
 
   target 'RoadDoggTests' do
     inherit! :search_paths

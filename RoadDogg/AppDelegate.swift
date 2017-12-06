@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         //Stripe SDK
-        STPPaymentConfiguration.shared().publishableKey = "pk_live_1SGsf48hM8JYS40mgge6CR8l"
+        STPPaymentConfiguration.shared().publishableKey = "pk_live_tXpaxdaekAhU55WHvY3LPMRk"
         
         //Firebase SDK
         FirebaseApp.configure()
@@ -56,7 +56,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         
         //Check if the user is logged in
         if ( RealmManager.shared.isLoggedin() ) {
-            print("This user is already logged in, show the main page.")
+            if ( !RealmManager.shared.isStudent() ){
+                //This user has not entered a email make this controller
+                let vc = PilotExcusionViewController(nibName: "PilotExcusionViewController", bundle: nil)
+                self.window?.rootViewController = vc
+            }
         }
         else{
             //print("Either have the user log in or sign in through facebook")
@@ -102,9 +106,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
             let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "onboard4.jpg"), contents: [firstPage, secondPage, thirdPage, fourthPage])
             onboardingVC?.view.backgroundColor = .blue
             onboardingVC?.allowSkipping = true;
-            
+        
             //Set the root view controller
             self.window?.rootViewController = onboardingVC
+            
         }
         return true
     }

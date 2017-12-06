@@ -35,14 +35,11 @@ class RealmManager {
         //Check if there is loggedin user for the app
         getLoggedInUser()
         
-        //If there is, set logged in
-        if  ( selfUser != nil ) {
-            self.loggedIn = true
-        }
-        else{
+        if ( self.selfUser == nil){
             self.selfUser = loggedInUser()
         }
 
+        self.loggedIn = false
     }
     
     //Save profile image
@@ -55,7 +52,7 @@ class RealmManager {
             }
         }
         print("Error saving image")
-
+        
     }
     
     func loadImage(fileName: String) -> UIImage? {
@@ -76,7 +73,7 @@ class RealmManager {
     
     @objc func getLoggedInUser() {
         if( self.realm.objects(loggedInUser.self).count > 0 ) {
-           self.selfUser = self.realm.objects( loggedInUser.self )[0]  //There should only be one
+            self.selfUser = self.realm.objects( loggedInUser.self )[0]  //There should only be one
         }else{
         }
     }
@@ -91,10 +88,10 @@ class RealmManager {
             realm.add(user)
         }
         getLoggedInUser()
-
+        
     }
     
-     func updateLoggedInUser(loggedInUser: loggedInUser, user: User) {
+    func updateLoggedInUser(loggedInUser: loggedInUser, user: User) {
         
         try! realm.write {
             if ( self.selfUser != nil ){
@@ -154,6 +151,7 @@ class RealmManager {
         if let user = self.selfUser {
             Network.shared.updateNotificationToken(token: tokenstring)
         }
+        
     }
     
     func userKey() -> String{
@@ -190,6 +188,7 @@ class RealmManager {
             self.selfUser?.email = email
             realm.add( self.selfUser! )
         }
+        getLoggedInUser()
     }
     
     func logout(){
@@ -205,28 +204,60 @@ class RealmManager {
             self.selfUser?.currentTripDate = eta
             realm.add( self.selfUser! )
         }
+        getLoggedInUser()
     }
     
     func driverCanBePaidOut() -> Bool {
-        if (self.selfUser.lastFour != nil
-            && self.selfUser.dateOfBirth != nil
-            && self.selfUser.billingAddress != nil){
+        if (self.selfUser?.lastFour != nil
+            && self.selfUser?.dateOfBirth != nil
+            && self.selfUser?.billingAddress != nil){
             return true
         }
         else{
             return false
         }
-        
+    }
+    
+    func isStudent() -> Bool{
+        return self.selfUser!.studentEmail != nil ? true : false
+    }
+    
+    func setStudentEmail(email: String){
+        try! realm.write {
+            self.selfUser?.studentEmail = email
+            self.selfUser?.email = email
+            realm.add( self.selfUser! )
+        }
+        getLoggedInUser()
+    }
+    
+    
+    func saveDriverInfo(id: String, dob: String, creditCardInfo: CreditCardInfo, addy:  PostalAddress){
+
+        try! realm.write {
+            //Set Billing Address
+            self.selfUser?.billingAddress = address()
+            self.selfUser?.billingAddress?.address1 = addy.street!
+            self.selfUser?.billingAddress?.city = addy.city!
+            self.selfUser?.billingAddress?.state = addy.state!
+            self.selfUser?.billingAddress?.postalCode = addy.postalCode!
+            
+            //Set Stripe Card ID
+            self.selfUser?.cardId = id
+            
+            //Set Date of birth
+            self.selfUser?.dateOfBirth = dob
+            
+            //Save Credit Card Information
+            self.selfUser?.currentCard = card()
+            self.selfUser?.currentCard?.number = creditCardInfo.creditCardNumber!
+            self.selfUser?.currentCard?.cvv = creditCardInfo.cvv!
+            self.selfUser?.currentCard?.exp = creditCardInfo.expiration!
+            
+            realm.add( self.selfUser! )
+        }
+        getLoggedInUser()
+    }
 }
 
-//    // Query and update from any thread
-//    DispatchQueue(label: "background").async {
-//    autoreleasepool {
-//    let realm = try! Realm()
-//    let theDog = realm.objects(Dog.self).filter("age == 1").first
-//    try! realm.write {
-//    theDog!.age = 3
-//    }
-//    }
-//    }
 

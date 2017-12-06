@@ -66,7 +66,6 @@ class FriendProfileViewController: UIViewController , FeedPostDelegate {
     }
     
     @objc func fetchUserFeed(){
-        print("there is no key here")
         Network.shared.getUserFeed(user_key: self.user.key).then { feed -> Void in
             //Set the post to the user
 

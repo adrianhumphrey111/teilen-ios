@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PilotCheckViewController" customModule="Teilen" customModuleProvider="target">
+            <connections>
+                <outlet property="continuebutton" destination="HzY-WC-MIv" id="d7V-0A-Pi9"/>
+                <outlet property="emailTextField" destination="gE5-FX-2mg" id="joF-Ki-uHX"/>
+                <outlet property="noemailButton" destination="6C6-Sk-dvL" id="mqg-F7-qyB"/>
+                <outlet property="view" destination="WAQ-HC-gxq" id="p25-M5-ySE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="WAQ-HC-gxq">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="469"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Bs-a8-uk3">
+                    <rect key="frame" x="0.0" y="0.0" width="426" height="395"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THANK YOU FOR USING TEILEN!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qP2-FR-KFv">
+                            <rect key="frame" x="0.0" y="25" width="426" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6C6-Sk-dvL">
+                            <rect key="frame" x="20" y="334" width="386" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="CAc-tB-IZ0"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="notifyAction:" destination="-1" eventType="touchUpInside" id="hdH-AE-i32"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EDW-ZN-D1k">
+                            <rect key="frame" x="15" y="49" width="381" height="170"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="170" id="C4U-MG-3xw"/>
+                            </constraints>
+                            <string key="text">This is currently a PILOT only for SBCC and UCSB students. Please enter your @pipeline.sbcc.edu or @umail.ucsb.edu email below to continue.</string>
+                            <color key="textColor" red="0.16237045258934002" green="0.16237045258934002" blue="0.16237045258934002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gE5-FX-2mg">
+                            <rect key="frame" x="15" y="234" width="381" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzY-WC-MIv">
+                            <rect key="frame" x="20" y="279" width="386" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="84F-Wc-Z2t"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="continueAction:" destination="-1" eventType="touchUpInside" id="xqd-0k-pt2"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="6C6-Sk-dvL" firstAttribute="leading" secondItem="3Bs-a8-uk3" secondAttribute="leading" constant="20" id="0AA-bv-Ajc"/>
+                        <constraint firstItem="qP2-FR-KFv" firstAttribute="leading" secondItem="3Bs-a8-uk3" secondAttribute="leading" id="34Z-Yb-alW"/>
+                        <constraint firstAttribute="trailing" secondItem="gE5-FX-2mg" secondAttribute="trailing" constant="30" id="7kF-DJ-Koc"/>
+                        <constraint firstAttribute="height" constant="395" id="Dkp-1p-GvC"/>
+                        <constraint firstAttribute="trailing" secondItem="qP2-FR-KFv" secondAttribute="trailing" id="JSP-bv-ZIn"/>
+                        <constraint firstItem="HzY-WC-MIv" firstAttribute="leading" secondItem="3Bs-a8-uk3" secondAttribute="leading" constant="20" id="NFo-53-Grh"/>
+                        <constraint firstItem="gE5-FX-2mg" firstAttribute="top" secondItem="EDW-ZN-D1k" secondAttribute="bottom" constant="15" id="Oy1-9g-TXX"/>
+                        <constraint firstItem="qP2-FR-KFv" firstAttribute="centerX" secondItem="3Bs-a8-uk3" secondAttribute="centerX" constant="-6" id="PI2-9M-7Q9"/>
+                        <constraint firstItem="EDW-ZN-D1k" firstAttribute="leading" secondItem="3Bs-a8-uk3" secondAttribute="leading" constant="15" id="QiT-cZ-Yjs"/>
+                        <constraint firstAttribute="trailing" secondItem="EDW-ZN-D1k" secondAttribute="trailing" constant="30" id="QyM-Dx-hTH"/>
+                        <constraint firstItem="qP2-FR-KFv" firstAttribute="top" secondItem="3Bs-a8-uk3" secondAttribute="top" constant="25" id="RhG-SM-J8w"/>
+                        <constraint firstItem="gE5-FX-2mg" firstAttribute="leading" secondItem="3Bs-a8-uk3" secondAttribute="leading" constant="15" id="cuT-ak-CWn"/>
+                        <constraint firstItem="EDW-ZN-D1k" firstAttribute="top" secondItem="qP2-FR-KFv" secondAttribute="bottom" id="heR-dF-XmP"/>
+                        <constraint firstAttribute="trailing" secondItem="6C6-Sk-dvL" secondAttribute="trailing" constant="20" id="pbd-zp-SJd"/>
+                        <constraint firstItem="HzY-WC-MIv" firstAttribute="top" secondItem="gE5-FX-2mg" secondAttribute="bottom" constant="15" id="raQ-KH-jgv"/>
+                        <constraint firstItem="6C6-Sk-dvL" firstAttribute="top" secondItem="HzY-WC-MIv" secondAttribute="bottom" constant="10" id="uAG-qp-TPX"/>
+                        <constraint firstAttribute="trailing" secondItem="HzY-WC-MIv" secondAttribute="trailing" constant="20" id="wpb-y8-ysQ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="3Bs-a8-uk3" secondAttribute="trailing" constant="-10" id="XOR-Qm-TJo"/>
+                <constraint firstItem="3Bs-a8-uk3" firstAttribute="leading" secondItem="WAQ-HC-gxq" secondAttribute="leading" id="Y3i-H9-Z5x"/>
+                <constraint firstItem="3Bs-a8-uk3" firstAttribute="top" secondItem="WAQ-HC-gxq" secondAttribute="top" id="Z0O-Bm-xKM"/>
+                <constraint firstAttribute="bottom" secondItem="3Bs-a8-uk3" secondAttribute="bottom" id="rWx-69-1tK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="uky-3I-xZj"/>
+            <point key="canvasLocation" x="326" y="411.5"/>
+        </view>
+    </objects>
+</document>

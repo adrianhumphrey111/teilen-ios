@@ -86,9 +86,8 @@ class ProfileViewController : UIViewController {
     }
     
     func showPayment(){
-        print("We are now on the payment page, push the view controller for payments")
         //Setup payment methods view controller
-        let vc = STPPaymentMethodsViewController(configuration: STPPaymentConfiguration.shared(), theme: STPTheme.default(), customerContext: PaymentManager.shared.customerContext, delegate: self)
+        let vc = DriverPayoutViewController()
         self.tabBarController?.tabBar.isHidden = true
         
         // Present add card view controller
@@ -109,10 +108,9 @@ class ProfileViewController : UIViewController {
                     return
                 }
                 //Save the user
-                print(self.selfUser)
                 RealmManager.shared.updateLoggedInUser(loggedInUser: self.selfUser, user: user )
-            
-                
+                print(RealmManager.shared.selfUser!)
+                self.selfUser = RealmManager.shared.selfUser!
                 self.posts = feed.posts as! [Post]
             }
             

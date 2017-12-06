@@ -25,6 +25,7 @@ final class LabelSectionController: ListSectionController {
     }
     
     override func didSelectItem(at index: Int) {
+        print("not selecting user")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
         vc.user = self.user!
