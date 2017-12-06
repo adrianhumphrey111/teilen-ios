@@ -118,6 +118,7 @@
 		52CFFF081FB7DF2700F93951 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CFFF071FB7DF2700F93951 /* FBSDKLoginKit.framework */; };
 		52CFFF0A1FB7E24600F93951 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CFFF091FB7E24500F93951 /* Bolts.framework */; };
 		52CFFF0C1FB7E50F00F93951 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CFFF0B1FB7E50E00F93951 /* OnBoarding.storyboard */; };
+		52DAEA591FD8B75D00D7C0F9 /* FacebookPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DAEA581FD8B75D00D7C0F9 /* FacebookPresentationViewController.swift */; };
 		52DC32791FB547CE00A1DF6A /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC32781FB547CE00A1DF6A /* Car.swift */; };
 		52DEF50A1FC3D6DD00FF37BC /* IGListFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEF5091FC3D6DD00FF37BC /* IGListFeedViewController.swift */; };
 		52DEF50D1FC3E55400FF37BC /* DriverPostSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEF50C1FC3E55400FF37BC /* DriverPostSectionController.swift */; };
@@ -284,6 +285,7 @@
 		52CFFF071FB7DF2700F93951 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		52CFFF091FB7E24500F93951 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		52CFFF0B1FB7E50E00F93951 /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
+		52DAEA581FD8B75D00D7C0F9 /* FacebookPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookPresentationViewController.swift; sourceTree = "<group>"; };
 		52DC32781FB547CE00A1DF6A /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		52DEF5091FC3D6DD00FF37BC /* IGListFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGListFeedViewController.swift; sourceTree = "<group>"; };
 		52DEF50C1FC3E55400FF37BC /* DriverPostSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPostSectionController.swift; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 			children = (
 				52C03C411FB9604D00E06CE4 /* LoginCooridinator.swift */,
 				52C03C431FB9726600E06CE4 /* InitialViewController.swift */,
+				52DAEA581FD8B75D00D7C0F9 /* FacebookPresentationViewController.swift */,
 			);
 			path = "Login ";
 			sourceTree = "<group>";
@@ -1180,6 +1183,7 @@
 				5267D6331FCC445F000C5B46 /* FriendInfoCollectionViewCell.swift in Sources */,
 				401570E01FC4EC68002CA7D6 /* DriverButtonCollectionViewCell.swift in Sources */,
 				52DEF50A1FC3D6DD00FF37BC /* IGListFeedViewController.swift in Sources */,
+				52DAEA591FD8B75D00D7C0F9 /* FacebookPresentationViewController.swift in Sources */,
 				5239434F1FC70748006E73B8 /* NotificationSectionController.swift in Sources */,
 				52404AFB1FB1165D00AD64FA /* Extensions.swift in Sources */,
 				52404AFD1FB11C0100AD64FA /* Address.swift in Sources */,

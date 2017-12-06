@@ -35,42 +35,51 @@ class DriverPayoutViewController: FormViewController {
         let creditCardObj = dict["creditCard"] as! CreditCardInfo
         let addressObj = dict["address"] as! PostalAddress
         
-        //Dict to send to the appi
-        var legalEntity : [String : Any] = [:]
-        var dobDict : [String : Any] = [:]
-        var address : [String : Any] = [:]
-        var creditCard : [String : Any ] = [:]
+        if ( creditCardObj.expiration != nil
+            && creditCardObj.creditCardNumber != nil
+            && creditCardObj.cvv != nil
+            && addressObj.street != nil
+            && addressObj.city != nil
+            && addressObj.postalCode != nil){
+            
+            //Dict to send to the appi
+            var legalEntity : [String : Any] = [:]
+            var dobDict : [String : Any] = [:]
+            var address : [String : Any] = [:]
+            var creditCard : [String : Any ] = [:]
+            
+            //Set up birthdate
+            dobDict["day"] = dobDate
+            dobDict["month"] = dobMonth
+            dobDict["year"] = dobYear
+            legalEntity["dob"] = dobDict
+            
+            //Set up address
+            address["city"] = addressObj.city!
+            address["state"] = addressObj.state!
+            address["postal_code"] = addressObj.postalCode!
+            address["line1"] = addressObj.street!
+            legalEntity["address"] = address
+            
+            //Set up the credit card
+            let exp = creditCardObj.expiration?.components(separatedBy: "-")
+            creditCard["number"] = creditCardObj.creditCardNumber!
+            creditCard["cvv"] = creditCardObj.cvv!
+            creditCard["exp_month"] = exp?[0]
+            creditCard["exp_year"] = exp?[1]
+            legalEntity["credit_card"] = creditCard
+            
+            //Set SSN
+            legalEntity["last_four"] = lastFour as! String
+            
+            //Set Stripe Id
+            legalEntity["stripe_id"] = RealmManager.shared.selfUser!.stripeAccountId
+            
+            print(legalEntity)
+            
+            Network.shared.addDriverPayoutInfo(dict: legalEntity, dob: result, creditCardInfo: creditCardObj, address:  addressObj)
+        }
         
-        //Set up birthdate
-        dobDict["day"] = dobDate
-        dobDict["month"] = dobMonth
-        dobDict["year"] = dobYear
-        legalEntity["dob"] = dobDict
-        
-        //Set up address
-        address["city"] = addressObj.city!
-        address["state"] = addressObj.state!
-        address["postal_code"] = addressObj.postalCode!
-        address["line1"] = addressObj.street!
-        legalEntity["address"] = address
-        
-        //Set up the credit card
-        let exp = creditCardObj.expiration!.components(separatedBy: "-")
-        creditCard["number"] = creditCardObj.creditCardNumber!
-        creditCard["cvv"] = creditCardObj.cvv!
-        creditCard["exp_month"] = exp[0]
-        creditCard["exp_year"] = exp[1]
-        legalEntity["credit_card"] = creditCard
-        
-        //Set SSN
-        legalEntity["last_four"] = lastFour as! String
-        
-        //Set Stripe Id
-        legalEntity["stripe_id"] = RealmManager.shared.selfUser!.stripeAccountId
-        
-        print(legalEntity)
-        
-        Network.shared.addDriverPayoutInfo(dict: legalEntity, dob: result, creditCardInfo: creditCardObj, address:  addressObj)
         
     }
     
@@ -81,7 +90,7 @@ class DriverPayoutViewController: FormViewController {
         
         self.tabBarController?.tabBar.isHidden = false
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,13 +101,20 @@ class DriverPayoutViewController: FormViewController {
             <<< PasswordRow(){ row in
                 row.title = "Last Four of SSN"
                 row.tag = "lastfour"
+                row.value = user.lastFour != nil ? user.lastFour : ""
             }
-        
+            
             +++ Section("Birth Date")
             <<< DateRow(){
                 $0.title = "Birth Date"
-                $0.value = Date(timeIntervalSinceReferenceDate: 0)
+                //Convert Date
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd.MM.yyyy" //Your date format
+                dateFormatter.timeZone = TimeZone.current //Current time zone
+                
+                $0.value = user.dateOfBirth != nil ? dateFormatter.date(from: user.dateOfBirth!) : Date(timeIntervalSinceReferenceDate: 0)
                 $0.tag = "birthdate"
+                //according to date format your date string
             }
             
             +++ Section("Debit Card to Recieve Funds")
@@ -108,6 +124,7 @@ class DriverPayoutViewController: FormViewController {
                 $0.expirationSeparator = "-"
                 $0.maxCreditCardNumberLength = 16
                 $0.maxCVVLength = 3
+                
             }
             
             +++ Section("Billing Address")
@@ -118,9 +135,14 @@ class DriverPayoutViewController: FormViewController {
                 $0.cityPlaceholder = "City"
                 $0.countryPlaceholder = "Country"
                 $0.postalCodePlaceholder = "Zip code"
-            }
-
+                $0.value = PostalAddress()
+                $0.value?.city = user.billingAddress?.city != nil ? user.billingAddress?.city : ""
+                $0.value?.street = user.billingAddress?.address1 != nil ? user.billingAddress?.address1 : ""
+                $0.value?.state = user.billingAddress?.state != nil ? user.billingAddress?.state : ""
+                $0.value?.postalCode = user.billingAddress?.postalCode != nil ? user.billingAddress?.postalCode : ""
+        }
+        
     }
-
-
+    
+    
 }

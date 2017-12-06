@@ -628,6 +628,7 @@ class Network {
                 }
             case .failure(let error):
                 print(error)
+                 RealmManager.shared.saveDriverInfo(id: nil, dob: dob, creditCardInfo: creditCardInfo, addy: address)
             }
         }
     }

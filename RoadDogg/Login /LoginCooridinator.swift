@@ -132,6 +132,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     override func didSelectFacebook(_ viewController: UIViewController) {
         
         let loginManager = FBSDKLoginManager()
+        var top: UIViewController? = UIApplication.shared.keyWindow?.rootViewController
         loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], from: self.rootViewController) { (result , error) in
             if ( error == nil ){
                 //Show the progress of signing in with facebook

@@ -14,12 +14,22 @@ class InitialViewController: UIViewController, PilotDelegate {
     lazy var loginCoordinator: LoginCoordinator = {
         return LoginCoordinator(rootViewController: self)
     }()
+    var vc = FacebookPresentationViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addChildViewController(vc)
+        vc.view.frame = self.view.frame
+        view.addSubview(vc.view)
+        vc.didMove(toParentViewController: self)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
+        loginCoordinator.rootViewController = vc
         loginCoordinator.start()
     }
     

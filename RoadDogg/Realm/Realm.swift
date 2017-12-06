@@ -210,7 +210,8 @@ class RealmManager {
     func driverCanBePaidOut() -> Bool {
         if (self.selfUser?.lastFour != nil
             && self.selfUser?.dateOfBirth != nil
-            && self.selfUser?.billingAddress != nil){
+            && self.selfUser?.billingAddress != nil
+            && self.selfUser?.cardId != nil){
             return true
         }
         else{
@@ -232,7 +233,7 @@ class RealmManager {
     }
     
     
-    func saveDriverInfo(id: String, dob: String, creditCardInfo: CreditCardInfo, addy:  PostalAddress){
+    func saveDriverInfo(id: String?, dob: String, creditCardInfo: CreditCardInfo, addy:  PostalAddress){
 
         try! realm.write {
             //Set Billing Address
