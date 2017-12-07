@@ -133,7 +133,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
         
         let loginManager = FBSDKLoginManager()
         var top: UIViewController? = UIApplication.shared.keyWindow?.rootViewController
-        loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], from: self.rootViewController) { (result , error) in
+        loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], from: nil) { (result , error) in
             if ( error == nil ){
                 //Show the progress of signing in with facebook
                 HUD.show(.label("Creating Account..."))
@@ -147,8 +147,6 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                         //Save user to persistence
                         self.saveUserToDatabase(user: user, userKey: userKey, accId: stripeAccountId, custId: customerId)
                         
-                        //Hide the HUD
-                        HUD.hide()
                         
                         //Either way show the new screen
                         let root = self.rootViewController as! InitialViewController
@@ -165,6 +163,9 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
                 print("ERROR: Logging In With Facebook => " , error as Any)
             }
         }
+        
+        //Hide the HUD
+        HUD.hide()
     }
     
     func parseName(name: String) -> [String]{

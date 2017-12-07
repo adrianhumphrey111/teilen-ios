@@ -339,6 +339,7 @@ class Network {
         let url = "\(self.baseurl)/reserveSeat"
         let params : [String : Any] = ["user_key": self.user_key,
                                        "post_key": postKey]
+        print(params)
         return Promise { fulfill, reject in
             Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
                 switch response.result {

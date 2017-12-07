@@ -54,6 +54,13 @@ class PopupManager {
         return popup
     }
     
+    public func checkDriverPayout() -> PopupDialog{
+        // Prepare the popup
+        let vc = DriverCheckPayoutViewController(nibName: "DriverCheckPayoutViewController", bundle: nil)
+        // Create the dialog
+        let popup = PopupDialog(viewController: vc, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
+        return popup
+    }
 }
 
 

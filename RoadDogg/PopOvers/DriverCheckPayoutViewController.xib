@@ -26,8 +26,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="426" height="390"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We Need To Be Able To Pay You!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMs-Xj-27D">
-                            <rect key="frame" x="44" y="25" width="326.5" height="26.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            <rect key="frame" x="58" y="25" width="298.5" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -35,7 +35,7 @@
                             <rect key="frame" x="15" y="67" width="396" height="166.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="175" id="AHl-oX-uep"/>
+                                <constraint firstAttribute="height" constant="200" id="AHl-oX-uep"/>
                             </constraints>
                             <string key="text">When making a driving post, riders will be able to request a reservation in your car. Upon your approval, they will be charged the asking price. You will get paid the instant the trip starts. However we need some additional info in order for you to get paid. We only need this once.</string>
                             <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -43,9 +43,9 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6O-nU-fdm">
-                            <rect key="frame" x="10" y="320" width="396" height="60"/>
+                            <rect key="frame" x="10" y="340" width="396" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="60" id="Czu-5J-bNe"/>
+                                <constraint firstAttribute="height" constant="40" id="Czu-5J-bNe"/>
                             </constraints>
                             <state key="normal" title="Button"/>
                             <connections>
@@ -53,9 +53,9 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UR-Tg-U2m">
-                            <rect key="frame" x="10" y="250" width="396" height="60"/>
+                            <rect key="frame" x="10" y="290" width="396" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="60" id="IFe-BR-IRu"/>
+                                <constraint firstAttribute="height" constant="40" id="IFe-BR-IRu"/>
                             </constraints>
                             <state key="normal" title="Button"/>
                             <connections>
@@ -65,7 +65,7 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="cMs-Xj-27D" firstAttribute="top" secondItem="G8P-6j-aj7" secondAttribute="top" constant="25" id="A9N-zJ-GT1"/>
-                        <constraint firstItem="cBR-NY-XwJ" firstAttribute="top" secondItem="cMs-Xj-27D" secondAttribute="bottom" constant="15" id="Elo-Vn-OxA"/>
+                        <constraint firstItem="cBR-NY-XwJ" firstAttribute="top" secondItem="cMs-Xj-27D" secondAttribute="bottom" constant="5" id="Elo-Vn-OxA"/>
                         <constraint firstAttribute="bottom" secondItem="B6O-nU-fdm" secondAttribute="bottom" constant="10" id="Lrk-Lo-OJg"/>
                         <constraint firstAttribute="trailing" secondItem="7UR-Tg-U2m" secondAttribute="trailing" constant="20" id="Nu7-k4-0wR"/>
                         <constraint firstItem="B6O-nU-fdm" firstAttribute="top" secondItem="7UR-Tg-U2m" secondAttribute="bottom" constant="10" id="P4t-1N-D8Q"/>

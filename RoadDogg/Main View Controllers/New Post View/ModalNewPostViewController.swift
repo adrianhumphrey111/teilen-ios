@@ -37,7 +37,22 @@ enum LeaveTime {
     case ARRIVAL
 }
 
-class ModalNewPostViewController: UIViewController {
+class ModalNewPostViewController: UIViewController, CheckDriverDelegate {
+    
+    //MARK CheckDriverDelegate
+    func showDriverPayout(){
+   
+            print("Delegate was recieved")
+            self.tabBarController?.selectedIndex = 4
+            if let navController = self.tabBarController?.viewControllers![4] as? UINavigationController{
+                if let vc = navController.viewControllers[0] as? ProfileViewController{
+                    self.dismiss(animated: true, completion: {
+                        vc.showDriverPayout()
+                    })
+                }
+        }
+        
+    }
     
     //ENUMS
     var status = Status.INITIAL
@@ -616,21 +631,33 @@ class ModalNewPostViewController: UIViewController {
     
     
     @IBAction func drivingAction(_ sender: Any) {
-        //Set the status of the post
-        status = Status.TYPECHOSEN
-        trip = TypeOfTrip.DRIVING
+        //Check if the user can make a driving post
+        if ( RealmManager.shared.driverCanBePaidOut() ){
+            //Set the status of the post
+            status = Status.TYPECHOSEN
+            trip = TypeOfTrip.DRIVING
+            
+            //Animation
+            animateTopButtonUP(button: "driving")
+            animateOFF(obj: "ridingButton")
+            animateON(obj: "startDestination")
+            
+            //Show back button
+            self.backButton.isHidden = false
+            nextButton.isHidden = false
+            
+            //Show the keyboard
+            startLocationTextField.becomeFirstResponder()
+        }else{
+            //show the pop up and take the user to the page
+            let popup = PopupManager.shared.checkDriverPayout()
+            if let vc = popup.viewController as? DriverCheckPayoutViewController {
+                vc.delegate = self
+            }
+            self.present(popup, animated: true, completion: nil)
+        }
         
-        //Animation
-        animateTopButtonUP(button: "driving")
-        animateOFF(obj: "ridingButton")
-        animateON(obj: "startDestination")
         
-        //Show back button
-        self.backButton.isHidden = false
-        nextButton.isHidden = false
-        
-        //Show the keyboard
-        startLocationTextField.becomeFirstResponder()
     }
     
     func next(){

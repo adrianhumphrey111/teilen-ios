@@ -85,9 +85,19 @@ class ProfileViewController : UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
     }
     
-    func showPayment(){
+    func showDriverPayout(){
         //Setup payment methods view controller
         let vc = DriverPayoutViewController()
+        
+        self.tabBarController?.tabBar.isHidden = true
+        
+        // Present add card view controller
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showPayment(){
+        //Setup payment methods view controller
+        let vc = STPPaymentMethodsViewController(configuration: STPPaymentConfiguration.shared(), theme: STPTheme.default(), customerContext: PaymentManager.shared.customerContext, delegate: self)
         self.tabBarController?.tabBar.isHidden = true
         
         // Present add card view controller
