@@ -34,7 +34,7 @@ extension CommentsSectionsController {
         let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18 )]
         let estiamtedFrame = NSString( string: text ).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         let estimatedHeight = estiamtedFrame.height
-        return CGSize(width: cellWidth, height: estiamtedFrame.height + 40)
+        return CGSize(width: cellWidth, height: estiamtedFrame.height + 55)
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
@@ -49,12 +49,11 @@ extension CommentsSectionsController {
     }
     
     override func didSelectItem(at index: Int) {
-        switch index{
-        case 0:
-            print("header view")
-        default:
-            return
-        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier :"FriendProfile") as! FriendProfileViewController
+        vc.user = self.comment.user
+        vc.profileArray.append( self.comment.user as AnyObject )
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
     
     func configureCommentCell(cell: UICollectionViewCell, ndx: Int){

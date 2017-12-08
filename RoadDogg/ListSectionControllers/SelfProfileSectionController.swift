@@ -115,7 +115,10 @@ extension SelfProfileSectionController  {
     func configureStartTripButtonCell(cell: UICollectionViewCell){
         if let cell = cell as? StartTripButtonCell{
             cell.delegate = self
-            cell.startButton.setTitle("Start Your Trip to \(self.user!.currentTripDestinationCity!)", for: .normal)
+            if let city = self.user.currentTripDestinationCity {
+                cell.startButton.setTitle("Start Your Trip to \(city)", for: .normal)
+            }
+            
         }
     }
     
