@@ -194,18 +194,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         if (viewController is NewPostViewController) {
             let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPost") as? ModalNewPostViewController
             
-            if let navController = self.tabBarController?.viewControllers![4] as? UINavigationController{
-                if let vc = navController.viewControllers[0] as? ProfileViewController{
-                    self.dismiss(animated: true, completion: {
-                        vc.showDriverPayout()
-                    })
+            if let navController = tabBarController.viewControllers![0] as? UINavigationController{
+                if let feedVc = navController.viewControllers[0] as? IGListFeedViewController{
+                    vc?.delegate = feedVc
                 }
             }
-            
-            if let navController = tabBarController.viewControllers[0] as? UINavigationController{
-                if let modal
-            }
-            tabBarController.present(vc, animated: true, completion: nil)
+            tabBarController.present(vc!, animated: true, completion: nil)
             return false
         }
         return true

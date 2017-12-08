@@ -16,6 +16,7 @@ class DriverCheckPayoutViewController: UIViewController {
 
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var textView: UITextView!
     
     var delegate : CheckDriverDelegate?
     
@@ -32,6 +33,26 @@ class DriverCheckPayoutViewController: UIViewController {
         cancelButton.setTitleColor(.white, for: .normal)
         cancelButton.backgroundColor = UIColor().colorWithHexString(hex: "#76D2CE", alpha: 1.0)
         cancelButton.layer.cornerRadius = 8
+        
+        var text = "When making a driving post, riders will be able to request a reservation in your car. Upon your approval, they will be charged the asking price. You will get paid the instant the trip starts. However we need some additional info in order for you to get paid. We only need this once. We still need your:\n"
+        if ( RealmManager.shared.selfUser!.lastFour == nil ){
+            text += "Last Four SSN.\n"
+        }
+        
+        if ( RealmManager.shared.selfUser!.billingAddress == nil ){
+            text += "Billing Address. \n"
+        }
+        
+        if ( RealmManager.shared.selfUser!.dateOfBirth == nil ){
+            text += "Birthdate. \n"
+        }
+        
+        if ( RealmManager.shared.selfUser!.currentCard == nil ){
+            text += "Debit Card For Payout."
+        }
+        
+        //Tell the user what we still need from them in order to be paid out
+        textView.text = text
     }
 
     @IBAction func continueAction(_ sender: Any) {

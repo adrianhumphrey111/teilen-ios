@@ -33,11 +33,19 @@ public struct Address {
     }
     
     init(address: [String: AnyObject]){
-        self.address1 = address["address1"] as! String
-        self.address2 = address["address2"] as! String
-        self.city = address["city"] as! String
-        self.state = address["state"] as! String
+        if let one = address["address1"] as? String{
+            self.address1 = one
+        }
+        if let two = address["address2"] as? String{
+            self.address2 = two
+        }
         
+        if let city = address["city"] as? String{
+            self.city = city
+        }
+        if let state = address["state"] as? String{
+            self.state = state
+        }
         if let lat = address["latitude"] as? Float {
             self.latitude = lat
         }

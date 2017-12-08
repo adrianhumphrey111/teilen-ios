@@ -12,8 +12,8 @@ import IGListKit
 import Reusable
 import SDWebImage
 
-class SelfProfileSectionController : ListSectionController, ProfileActionDelegate{
-    
+class SelfProfileSectionController : ListSectionController, ProfileActionDelegate, StartTripDelegate{
+
     var user : loggedInUser!
     
     override init(){
@@ -37,7 +37,7 @@ class SelfProfileSectionController : ListSectionController, ProfileActionDelegat
 extension SelfProfileSectionController  {
     
     override func numberOfItems() -> Int {
-        return 3
+        return 4
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
@@ -50,6 +50,13 @@ extension SelfProfileSectionController  {
         case 2:
             if let car = self.user.car{
                 return CGSize(width: cellWidth, height: 150)
+            }
+            else{
+                return CGSize(width: cellWidth, height: 0)
+            }
+        case 3:
+            if let currentTrip = self.user.currentTripKey {
+                return CGSize(width: cellWidth, height: 65)
             }
             else{
                 return CGSize(width: cellWidth, height: 0)
@@ -78,6 +85,11 @@ extension SelfProfileSectionController  {
             let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
             configureFriendCarCell( cell: cell )
             return cell
+        case 3:
+            let cellClass : String = StartTripButtonCell.reuseIdentifier
+            let cell = collectionContext!.dequeueReusableCell(withNibName: cellClass, bundle: Bundle.main, for: self, at: index)
+            configureStartTripButtonCell( cell: cell )
+            return cell
         default:
             return UICollectionViewCell()
         }
@@ -91,6 +103,20 @@ extension SelfProfileSectionController  {
     
     override func didSelectItem(at index: Int) {
         //Nothing
+    }
+    
+    func startTrip() {
+        //Sho the start trip view controller
+        if let vc = self.viewController as? ProfileViewController{
+            vc.showActiveTrip()
+        }
+    }
+    
+    func configureStartTripButtonCell(cell: UICollectionViewCell){
+        if let cell = cell as? StartTripButtonCell{
+            cell.delegate = self
+            cell.startButton.setTitle("Start Your Trip to \(self.user!.currentTripDestinationCity!)", for: .normal)
+        }
     }
     
     func configureFriendHeadCell(cell: UICollectionViewCell){

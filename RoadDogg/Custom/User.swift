@@ -21,6 +21,7 @@ final class User{
     var notification_token : String = ""
     var posts : [AnyObject] = []
     var car : Car?
+    var currentTrip : Trip?
     var rating: Float!
     var numberOfTrips: Int = 0
     var numberOfFriends : Int = 0
@@ -61,6 +62,10 @@ final class User{
         }
         if let car = user["car"] as? [String: AnyObject]{
             self.car = Car( car: car)
+        }
+        
+        if let trip = user["current_trip"] as? [String: AnyObject]{
+            self.currentTrip = Trip(trip: trip)
         }
     }
     

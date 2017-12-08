@@ -37,22 +37,22 @@ enum LeaveTime {
     case ARRIVAL
 }
 
+protocol ModalNewPostDelegate{
+    func showDriverPayout()
+}
+
 class ModalNewPostViewController: UIViewController, CheckDriverDelegate {
     
     //MARK CheckDriverDelegate
     func showDriverPayout(){
-   
-            print("Delegate was recieved")
-            self.tabBarController?.selectedIndex = 4
-            if let navController = self.tabBarController?.viewControllers![4] as? UINavigationController{
-                if let vc = navController.viewControllers[0] as? ProfileViewController{
-                    self.dismiss(animated: true, completion: {
-                        vc.showDriverPayout()
-                    })
-                }
+        self.dismiss(animated: true) {
+            self.delegate?.showDriverPayout()
         }
-        
-    }
+}
+
+
+    //Delegate
+var delegate : ModalNewPostDelegate?
     
     //ENUMS
     var status = Status.INITIAL

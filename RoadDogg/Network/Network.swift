@@ -612,7 +612,7 @@ class Network {
     func addDriverPayoutInfo(dict: [String : Any], dob: String, creditCardInfo: CreditCardInfo, address:  PostalAddress){
         let url = "\(self.baseurl)/updateDriverPayment"
         //Make call to the API
-        
+        let lastFour = dict["last_four"] as! String
         Alamofire.request(url, method: .post, parameters: dict, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             switch response.result {
             case .success:
@@ -621,7 +621,8 @@ class Network {
                     let json = result as! [String:Any]
                     if let cardId = json["card_id"] as? String{
                         //The card was saved successfully, save the users payout information to the database
-                        RealmManager.shared.saveDriverInfo(id: cardId, dob: dob, creditCardInfo: creditCardInfo, addy: address)
+                        
+                        RealmManager.shared.saveDriverInfo(id: cardId, dob: dob, creditCardInfo: creditCardInfo, addy: address, lastFour: lastFour)
                     }
                     
                     
@@ -629,8 +630,51 @@ class Network {
                 }
             case .failure(let error):
                 print(error)
-                 RealmManager.shared.saveDriverInfo(id: nil, dob: dob, creditCardInfo: creditCardInfo, addy: address)
+                 RealmManager.shared.saveDriverInfo(id: nil, dob: dob, creditCardInfo: creditCardInfo, addy: address, lastFour: lastFour)
             }
+        }
+    }
+    
+    func fetchCurrentTrip(tripKey: String) -> Promise<[User]>{
+        let url = "\(self.baseurl)/currentTripInfo?trip_key=\(tripKey)"
+        var usersToReturn : [User] = []
+        return Promise { fulfill, reject in
+            //Make call to the API
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+                switch response.result {
+                case .success:
+                    //get response
+                    if let result = response.result.value{
+                        let users = result as! [[String:Any]]
+                        for user in users{
+                            usersToReturn.append( User(user: (user as? [String: Any])!))
+                        }
+                        fulfill( usersToReturn )
+                    }
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }
+    }
+    
+    func saveStartLocation(postKey: String, address: Address){
+        let url = "\(self.baseurl)/setRiderPickup"
+        let params : [String : Any] = ["post_key" : postKey,
+                                       "user_key" : self.user_key,
+                                       "address" : address.to_dict()]
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+                switch response.result {
+                case .success:
+                    //get response
+                    if let result = response.result.value{
+                        let json = result as! [String:Any]
+                        print( json )
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            
         }
     }
     

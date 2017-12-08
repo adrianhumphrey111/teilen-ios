@@ -119,6 +119,11 @@ class DriverPayoutViewController: FormViewController {
             
             +++ Section("Debit Card to Recieve Funds")
             <<< CreditCardRow() {
+                if let creditcard = user.currentCard as? card {
+                    let last4 = creditcard.number.suffix(4)
+                    $0.value?.creditCardNumber = "XXXXXXXXXXXX\(last4)"
+                }
+                
                 $0.tag = "creditCard"
                 $0.numberSeparator = "-"
                 $0.expirationSeparator = "-"

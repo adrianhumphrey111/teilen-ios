@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SearchTextField
+
 
 protocol PopupDelegate {
     func goToPaymentController()
@@ -20,10 +22,15 @@ class ReserveSeatPopupViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var startAddressTextField: SearchTextField!
     //Trip informaion
     var price : Int!
     var postKey : String!
+    var booked = false
+   
+    var startLocation : Address!
     
     var delegate : PopupDelegate?
     
@@ -46,6 +53,31 @@ class ReserveSeatPopupViewController: UIViewController {
         let dollarAmount = self.price / 100
         let amountString = "$\(dollarAmount)"
         priceLabel.text = amountString
+        
+        //Hide start Location
+        self.startAddressTextField.isHidden = true
+        
+        //Set selectors for textfields
+        startAddressTextField.addTarget(self, action: #selector(textStartFieldDidChange), for: UIControlEvents.editingChanged)
+        
+        //Start Location TExt Field
+        startAddressTextField.theme = SearchTextFieldTheme.darkTheme()
+        startAddressTextField.theme.font = UIFont.systemFont(ofSize: 20)
+        startAddressTextField.theme.fontColor = UIColor.black
+        startAddressTextField.theme.bgColor = UIColor.white
+        startAddressTextField.theme.borderColor = UIColor.black
+        startAddressTextField.theme.separatorColor = UIColor.black
+        startAddressTextField.theme.cellHeight = 50
+        startAddressTextField.maxNumberOfResults = 4
+        startAddressTextField.maxResultsListHeight = 200
+        startAddressTextField.minCharactersNumberToStartFiltering = 2
+        
+        //Handle What happens when pressed
+        startAddressTextField.itemSelectionHandler = { filteredResults, itemPosition in
+            let item = filteredResults[itemPosition]
+            self.startAddressTextField.text = item.title
+            self.startLocation = item.address! as! Address
+        }
 
     }
     
@@ -62,6 +94,9 @@ class ReserveSeatPopupViewController: UIViewController {
                     self.cancelButton.setTitle("Got it!", for: .normal)
                     self.reserveButton.isHidden = true
                     self.heightConstraint.constant = 300
+                    
+                    self.cancelButton.addTarget(self, action: #selector(self.addStartLocation), for: .touchUpInside)
+                    self.booked = true
                     
                 }else{
                     //Ride requested already
@@ -98,7 +133,9 @@ class ReserveSeatPopupViewController: UIViewController {
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        if ( !booked ){
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc func takeUserToPayment(){
@@ -107,4 +144,39 @@ class ReserveSeatPopupViewController: UIViewController {
             self.delegate?.goToPaymentController()
         }
     }
+    
+    @objc func addStartLocation(){
+        print("got to this prt")
+       //Tell the users the driver needs to know where to pick you up from
+        self.titleLabel.text = "Pick Up Location"
+        self.priceLabel.isHidden = true
+        self.startAddressTextField.isHidden = false
+        self.textView.text = "Please Enter and Select the address that you would like to be picked up from."
+        self.cancelButton.setTitle("Done!", for: .normal)
+        self.reserveButton.isHidden = true
+        self.heightConstraint.constant = 350
+        
+        self.cancelButton.addTarget(self, action: #selector(saveStartLocation), for: .touchUpInside)
+    }
+    
+    @objc func textStartFieldDidChange(textField : UITextField){
+        Network.shared.GooglePlacesFetch( address: startAddressTextField.text! ).then { results -> Void in
+            var newFilter : [SearchTextFieldItem] = []
+            for result in results {
+                newFilter.append( SearchTextFieldItem( title: result.to_string() , address: result as AnyObject) )
+            }
+            self.startAddressTextField.filterItems( newFilter )
+        }
+    }
+    
+    @objc func saveStartLocation(){
+        self.dismiss(animated: true) {
+            Network.shared.saveStartLocation(postKey: self.postKey, address: self.startLocation)
+        }
+    }
 }
+
+
+
+
+

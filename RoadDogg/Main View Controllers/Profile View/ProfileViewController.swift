@@ -104,6 +104,15 @@ class ProfileViewController : UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func showActiveTrip(){
+        let currentTripKey = RealmManager.shared.selfUser!.currentTripKey
+        let vc = ActiveTripViewController()
+        vc.currentTripKey = currentTripKey
+        
+        // Present currentTrip view controller
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @objc func fetchUserFeed(){
         print("there is no key here")
         Network.shared.getUserFeed(user_key: self.selfUser.key).then { feed -> Void in

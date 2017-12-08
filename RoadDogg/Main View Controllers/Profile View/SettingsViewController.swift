@@ -56,18 +56,19 @@ class SettingsViewController : FormViewController, PopupDelegate, SettingsDelega
                 row.value = user.email
             }
             
-            <<< ButtonRow() { (row: ButtonRow) -> Void in
-                row.title = "Get Paid ( Driver )"
+            <<< LabelRow () {
+                $0.title = "Get Paid ( Driver )"
                 }
-                .onCellSelection { [weak self] (cell, row) in
-                    self?.showPayment()
+                .onCellSelection { cell, row in
+                    let vc = DriverPayoutViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
             }
             
-            <<< ButtonRow() { (row: ButtonRow) -> Void in
-                row.title = "Payment ( Rider )"
+            <<< LabelRow () {
+                $0.title = "Payment ( Rider )"
                 }
-                .onCellSelection { [weak self] (cell, row) in
-                    self?.showPayment()
+                .onCellSelection { cell, row in
+                    self.showPayment()
             }
             
 

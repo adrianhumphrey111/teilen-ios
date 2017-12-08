@@ -15,7 +15,7 @@ protocol FeedPostDelegate{
 }
 
 
-class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelegate{
+class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelegate, ModalNewPostDelegate{
     
     
     //Collection View
@@ -100,6 +100,16 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelega
         if let navController = tabBarController?.viewControllers![4] as? UINavigationController{
             if let vc = navController.viewControllers[0] as? ProfileViewController{
                 vc.showPayment()
+            }
+        }
+    }
+    
+    func showDriverPayout(){
+        print("Take the user to the driver page")
+        tabBarController?.selectedIndex = 4
+        if let navController = tabBarController?.viewControllers![4] as? UINavigationController{
+            if let vc = navController.viewControllers[0] as? ProfileViewController{
+                vc.showDriverPayout()
             }
         }
     }

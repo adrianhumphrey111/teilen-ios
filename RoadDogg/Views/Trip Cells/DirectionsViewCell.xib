@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DirectionsViewCell" customModule="Teilen" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="407" height="59"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="407" height="59"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhq-RL-9gk">
+                        <rect key="frame" x="164" y="9" width="80.5" height="41"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTT-wL-ce2">
+                        <rect key="frame" x="0.0" y="0.0" width="407" height="59"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="pickupAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="3tB-0Y-uyc"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="rTT-wL-ce2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="AW5-7b-FkK"/>
+                <constraint firstAttribute="bottom" secondItem="rTT-wL-ce2" secondAttribute="bottom" id="VUO-E5-Dnu"/>
+                <constraint firstItem="jhq-RL-9gk" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aS2-16-2K2"/>
+                <constraint firstAttribute="trailing" secondItem="rTT-wL-ce2" secondAttribute="trailing" id="eFY-nV-oxx"/>
+                <constraint firstItem="jhq-RL-9gk" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="eIY-0j-pkq"/>
+                <constraint firstItem="rTT-wL-ce2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hbi-ls-74x"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="407" height="59"/>
+            <connections>
+                <outlet property="pickupButton" destination="rTT-wL-ce2" id="3Dm-n5-NqE"/>
+                <outlet property="pickupLabel" destination="jhq-RL-9gk" id="Irj-Cq-6TC"/>
+            </connections>
+            <point key="canvasLocation" x="212.5" y="64.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

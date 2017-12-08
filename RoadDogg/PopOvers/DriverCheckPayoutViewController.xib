@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="cancelButton" destination="B6O-nU-fdm" id="MV0-bK-1Ce"/>
                 <outlet property="continueButton" destination="7UR-Tg-U2m" id="F7J-wC-Syj"/>
+                <outlet property="textView" destination="cBR-NY-XwJ" id="tZW-3j-NRa"/>
                 <outlet property="view" destination="g8J-HI-r1s" id="0A1-hf-rHr"/>
             </connections>
         </placeholder>
@@ -23,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8P-6j-aj7">
-                    <rect key="frame" x="0.0" y="0.0" width="426" height="390"/>
+                    <rect key="frame" x="0.0" y="0.0" width="426" height="410"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We Need To Be Able To Pay You!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMs-Xj-27D">
                             <rect key="frame" x="58" y="25" width="298.5" height="24"/>
@@ -35,15 +36,15 @@
                             <rect key="frame" x="15" y="67" width="396" height="166.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="200" id="AHl-oX-uep"/>
+                                <constraint firstAttribute="height" constant="240" id="AHl-oX-uep"/>
                             </constraints>
                             <string key="text">When making a driving post, riders will be able to request a reservation in your car. Upon your approval, they will be charged the asking price. You will get paid the instant the trip starts. However we need some additional info in order for you to get paid. We only need this once.</string>
                             <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6O-nU-fdm">
-                            <rect key="frame" x="10" y="340" width="396" height="40"/>
+                            <rect key="frame" x="10" y="360" width="396" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="Czu-5J-bNe"/>
                             </constraints>
@@ -53,7 +54,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UR-Tg-U2m">
-                            <rect key="frame" x="10" y="290" width="396" height="40"/>
+                            <rect key="frame" x="10" y="310" width="396" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="IFe-BR-IRu"/>
                             </constraints>
@@ -74,7 +75,7 @@
                         <constraint firstItem="cBR-NY-XwJ" firstAttribute="leading" secondItem="G8P-6j-aj7" secondAttribute="leading" constant="15" id="Yae-by-6Xw"/>
                         <constraint firstItem="cMs-Xj-27D" firstAttribute="centerX" secondItem="G8P-6j-aj7" secondAttribute="centerX" constant="-6" id="f4L-US-7yb"/>
                         <constraint firstAttribute="trailing" secondItem="cBR-NY-XwJ" secondAttribute="trailing" constant="15" id="hDV-fn-cKV"/>
-                        <constraint firstAttribute="height" constant="390" id="sKv-vc-33P"/>
+                        <constraint firstAttribute="height" constant="410" id="sKv-vc-33P"/>
                         <constraint firstAttribute="trailing" secondItem="B6O-nU-fdm" secondAttribute="trailing" constant="20" id="uY9-Ok-iZP"/>
                     </constraints>
                 </view>

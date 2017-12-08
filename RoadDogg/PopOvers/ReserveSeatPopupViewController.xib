@@ -16,7 +16,9 @@
                 <outlet property="heightConstraint" destination="xhI-Eh-p35" id="Hq6-rM-UD5"/>
                 <outlet property="priceLabel" destination="gue-xy-04j" id="PaE-eh-qqD"/>
                 <outlet property="reserveButton" destination="5TC-o0-nSg" id="JC9-FO-IKh"/>
+                <outlet property="startAddressTextField" destination="exv-jL-Gz3" id="Z8h-lQ-wUo"/>
                 <outlet property="textView" destination="Sad-ey-SvY" id="KPj-K8-TzR"/>
+                <outlet property="titleLabel" destination="9mT-H8-hjY" id="iHK-vz-Cgg"/>
                 <outlet property="view" destination="s1d-Mg-gW7" id="Wca-lc-M5b"/>
             </connections>
         </placeholder>
@@ -73,12 +75,21 @@
                                 <action selector="reserveAction:" destination="-1" eventType="touchUpInside" id="Bz4-IA-RmX"/>
                             </connections>
                         </button>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="exv-jL-Gz3" customClass="SearchTextField" customModule="SearchTextField">
+                            <rect key="frame" x="15" y="135" width="396" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="exv-jL-Gz3" secondAttribute="trailing" constant="15" id="4ZL-lU-cdr"/>
                         <constraint firstAttribute="trailing" secondItem="Sad-ey-SvY" secondAttribute="trailing" constant="15" id="4eg-WM-Nap"/>
                         <constraint firstItem="Sad-ey-SvY" firstAttribute="leading" secondItem="bTw-np-AFd" secondAttribute="leading" constant="15" id="Bno-Jd-cOy"/>
                         <constraint firstAttribute="trailing" secondItem="qna-2P-Lw8" secondAttribute="trailing" constant="20" id="FHV-6W-ejt"/>
                         <constraint firstItem="qna-2P-Lw8" firstAttribute="leading" secondItem="bTw-np-AFd" secondAttribute="leading" constant="10" id="HSj-f8-djY"/>
+                        <constraint firstItem="exv-jL-Gz3" firstAttribute="top" secondItem="Sad-ey-SvY" secondAttribute="bottom" id="JAg-0d-Bl6"/>
+                        <constraint firstItem="exv-jL-Gz3" firstAttribute="leading" secondItem="bTw-np-AFd" secondAttribute="leading" constant="15" id="TEo-yq-2a8"/>
                         <constraint firstItem="9mT-H8-hjY" firstAttribute="top" secondItem="bTw-np-AFd" secondAttribute="top" constant="25" id="ULl-te-GF9"/>
                         <constraint firstItem="5TC-o0-nSg" firstAttribute="leading" secondItem="bTw-np-AFd" secondAttribute="leading" constant="10" id="UiQ-ES-sjc"/>
                         <constraint firstItem="qna-2P-Lw8" firstAttribute="top" secondItem="5TC-o0-nSg" secondAttribute="bottom" constant="10" id="YtK-2Z-bZO"/>
