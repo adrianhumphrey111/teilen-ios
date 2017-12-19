@@ -263,6 +263,15 @@ class TripViewController: UIViewController, PostViewCellDelegate, PopupDelegate,
         //Do nothing
     }
     
+    func notifyRider(postKey: String){
+        var vc = PopupManager.shared.notifyRider(postKey: postKey)
+        if let notifyVc = vc.viewController as? NotifyRiderPopupViewController{
+            //notifyVc.delegate = self
+        }
+        Network.shared.notifyRider(postKey: postKey)
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)

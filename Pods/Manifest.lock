@@ -15,20 +15,37 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.26.0):
     - FBSDKCoreKit
+  - Firebase/Auth (4.1.1):
+    - Firebase/Core
+    - FirebaseAuth (= 4.1.1)
   - Firebase/Core (4.1.1):
     - FirebaseAnalytics (= 4.0.3)
     - FirebaseCore (= 4.0.6)
+  - Firebase/Database (4.1.1):
+    - Firebase/Core
+    - FirebaseDatabase (= 4.0.2)
   - Firebase/Messaging (4.1.1):
     - Firebase/Core
     - FirebaseMessaging (= 2.0.2)
+  - Firebase/Storage (4.1.1):
+    - Firebase/Core
+    - FirebaseStorage (= 2.0.1)
   - FirebaseAnalytics (4.0.3):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
+  - FirebaseAuth (4.1.1):
+    - FirebaseAnalytics (~> 4.0)
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseCore (4.0.6):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
+  - FirebaseDatabase (4.0.2):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - leveldb-library (~> 1.18)
   - FirebaseInstanceID (2.0.2):
     - FirebaseCore (~> 4.0)
   - FirebaseMessaging (2.0.2):
@@ -37,11 +54,23 @@ PODS:
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - Protobuf (~> 3.1)
+  - FirebaseStorage (2.0.1):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/Logger (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
+  - GTMSessionFetcher/Core (1.1.12)
   - IGListKit (3.1.1):
     - IGListKit/Default (= 3.1.1)
   - IGListKit/Default (3.1.1):
@@ -50,6 +79,10 @@ PODS:
   - ILLoginKit (0.1.1):
     - FBSDKLoginKit (= 4.26.0)
     - Validator (~> 2.1.1)
+  - JSQMessagesViewController (7.3.5):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
+  - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -96,10 +129,14 @@ DEPENDENCIES:
   - DateTimePicker
   - Eureka (from `https://github.com/xmartlabs/Eureka.git`)
   - FacebookCore
+  - Firebase/Auth
   - Firebase/Core
+  - Firebase/Database
   - Firebase/Messaging
+  - Firebase/Storage
   - IGListKit (~> 3.0)
   - ILLoginKit
+  - JSQMessagesViewController
   - Onboard
   - PKHUD (~> 5.0)
   - PopupDialog (~> 0.6)
@@ -131,12 +168,19 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
   Firebase: 052c0de688fc87b414996eea13e223dd9fee3fa2
   FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
+  FirebaseAuth: f8b07aa83de60d606b4eadd81484b3ac2097ea3e
   FirebaseCore: 28def3c643989c97ea5a69ea5000f5fa9902b9fd
+  FirebaseDatabase: 4d1a10639a42cae26e094296951b53c689e5e191
   FirebaseInstanceID: c4c7fca62c7b7330caee5da04f19a37ea37bb1c1
   FirebaseMessaging: 85af6c27188538b3a6f7dfd0b3b0596358cb0c39
+  FirebaseStorage: 661fc1f8d4131891d256b62e82a45ace8b3f0c3b
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   IGListKit: cb97f405ae43e59fe1da74271e19427ec20d3c07
   ILLoginKit: e57d634ead1dac4c0085c235fdd6121f9c271285
+  JSQMessagesViewController: 6587f56aedbcb150a8ba1d968e1ef58b1bc758b7
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  leveldb-library: 4f9eedf84ab46b4fa3b7893bf30714b2a1a74022
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
@@ -151,6 +195,6 @@ SPEC CHECKSUMS:
   Stripe: 898f83a95d72180c6eb4acd65b2ae6158fc6a8bd
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: bb24ff09e0e524bf9d629f1eea506992d582b8c1
+PODFILE CHECKSUM: 81ae800e5080a33f3ed5dc57122f17e60666b070
 
 COCOAPODS: 1.1.1

@@ -15,7 +15,7 @@ protocol FeedPostDelegate{
 }
 
 
-class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelegate, ModalNewPostDelegate{
+class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelegate, ModalNewPostDelegate, NotifyRiderDelegate{
     
     
     //Collection View
@@ -90,6 +90,15 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelega
         self.present(vc, animated: true, completion: nil)
     }
     
+    func notifyRider(postKey: String){
+        var vc = PopupManager.shared.notifyRider(postKey: postKey)
+        if let notifyVc = vc.viewController as? NotifyRiderPopupViewController{
+            notifyVc.delegate = self
+        }
+        Network.shared.notifyRider(postKey: postKey)
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     func logout(){
         //Do nothing
     }
@@ -116,6 +125,10 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelega
     
     func pushPostViewController(vc: UIViewController) {
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func notifyRiderFromPopup(){
+        
     }
     
 }

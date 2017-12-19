@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,16 +40,6 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXS-rZ-leL">
-                        <rect key="frame" x="291" y="0.0" width="70" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="70" id="Awo-RG-k4V"/>
-                        </constraints>
-                        <state key="normal" title="Button"/>
-                        <connections>
-                            <action selector="reviewsAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="pFQ-k5-bzB"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
             <constraints>
@@ -60,8 +50,6 @@
                 <constraint firstItem="Dji-WH-CxO" firstAttribute="bottom" secondItem="ZTg-uK-7eu" secondAttribute="bottom" id="fLr-bT-Djs"/>
                 <constraint firstItem="r36-9S-mA1" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" id="ig3-tY-4P7"/>
                 <constraint firstItem="Dji-WH-CxO" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="kPN-EA-lrh"/>
-                <constraint firstAttribute="trailing" secondItem="dXS-rZ-leL" secondAttribute="trailing" constant="10" id="mfh-3k-Xy4"/>
-                <constraint firstItem="dXS-rZ-leL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="n71-2u-g3G"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="Dji-WH-CxO" secondAttribute="top" constant="20" id="wy5-oY-kfW"/>
                 <constraint firstItem="r36-9S-mA1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="x8r-Hs-xCb"/>
             </constraints>
@@ -70,7 +58,6 @@
             <connections>
                 <outlet property="currentTripLabel" destination="d4Q-hk-kGq" id="gG0-gb-bcu"/>
                 <outlet property="fullNameLabel" destination="r4I-mu-shS" id="VZW-wI-dVg"/>
-                <outlet property="reviewsButton" destination="dXS-rZ-leL" id="y3V-kv-liW"/>
                 <outlet property="roundBackgroundView" destination="Dji-WH-CxO" id="ScQ-po-pZK"/>
             </connections>
             <point key="canvasLocation" x="287.5" y="78.5"/>

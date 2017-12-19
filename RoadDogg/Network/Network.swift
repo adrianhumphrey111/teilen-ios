@@ -77,6 +77,7 @@ class Network {
                     //get response
                     if let result = response.result.value{
                         let posts = result as! [[String:Any]]
+                        print(posts)
                         let feed = Feed(feed: posts)
                         Posts.shared.updatesPost(posts: feed.posts as! [Post])
                         fulfill(feed)
@@ -167,9 +168,11 @@ class Network {
                         let post_key = json["post_key"] as! String
                         let trip_key = json["trip_key"] as! String
                         let eta = json["eta"] as! String
+                        let driving = json["driving"] as! String
                         keys.append(post_key)
                         keys.append(trip_key)
                         keys.append(eta)
+                        keys.append(driving)
                         fulfill(keys)
                     }
                 case .failure(let error):
@@ -317,9 +320,9 @@ class Network {
         }
     }
     
-    func notifyRider() -> Promise<String>{
+    func notifyRider(postKey: String) -> Promise<String>{
         let url = "\(self.baseurl)/notifyRider"
-        let params : [String : Any] = [:]
+        let params : [String : Any] = ["post_key" : postKey]
         return Promise { fulfill, reject in
             Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
                 switch response.result {

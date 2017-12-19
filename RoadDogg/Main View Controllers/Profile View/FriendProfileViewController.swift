@@ -68,10 +68,16 @@ class FriendProfileViewController: UIViewController , FeedPostDelegate {
     @objc func fetchUserFeed(){
         Network.shared.getUserFeed(user_key: self.user.key).then { feed -> Void in
             //Set the post to the user
-
-            guard let post = feed.posts[0] as? Post else { return }
-            guard let user = post.user as? User else { return }
-            self.user = user
+            if feed.posts.count > 0{
+                //If he has any post get the current user from post
+                guard let post = feed.posts[0] as? Post else { return }
+                guard let user = post.user as? User else { return }
+                self.user = user
+            }
+            else{
+                //If you user does not have any post, dont worry about it because you passed th user isn
+            }
+            
             self.user.posts = feed.posts
             self.profileArray += self.user.posts
             

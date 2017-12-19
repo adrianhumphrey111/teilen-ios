@@ -68,7 +68,7 @@ class RealmManager {
     
     
     @objc func isLoggedin() -> Bool{
-        return ( self.loggedIn || ( FBSDKAccessToken.current() != nil ) )
+        return ( ( self.loggedIn && self.selfUser!.firstName != nil) || ( FBSDKAccessToken.current() != nil ) )
     }
     
     @objc func getLoggedInUser() {
@@ -159,7 +159,7 @@ class RealmManager {
     }
     
     func getNotifications() ->[realmNotification] {
-        return Array( realm.objects(realmNotification.self) )
+        return Array( realm.objects(realmNotification.self) ).reversed()
     }
     
     func updateNotification(notification: realmNotification, accepted: String){

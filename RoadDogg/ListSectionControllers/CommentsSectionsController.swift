@@ -34,7 +34,7 @@ extension CommentsSectionsController {
         let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18 )]
         let estiamtedFrame = NSString( string: text ).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         let estimatedHeight = estiamtedFrame.height
-        return CGSize(width: cellWidth, height: estiamtedFrame.height + 55)
+        return CGSize(width: cellWidth, height: estiamtedFrame.height + 45)
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {

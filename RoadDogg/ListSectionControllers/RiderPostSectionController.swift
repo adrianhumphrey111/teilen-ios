@@ -140,7 +140,7 @@ extension RiderPostSectionContoller  {
     
     func notifyRider() {
         if let vc = viewController as? IGListFeedViewController{
-            
+            vc.notifyRider(postKey: self.post.postKey)
         }
     }
     
@@ -200,6 +200,8 @@ extension RiderPostSectionContoller  {
             cell.etaLabel.text = self.post.trip?.chosenTime == "departure" ? "Est. Dpt: \(eta!)" : "Est. Arv: \(eta!)"
             cell.fullNameLabel.text = self.user.fullName
             
+            cell.delegate = self
+            
             //Make profile image round
             cell.profileImageView.layer.masksToBounds = false
             cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.height/2
@@ -235,7 +237,7 @@ extension RiderPostSectionContoller  {
     func configureTimeStampCell(cell: UICollectionViewCell){
         if let cell = cell as? TimeStampCollectionViewCell{
             cell.backgroundColor = .white
-            cell.timeStampLabel.text = self.post.createdAt
+            cell.timeStampLabel.text = self.post.timeStamp
         }
     }
     

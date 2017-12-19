@@ -201,7 +201,7 @@ extension DriverPostSectionController  {
     
     func shareAction(){
         // text to share
-        let text = "This is some text that I want to share."
+        let text = "Teilen is a social network for ridesharing. Coordinate with friends/coworks about trips between cities and around town. Download Now! https://itunes.apple.com/us/app/teilen/id1320983318?ls=1&mt=8. The first 1000 to download and signup with Facebook will recieve 50% your entire order at HIWI in Isla Vista, California."
         
         // set up activity view controller
         let textToShare = [ text ]

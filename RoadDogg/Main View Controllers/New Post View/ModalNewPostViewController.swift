@@ -753,11 +753,15 @@ var delegate : ModalNewPostDelegate?
             self.dismiss(animated: true, completion: {
                 //Do something with this, idk what yet though, maybe refresh feed
                 Network.shared.createPost(trip: self.tripObject).then { key_array -> Void in
-                    let post_key = key_array[0]
-                    let trip_key = key_array[1]
-                    let eta = key_array[2]
-                    //Save the current trip key to the realm user
-                    RealmManager.shared.setCurrentTrip(destination: self.tripObject.endLocation.city, tripKey: trip_key, eta:eta)
+                    let post_key = key_array[0] as! String
+                    let trip_key = key_array[1] as! String
+                    let eta = key_array[2] as! String
+                    let driving = key_array[3]
+                    //Save the current trip key to the realm user if they are driving
+                    if ( driving == "true" ){
+                        RealmManager.shared.setCurrentTrip(destination: self.tripObject.endLocation.city, tripKey: trip_key, eta:eta)
+                    }
+                    
                 }
             })
             

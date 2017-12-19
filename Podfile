@@ -26,6 +26,12 @@ target 'Teilen' do
   pod 'PopupDialog', '~> 0.6'
   pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git'
   pod 'PKHUD', '~> 5.0'
+  
+  #Firebase and JSQMessenger
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'JSQMessagesViewController'
 
 
   target 'RoadDoggTests' do

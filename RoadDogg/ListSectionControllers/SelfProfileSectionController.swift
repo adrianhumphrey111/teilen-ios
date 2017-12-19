@@ -12,7 +12,7 @@ import IGListKit
 import Reusable
 import SDWebImage
 
-class SelfProfileSectionController : ListSectionController, ProfileActionDelegate, StartTripDelegate{
+class SelfProfileSectionController : ListSectionController, ProfileActionDelegate, StartTripDelegate, ShowImagePickerDelegate{
 
     var user : loggedInUser!
     
@@ -135,6 +135,7 @@ extension SelfProfileSectionController  {
             //Configure the look of the profile page
             cell.isOwnProfile = true
             cell.delegate = self
+            cell.imageDelegate = self
             
             //Change add friend to edit profile
             cell.addFrindButton.layer.borderColor = UIColor.black.cgColor
@@ -173,6 +174,12 @@ extension SelfProfileSectionController  {
     func configureFriendCarCell(cell: UICollectionViewCell){
         if let cell = cell as? FriendCarCollectionViewCell{
             
+        }
+    }
+    
+    func showImagePicker(){
+        if let vc = viewController as? ProfileViewController{
+            vc.showImagePicker()
         }
     }
     

@@ -11,7 +11,7 @@ import UIKit
 import Stripe
 import IGListKit
 
-class ProfileViewController : UIViewController {
+class ProfileViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //Collection View
     let collectionView: UICollectionView = {
@@ -142,6 +142,27 @@ class ProfileViewController : UIViewController {
                 print(error)
         }
     }
+    
+    func showImagePicker(){
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.sourceType = .photoLibrary
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+
+    }
+    
+    func saveImageToFireBase(){
+       
+    }
+    
 }
 
 extension ProfileViewController: ListAdapterDataSource {

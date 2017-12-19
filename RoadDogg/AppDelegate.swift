@@ -14,6 +14,7 @@ import Stripe
 import Firebase
 import UserNotifications
 import FirebaseMessaging
+import RealmSwift
 
 
 @UIApplicationMain
@@ -23,6 +24,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        //Migrate the Realm Database
+        let config = Realm.Configuration(
+            // Set the new schema version. This must be greater than the previously used
+            // version (if you've never set a schema version before, the version is 0).
+            schemaVersion: 1,
+            
+            // Set the block which will be called automatically when opening a Realm with
+            // a schema version lower than the one set above
+            migrationBlock: { migration, oldSchemaVersion in
+                // We haven’t migrated anything yet, so oldSchemaVersion == 0
+                if (oldSchemaVersion < 1) {
+                    // Nothing to do!
+                    // Realm will automatically detect new properties and removed properties
+                    // And will update the schema on disk automatically
+                }
+        })
+        
+        // Tell Realm to use this new configuration object for the default Realm
+        Realm.Configuration.defaultConfiguration = config
+        
+        
+        
         //Facebook SDK
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -31,6 +54,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         
         //Firebase SDK
         FirebaseApp.configure()
+        
+        //Authenticate user anonymously for messaging TODO: MAY BE Different syntax
+        Auth.auth().signInAnonymously{ (user, error) in // 2
+            if let err = error { // 3
+                print(err.localizedDescription)
+                return
+            }else{
+                let isAnonymous = user!.isAnonymous  // true
+                let uid = user!.uid
+            }
+        }
         
         //Firebase Messaging
         Messaging.messaging().delegate = self

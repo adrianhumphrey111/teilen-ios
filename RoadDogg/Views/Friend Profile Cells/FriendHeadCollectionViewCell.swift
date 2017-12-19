@@ -14,6 +14,10 @@ protocol ProfileActionDelegate{
     func showPayments()
 }
 
+protocol ShowImagePickerDelegate {
+    func showImagePicker()
+}
+
 class FriendHeadCollectionViewCell: UICollectionViewCell, NibReusable {
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -38,6 +42,7 @@ class FriendHeadCollectionViewCell: UICollectionViewCell, NibReusable {
     var isOwnProfile = false
     
     var delegate : ProfileActionDelegate?
+    var imageDelegate : ShowImagePickerDelegate?
     
     @IBOutlet weak var roundBackgroundView: UIView!
     override func awakeFromNib() {
@@ -163,5 +168,6 @@ class FriendHeadCollectionViewCell: UICollectionViewCell, NibReusable {
         Network.shared.removeRequest(friendKey: self.userKey)
     }
     
+
     
 }

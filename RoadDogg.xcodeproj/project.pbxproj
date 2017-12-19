@@ -27,6 +27,8 @@
 		5217E93B1FC533CC000DBF99 /* SharedPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5217E93A1FC533CC000DBF99 /* SharedPosts.swift */; };
 		5217E93D1FC5411E000DBF99 /* RiderPostSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5217E93C1FC5411E000DBF99 /* RiderPostSectionController.swift */; };
 		52250F3D1FA185DB00E97624 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52250F3E1FA185DC00E97624 /* Alamofire.framework */; };
+		5227134B1FDACD9A0012CE79 /* NotifyRiderPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522713491FDACD9A0012CE79 /* NotifyRiderPopupViewController.swift */; };
+		5227134C1FDACD9B0012CE79 /* NotifyRiderPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5227134A1FDACD9A0012CE79 /* NotifyRiderPopupViewController.xib */; };
 		522F15FB1FC62ABA003F33B7 /* Popups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522F15FA1FC62ABA003F33B7 /* Popups.storyboard */; };
 		522F16161FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F16141FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift */; };
 		522F16171FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */; };
@@ -189,6 +191,8 @@
 		5217E93A1FC533CC000DBF99 /* SharedPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedPosts.swift; sourceTree = "<group>"; };
 		5217E93C1FC5411E000DBF99 /* RiderPostSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderPostSectionController.swift; sourceTree = "<group>"; };
 		52250F3E1FA185DC00E97624 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		522713491FDACD9A0012CE79 /* NotifyRiderPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyRiderPopupViewController.swift; sourceTree = "<group>"; };
+		5227134A1FDACD9A0012CE79 /* NotifyRiderPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotifyRiderPopupViewController.xib; sourceTree = "<group>"; };
 		522F15FA1FC62ABA003F33B7 /* Popups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popups.storyboard; sourceTree = "<group>"; };
 		522F16141FC66BCA003F33B7 /* ReserveSeatPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveSeatPopupViewController.swift; sourceTree = "<group>"; };
 		522F16151FC66BCA003F33B7 /* ReserveSeatPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReserveSeatPopupViewController.xib; sourceTree = "<group>"; };
@@ -670,6 +674,8 @@
 				523C3BDF1FD79A0300BD1609 /* PilotExcusionViewController.xib */,
 				523C3BE21FD7ABFC00BD1609 /* DriverCheckPayoutViewController.swift */,
 				523C3BE31FD7ABFC00BD1609 /* DriverCheckPayoutViewController.xib */,
+				522713491FDACD9A0012CE79 /* NotifyRiderPopupViewController.swift */,
+				5227134A1FDACD9A0012CE79 /* NotifyRiderPopupViewController.xib */,
 			);
 			path = PopOvers;
 			sourceTree = "<group>";
@@ -943,6 +949,7 @@
 				525CA2DA1F9D40A90037855E /* Assets.xcassets in Resources */,
 				529B2B1E1FC545F500CBD2D0 /* RideButtonCollectionViewCell.xib in Resources */,
 				86A957011FBE87AD008111CD /* GoogleService-Info.plist in Resources */,
+				5227134C1FDACD9B0012CE79 /* NotifyRiderPopupViewController.xib in Resources */,
 				40FB355A1FD60A0300DF8D6C /* EmptyFeedViewController.xib in Resources */,
 				40FB355E1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.xib in Resources */,
 				5267D62A1FCC366B000C5B46 /* RiderInformationCollectionViewCell.xib in Resources */,
@@ -1191,6 +1198,7 @@
 				52C03C441FB9726600E06CE4 /* InitialViewController.swift in Sources */,
 				52AE579F1FD99C85001BAFA9 /* EmptyTripViewController.swift in Sources */,
 				523C3BDC1FD76FFD00BD1609 /* PilotCheckViewController.swift in Sources */,
+				5227134B1FDACD9A0012CE79 /* NotifyRiderPopupViewController.swift in Sources */,
 				523347AC1FD2633C00EB7F15 /* DeleteAccountPopupViewController.swift in Sources */,
 				86F8C6F11FBD39C400FE7967 /* PaymentManager.swift in Sources */,
 				525CA3071F9FF5FD0037855E /* NotificationViewController.swift in Sources */,
@@ -1448,7 +1456,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1471,7 +1479,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

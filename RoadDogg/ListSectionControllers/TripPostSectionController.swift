@@ -166,7 +166,7 @@ extension TripPostSectionController  {
     
     func notifyRider() {
         if let vc = viewController as? TripViewController{
-            
+            vc.notifyRider(postKey: self.post.postKey)
         }
     }
     
@@ -232,6 +232,8 @@ extension TripPostSectionController  {
             cell.etaLabel.text = self.post.trip?.chosenTime == "departure" ? "Est. Dpt: \(eta!)" : "Est. Arv: \(eta!)"
             cell.fullNameLabel.text = self.user.fullName
             
+            cell.delegate = self
+            
             //Make profile image round
             cell.profileImageView.layer.masksToBounds = false
             cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.height/2
@@ -280,7 +282,11 @@ extension TripPostSectionController  {
             else{
                 cell.driverButton.setTitle("Join Waitlist", for: .normal)
             }
-            
+        }
+        
+        if let cell = cell as? RideButtonCollectionViewCell{
+            cell.delegate = self
+            cell.riderButton.setTitle("Notify Rider", for: .normal)
         }
     }
     

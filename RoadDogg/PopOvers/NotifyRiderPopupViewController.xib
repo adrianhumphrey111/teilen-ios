@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotifyRiderPopupViewController" customModule="Teilen" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="5DA-MY-Q1Z" id="LPp-iT-dR3"/>
+                <outlet property="view" destination="5Uz-Ks-H3x" id="Q5F-Lg-7B9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="5Uz-Ks-H3x">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="390"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAr-TS-Ssw">
+                    <rect key="frame" x="0.0" y="0.0" width="426" height="300"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify Rider About Your Current Trip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKl-7b-GIC">
+                            <rect key="frame" x="73.5" y="25" width="268.5" height="20"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                            <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rider Notified!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lg0-Xc-JWs">
+                            <rect key="frame" x="97" y="53" width="232" height="46"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DA-MY-Q1Z">
+                            <rect key="frame" x="10" y="230" width="396" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="Ut3-MF-swi"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="tXO-3i-ySk"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hee-IM-T0m">
+                            <rect key="frame" x="15" y="113" width="396" height="75"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="75" id="H7K-sr-rRu"/>
+                            </constraints>
+                            <string key="text">Rider notified that there are available seats in your current ride. Rider will have the opportunity to request to reserve a seat in your current ride.</string>
+                            <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="hee-IM-T0m" secondAttribute="trailing" constant="15" id="4of-EW-pv0"/>
+                        <constraint firstAttribute="trailing" secondItem="5DA-MY-Q1Z" secondAttribute="trailing" constant="20" id="9p8-9O-X7G"/>
+                        <constraint firstItem="lKl-7b-GIC" firstAttribute="top" secondItem="EAr-TS-Ssw" secondAttribute="top" constant="25" id="BNc-EV-eHR"/>
+                        <constraint firstItem="5DA-MY-Q1Z" firstAttribute="leading" secondItem="EAr-TS-Ssw" secondAttribute="leading" constant="10" id="DTw-de-WND"/>
+                        <constraint firstItem="lg0-Xc-JWs" firstAttribute="centerX" secondItem="EAr-TS-Ssw" secondAttribute="centerX" id="EET-JY-YFx"/>
+                        <constraint firstItem="lKl-7b-GIC" firstAttribute="centerX" secondItem="EAr-TS-Ssw" secondAttribute="centerX" constant="-6" id="I9d-xa-LlQ"/>
+                        <constraint firstAttribute="height" constant="300" id="Rdd-28-eGz"/>
+                        <constraint firstItem="hee-IM-T0m" firstAttribute="top" secondItem="lg0-Xc-JWs" secondAttribute="bottom" constant="14" id="UKk-Zh-JC9"/>
+                        <constraint firstAttribute="bottom" secondItem="5DA-MY-Q1Z" secondAttribute="bottom" constant="10" id="aEz-Zx-LWi"/>
+                        <constraint firstItem="lg0-Xc-JWs" firstAttribute="top" secondItem="lKl-7b-GIC" secondAttribute="bottom" constant="8" id="d11-xE-QOz"/>
+                        <constraint firstItem="hee-IM-T0m" firstAttribute="leading" secondItem="EAr-TS-Ssw" secondAttribute="leading" constant="15" id="gjZ-Wa-Ifk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="EAr-TS-Ssw" secondAttribute="bottom" id="H5K-AB-2nY"/>
+                <constraint firstItem="EAr-TS-Ssw" firstAttribute="leading" secondItem="5Uz-Ks-H3x" secondAttribute="leading" id="IQm-fB-cnb"/>
+                <constraint firstAttribute="trailing" secondItem="EAr-TS-Ssw" secondAttribute="trailing" constant="-10" id="RNv-mo-dO6"/>
+                <constraint firstItem="EAr-TS-Ssw" firstAttribute="top" secondItem="5Uz-Ks-H3x" secondAttribute="top" id="Xyy-rF-r7k"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="daK-sS-gAi"/>
+            <point key="canvasLocation" x="326" y="372"/>
+        </view>
+    </objects>
+</document>

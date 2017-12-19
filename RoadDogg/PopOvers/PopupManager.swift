@@ -61,6 +61,14 @@ class PopupManager {
         let popup = PopupDialog(viewController: vc, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
         return popup
     }
+    
+    public func notifyRider(postKey: String) -> PopupDialog{
+        // Prepare the popup
+        let vc = NotifyRiderPopupViewController(nibName: "NotifyRiderPopupViewController", bundle: nil)
+        // Create the dialog
+        let popup = PopupDialog(viewController: vc, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
+        return popup
+    }
 }
 
 
