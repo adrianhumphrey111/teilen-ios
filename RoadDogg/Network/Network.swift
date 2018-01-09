@@ -681,6 +681,28 @@ class Network {
         }
     }
     
+    func sendMessage(to: String){
+        let url = "\(self.baseurl)/sendMessage"
+        let params : [String : Any] = ["friend_key" : to,
+                                       "user_key" : self.user_key]
+        Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                //get response
+                if let result = response.result.value{
+                    let json = result as! [String:Any]
+                    print( json )
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func fetchChatRooms(){
+        
+    }
+    
     
 
     func url(endpoint: String) -> String{

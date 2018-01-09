@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).
-            schemaVersion: 1,
+            schemaVersion: 1, //Update Number 1
             
             // Set the block which will be called automatically when opening a Realm with
             // a schema version lower than the one set above
@@ -43,8 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         
         // Tell Realm to use this new configuration object for the default Realm
         Realm.Configuration.defaultConfiguration = config
-        
-        
         
         //Facebook SDK
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -89,7 +87,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         application.registerForRemoteNotifications()
         
         //Check if the user is logged in
-        if ( RealmManager.shared.isLoggedin() ) {
+        if ( !RealmManager.shared.isLoggedin() ) {
+            print("The user is logged in")
             if ( !RealmManager.shared.isStudent() ){
                 //This user has not entered a email make this controller
                 let vc = PilotExcusionViewController(nibName: "PilotExcusionViewController", bundle: nil)

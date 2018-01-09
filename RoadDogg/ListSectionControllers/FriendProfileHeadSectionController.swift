@@ -9,7 +9,7 @@
 import Foundation
 import IGListKit
 
-class FriendProfileHeadSectionController : ListSectionController{
+class FriendProfileHeadSectionController : ListSectionController, ProfileActionDelegate{
     
     var user: User!
     
@@ -87,6 +87,7 @@ extension FriendProfileHeadSectionController  {
             cell.profileImageView.sd_setImage(with: URL(string: self.user.profileUrl), placeholderImage: UIImage(named: "Profile_Placeholder"))
             
             cell.userKey = self.user.key
+            cell.delegate = self
             
             if (user.isFriend == "friend"){
                 cell.status = user.isFriend
@@ -121,6 +122,20 @@ extension FriendProfileHeadSectionController  {
     func configureFriendCarCell(cell: UICollectionViewCell){
         if let cell = cell as? FriendCarCollectionViewCell{
             
+        }
+    }
+    
+    func showSettings() {
+        //Do Nothing
+    }
+    
+    func showPayments() {
+        //Do Nothing
+    }
+    
+    func showMessages() {
+        if let vc = viewController as? FriendProfileViewController{
+            vc.showMessages()
         }
     }
     

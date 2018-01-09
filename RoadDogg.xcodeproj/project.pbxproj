@@ -16,6 +16,14 @@
 		40FB355A1FD60A0300DF8D6C /* EmptyFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40FB35581FD60A0300DF8D6C /* EmptyFeedViewController.xib */; };
 		40FB355D1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FB355B1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.swift */; };
 		40FB355E1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40FB355C1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.xib */; };
+		520598BD200507DD00313E3D /* ChatRoomsSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520598BC200507DD00313E3D /* ChatRoomsSectionController.swift */; };
+		520598C12005091700313E3D /* ChatRoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520598BF2005091700313E3D /* ChatRoomCollectionViewCell.swift */; };
+		520598C22005091700313E3D /* ChatRoomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520598C02005091700313E3D /* ChatRoomCollectionViewCell.xib */; };
+		520598C520050D0B00313E3D /* EmptyMainChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520598C320050D0B00313E3D /* EmptyMainChatRoomViewController.swift */; };
+		520598C620050D0B00313E3D /* EmptyMainChatRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520598C420050D0B00313E3D /* EmptyMainChatRoomViewController.xib */; };
+		521232B62001221A00CFB8C7 /* FirebaseDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521232B52001221A00CFB8C7 /* FirebaseDatabase.swift */; };
+		521232B92001230A00CFB8C7 /* MainChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521232B82001230A00CFB8C7 /* MainChatViewController.swift */; };
+		521232BB2001231F00CFB8C7 /* SingleChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521232BA2001231F00CFB8C7 /* SingleChatViewController.swift */; };
 		5215423F1FD531D700015AE2 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215423E1FD531D700015AE2 /* TermsViewController.swift */; };
 		521542411FD531EE00015AE2 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521542401FD531EE00015AE2 /* PrivacyViewController.swift */; };
 		521542431FD5505300015AE2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521542421FD5505300015AE2 /* SearchViewController.swift */; };
@@ -180,6 +188,14 @@
 		40FB355C1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyNotifiactionViewController.xib; sourceTree = "<group>"; };
 		49FF0ABDA8FB00ADF0C3C2E6 /* Pods-RoadDoggTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadDoggTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadDoggTests/Pods-RoadDoggTests.debug.xcconfig"; sourceTree = "<group>"; };
 		518941D32BCFA05B10F1B5E6 /* Pods_RoadDoggTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoadDoggTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		520598BC200507DD00313E3D /* ChatRoomsSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomsSectionController.swift; sourceTree = "<group>"; };
+		520598BF2005091700313E3D /* ChatRoomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomCollectionViewCell.swift; sourceTree = "<group>"; };
+		520598C02005091700313E3D /* ChatRoomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRoomCollectionViewCell.xib; sourceTree = "<group>"; };
+		520598C320050D0B00313E3D /* EmptyMainChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMainChatRoomViewController.swift; sourceTree = "<group>"; };
+		520598C420050D0B00313E3D /* EmptyMainChatRoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyMainChatRoomViewController.xib; sourceTree = "<group>"; };
+		521232B52001221A00CFB8C7 /* FirebaseDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabase.swift; sourceTree = "<group>"; };
+		521232B82001230A00CFB8C7 /* MainChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChatViewController.swift; sourceTree = "<group>"; };
+		521232BA2001231F00CFB8C7 /* SingleChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleChatViewController.swift; sourceTree = "<group>"; };
 		5215423E1FD531D700015AE2 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		521542401FD531EE00015AE2 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		521542421FD5505300015AE2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -378,8 +394,28 @@
 				40FB355C1FD63C7B00DF8D6C /* EmptyNotifiactionViewController.xib */,
 				52AE579D1FD99C84001BAFA9 /* EmptyTripViewController.swift */,
 				52AE579E1FD99C85001BAFA9 /* EmptyTripViewController.xib */,
+				520598C320050D0B00313E3D /* EmptyMainChatRoomViewController.swift */,
+				520598C420050D0B00313E3D /* EmptyMainChatRoomViewController.xib */,
 			);
 			path = "Empty Views";
+			sourceTree = "<group>";
+		};
+		520598BE200508ED00313E3D /* Message Cells */ = {
+			isa = PBXGroup;
+			children = (
+				520598BF2005091700313E3D /* ChatRoomCollectionViewCell.swift */,
+				520598C02005091700313E3D /* ChatRoomCollectionViewCell.xib */,
+			);
+			path = "Message Cells";
+			sourceTree = "<group>";
+		};
+		521232B7200122F000CFB8C7 /* ChatViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				521232B82001230A00CFB8C7 /* MainChatViewController.swift */,
+				521232BA2001231F00CFB8C7 /* SingleChatViewController.swift */,
+			);
+			path = ChatViewControllers;
 			sourceTree = "<group>";
 		};
 		521542461FD5514100015AE2 /* Search Cells */ = {
@@ -466,6 +502,7 @@
 				52404AFA1FB1165C00AD64FA /* Extensions.swift */,
 				52404AFC1FB11C0100AD64FA /* Address.swift */,
 				528D40B71FC9AEAD00676534 /* DateHandler.swift */,
+				521232B52001221A00CFB8C7 /* FirebaseDatabase.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -545,6 +582,7 @@
 		525CA3001F9FF5650037855E /* Main View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				521232B7200122F000CFB8C7 /* ChatViewControllers */,
 				525151A91FAD5CBB00317BC5 /* TabBarController */,
 				525CA30B1F9FF6230037855E /* New Post View */,
 				525CA3081F9FF6040037855E /* Profile View */,
@@ -606,6 +644,7 @@
 		525CA3111FA002E00037855E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				520598BE200508ED00313E3D /* Message Cells */,
 				521542461FD5514100015AE2 /* Search Cells */,
 				5268698E1FC84CC100109A9F /* Trip Cells */,
 				5268698D1FC84CB000109A9F /* Friend Profile Cells */,
@@ -745,6 +784,7 @@
 				5268698A1FC84ABB00109A9F /* SelfProfileSectionController.swift */,
 				521542441FD550FB00015AE2 /* SearchSectionController.swift */,
 				5215424D1FD5530500015AE2 /* LabelSectionController.swift */,
+				520598BC200507DD00313E3D /* ChatRoomsSectionController.swift */,
 			);
 			path = ListSectionControllers;
 			sourceTree = "<group>";
@@ -955,12 +995,14 @@
 				5267D62A1FCC366B000C5B46 /* RiderInformationCollectionViewCell.xib in Resources */,
 				525CA2D51F9D40A90037855E /* Main.storyboard in Resources */,
 				523C3BE11FD79A0400BD1609 /* PilotExcusionViewController.xib in Resources */,
+				520598C22005091700313E3D /* ChatRoomCollectionViewCell.xib in Resources */,
 				52DEF5121FC4105100FF37BC /* PostHeaderCollectionViewCell.xib in Resources */,
 				5267D6301FCC444D000C5B46 /* FriendHeadCollectionViewCell.xib in Resources */,
 				52729C241FD57D690052F435 /* onboarding5.jpg in Resources */,
 				5267D6341FCC445F000C5B46 /* FriendInfoCollectionViewCell.xib in Resources */,
 				523347AD1FD2633C00EB7F15 /* DeleteAccountPopupViewController.xib in Resources */,
 				52CFFF0C1FB7E50F00F93951 /* OnBoarding.storyboard in Resources */,
+				520598C620050D0B00313E3D /* EmptyMainChatRoomViewController.xib in Resources */,
 				52AE57A01FD99C85001BAFA9 /* EmptyTripViewController.xib in Resources */,
 				52E313BE1FC4358500DA6724 /* ActionCollectionViewCell.xib in Resources */,
 				403FDA9D1FD5C028003789F5 /* signuptitle.png in Resources */,
@@ -1023,7 +1065,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		354F2D0860229449DEF0123F /* [CP] Check Pods Manifest.lock */ = {
@@ -1041,7 +1083,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		57EB75D531DAD275FB37131E /* [CP] Copy Pods Resources */ = {
@@ -1118,9 +1160,14 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ILLoginKit/ILLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
@@ -1133,6 +1180,7 @@
 				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/Validator/Validator.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1144,9 +1192,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ILLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
@@ -1159,6 +1212,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Validator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1181,7 +1235,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1230,6 +1284,7 @@
 				525151601FA8730300317BC5 /* TripViewController.swift in Sources */,
 				5215424C1FD551F300015AE2 /* SearchCell.swift in Sources */,
 				40FB35591FD60A0300DF8D6C /* EmptyFeedViewController.swift in Sources */,
+				521232B92001230A00CFB8C7 /* MainChatViewController.swift in Sources */,
 				52E313BD1FC4358500DA6724 /* ActionCollectionViewCell.swift in Sources */,
 				5215423F1FD531D700015AE2 /* TermsViewController.swift in Sources */,
 				5239434D1FC6FC4C006E73B8 /* TNotification.swift in Sources */,
@@ -1238,17 +1293,21 @@
 				5267D62F1FCC444D000C5B46 /* FriendHeadCollectionViewCell.swift in Sources */,
 				521542431FD5505300015AE2 /* SearchViewController.swift in Sources */,
 				525CA2D81F9D40A90037855E /* RoadDogg.xcdatamodeld in Sources */,
+				521232B62001221A00CFB8C7 /* FirebaseDatabase.swift in Sources */,
 				5259A6BC1FA5CF8400078161 /* Feed.swift in Sources */,
 				5268698B1FC84ABB00109A9F /* SelfProfileSectionController.swift in Sources */,
 				52AE57A51FD99EB3001BAFA9 /* DirectionsViewCell.swift in Sources */,
 				5239434A1FC69FBE006E73B8 /* PopupManager.swift in Sources */,
 				525151AD1FAD65E100317BC5 /* ModalNewPostViewController.swift in Sources */,
+				520598C12005091700313E3D /* ChatRoomCollectionViewCell.swift in Sources */,
 				5267D6291FCC366B000C5B46 /* RiderInformationCollectionViewCell.swift in Sources */,
 				526869881FC7F38800109A9F /* RequestNotificationCollectionViewCell.swift in Sources */,
 				52DC32791FB547CE00A1DF6A /* Car.swift in Sources */,
 				52DEF50D1FC3E55400FF37BC /* DriverPostSectionController.swift in Sources */,
+				520598C520050D0B00313E3D /* EmptyMainChatRoomViewController.swift in Sources */,
 				523354B01FD7C910002AE514 /* PostalAddressCell.swift in Sources */,
 				5215424E1FD5530500015AE2 /* LabelSectionController.swift in Sources */,
+				520598BD200507DD00313E3D /* ChatRoomsSectionController.swift in Sources */,
 				52404AF71FB0552000AD64FA /* UITextViewPlaceholder.swift in Sources */,
 				521542531FD55A2300015AE2 /* LabelCell.swift in Sources */,
 				52E313B11FC4346200DA6724 /* TimeStampCollectionViewCell.swift in Sources */,
@@ -1263,6 +1322,7 @@
 				523C3BE01FD79A0400BD1609 /* PilotExcusionViewController.swift in Sources */,
 				5259A6C41FA5FEBD00078161 /* Comment.swift in Sources */,
 				52CFFF011FB7D59400F93951 /* GeneralSettings.swift in Sources */,
+				521232BB2001231F00CFB8C7 /* SingleChatViewController.swift in Sources */,
 				52AE57991FD94620001BAFA9 /* StartTripButtonCell.swift in Sources */,
 				529B2B1D1FC545F500CBD2D0 /* RideButtonCollectionViewCell.swift in Sources */,
 				523354BE1FD7CCD5002AE514 /* PaddedTextField.swift in Sources */,

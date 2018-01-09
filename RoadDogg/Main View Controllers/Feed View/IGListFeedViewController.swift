@@ -17,6 +17,13 @@ protocol FeedPostDelegate{
 
 class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelegate, ModalNewPostDelegate, NotifyRiderDelegate{
     
+    //Scroll view
+    let scrollView: UIScrollView = {
+        let v = UIScrollView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.backgroundColor = .green
+        return v
+    }()
     
     //Collection View
     let collectionView: UICollectionView = {
@@ -24,6 +31,9 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelega
         view.backgroundColor = UIColor().colorWithHexString(hex: "#cfcecb", alpha: 0.75)
         return view
     }()
+    
+    //Messages ViewController
+    var messageVC = SingleChatViewController()
     
     //IGList Adapter
     lazy var adapter: ListAdapter = {
@@ -41,15 +51,25 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelega
         //Make tab bar visible
         tabBarController?.tabBar.isHidden = false
         
+        //Setup Scrollview
+        scrollView.contentSize.width = view.frame.size.width * 2
+        
+        //Add scrollview
+        view.addSubview(scrollView)
+    
+        // constrain the scroll view to 8-pts on each side
+        scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        scrollView.isPagingEnabled = true
+        
         //Add colelctionview
-        view.addSubview(collectionView)
+        scrollView.addSubview(collectionView)
         
         //Set up collection Adapter
         adapter.collectionView = collectionView
         adapter.dataSource = self
-        
-        //Grab All posts
-        fetchFeed()
         
         //Add Refresh To Collection View
         self.refresher = UIRefreshControl()
@@ -57,6 +77,12 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelega
         self.refresher.tintColor = UIColor.black
         self.refresher.addTarget(self, action: #selector(fetchFeed), for: .valueChanged)
         self.collectionView.refreshControl = refresher
+        
+        //Add message button to nav bar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+        
+        //Grab All posts
+        fetchFeed()
 
     }
     
@@ -74,7 +100,15 @@ class IGListFeedViewController : UIViewController, FeedPostDelegate, PopupDelega
         self.navigationController?.navigationBar.isTranslucent = false
     }
     
+    @objc func addTapped(){
+        let vc = MainChatViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @objc func fetchFeed(){
+        //Start refresh control
+        collectionView.refreshControl?.beginRefreshing()
+        
         Network.shared.getFeed().then { feed -> Void in
             //End Refreshing
             self.collectionView.refreshControl?.endRefreshing()

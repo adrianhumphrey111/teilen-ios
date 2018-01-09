@@ -85,7 +85,10 @@ class RealmManager {
     @objc func saveLoggedInUser(user: loggedInUser){
         try! realm.write {
             self.loggedIn = true
-            realm.add(user)
+            if( self.realm.objects(loggedInUser.self).count == 0 ) {
+                //There should only be one
+                realm.add(user)
+            }
         }
         getLoggedInUser()
         

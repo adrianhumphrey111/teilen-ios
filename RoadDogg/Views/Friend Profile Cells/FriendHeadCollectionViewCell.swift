@@ -12,6 +12,7 @@ import Reusable
 protocol ProfileActionDelegate{
     func showSettings()
     func showPayments()
+    func showMessages()
 }
 
 protocol ShowImagePickerDelegate {
@@ -99,6 +100,7 @@ class FriendHeadCollectionViewCell: UICollectionViewCell, NibReusable {
         }
         else{
             //show a page to message the user
+            delegate?.showMessages()
         }
     }
     

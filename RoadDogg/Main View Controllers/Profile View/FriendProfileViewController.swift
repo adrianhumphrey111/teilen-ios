@@ -125,6 +125,12 @@ extension FriendProfileViewController: ListAdapterDataSource {
         return nil
         
     } //Return a certatin view later
+    
+    func showMessages(){
+        let vc = SingleChatViewController()
+        vc.user = self.user
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 

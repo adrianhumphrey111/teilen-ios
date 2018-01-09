@@ -183,5 +183,10 @@ extension SelfProfileSectionController  {
         }
     }
     
+    func showMessages() {
+        //do nothing
+        print("Show messages!!")
+    }
+    
 }
 

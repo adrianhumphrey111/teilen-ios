@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ChatRoomCollectionViewCell" customModule="Teilen" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="468" height="102"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="468" height="102"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VQk-rU-56M">
+                        <rect key="frame" x="20" y="16" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="GXV-Dv-hZD"/>
+                            <constraint firstAttribute="height" constant="70" id="Imy-TY-gpj"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZDf-ga-Ccz">
+                        <rect key="frame" x="100" y="31" width="318" height="41"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNN-YN-WWj">
+                                <rect key="frame" x="0.0" y="0.0" width="318" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5b-w2-61s">
+                                <rect key="frame" x="0.0" y="20.5" width="318" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="ZDf-ga-Ccz" secondAttribute="trailing" constant="50" id="MvD-fc-45a"/>
+                <constraint firstItem="ZDf-ga-Ccz" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Zxk-kU-JJa"/>
+                <constraint firstItem="VQk-rU-56M" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="ec8-42-PtD"/>
+                <constraint firstItem="ZDf-ga-Ccz" firstAttribute="leading" secondItem="VQk-rU-56M" secondAttribute="trailing" constant="10" id="iBh-Yh-1lk"/>
+                <constraint firstItem="VQk-rU-56M" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="lnV-xu-buV"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="468" height="102"/>
+            <connections>
+                <outlet property="lastMessageLabel" destination="k5b-w2-61s" id="RGG-g0-LRc"/>
+                <outlet property="nameLabel" destination="eNN-YN-WWj" id="qAv-6C-GvJ"/>
+                <outlet property="profileImageView" destination="VQk-rU-56M" id="hVk-HX-EOe"/>
+            </connections>
+            <point key="canvasLocation" x="243" y="80"/>
+        </collectionViewCell>
+    </objects>
+</document>
